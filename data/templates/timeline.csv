@@ -1,0 +1,5 @@
+time,category,source,title,content,related_stocks,related_sectors,note
+09:35,market_node,,指数低开后快速回拉,大盘低开后资金回流科技方向,,科技,示例
+10:20,sector_rotation,,商业航天分歧转一致,前排分歧后后排补涨开始活跃,航天电子;航天动力,商业航天,示例
+13:30,accumulation,,算力方向出现抢筹,服务器与CPO方向资金回流,浪潮信息;中际旭创,算力;CPO,示例
+15:05,after_close,,盘后总结,全天以轮动修复为主，明日继续看量能与承接,,全市场,示例

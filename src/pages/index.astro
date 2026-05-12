@@ -12,9 +12,9 @@ const sortedReports = [...reports].sort((a, b) => b.date.localeCompare(a.date) |
   <main class="site-shell">
     <section class="hero">
       <div>
-        <p class="eyebrow">Encrypted technical watchlist</p>
-        <h1>A股技术形态观察池</h1>
-        <p class="subtitle">按来源聚合每日复盘、技术形态观察、右侧转强跟踪</p>
+        <p class="eyebrow">Encrypted daily trading desk</p>
+        <h1>A股复盘工作台</h1>
+        <p class="subtitle">按日期聚合大盘状态、来源人发帖/视频、持仓、评论信号与技术形态观察</p>
       </div>
       <RiskNotice />
     </section>
@@ -26,7 +26,7 @@ const sortedReports = [...reports].sort((a, b) => b.date.localeCompare(a.date) |
         sortedReports.map((report) => <ReportCard report={report} />)
       ) : (
         <div class="empty-state">
-          暂无加密报告。请先准备 CSV 数据并运行生成、加密和同步脚本。
+          暂无加密复盘工作台。请先准备 CSV 数据并运行生成、加密和同步脚本。
         </div>
       )}
     </section>

@@ -2,6 +2,7 @@
 const { report } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const href = `${base}${report.url}`;
+const actionLabel = report.report_type === "daily_workbench" ? "进入复盘工作台" : "查看加密报告";
 ---
 
 <article class="report-card">
@@ -14,5 +15,5 @@ const href = `${base}${report.url}`;
   <div class="tags" aria-label="报告标签">
     {report.tags.map((tag) => <span>{tag}</span>)}
   </div>
-  <a class="button-link" href={href}>查看加密报告</a>
+  <a class="button-link" href={href}>{actionLabel}</a>
 </article>

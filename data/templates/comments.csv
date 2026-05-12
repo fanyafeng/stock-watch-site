@@ -1,0 +1,3 @@
+date,source,comment_source,content,mentioned_stocks,mentioned_sectors,value_reason,include_in_logic,note
+2026-05-12,yege,同花顺评论区,示例评论内容,圣阳股份,储能,指出买点和止损条件,是,替换为真实评论
+2026-05-12,lihongjuan,抖音评论区,示例评论内容,航天电子,商业航天,补充板块承接观察,否,替换为真实评论

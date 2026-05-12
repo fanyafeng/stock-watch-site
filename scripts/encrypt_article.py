@@ -98,19 +98,50 @@ def encrypt_article(source_id: str, date_obj: dt.date) -> Path:
     return out_file
 
 
+def encrypt_daily_article(date_obj: dt.date) -> Path:
+    date_text = date_obj.isoformat()
+    input_file = TMP_DIR / f"daily_{date_text}.html"
+    if not input_file.exists():
+        raise EncryptError(f"未找到明文综合复盘 {input_file}，请先运行 generate_report.py --all")
+
+    password = build_password_for_date(date_obj)
+    plaintext = input_file.read_bytes()
+    salt = os.urandom(16)
+    iv = os.urandom(12)
+    key = derive_key(password, salt)
+    ciphertext = AESGCM(key).encrypt(iv, plaintext, None)
+    payload = {
+        "version": 1,
+        "kdf": "PBKDF2-HMAC-SHA256",
+        "cipher": "AES-GCM",
+        "iterations": ITERATIONS,
+        "salt": b64(salt),
+        "iv": b64(iv),
+        "ciphertext": b64(ciphertext),
+    }
+    ENCRYPTED_DIR.mkdir(parents=True, exist_ok=True)
+    out_file = ENCRYPTED_DIR / f"daily_{date_text}.json"
+    out_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"encrypted: {out_file}")
+    return out_file
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Encrypt generated report HTML for static publishing.")
-    parser.add_argument("--source", help="只加密指定来源")
+    parser.add_argument("--source", help="只加密指定来源的兼容旧版来源文章")
     parser.add_argument("--date", help="报告日期 YYYY-MM-DD，默认今天")
-    parser.add_argument("--all", action="store_true", help="加密所有 enabled 来源")
+    parser.add_argument("--all", action="store_true", help="加密每日综合复盘工作台")
     args = parser.parse_args()
 
     try:
         date_obj = parse_date(args.date)
-        config = load_source_config()
-        sources = resolve_sources(config, args.source, args.all)
-        for source in sources:
-            encrypt_article(source["id"], date_obj)
+        if args.source:
+            config = load_source_config()
+            sources = resolve_sources(config, args.source, args.all)
+            for source in sources:
+                encrypt_article(source["id"], date_obj)
+        else:
+            encrypt_daily_article(date_obj)
         return 0
     except Exception as error:
         print(str(error), file=sys.stderr)
