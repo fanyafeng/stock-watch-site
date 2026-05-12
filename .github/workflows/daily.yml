@@ -42,12 +42,14 @@ jobs:
           cache: "npm"
 
       - name: Install Node dependencies
-        run: npm install
+        run: npm ci
 
       - name: Generate reports
+        if: github.event_name != 'push'
         run: python scripts/generate_report.py --all
 
       - name: Encrypt reports
+        if: github.event_name != 'push'
         run: python scripts/encrypt_article.py --all
 
       - name: Sync report index
