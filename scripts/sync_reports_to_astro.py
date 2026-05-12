@@ -7,7 +7,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS_FILE = ROOT / "data" / "reports.json"
+DASHBOARD_FILE = ROOT / "data" / "dashboard.json"
 ASTRO_REPORTS_FILE = ROOT / "src" / "data" / "reports.json"
+ASTRO_DASHBOARD_FILE = ROOT / "src" / "data" / "dashboard.json"
 ENCRYPTED_DIR = ROOT / "encrypted" / "articles"
 
 
@@ -37,6 +39,17 @@ def validate_payloads(reports: list[dict]) -> None:
             raise SyncError(f"缺少密文 payload：{payload}")
 
 
+def sync_dashboard() -> None:
+    if DASHBOARD_FILE.exists():
+        dashboard = json.loads(DASHBOARD_FILE.read_text(encoding="utf-8"))
+    else:
+        dashboard = {}
+        print(f"dashboard not found, created empty dashboard: {DASHBOARD_FILE}")
+    ASTRO_DASHBOARD_FILE.parent.mkdir(parents=True, exist_ok=True)
+    ASTRO_DASHBOARD_FILE.write_text(json.dumps(dashboard, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"synced: {ASTRO_DASHBOARD_FILE}")
+
+
 def main() -> int:
     try:
         reports = load_reports()
@@ -45,6 +58,7 @@ def main() -> int:
         ASTRO_REPORTS_FILE.parent.mkdir(parents=True, exist_ok=True)
         ASTRO_REPORTS_FILE.write_text(json.dumps(sorted_reports, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"synced: {ASTRO_REPORTS_FILE}")
+        sync_dashboard()
         return 0
     except Exception as error:
         print(str(error), file=sys.stderr)

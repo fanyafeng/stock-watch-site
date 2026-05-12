@@ -13,6 +13,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_FILE = ROOT / "data" / "source_config.json"
 REPORT_INDEX_FILE = ROOT / "data" / "reports.json"
+DASHBOARD_FILE = ROOT / "data" / "dashboard.json"
 TMP_DIR = ROOT / "build" / "tmp"
 
 PICK_FIELDS = [
@@ -449,6 +450,13 @@ def market_value(market: dict[str, dict[str, str]], section: str) -> str:
         return "暂无数据"
     if row.get("note"):
         return f"{row['value']}（{row['note']}）"
+    return row["value"]
+
+
+def plain_market_value(market: dict[str, dict[str, str]], section: str, fallback: str = "暂无数据") -> str:
+    row = market.get(section)
+    if not row or not row.get("value"):
+        return fallback
     return row["value"]
 
 
@@ -949,6 +957,171 @@ def generate_daily_workspace(sources: list[dict[str, Any]], date_text: str, stri
     return meta
 
 
+def public_stock(item: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "code": item.get("code", ""),
+        "name": item.get("name", ""),
+        "type": type_label(item.get("type", "")),
+        "pattern": item.get("pattern", ""),
+        "source_names": item.get("source_names") or item.get("source_name") or item.get("source", ""),
+        "entry_range": f"{item.get('entry_low', '')}-{item.get('entry_high', '')}",
+        "stop_loss": item.get("stop_loss", ""),
+        "take_profit_1": item.get("take_profit_1", ""),
+        "take_profit_2": item.get("take_profit_2", ""),
+        "risk_reward": f"1:{item.get('risk_reward_score', 0):.1f}",
+        "risk": item.get("risk", ""),
+        "reason": item.get("logic", ""),
+        "score": round(float(item.get("aggregate_score", item.get("total_score", 0))), 2),
+    }
+
+
+def split_values(value: str, limit: int = 4) -> list[str]:
+    separators = ["；", ";", "、", ",", "，", "|", "/"]
+    values = [value]
+    for separator in separators:
+        values = [part for item in values for part in item.split(separator)]
+    cleaned = [item.strip() for item in values if item.strip()]
+    return cleaned[:limit]
+
+
+def summarize_source_card(source_data: dict[str, Any]) -> dict[str, Any]:
+    source = source_data["source"]
+    accepted = sorted(source_data["accepted"], key=lambda item: item["total_score"], reverse=True)
+    holdings = source_data["holdings"]
+    posts = source_data["posts"]
+    comments = source_data["comments"]
+    top_picks = accepted[:3]
+    return {
+        "id": source["id"],
+        "name": source["name"],
+        "channel": SOURCE_POST_LABELS.get(source["id"], ("帖子/视频", ""))[0],
+        "latest_title": posts[0]["title"] if posts else "暂无公开帖子/视频数据",
+        "latest_summary": (posts[0].get("summary") or posts[0].get("raw_text") or posts[0].get("note")) if posts else "可补充 posts CSV 后展示来源原文摘要。",
+        "top_picks": [
+            {
+                "code": item["code"],
+                "name": item["name"],
+                "type": type_label(item.get("type", "")),
+                "pattern": item.get("pattern", ""),
+            }
+            for item in top_picks
+        ],
+        "holdings": [
+            {
+                "code": item["code"],
+                "name": item["name"],
+                "position_ratio": item["position_ratio"],
+                "status": item["status"],
+            }
+            for item in holdings[:3]
+        ],
+        "comment_count": len(comments),
+    }
+
+
+def fallback_timeline_from_sources(daily: dict[str, Any], source_lookup: dict[str, str]) -> list[dict[str, str]]:
+    items: list[dict[str, str]] = []
+    for row in daily["timeline"]:
+        items.append(
+            {
+                "time": row.get("time") or "--:--",
+                "category": row.get("category", ""),
+                "source": source_lookup.get(row.get("source", ""), row.get("source", "")),
+                "title": row.get("title", ""),
+                "content": row.get("content", ""),
+            }
+        )
+    if items:
+        return items[:8]
+
+    for source_data in daily["source_sections"]:
+        source = source_data["source"]
+        first_pick = source_data["scored"][0] if source_data["scored"] else None
+        if first_pick:
+            items.append(
+                {
+                    "time": "盘中",
+                    "category": "source_pick",
+                    "source": source["name"],
+                    "title": f"{source['name']} 今日观察",
+                    "content": f"{first_pick['name']}：{first_pick.get('raw_text') or first_pick.get('logic')}",
+                }
+            )
+    items.append(
+        {
+            "time": "15:00",
+            "category": "after_close",
+            "source": "系统",
+            "title": "盘后总结",
+            "content": "大盘信息、帖子/视频和评论 CSV 缺失时，首页展示基于 picks/holdings 的公开概要。",
+        }
+    )
+    return items[:8]
+
+
+def write_dashboard_data(report_meta: dict[str, Any], sources: list[dict[str, Any]], date_text: str, strict_extra: bool) -> None:
+    daily = collect_daily_data(sources, date_text, strict_extra)
+    source_lookup = {source["id"]: source["name"] for source in sources}
+    aggregated = aggregate_candidates(daily["all_accepted"])
+    short_top = pick_top_candidates(aggregated, "short")
+    mid_top = pick_top_candidates(aggregated, "mid")
+    top_patterns = []
+    for item in daily["all_accepted"]:
+        pattern = item.get("pattern", "")
+        if pattern and pattern not in top_patterns:
+            top_patterns.append(pattern)
+    dashboard = {
+        "date": date_text,
+        "updated_at": dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "report": report_meta,
+        "overview": {
+            "market_status": plain_market_value(daily["market"], "market_status", "需补充 market.csv"),
+            "main_sectors": split_values(plain_market_value(daily["market"], "main_sectors", "暂无数据")),
+            "risk_level": plain_market_value(daily["market"], "risk_level", "中"),
+            "operation_tone": plain_market_value(daily["market"], "operation_tone", "控制仓位，只等买点"),
+            "sentiment": plain_market_value(daily["market"], "sentiment_cycle", "暂无数据"),
+            "risk_signal": plain_market_value(daily["market"], "risk_signal", "暂无数据"),
+            "tomorrow_watch": plain_market_value(daily["market"], "tomorrow_watch", "暂无数据"),
+        },
+        "market": {
+            "index_status": plain_market_value(daily["market"], "index_status", "暂无指数状态"),
+            "volume_change": plain_market_value(daily["market"], "volume_change", "暂无成交量数据"),
+            "sector_rotation": plain_market_value(daily["market"], "sector_rotation", "暂无板块轮动数据"),
+            "accumulation_direction": split_values(plain_market_value(daily["market"], "accumulation_direction", "暂无数据")),
+            "capital_preference": plain_market_value(daily["market"], "capital_preference", "暂无资金偏好数据"),
+        },
+        "stats": {
+            "source_count": len(sources),
+            "candidate_count": len(daily["all_scored"]),
+            "accepted_count": len(daily["all_accepted"]),
+            "rejected_count": len(daily["all_rejected"]),
+            "comment_count": len(daily["comments"]),
+            "top_patterns": top_patterns[:4],
+        },
+        "timeline": fallback_timeline_from_sources(daily, source_lookup),
+        "sources": [summarize_source_card(item) for item in daily["source_sections"]],
+        "selection": {
+            "short": [public_stock(item) for item in short_top],
+            "mid": [public_stock(item) for item in mid_top],
+        },
+        "comments": [
+            {
+                "source": source_lookup.get(item.get("source", ""), item.get("source", "")),
+                "comment_source": item.get("comment_source", ""),
+                "content": item.get("content", ""),
+                "mentioned_stocks": item.get("mentioned_stocks", ""),
+                "mentioned_sectors": item.get("mentioned_sectors", ""),
+                "value_reason": item.get("value_reason", ""),
+                "include_in_logic": item.get("include_in_logic", ""),
+            }
+            for item in daily["comments"][:6]
+        ],
+    }
+    DASHBOARD_FILE.parent.mkdir(parents=True, exist_ok=True)
+    DASHBOARD_FILE.write_text(json.dumps(dashboard, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"updated: {DASHBOARD_FILE}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate encrypted-site stock reports from CSV input.")
     parser.add_argument("--source", help="只生成指定来源的兼容旧版来源文章")
@@ -967,6 +1140,7 @@ def main() -> int:
         else:
             meta = generate_daily_workspace(sources, date_text, args.strict_extra)
             upsert_report_index([meta], replace_date_with_daily=date_text)
+            write_dashboard_data(meta, sources, date_text, args.strict_extra)
         print(f"updated: {REPORT_INDEX_FILE}")
         return 0
     except Exception as error:

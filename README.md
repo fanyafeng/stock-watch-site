@@ -2,7 +2,7 @@
 
 这是一个按日期聚合、按博主/来源人组织的轻量级股票复盘工作台。站点使用 Astro 构建，通过 GitHub Actions 生成每日综合复盘、加密页面并部署到 GitHub Pages。
 
-网站首页展示每日复盘入口。每天默认只生成一个 `daily_YYYY-MM-DD` 综合复盘工作台页面。正文在构建流程中临时生成到 `build/tmp/`，随后加密写入 `encrypted/articles/`，Astro 页面只内嵌密文 payload，用户在浏览器中输入文章密码后本地解密查看。
+网站首页展示公开的每日大盘看板、来源人概要、综合筛选摘要和评论概览；具体复盘详情页才需要输入密码。每天默认只生成一个 `daily_YYYY-MM-DD` 综合复盘工作台页面。详情正文在构建流程中临时生成到 `build/tmp/`，随后加密写入 `encrypted/articles/`，Astro 页面只内嵌密文 payload，用户在浏览器中输入文章密码后本地解密查看。
 
 ## 当前来源
 
@@ -17,6 +17,7 @@
 
 - `data/source_config.json`：来源配置。
 - `data/reports.json`：每日工作台索引，不包含正文和密码。
+- `data/dashboard.json`：公开首页看板数据，不包含文章密码。
 - `data/sources/{source}/picks/YYYY-MM-DD.csv`：来源当日选股数据。
 - `data/sources/{source}/holdings/YYYY-MM-DD.csv`：来源当日持仓数据。
 - `data/sources/{source}/posts/YYYY-MM-DD.csv`：可选，来源当日帖子、图文、视频摘要。
@@ -27,6 +28,7 @@
 - `build/tmp/`：临时明文报告目录，已在 `.gitignore` 中忽略。
 - `encrypted/articles/`：加密后的文章 payload，可提交。
 - `src/data/reports.json`：同步给 Astro 使用的文章索引。
+- `src/data/dashboard.json`：同步给 Astro 使用的公开看板数据。
 - `src/pages/`：Astro 页面。
 - `scripts/generate_report.py`：读取 CSV 并生成临时明文 HTML 报告。
 - `scripts/encrypt_article.py`：按文章日期生成密码并加密报告。

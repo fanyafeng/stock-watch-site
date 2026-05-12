@@ -1,0 +1,335 @@
+{
+  "date": "2026-05-12",
+  "updated_at": "2026-05-12 19:58:41",
+  "report": {
+    "date": "2026-05-12",
+    "source": "daily",
+    "source_name": "综合复盘",
+    "report_type": "daily_workbench",
+    "title": "2026-05-12 A股综合复盘工作台",
+    "summary": "按日期聚合四个来源，短期观察 3 只，中长期观察 3 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
+    "tags": [
+      "综合复盘",
+      "今日总览",
+      "时间线",
+      "大盘信息",
+      "来源聚合",
+      "技术形态"
+    ],
+    "slug": "daily_2026-05-12",
+    "url": "/articles/daily_2026-05-12/"
+  },
+  "overview": {
+    "market_status": "需补充 market.csv",
+    "main_sectors": [
+      "暂无数据"
+    ],
+    "risk_level": "中",
+    "operation_tone": "控制仓位，只等买点",
+    "sentiment": "暂无数据",
+    "risk_signal": "暂无数据",
+    "tomorrow_watch": "暂无数据"
+  },
+  "market": {
+    "index_status": "暂无指数状态",
+    "volume_change": "暂无成交量数据",
+    "sector_rotation": "暂无板块轮动数据",
+    "accumulation_direction": [
+      "暂无数据"
+    ],
+    "capital_preference": "暂无资金偏好数据"
+  },
+  "stats": {
+    "source_count": 4,
+    "candidate_count": 29,
+    "accepted_count": 24,
+    "rejected_count": 5,
+    "comment_count": 0,
+    "top_patterns": [
+      "右侧转强",
+      "底部突破",
+      "中继回踩",
+      "缩量整理"
+    ]
+  },
+  "timeline": [
+    {
+      "time": "盘中",
+      "category": "source_pick",
+      "source": "野哥",
+      "title": "野哥 今日观察",
+      "content": "圣阳股份：野哥提示储能方向修复，圣阳股份观察右侧转强"
+    },
+    {
+      "time": "盘中",
+      "category": "source_pick",
+      "source": "李红娟",
+      "title": "李红娟 今日观察",
+      "content": "航天电子：李红娟提到航天电子可能补涨，关键看竞价和承接"
+    },
+    {
+      "time": "盘中",
+      "category": "source_pick",
+      "source": "王多于",
+      "title": "王多于 今日观察",
+      "content": "宁德时代：王多于关注新能源龙头缩量整理后的方向选择"
+    },
+    {
+      "time": "盘中",
+      "category": "source_pick",
+      "source": "龙哥",
+      "title": "龙哥 今日观察",
+      "content": "浪潮信息：龙哥关注算力右侧转强，浪潮信息等待回踩"
+    },
+    {
+      "time": "15:00",
+      "category": "after_close",
+      "source": "系统",
+      "title": "盘后总结",
+      "content": "大盘信息、帖子/视频和评论 CSV 缺失时，首页展示基于 picks/holdings 的公开概要。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "yege",
+      "name": "野哥",
+      "channel": "同花顺帖子",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [
+        {
+          "code": "002580",
+          "name": "圣阳股份",
+          "type": "短期",
+          "pattern": "右侧转强"
+        },
+        {
+          "code": "601138",
+          "name": "工业富联",
+          "type": "中长期",
+          "pattern": "底部突破"
+        },
+        {
+          "code": "002706",
+          "name": "良信股份",
+          "type": "短期",
+          "pattern": "底部突破"
+        }
+      ],
+      "holdings": [
+        {
+          "code": "002580",
+          "name": "圣阳股份",
+          "position_ratio": "20%",
+          "status": "持有"
+        }
+      ],
+      "comment_count": 0
+    },
+    {
+      "id": "lihongjuan",
+      "name": "李红娟",
+      "channel": "图文/帖子",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [
+        {
+          "code": "600879",
+          "name": "航天电子",
+          "type": "短期",
+          "pattern": "中继回踩"
+        },
+        {
+          "code": "002158",
+          "name": "汉钟精机",
+          "type": "中长期",
+          "pattern": "底部突破"
+        },
+        {
+          "code": "600330",
+          "name": "天通股份",
+          "type": "短期",
+          "pattern": "右侧转强"
+        }
+      ],
+      "holdings": [
+        {
+          "code": "300136",
+          "name": "信维通信",
+          "position_ratio": "30%",
+          "status": "减仓"
+        }
+      ],
+      "comment_count": 0
+    },
+    {
+      "id": "wangduoyu",
+      "name": "王多于",
+      "channel": "抖音视频列表",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [
+        {
+          "code": "002475",
+          "name": "立讯精密",
+          "type": "短期",
+          "pattern": "中继回踩"
+        },
+        {
+          "code": "603986",
+          "name": "兆易创新",
+          "type": "短期",
+          "pattern": "右侧转强"
+        },
+        {
+          "code": "601012",
+          "name": "隆基绿能",
+          "type": "中长期",
+          "pattern": "底部突破"
+        }
+      ],
+      "holdings": [
+        {
+          "code": "002475",
+          "name": "立讯精密",
+          "position_ratio": "25%",
+          "status": "持有"
+        }
+      ],
+      "comment_count": 0
+    },
+    {
+      "id": "longge",
+      "name": "龙哥",
+      "channel": "抖音视频列表",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [
+        {
+          "code": "000977",
+          "name": "浪潮信息",
+          "type": "短期",
+          "pattern": "右侧转强"
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "type": "中长期",
+          "pattern": "中继回踩"
+        },
+        {
+          "code": "002230",
+          "name": "科大讯飞",
+          "type": "短期",
+          "pattern": "底部突破"
+        }
+      ],
+      "holdings": [
+        {
+          "code": "000977",
+          "name": "浪潮信息",
+          "position_ratio": "20%",
+          "status": "持有"
+        }
+      ],
+      "comment_count": 0
+    }
+  ],
+  "selection": {
+    "short": [
+      {
+        "code": "600879",
+        "name": "航天电子",
+        "type": "短期",
+        "pattern": "中继回踩",
+        "source_names": "李红娟",
+        "entry_range": "8.90-9.20",
+        "stop_loss": "8.55",
+        "take_profit_1": "9.85",
+        "take_profit_2": "10.60",
+        "risk_reward": "1:8.0",
+        "risk": "中",
+        "reason": "商业航天同批次补涨，前排分歧时观察承接",
+        "score": 34.0
+      },
+      {
+        "code": "002580",
+        "name": "圣阳股份",
+        "type": "短期",
+        "pattern": "右侧转强",
+        "source_names": "野哥",
+        "entry_range": "8.80-9.10",
+        "stop_loss": "8.45",
+        "take_profit_1": "9.80",
+        "take_profit_2": "10.60",
+        "risk_reward": "1:8.0",
+        "risk": "中",
+        "reason": "缩量回踩后重新站回短均线，等待右侧确认",
+        "score": 33.0
+      },
+      {
+        "code": "002475",
+        "name": "立讯精密",
+        "type": "短期",
+        "pattern": "中继回踩",
+        "source_names": "王多于",
+        "entry_range": "31.50-32.20",
+        "stop_loss": "30.40",
+        "take_profit_1": "34.20",
+        "take_profit_2": "36.00",
+        "risk_reward": "1:8.0",
+        "risk": "中",
+        "reason": "消费电子趋势中继回踩，量能未失控",
+        "score": 33.0
+      }
+    ],
+    "mid": [
+      {
+        "code": "601138",
+        "name": "工业富联",
+        "type": "中长期",
+        "pattern": "底部突破",
+        "source_names": "野哥",
+        "entry_range": "28.20-29.00",
+        "stop_loss": "27.10",
+        "take_profit_1": "31.20",
+        "take_profit_2": "33.00",
+        "risk_reward": "1:8.0",
+        "risk": "中",
+        "reason": "算力硬件低位区间突破，量价配合尚可",
+        "score": 32.0
+      },
+      {
+        "code": "002158",
+        "name": "汉钟精机",
+        "type": "中长期",
+        "pattern": "底部突破",
+        "source_names": "李红娟",
+        "entry_range": "18.60-19.20",
+        "stop_loss": "17.80",
+        "take_profit_1": "20.80",
+        "take_profit_2": "22.40",
+        "risk_reward": "1:8.0",
+        "risk": "中",
+        "reason": "芯片设备方向缩量调整后尝试右侧修复",
+        "score": 32.0
+      },
+      {
+        "code": "300308",
+        "name": "中际旭创",
+        "type": "中长期",
+        "pattern": "中继回踩",
+        "source_names": "龙哥",
+        "entry_range": "142.00-146.00",
+        "stop_loss": "136.00",
+        "take_profit_1": "156.00",
+        "take_profit_2": "168.00",
+        "risk_reward": "1:8.0",
+        "risk": "中",
+        "reason": "CPO趋势中继回踩，强趋势但波动较大",
+        "score": 32.0
+      }
+    ]
+  },
+  "comments": []
+}
