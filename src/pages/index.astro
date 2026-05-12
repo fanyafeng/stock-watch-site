@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ReportCard from "../components/ReportCard.astro";
+import RiskNotice from "../components/RiskNotice.astro";
+import SourceFilter from "../components/SourceFilter.astro";
+import reports from "../data/reports.json";
+
+const sortedReports = [...reports].sort((a, b) => b.date.localeCompare(a.date) || a.source.localeCompare(b.source));
+---
+
+<BaseLayout>
+  <main class="site-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Encrypted technical watchlist</p>
+        <h1>A股技术形态观察池</h1>
+        <p class="subtitle">按来源聚合每日复盘、技术形态观察、右侧转强跟踪</p>
+      </div>
+      <RiskNotice />
+    </section>
+
+    <SourceFilter />
+
+    <section class="report-grid" aria-label="报告列表">
+      {sortedReports.length ? (
+        sortedReports.map((report) => <ReportCard report={report} />)
+      ) : (
+        <div class="empty-state">
+          暂无加密报告。请先准备 CSV 数据并运行生成、加密和同步脚本。
+        </div>
+      )}
+    </section>
+  </main>
+</BaseLayout>

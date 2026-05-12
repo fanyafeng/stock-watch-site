@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PasswordDecryptor from "../../components/PasswordDecryptor.astro";
+import RiskNotice from "../../components/RiskNotice.astro";
+import reports from "../../data/reports.json";
+
+export function getStaticPaths() {
+  return reports.map((report) => ({
+    params: { slug: report.slug },
+    props: { report }
+  }));
+}
+
+const { report } = Astro.props;
+const payload = await import(`../../../encrypted/articles/${report.slug}.json`);
+---
+
+<BaseLayout title={`${report.title}｜A股技术形态观察池`}>
+  <main class="site-shell article-shell">
+    <a class="back-link" href={import.meta.env.BASE_URL}>返回报告列表</a>
+    <section class="article-header">
+      <div class="report-card__meta">
+        <span>{report.source_name}</span>
+        <time datetime={report.date}>{report.date}</time>
+      </div>
+      <h1>{report.title}</h1>
+      <p>{report.summary}</p>
+      <div class="tags">
+        {report.tags.map((tag) => <span>{tag}</span>)}
+      </div>
+    </section>
+    <RiskNotice />
+    <PasswordDecryptor payload={payload.default} />
+  </main>
+</BaseLayout>

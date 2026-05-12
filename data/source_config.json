@@ -1,0 +1,29 @@
+{
+  "sources": [
+    {
+      "id": "yege",
+      "name": "野哥",
+      "enabled": true,
+      "description": "野哥每日选股与复盘"
+    },
+    {
+      "id": "lihongjuan",
+      "name": "李红娟",
+      "enabled": true,
+      "description": "李红娟每日选股"
+    },
+    {
+      "id": "wangduoyu",
+      "name": "王多于",
+      "enabled": true,
+      "description": "王多于每日选股"
+    },
+    {
+      "id": "longge",
+      "name": "龙哥",
+      "enabled": true,
+      "description": "龙哥每日选股"
+    }
+  ],
+  "default_sources": ["yege", "lihongjuan", "wangduoyu", "longge"]
+}

@@ -1,0 +1,74 @@
+name: Daily encrypted stock watch site
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 8 * * 1-5"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pip pandas cryptography
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Generate reports
+        run: python scripts/generate_report.py --all
+
+      - name: Encrypt reports
+        run: python scripts/encrypt_article.py --all
+
+      - name: Sync report index
+        run: python scripts/sync_reports_to_astro.py
+
+      - name: Commit encrypted data changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/reports.json encrypted/articles src/data/reports.json
+          git diff --cached --quiet || git commit -m "chore: update encrypted reports"
+          git push || true
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

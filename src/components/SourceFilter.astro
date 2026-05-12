@@ -1,0 +1,12 @@
+---
+const sources = ["全部", "野哥", "李红娟", "王多于", "龙哥"];
+---
+
+<section class="source-filter" aria-label="来源筛选">
+  <span>来源：</span>
+  <div class="filter-buttons">
+    {sources.map((source, index) => (
+      <button class={index === 0 ? "active" : ""} type="button">{source}</button>
+    ))}
+  </div>
+</section>
