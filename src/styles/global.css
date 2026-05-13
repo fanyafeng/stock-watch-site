@@ -3250,3 +3250,505 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* True final compact density override. This block intentionally sits at EOF. */
+.dashboard-shell {
+  grid-template-columns: 224px minmax(0, 1fr);
+}
+
+.dashboard-sidebar {
+  padding: 22px 14px 18px;
+}
+
+.brand {
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+}
+
+.brand strong {
+  font-size: 20px;
+}
+
+.brand span {
+  font-size: 12px;
+}
+
+.side-nav {
+  gap: 6px;
+}
+
+.side-nav a {
+  min-height: 44px;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 0 14px;
+}
+
+.nav-icon {
+  width: 21px;
+  height: 21px;
+  margin-right: 10px;
+}
+
+.nav-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.sidebar-card {
+  margin: 28px 4px 0;
+  padding: 12px;
+  text-align: left;
+}
+
+.sidebar-card > strong {
+  margin: 4px 0 8px;
+  font-size: 22px;
+}
+
+.sidebar-card p {
+  padding: 7px 0;
+  font-size: 12px;
+}
+
+.sidebar-foot {
+  gap: 5px;
+  font-size: 11px;
+}
+
+.dashboard-main {
+  padding: 20px 22px 32px;
+}
+
+.topbar {
+  margin-bottom: 14px;
+}
+
+.topbar h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.topbar span {
+  font-size: 13px;
+}
+
+.topbar-actions {
+  gap: 8px;
+}
+
+.topbar-actions button,
+.topbar-actions time,
+.topbar-actions a,
+.filter-toolbar button,
+.filter-toolbar label {
+  min-height: 36px;
+  border-radius: 7px;
+  font-size: 13px;
+  padding: 0 12px;
+}
+
+.overview-panel,
+.source-board,
+.selection-panel,
+.panel {
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.overview-panel,
+.source-board,
+.selection-panel,
+.daily-workbench-grid,
+.secondary-grid,
+.bottom-grid {
+  margin-bottom: 14px;
+}
+
+.panel-head {
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+}
+
+.panel-head h2 {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.panel-head span,
+.panel-head a {
+  font-size: 12px;
+}
+
+.quick-overview {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.overview-card {
+  min-height: 112px;
+  border-radius: 9px;
+  padding: 12px 13px;
+}
+
+.overview-card span {
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.overview-card strong {
+  margin-bottom: 4px;
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.overview-card small {
+  font-size: 12px;
+}
+
+.sparkline {
+  height: 26px;
+  margin-top: 6px;
+}
+
+.bar-meter {
+  height: 30px;
+  margin-top: 8px;
+}
+
+.chip-row {
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.chip-row em,
+.comment-tags em,
+.source-tabs a,
+.comment-source-tabs a {
+  border-radius: 999px;
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
+.daily-workbench-grid {
+  grid-template-columns: minmax(0, 1.42fr) minmax(360px, 0.88fr);
+  gap: 14px;
+}
+
+.timeline-panel,
+.market-info-panel {
+  min-height: 520px;
+}
+
+.public-timeline {
+  gap: 13px;
+}
+
+.public-timeline::before {
+  left: 27px;
+}
+
+.public-timeline li {
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 14px;
+}
+
+.public-timeline time {
+  padding-left: 33px;
+  font-size: 13px;
+}
+
+.public-timeline div::before {
+  left: 22px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
+  border-width: 3px;
+}
+
+.public-timeline strong {
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.public-timeline p {
+  margin: 2px 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.public-timeline small {
+  margin-top: 3px;
+  font-size: 11px;
+  padding: 2px 7px;
+}
+
+.market-info-grid {
+  gap: 10px;
+}
+
+.market-info-card {
+  min-height: 120px;
+  border-radius: 9px;
+  padding: 11px;
+}
+
+.market-info-card h3 {
+  margin-bottom: 7px;
+  font-size: 15px;
+}
+
+.market-line-list {
+  gap: 6px;
+}
+
+.market-line-list p {
+  gap: 7px;
+  font-size: 12px;
+}
+
+.market-line-list em {
+  min-width: 45px;
+}
+
+.mini-chart {
+  height: 36px;
+  margin-top: 8px;
+}
+
+.mini-chart-bars {
+  gap: 5px;
+}
+
+.mini-list {
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.sentiment-dots {
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sentiment-dots i {
+  width: 8px;
+  height: 8px;
+}
+
+.secondary-grid {
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 14px;
+}
+
+.compact-source-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.source-card {
+  border-radius: 9px;
+}
+
+.source-card-head {
+  min-height: 38px;
+  padding: 0 10px;
+}
+
+.source-card-head strong {
+  font-size: 15px;
+}
+
+.source-card-head span {
+  font-size: 11px;
+}
+
+.source-card h3 {
+  min-height: 0;
+  padding: 10px 10px 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.source-card p {
+  min-height: 40px;
+  margin-top: 4px;
+  padding: 0 10px 10px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.stat-list {
+  gap: 8px;
+}
+
+.stat-list p {
+  padding: 9px 0;
+}
+
+.stat-list span {
+  font-size: 12px;
+}
+
+.stat-list strong {
+  font-size: 20px;
+}
+
+.selection-table-wrap,
+.private-table-wrap {
+  border-radius: 8px;
+}
+
+.selection-table th,
+.selection-table td,
+.comment-table td,
+.compact-table th,
+.compact-table td,
+.private-table th,
+.private-table td {
+  padding: 7px 8px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.selection-table td strong {
+  font-size: 13px;
+}
+
+.bottom-grid {
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 14px;
+}
+
+.risk-box h2 {
+  font-size: 18px;
+}
+
+.risk-box ol {
+  margin: 8px 0 12px;
+  padding-left: 1.1em;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.risk-box strong {
+  padding: 9px;
+  font-size: 12px;
+}
+
+.page-tabs {
+  gap: 8px;
+  margin: 12px 0 14px;
+}
+
+.page-tabs a {
+  min-height: 34px;
+  border-radius: 7px;
+  font-size: 13px;
+  padding: 0 12px;
+}
+
+.workbench-hero,
+.section-card,
+.source-panel,
+.source-detail,
+.metric-card,
+.timeline-group,
+.profile-card,
+.comment-card,
+.my-unlock__head,
+.my-unlock__box,
+.private-panel,
+.private-hero {
+  border-radius: 10px;
+}
+
+.workbench-hero,
+.section-card,
+.source-panel,
+.source-detail,
+.metric-card,
+.timeline-group,
+.profile-card,
+.comment-card,
+.my-unlock__head,
+.my-unlock__box,
+.private-panel {
+  padding: 14px;
+}
+
+.private-hero {
+  padding: 18px;
+}
+
+@media (max-width: 1100px) {
+  .daily-workbench-grid,
+  .secondary-grid,
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-overview,
+  .compact-source-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .timeline-panel,
+  .market-info-panel {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 860px) {
+  .dashboard-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-sidebar {
+    position: relative;
+    height: auto;
+    padding: 16px;
+  }
+
+  .sidebar-foot {
+    position: static;
+    margin-top: 18px;
+  }
+
+  .side-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .side-nav a {
+    min-height: 40px;
+    font-size: 14px;
+  }
+
+  .dashboard-main {
+    padding: 14px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .topbar h1 {
+    font-size: 24px;
+  }
+
+  .quick-overview,
+  .market-info-grid,
+  .compact-source-grid {
+    grid-template-columns: 1fr;
+  }
+}
