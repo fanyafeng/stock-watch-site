@@ -17,6 +17,41 @@ const waitingCount = comments.length - includedCount - rejectedCount;
 const extractTime = (value) => String(value || "").match(/\d{1,2}:\d{2}/)?.[0] ?? "--:--";
 const cleanChannel = (value) => String(value || "评论来源").replace(/\s*\d{1,2}:\d{2}\s*/g, "").trim() || "评论来源";
 const unique = (items) => [...new Set(items.filter(Boolean))];
+const escapeHtml = (value) =>
+  String(value ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  }[char]));
+
+const highlightKeywords = (value) => {
+  const text = escapeHtml(value).replace(/\n/g, "<br />");
+  const keywords = [
+    { token: "量增价升", tone: "positive" },
+    { token: "右侧转强", tone: "positive" },
+    { token: "底部突破", tone: "positive" },
+    { token: "中继回踩", tone: "positive" },
+    { token: "低位放量", tone: "positive" },
+    { token: "量平价升", tone: "positive" },
+    { token: "买入", tone: "positive" },
+    { token: "加仓", tone: "positive" },
+    { token: "持有", tone: "positive" },
+    { token: "跟", tone: "positive" },
+    { token: "风险", tone: "risk" },
+    { token: "止损", tone: "risk" },
+    { token: "卖出", tone: "risk" },
+    { token: "减仓", tone: "risk" },
+    { token: "高位", tone: "risk" },
+    { token: "滞涨", tone: "risk" },
+    { token: "出局", tone: "risk" },
+    { token: "观察取消", tone: "risk" },
+  ].sort((a, b) => b.token.length - a.token.length);
+  const tokenPattern = new RegExp(keywords.map((item) => item.token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|"), "g");
+  const toneMap = new Map(keywords.map((item) => [item.token, item.tone]));
+  return text.replace(tokenPattern, (match) => `<span class="comment-keyword ${toneMap.get(match) || "positive"}">${match}</span>`);
+};
 
 const valueKindsForComment = (comment) => {
   const text = `${comment.value_reason || ""} ${comment.mentioned_sectors || ""} ${comment.note || ""}`;
@@ -177,6 +212,9 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
           <p class="comment-timeline-summary">共 {comments.length} 条评论 / {threadGroups.length} 条帖子或视频</p>
           <ol class="comment-thread-timeline">
             {threadGroups.map((group, index) => (
+              (() => {
+                const timelineStatus = groupStatusMeta(group);
+                return (
               <li
                 data-timeline-item
                 data-target-thread={group.id}
@@ -190,12 +228,14 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
                 <button type="button" class={index === 0 ? "active" : ""}>
                   <span class={`timeline-dot ${sourceColors[group.source_id] ?? ""}`}></span>
                   <time>{group.time}</time>
-                  <strong>{group.source_name} / {group.channel}</strong>
-                  <em>{group.primary} 评论区</em>
-                  <small>共 {group.comments.length} 条有价值评论</small>
-                  <b>{group.comments.length}</b>
+                  <strong>{group.source_name} · {group.channel}</strong>
+                  <em>{group.primary}</em>
+                  <small>价值评论 {group.comments.length} 条</small>
+                  <span class={`comment-status-badge ${timelineStatus.tone}`}>{timelineStatus.label}</span>
                 </button>
               </li>
+                );
+              })()
             ))}
           </ol>
           <button class="comment-load-more" type="button">⌄ 加载更多</button>
@@ -208,12 +248,13 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
           </div>
 
           {threadGroups.length ? (
-            threadGroups.map((group) => {
+            threadGroups.map((group, index) => {
               const groupStatus = groupStatusMeta(group);
               return (
                 <section
                   class="comment-thread-card"
                   id={group.id}
+                  hidden={index !== 0}
                   data-comment-thread
                   data-source={group.source_id}
                   data-statuses={group.statuses.join("|")}
@@ -223,17 +264,22 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
                   data-time={group.time}
                 >
                   <header class="comment-thread-head">
-                    <div>
+                    <div class="comment-thread-head-main">
                       <time>{group.time}</time>
-                      <strong>{group.source_name} / {group.channel}</strong>
-                      <h2>{group.primary} 评论区</h2>
-                      <span>有价值评论 {group.comments.length} 条</span>
+                      <div class="comment-thread-head-copy">
+                        <strong>{group.source_name} / {group.channel}</strong>
+                        <h2>{group.primary} 评论区</h2>
+                      </div>
                     </div>
-                    {group.url ? (
-                      <a href={group.url} target="_blank" rel="noreferrer">帖子链接 ↗</a>
-                    ) : (
-                      <span class="comment-muted-link">暂无原文链接</span>
-                    )}
+                    <div class="comment-thread-head-actions">
+                      <span class={`comment-status-badge ${groupStatus.tone}`}>{groupStatus.label}</span>
+                      <span class="comment-status-badge neutral">价值评论 {group.comments.length} 条</span>
+                      {group.url ? (
+                        <a href={group.url} target="_blank" rel="noreferrer">帖子链接 ↗</a>
+                      ) : (
+                        <span class="comment-muted-link">暂无原文链接</span>
+                      )}
+                    </div>
                   </header>
 
                   <div class="comment-detail-list">
@@ -242,9 +288,10 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
                       const author = comment.comment_source.includes("评论备份")
                         ? `${group.source_name}备份`
                         : `${group.source_name}评论`;
+                      const evidenceUrl = comment.video_urls?.[0] || group.url || "";
                       return (
                         <article
-                          class="comment-detail-card"
+                          class="comment-decision-card"
                           data-comment-card
                           data-source={comment.source_id}
                           data-status={comment.include_in_logic || "待确认"}
@@ -252,42 +299,83 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
                           data-stocks={comment.stocks.join("|")}
                           data-sectors={comment.sectors.join("|")}
                         >
-                          <div class="comment-body-cell">
+                          <div class="comment-main-card">
                             <div class="comment-author-row">
                               <span class={`comment-avatar ${sourceColors[group.source_id] ?? ""}`}>{group.source_name.slice(0, 1)}</span>
-                              <strong>{author}</strong>
-                              <em>{comment.index}</em>
-                              <time>{group.time}</time>
+                              <div class="comment-author-copy">
+                                <strong>{author}</strong>
+                                <span>#{comment.index} · {group.source_name} / {group.channel} · {group.time}</span>
+                              </div>
+                              <span class={`comment-status-badge ${meta.tone}`}>{meta.label}</span>
                             </div>
-                            <p>{comment.content}</p>
+                            <p class="comment-main-text" set:html={highlightKeywords(comment.content || "暂无评论正文")} />
                             <div class="comment-chip-row">
                               {(comment.stocks.length ? comment.stocks : ["暂无股票"]).slice(0, 3).map((stock) => <span>{stock}</span>)}
                               {comment.sectors.slice(0, 2).map((sector) => <span>{sector}</span>)}
                             </div>
                             <div class="comment-origin-row">
-                              <span>来自：{group.source_name} / {group.channel}</span>
+                              <span>来源：{group.source_name} / {group.channel}</span>
                               {comment.video_urls?.length ? comment.video_urls.map((url) => <a href={url} target="_blank" rel="noreferrer">查看视频</a>) : null}
                               {comment.media?.length ? comment.media.slice(0, 2).map((path) => <a href={assetUrl(path)} target="_blank" rel="noreferrer">查看截图</a>) : null}
                             </div>
                           </div>
 
-                          <div class="comment-info-cell">
-                            <span>提到的股票</span>
-                            <strong>{comment.stocks.join("、") || "暂无"}</strong>
-                            <span>提到的板块</span>
-                            <strong>{comment.sectors.slice(0, 3).join("、") || "暂无"}</strong>
+                          <div class="comment-judgement-grid">
+                            <article class="comment-judgement-card">
+                              <span>提到的股票</span>
+                              <strong>{comment.stocks.join("、") || "暂无"}</strong>
+                            </article>
+                            <article class="comment-judgement-card">
+                              <span>提到的板块</span>
+                              <strong>{comment.sectors.slice(0, 3).join("、") || "暂无"}</strong>
+                            </article>
+                            <article class="comment-judgement-card">
+                              <span>为什么有价值</span>
+                              <p set:html={highlightKeywords(comment.value_reason || "待补充价值判断")} />
+                            </article>
+                            <article class={`comment-judgement-card ${meta.tone}`}>
+                              <span>纳入推荐逻辑</span>
+                              <strong><i>{meta.mark}</i>{meta.label}</strong>
+                              <p>{comment.include_in_logic === "否" ? "该评论作为风险或反向观察，不直接进入推荐。" : comment.value_reason || "保留为观察依据，等待盘面验证。"}</p>
+                            </article>
                           </div>
 
-                          <div class="comment-value-cell">
-                            <span>为什么有价值</span>
-                            <p>{comment.value_reason || "待补充价值判断"}</p>
-                          </div>
-
-                          <div class={`comment-logic-cell ${meta.tone}`}>
-                            <span>是否纳入推荐逻辑</span>
-                            <strong><i>{meta.mark}</i>{meta.label}</strong>
-                            <em>纳入理由</em>
-                            <p>{comment.include_in_logic === "否" ? "该评论作为风险或反向观察，不直接进入推荐。" : comment.value_reason || "保留为观察依据，等待盘面验证。"}</p>
+                          <div class="comment-evidence-actions">
+                            <div class="comment-evidence-strip">
+                              <div class="comment-evidence-thumb-row">
+                                {comment.media?.length ? (
+                                  comment.media.slice(0, 2).map((path, mediaIndex) => (
+                                    <a href={assetUrl(path)} target="_blank" rel="noreferrer" class="comment-evidence-thumb">
+                                      <img src={assetUrl(path)} alt={`${group.primary} 评论截图 ${mediaIndex + 1}`} loading="lazy" />
+                                      <span>截图 {mediaIndex + 1}</span>
+                                      <strong>查看证据</strong>
+                                    </a>
+                                  ))
+                                ) : (
+                                  <div class="comment-evidence-empty">
+                                    <strong>暂无截图</strong>
+                                    <span>本条评论未附带图片证据</span>
+                                  </div>
+                                )}
+                              </div>
+                              <div class="comment-evidence-link-row">
+                                {evidenceUrl ? (
+                                  <a href={evidenceUrl} target="_blank" rel="noreferrer">查看原帖 / 视频</a>
+                                ) : (
+                                  <span class="comment-muted-link">暂无可跳转原帖</span>
+                                )}
+                              </div>
+                            </div>
+                            <div class="comment-action-row">
+                              <button type="button">纳入推荐逻辑</button>
+                              <button type="button">标记为待确认</button>
+                              <button type="button">标记为无效</button>
+                              {group.url ? (
+                                <a href={group.url} target="_blank" rel="noreferrer">查看原文</a>
+                              ) : (
+                                <span class="comment-action-disabled">暂无原文</span>
+                              )}
+                            </div>
                           </div>
                         </article>
                       );
@@ -329,6 +417,7 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
       const feedTitle = document.querySelector("#comment-feed-title");
       const feedCount = document.querySelector("#comment-feed-count");
       const exportButton = document.querySelector("[data-export-comments]");
+      let activeThreadId = threads[0]?.id || "";
 
       function includesToken(value, token) {
         return token === "all" || String(value || "").split("|").includes(token);
@@ -353,21 +442,39 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
       }
 
       function applyFilters() {
-        let visibleThreads = 0;
-        let visibleComments = 0;
+        let matchedThreads = 0;
+        let matchedComments = 0;
+        const matchedThreadIds = [];
+
         threads.forEach((thread) => {
           const show = matchesDataset(thread.dataset);
-          thread.hidden = !show;
           if (show) {
-            visibleThreads += 1;
-            visibleComments += thread.querySelectorAll("[data-comment-card]").length;
+            matchedThreads += 1;
+            matchedComments += thread.querySelectorAll("[data-comment-card]").length;
+            matchedThreadIds.push(thread.id);
           }
         });
-        timelineItems.forEach((item) => {
-          item.hidden = !matchesDataset(item.dataset);
+
+        if (!matchedThreadIds.includes(activeThreadId)) {
+          activeThreadId = matchedThreadIds[0] || "";
+        }
+
+        threads.forEach((thread) => {
+          const show = matchesDataset(thread.dataset) && thread.id === activeThreadId;
+          thread.hidden = !show;
         });
-        if (feedTitle) feedTitle.textContent = state.source === "all" ? "全部评论区" : "当前来源评论区";
-        if (feedCount) feedCount.textContent = `显示 ${visibleThreads} 组 / ${visibleComments} 条评论`;
+
+        timelineItems.forEach((item) => {
+          const show = matchesDataset(item.dataset);
+          item.hidden = !show;
+          item.querySelector("button")?.classList.toggle("active", show && item.dataset.targetThread === activeThreadId);
+        });
+
+        const activeTimeline = [...timelineItems].find((item) => item.dataset.targetThread === activeThreadId);
+        const activeButton = activeTimeline?.querySelector("button");
+        const activeTitle = activeButton?.querySelector("em")?.textContent || "评论区";
+        if (feedTitle) feedTitle.textContent = matchedThreads ? `${activeTitle} 决策详情` : "暂无匹配评论";
+        if (feedCount) feedCount.textContent = `匹配 ${matchedThreads} 组 / ${matchedComments} 条评论`;
       }
 
       sourceButtons.forEach((button) => {
@@ -407,10 +514,8 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
 
       timelineItems.forEach((item) => {
         item.querySelector("button")?.addEventListener("click", () => {
-          const target = document.getElementById(item.dataset.targetThread || "");
-          timelineItems.forEach((entry) => entry.querySelector("button")?.classList.remove("active"));
-          item.querySelector("button")?.classList.add("active");
-          target?.scrollIntoView({ behavior: "smooth", block: "start" });
+          activeThreadId = item.dataset.targetThread || "";
+          applyFilters();
         });
       });
 
@@ -424,6 +529,8 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
         link.click();
         URL.revokeObjectURL(url);
       });
+
+      applyFilters();
     </script>
   </DashboardLayout>
 </BaseLayout>
