@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DashboardLayout from "../components/DashboardLayout.astro";
 import dashboard from "../data/dashboard.json";
 
 const report = dashboard.report;
@@ -13,273 +14,175 @@ const sources = dashboard.sources ?? [];
 const shortList = dashboard.selection?.short ?? [];
 const midList = dashboard.selection?.mid ?? [];
 const comments = dashboard.comments ?? [];
-
-const navItems = ["首页", "每日复盘", "大盘分析", "来源人", "股票池", "操作记录", "评论聚合"];
-const stepItems = ["今日总览", "时间线", "大盘信息", "来源内容", "综合推荐", "收益跟踪", "评论聚合", "操作纪律"];
 const mainSectors = overview.main_sectors?.length ? overview.main_sectors : ["暂无数据"];
 const accumulation = market.accumulation_direction?.length ? market.accumulation_direction : ["暂无数据"];
-const sourceColors = {
-  yege: "blue",
-  lihongjuan: "purple",
-  wangduoyu: "green",
-  longge: "orange",
-};
+const sourceColors = { yege: "blue", lihongjuan: "purple", wangduoyu: "green", longge: "orange" };
 ---
 
 <BaseLayout title="每日复盘工作台">
-  <main class="dashboard-shell">
-    <aside class="dashboard-sidebar">
-      <div class="brand">
-        <div class="brand-mark">复</div>
-        <div>
-          <strong>复盘工作台</strong>
-          <span>每日复盘 · 价值沉淀</span>
-        </div>
+  <DashboardLayout active="每日复盘">
+    <header class="topbar dark-topbar">
+      <div>
+        <p>复盘工作台</p>
+        <h1>{dashboard.date ?? "暂无日期"} 每日复盘工作台</h1>
+        <span>更新时间：{dashboard.updated_at ?? "暂无数据"}</span>
       </div>
-
-      <nav class="side-nav" aria-label="主导航">
-        {navItems.map((item, index) => (
-          <a class={index === 1 ? "active" : ""} href="#">{item}</a>
-        ))}
-      </nav>
-
-      <div class="sidebar-card">
-        <span>今日已更新</span>
-        <strong>{stats.source_count ?? 0}</strong>
-        <small>数据源同步到 {dashboard.updated_at ?? "暂无时间"}</small>
+      <div class="topbar-actions">
+        <time datetime={dashboard.date}>{dashboard.date ?? "暂无日期"}</time>
+        <button type="button">前一天</button>
+        <button type="button">后一天</button>
+        <a href={reportHref}>打开加密详情</a>
       </div>
-    </aside>
+    </header>
 
-    <section class="dashboard-main">
-      <header class="topbar">
-        <div>
-          <p>每日复盘工作台</p>
-          <h1>{dashboard.date ?? "暂无日期"} 复盘工作台</h1>
-          <span>更新时间：{dashboard.updated_at ?? "暂无数据"}</span>
-        </div>
-        <div class="topbar-actions">
-          <button type="button">切换日期</button>
-          <time datetime={dashboard.date}>{dashboard.date ?? "暂无日期"}</time>
-          <a href={reportHref}>打开加密详情</a>
-        </div>
-      </header>
-
-      <section class="overview-panel" aria-label="今日总览">
-        <div class="panel-head">
-          <h2>今日总览</h2>
-          <span>公开大盘看板</span>
-        </div>
-        <div class="quick-overview">
-          <article class="overview-card">
-            <span>市场状态</span>
-            <strong>{overview.market_status ?? "暂无数据"}</strong>
-            <small>{market.index_status ?? "暂无指数状态"}</small>
-            <div class="sparkline sparkline-green"></div>
-          </article>
-          <article class="overview-card">
-            <span>主线板块</span>
-            <strong>{mainSectors[0]}</strong>
-            <div class="chip-row">
-              {mainSectors.slice(0, 3).map((sector) => <em>{sector}</em>)}
-            </div>
-          </article>
-          <article class="overview-card">
-            <span>风险等级</span>
-            <strong class="warning-text">{overview.risk_level ?? "中"}</strong>
-            <small>{overview.risk_signal ?? "暂无风险信号"}</small>
-          </article>
-          <article class="overview-card">
-            <span>操作基调</span>
-            <strong>{overview.operation_tone ?? "控制仓位"}</strong>
-            <small>{overview.sentiment ?? "暂无情绪周期"}</small>
-          </article>
-          <article class="overview-card">
-            <span>赚钱效应</span>
-            <strong class="danger-text">{overview.tomorrow_watch ?? "等待确认"}</strong>
-            <div class="bar-meter"><i></i><i></i><i></i><i></i><i></i></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="dashboard-grid">
-        <article class="panel timeline-panel">
-          <div class="panel-head">
-            <h2>今日时间线</h2>
-            <span>按时间顺序</span>
-          </div>
-          <ol class="public-timeline">
-            {timeline.map((item) => (
-              <li>
-                <time>{item.time}</time>
-                <div>
-                  <strong>{item.title}</strong>
-                  <p>{item.content}</p>
-                  <small>{item.source}</small>
-                </div>
-              </li>
-            ))}
-          </ol>
+    <section class="overview-panel" aria-label="今日总览">
+      <div class="panel-head">
+        <h2>今日总览</h2>
+        <span>公开大盘看板</span>
+      </div>
+      <div class="quick-overview">
+        <article class="overview-card glow-green">
+          <span>市场状态</span>
+          <strong>{overview.market_status ?? "暂无数据"}</strong>
+          <small>{market.index_status ?? "暂无指数状态"}</small>
+          <div class="sparkline"></div>
         </article>
-
-        <aside class="market-stack">
-          <article class="panel">
-            <div class="panel-head">
-              <h2>大盘信息</h2>
-              <span>公开看板</span>
-            </div>
-            <div class="mini-grid">
-              <div>
-                <span>指数状态</span>
-                <strong>{market.index_status ?? "暂无数据"}</strong>
-              </div>
-              <div>
-                <span>成交量变化</span>
-                <strong>{market.volume_change ?? "暂无数据"}</strong>
-              </div>
-              <div>
-                <span>资金偏好</span>
-                <strong>{market.capital_preference ?? "暂无数据"}</strong>
-              </div>
-              <div>
-                <span>抢筹方向</span>
-                <div class="chip-row">
-                  {accumulation.slice(0, 4).map((item) => <em>{item}</em>)}
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="panel">
-            <div class="panel-head">
-              <h2>数据概览</h2>
-              <span>CSV 汇总</span>
-            </div>
-            <div class="stat-list">
-              <p><span>候选股票</span><strong>{stats.candidate_count ?? 0}</strong></p>
-              <p><span>入池观察</span><strong>{stats.accepted_count ?? 0}</strong></p>
-              <p><span>剔除观察</span><strong>{stats.rejected_count ?? 0}</strong></p>
-              <p><span>评论信号</span><strong>{stats.comment_count ?? 0}</strong></p>
-            </div>
-          </article>
-        </aside>
-      </section>
-
-      <section class="source-board">
-        <div class="panel-head">
-          <h2>来源人今日内容</h2>
-          <span>公开概要，详细复盘进入加密详情</span>
-        </div>
-        <div class="source-card-grid">
-          {sources.map((source) => (
-            <article class={`source-card ${sourceColors[source.id] ?? ""}`}>
-              <div class="source-card-head">
-                <strong>{source.name}</strong>
-                <span>{source.channel}</span>
-              </div>
-              <h3>{source.latest_title}</h3>
-              <p>{source.latest_summary}</p>
-              <div class="source-subgrid">
-                <div>
-                  <span>今日推荐</span>
-                  {source.top_picks.map((pick) => (
-                    <em>{pick.name}<small>{pick.pattern}</small></em>
-                  ))}
-                </div>
-                <div>
-                  <span>个人持仓</span>
-                  {source.holdings.length ? source.holdings.map((holding) => (
-                    <em>{holding.name}<small>{holding.position_ratio || holding.status}</small></em>
-                  )) : <em>暂无持仓<small>CSV 为空</small></em>}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section class="selection-panel">
-        <div class="panel-head">
-          <h2>综合筛选结果</h2>
-          <span>多来源共振 + 技术形态筛选</span>
-        </div>
-        <div class="selection-table-wrap">
-          <table class="selection-table">
-            <thead>
-              <tr>
-                <th>股票名称</th>
-                <th>代码</th>
-                <th>类型</th>
-                <th>来源</th>
-                <th>板块/形态</th>
-                <th>入场区间</th>
-                <th>止损</th>
-                <th>止盈1</th>
-                <th>止盈2</th>
-                <th>风险</th>
-                <th>入选理由</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[...shortList, ...midList].map((item) => (
-                <tr>
-                  <td><strong>{item.name}</strong></td>
-                  <td>{item.code}</td>
-                  <td>{item.type}</td>
-                  <td>{item.source_names}</td>
-                  <td>{item.pattern}</td>
-                  <td>{item.entry_range}</td>
-                  <td>{item.stop_loss}</td>
-                  <td>{item.take_profit_1}</td>
-                  <td>{item.take_profit_2}</td>
-                  <td class={item.risk === "高" ? "danger-text" : "warning-text"}>{item.risk}</td>
-                  <td>{item.reason}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="bottom-grid">
-        <article class="panel comments-panel">
-          <div class="panel-head">
-            <h2>有价值评论聚合</h2>
-            <span>{comments.length ? `${comments.length} 条` : "暂无数据"}</span>
-          </div>
-          {comments.length ? (
-            <table class="comment-table">
-              <tbody>
-                {comments.map((comment) => (
-                  <tr>
-                    <td>{comment.comment_source}</td>
-                    <td>{comment.content}</td>
-                    <td>{comment.mentioned_stocks}</td>
-                    <td>{comment.value_reason}</td>
-                    <td>{comment.include_in_logic}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <p class="public-empty">暂无评论 CSV，补充后会显示评论来源、内容、股票/板块与价值原因。</p>
-          )}
+        <article class="overview-card">
+          <span>主线板块</span>
+          <strong>{mainSectors[0]}</strong>
+          <div class="chip-row">{mainSectors.slice(0, 3).map((sector) => <em>{sector}</em>)}</div>
         </article>
-
-        <aside class="panel risk-box">
-          <h2>操作纪律与风险提示</h2>
-          <ol>
-            <li>严格设置止损，单笔亏损不超过总资金的 2%。</li>
-            <li>控制仓位，单只股票仓位不超过 20%。</li>
-            <li>不追高，不盲目抄底，等待确认信号。</li>
-            <li>分批投资，避免过度集中。</li>
-          </ol>
-          <strong>本页面仅为复盘记录，不构成投资建议。</strong>
-        </aside>
-      </section>
-
-      <nav class="detail-tabs" aria-label="详情入口">
-        {stepItems.map((item, index) => <span><b>{index + 1}</b>{item}</span>)}
-      </nav>
+        <article class="overview-card">
+          <span>风险等级</span>
+          <strong class="warning-text">{overview.risk_level ?? "中"}</strong>
+          <small>{overview.risk_signal ?? "暂无风险信号"}</small>
+        </article>
+        <article class="overview-card">
+          <span>操作基调</span>
+          <strong>{overview.operation_tone ?? "控制仓位"}</strong>
+          <small>{overview.sentiment ?? "暂无情绪周期"}</small>
+        </article>
+        <article class="overview-card">
+          <span>赚钱效应</span>
+          <strong class="danger-text">{overview.tomorrow_watch ?? "等待确认"}</strong>
+          <div class="bar-meter"><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+      </div>
     </section>
-  </main>
+
+    <section class="dashboard-grid" id="timeline">
+      <article class="panel timeline-panel">
+        <div class="panel-head">
+          <h2>今日时间线</h2>
+          <span>按时间顺序</span>
+        </div>
+        <ol class="public-timeline">
+          {timeline.map((item) => (
+            <li>
+              <time>{item.time}</time>
+              <div>
+                <strong>{item.title}</strong>
+                <p>{item.content}</p>
+                <small>{item.source}</small>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </article>
+
+      <aside class="market-stack">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>大盘信息</h2>
+            <a href={`${base}/market/`}>查看大盘分析</a>
+          </div>
+          <div class="mini-grid">
+            <div><span>指数状态</span><strong>{market.index_status ?? "暂无数据"}</strong></div>
+            <div><span>成交量变化</span><strong>{market.volume_change ?? "暂无数据"}</strong></div>
+            <div><span>资金偏好</span><strong>{market.capital_preference ?? "暂无数据"}</strong></div>
+            <div><span>抢筹方向</span><div class="chip-row">{accumulation.slice(0, 4).map((item) => <em>{item}</em>)}</div></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>情绪周期</h2>
+            <span>{overview.sentiment ?? "暂无"}</span>
+          </div>
+          <div class="sentiment-gauge"><strong>68</strong><span>中等偏上</span></div>
+          <div class="stat-list">
+            <p><span>候选股票</span><strong>{stats.candidate_count ?? 0}</strong></p>
+            <p><span>入池观察</span><strong>{stats.accepted_count ?? 0}</strong></p>
+            <p><span>剔除观察</span><strong>{stats.rejected_count ?? 0}</strong></p>
+          </div>
+        </article>
+      </aside>
+    </section>
+
+    <section class="source-board">
+      <div class="panel-head">
+        <h2>来源人今日内容</h2>
+        <a href={`${base}/sources/`}>查看来源人详情</a>
+      </div>
+      <div class="source-card-grid">
+        {sources.map((source) => (
+          <article class={`source-card ${sourceColors[source.id] ?? ""}`}>
+            <div class="source-card-head"><strong>{source.name}</strong><span>{source.channel}</span></div>
+            <h3>{source.latest_title}</h3>
+            <p>{source.latest_summary}</p>
+            <div class="source-subgrid">
+              <div>
+                <span>今日推荐</span>
+                {source.top_picks.map((pick) => <em>{pick.name}<small>{pick.pattern}</small></em>)}
+              </div>
+              <div>
+                <span>个人持仓</span>
+                {source.holdings.length ? source.holdings.map((holding) => <em>{holding.name}<small>{holding.position_ratio || holding.status}</small></em>) : <em>暂无持仓<small>CSV 为空</small></em>}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="selection-panel" id="selection">
+      <div class="panel-head">
+        <h2>综合筛选结果</h2>
+        <span>多来源共振 + 技术形态筛选</span>
+      </div>
+      <div class="selection-table-wrap">
+        <table class="selection-table">
+          <thead>
+            <tr><th>股票名称</th><th>代码</th><th>类型</th><th>来源</th><th>形态</th><th>入场区间</th><th>止损</th><th>止盈1</th><th>止盈2</th><th>风险</th><th>入选理由</th></tr>
+          </thead>
+          <tbody>
+            {[...shortList, ...midList].map((item) => (
+              <tr>
+                <td><strong>{item.name}</strong></td><td>{item.code}</td><td>{item.type}</td><td>{item.source_names}</td><td>{item.pattern}</td><td>{item.entry_range}</td><td>{item.stop_loss}</td><td>{item.take_profit_1}</td><td>{item.take_profit_2}</td><td class={item.risk === "高" ? "danger-text" : "warning-text"}>{item.risk}</td><td>{item.reason}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="bottom-grid">
+      <article class="panel comments-panel">
+        <div class="panel-head">
+          <h2>有价值评论聚合</h2>
+          <a href={`${base}/comments/`}>查看评论聚合</a>
+        </div>
+        {comments.length ? (
+          <table class="comment-table"><tbody>{comments.map((comment) => <tr><td>{comment.comment_source}</td><td>{comment.content}</td><td>{comment.mentioned_stocks}</td><td>{comment.value_reason}</td></tr>)}</tbody></table>
+        ) : (
+          <p class="public-empty">暂无评论 CSV，补充后会显示评论来源、内容、股票/板块与价值原因。</p>
+        )}
+      </article>
+      <aside class="panel risk-box">
+        <h2>操作纪律与风险提示</h2>
+        <ol><li>严格设置止损，单笔亏损不超过总资金的 2%。</li><li>控制仓位，单只股票仓位不超过 20%。</li><li>不追高，不盲目抄底，等待确认信号。</li><li>分批投资，避免过度集中。</li></ol>
+        <strong>本页面仅为复盘记录，不构成投资建议。</strong>
+      </aside>
+    </section>
+  </DashboardLayout>
 </BaseLayout>

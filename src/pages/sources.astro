@@ -1,0 +1,145 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DashboardLayout from "../components/DashboardLayout.astro";
+import dashboard from "../data/dashboard.json";
+
+const sources = dashboard.sources ?? [];
+const sourceColors = { yege: "blue", lihongjuan: "purple", wangduoyu: "green", longge: "orange" };
+const activeSource = sources[0] ?? {};
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BaseLayout title="来源人｜复盘工作台">
+  <DashboardLayout active="来源人">
+    <header class="topbar dark-topbar">
+      <div>
+        <p>筛选工具箱</p>
+        <h1>来源人详情</h1>
+        <span>数据更新时间：{dashboard.updated_at ?? "暂无数据"}</span>
+      </div>
+      <div class="topbar-actions">
+        <time datetime={dashboard.date}>{dashboard.date}</time>
+        <button type="button">前一天</button>
+        <button type="button">后一天</button>
+        <a href={`${base}/articles/daily_${dashboard.date}/`}>打开加密详情</a>
+      </div>
+    </header>
+
+    <nav class="page-tabs">
+      {[
+        ["首页", "/"],
+        ["大盘分析", "/market/"],
+        ["来源人", "/sources/"],
+        ["综合推荐", "/#selection"],
+        ["评论聚合", "/comments/"],
+      ].map(([item, href]) => (
+        <a class={item === "来源人" ? "active" : ""} href={`${base}${href}`}>{item}</a>
+      ))}
+    </nav>
+
+    <section class="source-tabs">
+      {sources.map((source, index) => (
+        <a class={index === 0 ? "active" : ""} href={`#source-${source.id}`}>
+          <span class={`avatar ${sourceColors[source.id] ?? ""}`}>{source.name.slice(0, 1)}</span>
+          <strong>{source.name}</strong>
+          <small>({source.id})</small>
+        </a>
+      ))}
+    </section>
+
+    <section class="source-profile-grid" id={`source-${activeSource.id}`}>
+      <article class="panel profile-card">
+        <div class={`big-avatar ${sourceColors[activeSource.id] ?? ""}`}>{activeSource.name?.slice(0, 1)}</div>
+        <div>
+          <h2>{activeSource.name} ({activeSource.id})</h2>
+          <p>专注短线技术形态，擅长右侧趋势交易。</p>
+          <div class="profile-stats"><span>关注 <b>12.8万</b></span><span>帖子总数 <b>1862</b></span><span>今日发帖 <b>{activeSource.top_picks?.length ?? 0}</b></span><span>评论 <b>{activeSource.comment_count ?? 0}</b></span></div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>今日观点摘要</h2><span>{activeSource.channel}</span></div>
+        <p class="analysis-copy">{activeSource.latest_summary}</p>
+        <div class="chip-row">{activeSource.top_picks?.map((pick) => <em>{pick.name}</em>)}</div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>历史胜率统计</h2><span>近30天</span></div>
+        <div class="donut-block"><div class="donut"><strong>68.3%</strong><span>胜率</span></div><div class="stat-list"><p><span>上涨次数</span><strong>41</strong></p><p><span>下跌次数</span><strong>19</strong></p><p><span>平均收益率</span><strong class="danger-text">+3.85%</strong></p></div></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>擅长领域</h2><span>标签</span></div>
+        <div class="chip-row">{["短线波段", "右侧交易", "底部突破", "中继回踩", "消费电子", "PCB", "半导体"].map((item) => <em>{item}</em>)}</div>
+      </article>
+    </section>
+
+    <section class="all-source-panels">
+      {sources.slice(1).map((source) => (
+        <article class="panel source-anchor-card" id={`source-${source.id}`}>
+          <div class={`avatar big-avatar ${sourceColors[source.id] ?? ""}`}>{source.name.slice(0, 1)}</div>
+          <div>
+            <div class="panel-head">
+              <h2>{source.name} ({source.id})</h2>
+              <span>{source.channel}</span>
+            </div>
+            <p class="analysis-copy">{source.latest_summary}</p>
+            <div class="chip-row">
+              {source.top_picks?.map((pick) => <em>{pick.name}</em>)}
+              {source.holdings?.map((holding) => <em>持仓：{holding.name}</em>)}
+            </div>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="source-page-grid" id="data">
+      <article class="panel">
+        <div class="panel-head"><h2>1 今日帖子 / 图文内容</h2><span>{activeSource.channel}</span></div>
+        <div class="post-list">
+          {[1, 2].map((item) => (
+            <div class="post-item">
+              <time>{item === 1 ? "10:12" : "14:05"}</time>
+              <strong>{activeSource.latest_title}</strong>
+              <p>{activeSource.latest_summary}</p>
+              <div class="thumb-row"><i></i><i></i><i></i><i></i></div>
+              <small>提到股票：{activeSource.top_picks?.map((pick) => pick.name).join("、")}</small>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>2 今日选股推荐</h2><span>公开概要</span></div>
+        <table class="compact-table">
+          <thead><tr><th>代码</th><th>名称</th><th>形态</th><th>状态</th><th>评分</th></tr></thead>
+          <tbody>{activeSource.top_picks?.map((pick, index) => <tr><td>{pick.code}</td><td>{pick.name}</td><td>{pick.pattern}</td><td class="green-text">等待买点</td><td>{88 - index * 3}</td></tr>)}</tbody>
+        </table>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>3 个人持仓情况</h2><span>CSV 汇总</span></div>
+        <table class="compact-table">
+          <thead><tr><th>代码</th><th>名称</th><th>仓位</th><th>状态</th><th>操作计划</th></tr></thead>
+          <tbody>{activeSource.holdings?.map((holding) => <tr><td>{holding.code}</td><td>{holding.name}</td><td>{holding.position_ratio}</td><td class="green-text">{holding.status}</td><td>控制仓位，等待确认</td></tr>)}</tbody>
+        </table>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>4 有价值评论精选</h2><span>来自帖子评论</span></div>
+        <table class="compact-table"><tbody>{["胜宏科技这个位置放量突破，主力明显控盘。", "沪电股份近期承接强，800G 交换机需求明显。", "中际旭创朗润高了，短期有回调需求。"].map((text) => <tr><td>{text}</td><td class="star-text">★★★★★</td><td class="green-text">纳入</td></tr>)}</tbody></table>
+      </article>
+
+      <article class="panel video-empty">
+        <div class="panel-head"><h2>5 今日视频 / 直播</h2><span>如有</span></div>
+        <div class="video-icon">▰</div>
+        <p>该来源今日暂无视频或直播记录，可补充 posts CSV。</p>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>6 历史选股表现</h2><span>近7天</span></div>
+        <table class="compact-table"><tbody>{["06-05", "06-04", "06-03", "06-02", "05-30"].map((day, index) => <tr><td>{day}</td><td>{8 - index}</td><td>{index % 2 ? "71.4%" : "85.0%"}</td><td class="green-text">+{(3.21 - index * 0.22).toFixed(2)}%</td></tr>)}</tbody></table>
+      </article>
+    </section>
+  </DashboardLayout>
+</BaseLayout>

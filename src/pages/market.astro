@@ -1,0 +1,125 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DashboardLayout from "../components/DashboardLayout.astro";
+import dashboard from "../data/dashboard.json";
+
+const market = dashboard.market ?? {};
+const overview = dashboard.overview ?? {};
+const stats = dashboard.stats ?? {};
+const patterns = stats.top_patterns ?? [];
+const sectors = overview.main_sectors?.length ? overview.main_sectors : ["消费电子", "半导体", "AI应用", "PCB", "机器人"];
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BaseLayout title="大盘分析｜复盘工作台">
+  <DashboardLayout active="大盘分析">
+    <header class="topbar dark-topbar">
+      <div>
+        <p>复盘工作台 〉 大盘分析</p>
+        <h1>大盘分析</h1>
+        <span>数据更新时间：{dashboard.updated_at ?? "暂无数据"}</span>
+      </div>
+      <div class="topbar-actions">
+        <time datetime={dashboard.date}>{dashboard.date}</time>
+        <button type="button">前一日</button>
+        <button type="button">后一日</button>
+        <a href={`${base}/articles/daily_${dashboard.date}/`}>导出大盘报告</a>
+      </div>
+    </header>
+
+    <nav class="page-tabs">
+      {[
+        ["总览", "/"],
+        ["时间线", "/#timeline"],
+        ["大盘分析", "/market/"],
+        ["操作计划", `/articles/daily_${dashboard.date}/`],
+        ["综合推荐", "/#selection"],
+        ["来源人详情", "/sources/"],
+        ["收益跟踪", "/market/#sentiment"],
+        ["评论聚合", "/comments/"],
+      ].map(([item, href]) => (
+        <a class={item === "大盘分析" ? "active" : ""} href={`${base}${href}`}>{item}</a>
+      ))}
+    </nav>
+
+    <section class="market-page-grid">
+      <article class="panel market-wide">
+        <div class="panel-head"><h2>一、指数表现</h2><span>公开行情占位</span></div>
+        <div class="index-card-row">
+          {[
+            ["上证指数", "3386.97", "-5.08  -0.15%", "green"],
+            ["深证成指", "10234.22", "+32.22  +0.32%", "red"],
+            ["创业板指", "2065.31", "+13.12  +0.64%", "red"],
+            ["科创50", "1012.45", "+8.91  +0.89%", "red"],
+            ["北证50", "812.56", "+6.21  +0.77%", "red"],
+          ].map(([name, value, change, tone]) => (
+            <div class={`index-card ${tone}`}>
+              <span>{name}</span>
+              <strong>{value}</strong>
+              <em>{change}</em>
+              <div class="market-line"></div>
+              <small>成交额 1.12万亿</small>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>二、市场资金</h2><span>资金流向</span></div>
+        <div class="donut-block">
+          <div class="donut"><strong>186.7亿</strong><span>净流入</span></div>
+          <div class="fund-list">
+            <p><i></i>主力净流入 <strong>186.7</strong></p>
+            <p><i></i>超大单净流入 <strong>98.2</strong></p>
+            <p><i></i>中单净流出 <strong>-112.3</strong></p>
+            <p><i></i>小单净流出 <strong>-74.4</strong></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel market-wide">
+        <div class="panel-head"><h2>三、板块轮动</h2><span>{market.sector_rotation ?? "暂无板块轮动数据"}</span></div>
+        <div class="sector-grid">
+          <div>
+            <h3>今日热点板块</h3>
+            <table class="compact-table"><tbody>{sectors.map((sector, index) => <tr><td>{sector}</td><td class="danger-text">+{(3.25 - index * 0.37).toFixed(2)}%</td></tr>)}</tbody></table>
+          </div>
+          <div>
+            <h3>轮动路径</h3>
+            <ol class="rotation-path">
+              {sectors.slice(0, 5).map((sector, index) => <li><time>{["09:30", "10:30", "11:30", "13:30", "14:30"][index]}</time><span>{sector}</span></li>)}
+            </ol>
+          </div>
+          <div>
+            <h3>轮动强度</h3>
+            <div class="star-list">{patterns.map((item) => <p><span>{item}</span><b>★★★★☆</b></p>)}</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>四、量能分析</h2><span>{market.volume_change ?? "暂无成交量数据"}</span></div>
+        <div class="volume-chart">{Array.from({ length: 10 }).map((_, index) => <i style={`height:${34 + (index % 5) * 12}px`}></i>)}</div>
+        <div class="stat-list"><p><span>今日成交额</span><strong>11,245亿</strong></p><p><span>较昨日</span><strong class="danger-text">+8.52%</strong></p><p><span>量能状态</span><strong class="danger-text">放量</strong></p></div>
+      </article>
+
+      <article class="panel" id="sentiment">
+        <div class="panel-head"><h2>五、市场情绪</h2><span>{overview.sentiment ?? "暂无"}</span></div>
+        <div class="sentiment-line"><span>50</span><span>62</span><span>68</span><span>70</span><span>68</span></div>
+        <p class="analysis-copy">市场情绪中等偏上，涨停家数较昨日增加，连续高度提升，赚钱效应较好。</p>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>六、北向资金</h2><span>公开看板</span></div>
+        <div class="bar-chart">{[52, -18, 42, -12, 55, 86, 49].map((value) => <i class={value > 0 ? "up" : "down"} style={`height:${Math.abs(value)}px`}></i>)}</div>
+        <div class="stat-list"><p><span>今日净买入</span><strong>52.36亿</strong></p><p><span>本周净买入</span><strong>186.72亿</strong></p></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head"><h2>七、明日关注方向</h2><span>{market.capital_preference ?? "暂无资金偏好数据"}</span></div>
+        <div class="chip-row">{sectors.map((sector) => <em>{sector}</em>)}</div>
+        <div class="analysis-copy"><strong>风险提示：</strong>{overview.risk_signal ?? "高位分化加剧时注意回撤风险。"}<br /><strong>明日策略：</strong>{overview.tomorrow_watch ?? "指数短期高位震荡，关注主线换挡的低吸机会。"}</div>
+      </article>
+    </section>
+  </DashboardLayout>
+</BaseLayout>

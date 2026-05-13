@@ -1,0 +1,58 @@
+---
+import dashboard from "../data/dashboard.json";
+
+const { active = "每日复盘" } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const reportHref = dashboard.report?.url ?? "/";
+const navItems = [
+  { label: "首页", href: "/" },
+  { label: "每日复盘", href: "/" },
+  { label: "大盘分析", href: "/market/" },
+  { label: "来源人", href: "/sources/" },
+  { label: "操作计划", href: reportHref },
+  { label: "综合推荐", href: "/#selection" },
+  { label: "收益跟踪", href: "/market/#sentiment" },
+  { label: "评论聚合", href: "/comments/" },
+  { label: "数据中心", href: "/sources/#data" },
+  { label: "设置", href: "/" },
+];
+
+const linkFor = (href) => `${base}${href}`;
+---
+
+<main class="dashboard-shell">
+  <aside class="dashboard-sidebar">
+    <div class="brand">
+      <div class="brand-mark">复</div>
+      <div>
+        <strong>复盘工作台</strong>
+        <span>聚合信息，价值沉淀</span>
+      </div>
+    </div>
+
+    <nav class="side-nav" aria-label="主导航">
+      {navItems.map((item) => (
+        <a class={item.label === active ? "active" : ""} href={linkFor(item.href)}>
+          <span class="nav-dot"></span>{item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="sidebar-card">
+      <span>今日更新</span>
+      <strong>{dashboard.date ?? "暂无"}</strong>
+      <p><b>来源人</b><strong>{dashboard.stats?.source_count ?? 0}</strong></p>
+      <p><b>候选</b><strong>{dashboard.stats?.candidate_count ?? 0}</strong></p>
+      <p><b>评论</b><strong>{dashboard.stats?.comment_count ?? 0}</strong></p>
+    </div>
+
+    <div class="sidebar-foot">
+      <span>数据来源：CSV 文件</span>
+      <span>更新时间：{dashboard.updated_at ?? "暂无"}</span>
+    </div>
+  </aside>
+
+  <section class="dashboard-main">
+    <slot />
+  </section>
+</main>

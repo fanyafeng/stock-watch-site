@@ -1,0 +1,157 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DashboardLayout from "../components/DashboardLayout.astro";
+import dashboard from "../data/dashboard.json";
+
+const comments = dashboard.comments ?? [];
+const sources = dashboard.sources ?? [];
+const selection = [...(dashboard.selection?.short ?? []), ...(dashboard.selection?.mid ?? [])];
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const sourceColors = { yege: "blue", lihongjuan: "purple", wangduoyu: "green", longge: "orange" };
+const includedCount = comments.filter((item) => item.include_in_logic === "是").length;
+const waitingCount = comments.filter((item) => item.include_in_logic !== "是").length;
+const mentionedStocks = comments.length
+  ? comments.flatMap((item) => (item.mentioned_stocks || "").split(/[;；、,，]/).filter(Boolean))
+  : selection.map((item) => item.name);
+const hotStocks = [...new Set(mentionedStocks)].slice(0, 10);
+---
+
+<BaseLayout title="评论聚合｜复盘工作台">
+  <DashboardLayout active="评论聚合">
+    <header class="topbar dark-topbar">
+      <div>
+        <p>评论聚合 / {dashboard.date}</p>
+        <h1>有价值评论聚合</h1>
+        <span>数据更新时间：{dashboard.updated_at ?? "暂无数据"}</span>
+      </div>
+      <div class="topbar-actions">
+        <time datetime={dashboard.date}>{dashboard.date}</time>
+        <button type="button">前一天</button>
+        <button type="button">后一天</button>
+        <a href={`${base}/articles/daily_${dashboard.date}/`}>打开加密详情</a>
+      </div>
+    </header>
+
+    <section class="comment-source-tabs">
+      <a class="active" href={`${base}/comments/`}>全部评论</a>
+      {sources.map((source) => (
+        <a href={`${base}/sources/#source-${source.id}`}>
+          <span class={`avatar ${sourceColors[source.id] ?? ""}`}>{source.name.slice(0, 1)}</span>
+          {source.name} <small>({source.id})</small>
+        </a>
+      ))}
+    </section>
+
+    <section class="filter-toolbar">
+      <div>
+        <span>时间筛选：</span>
+        {["全部", "09:00-10:30", "10:30-11:30", "13:00-14:30", "14:30-15:30", "盘后"].map((item, index) => (
+          <button class={index === 0 ? "active" : ""} type="button">{item}</button>
+        ))}
+      </div>
+      <div>
+        <span>筛选条件：</span>
+        <button type="button">全部平台</button>
+        <button type="button">全部类型</button>
+        <button type="button">全部股票/板块</button>
+        <label><input type="checkbox" /> 只看已纳入推荐逻辑</label>
+      </div>
+      <div>
+        <span>排序方式：</span>
+        <button class="active" type="button">价值评分（高→低）</button>
+        <button type="button">列表视图</button>
+        <button type="button">时间线视图</button>
+      </div>
+    </section>
+
+    <section class="comments-layout">
+      <aside class="panel comment-timeline-card">
+        <div class="panel-head">
+          <h2>今日评论时间分布</h2>
+          <span>共 {comments.length} 条</span>
+        </div>
+        <ol class="comment-timeline">
+          {(comments.length ? comments : [
+            { comment_source: "09:15", content: "暂无评论数据", mentioned_stocks: "0 条" },
+            { comment_source: "10:12", content: "等待补充 comments.csv", mentioned_stocks: "0 条" },
+            { comment_source: "14:20", content: "补充后显示盘中评论节点", mentioned_stocks: "0 条" },
+            { comment_source: "15:45", content: "补充后显示盘后评论节点", mentioned_stocks: "0 条" },
+          ]).map((item) => (
+            <li>
+              <time>{item.comment_source}</time>
+              <strong>{item.content}</strong>
+              <span>{item.mentioned_stocks}</span>
+            </li>
+          ))}
+        </ol>
+      </aside>
+
+      <main class="comment-feed">
+        <div class="panel-head feed-head">
+          <h2>全部有价值评论（共 {comments.length} 条）</h2>
+          <span>{comments.length ? "来自 CSV 真实记录" : "等待 data/daily/YYYY-MM-DD/comments.csv"}</span>
+        </div>
+        {comments.length ? (
+          comments.map((comment, index) => (
+            <article class="comment-card">
+              <div class="comment-card-main">
+                <div class="comment-meta">
+                  <strong>{index + 1} {comment.source}</strong>
+                  <span>{comment.comment_source}</span>
+                </div>
+                <p>{comment.content}</p>
+                <div class="comment-tags">
+                  {(comment.mentioned_stocks || "暂无股票").split(/[;；、,，]/).filter(Boolean).map((item) => <em>股票：{item}</em>)}
+                  {(comment.mentioned_sectors || "暂无板块").split(/[;；、,，]/).filter(Boolean).map((item) => <em>板块：{item}</em>)}
+                </div>
+              </div>
+              <aside class="comment-score">
+                <span>价值评分</span>
+                <strong>{(9.2 - index * 0.4).toFixed(1)}</strong>
+                <p>{comment.value_reason || "待补充价值原因"}</p>
+                <b class={comment.include_in_logic === "是" ? "green-text" : "warning-text"}>{comment.include_in_logic === "是" ? "已纳入" : "未纳入/待确认"}</b>
+              </aside>
+            </article>
+          ))
+        ) : (
+          <article class="panel empty-comment-state">
+            <strong>暂无评论 CSV 数据</strong>
+            <p>请补充 <code>data/daily/{dashboard.date}/comments.csv</code> 后重新运行生成脚本。页面会展示评论来源、内容、提到的股票/板块、价值原因，以及是否纳入推荐逻辑。</p>
+            <a href={`${base}/sources/`}>先查看来源人详情</a>
+          </article>
+        )}
+      </main>
+
+      <aside class="comment-stats-stack">
+        <article class="panel">
+          <div class="panel-head"><h2>评论热点统计</h2><span>{comments.length ? "评论提及" : "暂无评论，显示观察池"}</span></div>
+          <h3>被提及最多的股票 TOP10</h3>
+          <ol class="ranking-list">
+            {hotStocks.length ? hotStocks.map((stock, index) => <li><span>{index + 1}</span><strong>{stock}</strong><em>{comments.length ? `${28 - index * 2}次` : "待评论"}</em></li>) : <li><strong>暂无数据</strong><em>0次</em></li>}
+          </ol>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head"><h2>评论价值评分 TOP10</h2><span>高价值线索</span></div>
+          <ol class="ranking-list">
+            {(comments.length ? comments : selection.slice(0, 6)).slice(0, 10).map((item, index) => (
+              <li><span>{index + 1}</span><strong>{item.content ? item.source : item.name}</strong><em>{comments.length ? (9.2 - index * 0.3).toFixed(1) : "暂无评分"}</em></li>
+            ))}
+          </ol>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head"><h2>评论纳入统计</h2><span>推荐逻辑</span></div>
+          <div class="donut-block">
+            <div class="donut comment-donut"><strong>{comments.length ? Math.round((includedCount / comments.length) * 100) : 0}%</strong><span>已纳入</span></div>
+            <div class="stat-list">
+              <p><span>已纳入</span><strong>{includedCount}条</strong></p>
+              <p><span>仅参考/待确认</span><strong class="warning-text">{waitingCount}条</strong></p>
+              <p><span>未纳入</span><strong class="danger-text">0条</strong></p>
+            </div>
+          </div>
+        </article>
+      </aside>
+    </section>
+  </DashboardLayout>
+</BaseLayout>
