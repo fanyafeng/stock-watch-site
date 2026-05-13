@@ -135,6 +135,7 @@ const threadGroups = [...groupsByKey.values()].map((group) => ({
 
 const stockOptions = unique(comments.flatMap((comment) => splitTokens(comment.mentioned_stocks))).slice(0, 40);
 const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.mentioned_sectors))).slice(0, 40);
+const timeOptions = unique(threadGroups.map((group) => group.time).filter((time) => time && time !== "--:--"));
 ---
 
 <BaseLayout title="评论聚合｜复盘工作台">
@@ -162,6 +163,15 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
         </div>
 
         <div class="comment-select-bar">
+          <label>
+            <span>时间：</span>
+            <select data-time-filter>
+              <option value="all">全部时间</option>
+              <option value="morning">上午</option>
+              <option value="afternoon">下午</option>
+              {timeOptions.map((time) => <option value={time}>{time}</option>)}
+            </select>
+          </label>
           <label>
             <span>评论价值：</span>
             <select data-value-filter>
@@ -203,11 +213,7 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
         <aside class="comment-timeline-panel">
           <div class="comment-panel-title">
             <h2>评论时间线</h2>
-            <select aria-label="时间筛选" data-time-filter>
-              <option value="all">全部时间</option>
-              <option value="morning">上午</option>
-              <option value="afternoon">下午</option>
-            </select>
+            <span>按时间索引</span>
           </div>
           <p class="comment-timeline-summary">共 {comments.length} 条评论 / {threadGroups.length} 条帖子或视频</p>
           <ol class="comment-thread-timeline">
@@ -426,8 +432,9 @@ const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.m
       function matchesTime(value) {
         if (state.time === "all") return true;
         const hour = Number(String(value || "0").split(":")[0]);
-        if (Number.isNaN(hour)) return true;
-        return state.time === "morning" ? hour < 12 : hour >= 12;
+        if (state.time === "morning") return !Number.isNaN(hour) && hour < 12;
+        if (state.time === "afternoon") return !Number.isNaN(hour) && hour >= 12;
+        return value === state.time;
       }
 
       function matchesDataset(dataset) {
