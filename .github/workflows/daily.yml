@@ -49,6 +49,9 @@ jobs:
         if: github.event_name != 'push'
         run: python scripts/encrypt_article.py --all
 
+      - name: Encrypt my positions
+        run: python scripts/encrypt_my_positions.py --mode loose
+
       - name: Sync report index
         run: python scripts/sync_reports_to_astro.py
 
@@ -57,7 +60,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/reports.json data/dashboard.json encrypted/articles src/data/reports.json src/data/dashboard.json
+          git add data/reports.json data/dashboard.json encrypted/articles encrypted/my src/data/reports.json src/data/dashboard.json src/data/my_positions_index.json
           git diff --cached --quiet || git commit -m "chore: update encrypted reports"
           git push || true
 

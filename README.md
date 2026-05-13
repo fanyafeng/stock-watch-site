@@ -24,11 +24,15 @@
 - `data/daily/YYYY-MM-DD/market.csv`：可选，大盘信息与今日总览。
 - `data/daily/YYYY-MM-DD/timeline.csv`：可选，盘中时间线。
 - `data/daily/YYYY-MM-DD/comments.csv`：可选，有价值评论聚合。
+- `data/my/positions/YYYY-MM-DD.csv`：我的个人持仓数据，独立于四个来源人。
+- `data/my/operations/YYYY-MM-DD.csv`：我的个人操作记录，独立于四个来源人。
 - `data/templates/`：可选 CSV 模板。
 - `build/tmp/`：临时明文报告目录，已在 `.gitignore` 中忽略。
 - `encrypted/articles/`：加密后的文章 payload，可提交。
+- `encrypted/my/`：我的持仓 / 操作记录密文 payload，可提交。
 - `src/data/reports.json`：同步给 Astro 使用的文章索引。
 - `src/data/dashboard.json`：同步给 Astro 使用的公开看板数据。
+- `src/data/my_positions_index.json`：同步给 Astro 使用的我的持仓密文索引。
 - `src/pages/`：Astro 页面。
 - `scripts/generate_report.py`：读取 CSV 并生成临时明文 HTML 报告。
 - `scripts/encrypt_article.py`：按文章日期生成密码并加密报告。
@@ -110,6 +114,40 @@ date,source,comment_source,content,mentioned_stocks,mentioned_sectors,value_reas
 
 模板文件在 `data/templates/`，可以复制后改成真实数据。
 
+## 我的持仓 / 操作记录
+
+`/my-positions/` 是个人私密 Tab，和四个博主来源数据分开管理。进入页面后默认只显示密码输入框，密码正确后才在浏览器本地解密展示我的持仓和操作记录；刷新页面后需要重新输入。
+
+个人持仓路径：`data/my/positions/YYYY-MM-DD.csv`
+
+```csv
+date,code,name,position_type,cost_price,current_price,position_ratio,holding_days,profit_loss_pct,status,plan,stop_loss,take_profit_1,take_profit_2,risk,note
+```
+
+个人操作记录路径：`data/my/operations/YYYY-MM-DD.csv`
+
+```csv
+date,time,action,code,name,price,volume_ratio,reason,plan,stop_loss,take_profit,result,note
+```
+
+加密输出路径：`encrypted/my/YYYY-MM-DD.json`
+
+我的持仓 Tab 使用独立固定密码：`xiaofan666888`。这个密码独立于每日复盘文章密码；每日复盘文章仍然使用 `xiaofan + (12 - 当前月份，两位数字) + 日期日号两位数字`。
+
+本地生成命令：
+
+```bash
+python scripts/encrypt_my_positions.py --date 2026-05-12 --mode strict
+```
+
+`strict` 模式下缺少 `positions` 或 `operations` 文件会报错；GitHub Actions 默认使用 `loose` 模式：
+
+```bash
+python scripts/encrypt_my_positions.py --mode loose
+```
+
+因此你不一定每天都上传个人持仓，缺少个人数据时不会影响整站构建，页面解锁后会显示“今日未上传个人持仓 / 今日未上传操作记录”。
+
 ## 页面结构
 
 公开工作台入口：
@@ -118,6 +156,7 @@ date,source,comment_source,content,mentioned_stocks,mentioned_sectors,value_reas
 - `/market/`：大盘分析页，展示指数表现、市场资金、板块轮动、量能、情绪和明日关注方向。
 - `/sources/`：来源人详情页，展示野哥、李红娟、王多于、龙哥的公开摘要、推荐、持仓和历史概览。
 - `/comments/`：评论聚合页，展示评论筛选、时间分布、价值评论列表、热点股票和纳入统计。
+- `/my-positions/`：我的持仓 / 操作记录私密页，使用独立密码解锁。
 - `/articles/daily_YYYY-MM-DD/`：加密复盘详情页，只有这里需要输入文章密码。
 
 解密后的 `daily_YYYY-MM-DD` 页面是一个“按日期聚合的股票复盘工作台”，包含：
@@ -217,6 +256,7 @@ total_score = trend_score + breakout_score + pullback_score + volume_score + ris
 - 替换 `data/sources/{source}/picks/{date}.csv`。
 - 替换 `data/sources/{source}/holdings/{date}.csv`。
 - 补充 `data/sources/{source}/posts/{date}.csv`、`data/daily/{date}/market.csv`、`data/daily/{date}/timeline.csv`、`data/daily/{date}/comments.csv`。
+- 补充 `data/my/positions/{date}.csv` 和 `data/my/operations/{date}.csv` 后运行 `encrypt_my_positions.py`。
 - 替换 `generate_report.py` 的数据来源，接入 AkShare、TuShare、邮件解析或自定义策略输出。
 - 邮件通知只发送站点文章链接，不发送明文正文。
 - 增加历史收益跟踪、文章搜索、个股详情页、多来源聚合筛选、博主持仓历史追踪。
@@ -224,9 +264,12 @@ total_score = trend_score + breakout_score + pullback_score + volume_score + ris
 ## 安全说明
 
 - `encrypted/articles/` 中只有密文 payload。
+- `encrypted/my/` 中只有我的持仓密文 payload。
 - `dist/` 中不能包含明文报告。
 - 不要提交 `build/tmp/` 明文报告。
 - `data/reports.json` 和 `src/data/reports.json` 不包含正文和密码。
 - 文章页只提示输入文章密码，不展示密码规则。
+- 我的持仓页源码不包含个人持仓明文，也不显示独立密码。
 - 这是静态加密，不是账号权限系统。
+- 如果我的持仓密码泄露，需要更换密码并重新生成 `encrypted/my/` 下的数据。
 - 如果需要真正的访问控制，后续可接 Cloudflare Access。
