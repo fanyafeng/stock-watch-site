@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DashboardLayout from "../components/DashboardLayout.astro";
+import dashboard from "../data/dashboard.json";
+
+const shortList = dashboard.selection?.short ?? [];
+const midList = dashboard.selection?.mid ?? [];
+const pool = [...shortList, ...midList];
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BaseLayout title="股票池｜复盘工作台">
+  <DashboardLayout active="股票池">
+    <header class="topbar dark-topbar">
+      <div>
+        <p>股票池 / 综合筛选</p>
+        <h1>股票池</h1>
+        <span>多来源共振 + 技术形态筛选，仅作个人复盘观察。</span>
+      </div>
+      <div class="topbar-actions">
+        <time datetime={dashboard.date}>{dashboard.date}</time>
+        <a href={`${base}/articles/daily_${dashboard.date}/`}>打开加密详情</a>
+      </div>
+    </header>
+
+    <section class="selection-panel">
+      <div class="panel-head">
+        <h2>综合股票池</h2>
+        <span>短期观察 {shortList.length} 只 / 中长期观察 {midList.length} 只</span>
+      </div>
+      <div class="selection-table-wrap">
+        <table class="selection-table">
+          <thead>
+            <tr><th>股票名称</th><th>代码</th><th>类型</th><th>来源</th><th>形态</th><th>入场区间</th><th>止损</th><th>止盈1</th><th>止盈2</th><th>风险</th><th>入选理由</th></tr>
+          </thead>
+          <tbody>
+            {pool.map((item) => (
+              <tr>
+                <td><strong>{item.name}</strong></td>
+                <td>{item.code}</td>
+                <td>{item.type}</td>
+                <td>{item.source_names}</td>
+                <td>{item.pattern}</td>
+                <td>{item.entry_range}</td>
+                <td>{item.stop_loss}</td>
+                <td>{item.take_profit_1}</td>
+                <td>{item.take_profit_2}</td>
+                <td class={item.risk === "高" ? "danger-text" : "warning-text"}>{item.risk}</td>
+                <td>{item.reason}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="bottom-grid">
+      <article class="panel">
+        <div class="panel-head"><h2>筛选纪律</h2><span>技术形态观察</span></div>
+        <div class="private-discipline-grid stock-discipline">
+          <p><strong>不追高</strong><span>只等入场区间和右侧确认。</span></p>
+          <p><strong>明确止损</strong><span>没有止损位的标的不入池。</span></p>
+          <p><strong>盈亏比优先</strong><span>风险收益不划算直接剔除。</span></p>
+          <p><strong>多来源共振</strong><span>多个来源同时提及时提高观察优先级。</span></p>
+        </div>
+      </article>
+      <aside class="panel risk-box">
+        <h2>风险提示</h2>
+        <ol><li>股票池不是买卖建议。</li><li>所有标的必须结合当天大盘状态确认。</li><li>跌破止损位应按纪律处理。</li></ol>
+        <strong>本文仅为个人复盘与技术形态观察。</strong>
+      </aside>
+    </section>
+  </DashboardLayout>
+</BaseLayout>

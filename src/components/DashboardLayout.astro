@@ -3,19 +3,23 @@ import dashboard from "../data/dashboard.json";
 
 const { active = "每日复盘" } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const reportHref = dashboard.report?.url ?? "/";
+const icons = {
+  review: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14l-3-2-3 2-3-2-3 2V5a2 2 0 0 1 2-2Z"/><path d="M9 8h6M9 12h5"/></svg>',
+  market: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16"/><path d="m5 15 4-4 3 2 5-7 2 3"/><path d="M18 6h1v4"/></svg>',
+  source: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',
+  pool: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M8 4v16M16 4v16"/></svg>',
+  record: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l2 3v15H6V6l2-3Z"/><path d="M9 11h6M9 15h4"/><path d="M10 3v4h4V3"/></svg>',
+  comment: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v10H8l-3 4V5Z"/><path d="M8 9h8M8 12h5"/></svg>',
+  about: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"/><path d="M12 10v6"/><path d="M12 7h.01"/></svg>',
+};
 const navItems = [
-  { label: "首页", href: "/" },
-  { label: "每日复盘", href: "/" },
-  { label: "大盘分析", href: "/market/" },
-  { label: "来源人", href: "/sources/" },
-  { label: "综合推荐", href: "/#selection" },
-  { label: "收益跟踪", href: "/market/#sentiment" },
-  { label: "评论聚合", href: "/comments/" },
-  { label: "我的持仓", href: "/my-positions/" },
-  { label: "操作计划", href: reportHref },
-  { label: "数据中心", href: "/sources/#data" },
-  { label: "设置", href: "/" },
+  { label: "每日复盘", href: "/", icon: icons.review },
+  { label: "大盘分析", href: "/market/", icon: icons.market },
+  { label: "来源人", href: "/sources/", icon: icons.source },
+  { label: "股票池", href: "/stock-pool/", icon: icons.pool },
+  { label: "操作记录", href: "/my-positions/", icon: icons.record },
+  { label: "评论聚合", href: "/comments/", icon: icons.comment },
+  { label: "关于我们", href: "/about/", icon: icons.about },
 ];
 
 const linkFor = (href) => `${base}${href}`;
@@ -34,7 +38,7 @@ const linkFor = (href) => `${base}${href}`;
     <nav class="side-nav" aria-label="主导航">
       {navItems.map((item) => (
         <a class={item.label === active ? "active" : ""} href={linkFor(item.href)}>
-          <span class="nav-dot"></span>{item.label}
+          <span class="nav-icon" set:html={item.icon}></span>{item.label}
         </a>
       ))}
     </nav>

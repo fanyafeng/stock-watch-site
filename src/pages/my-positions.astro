@@ -14,11 +14,11 @@ const payload = payloadModule?.default ?? null;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<BaseLayout title="我的持仓｜复盘工作台">
-  <DashboardLayout active="我的持仓">
+<BaseLayout title="操作记录｜复盘工作台">
+  <DashboardLayout active="操作记录">
     <header class="topbar dark-topbar">
       <div>
-        <p>私密区 / 我的持仓</p>
+        <p>私密区 / 操作记录</p>
         <h1>我的持仓 / 操作记录</h1>
         <span>个人数据独立加密，和博主来源数据分开管理。</span>
       </div>
@@ -36,9 +36,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         ["来源人", "/sources/"],
         ["综合推荐", "/#selection"],
         ["评论聚合", "/comments/"],
-        ["我的持仓", "/my-positions/"],
+        ["操作记录", "/my-positions/"],
       ].map(([item, href]) => (
-        <a class={item === "我的持仓" ? "active" : ""} href={`${base}${href}`}>{item}</a>
+        <a class={item === "操作记录" ? "active" : ""} href={`${base}${href}`}>{item}</a>
       ))}
     </nav>
 

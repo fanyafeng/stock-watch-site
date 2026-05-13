@@ -1060,17 +1060,27 @@ input {
 }
 
 .side-nav a::before {
-  content: "";
-  width: 18px;
-  height: 18px;
-  margin-right: 10px;
-  border: 1px solid currentColor;
-  border-radius: 5px;
-  opacity: 0.75;
+  content: none;
 }
 
-.nav-dot {
-  display: none;
+.nav-icon {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  margin-right: 10px;
+  color: currentColor;
+}
+
+.nav-icon svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px rgba(44, 145, 255, 0.18));
 }
 
 .side-nav a.active,
@@ -1773,6 +1783,12 @@ input {
   margin: 0 0 10px;
 }
 
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
 .filter-toolbar {
   display: grid;
   gap: 10px;
@@ -2373,7 +2389,8 @@ input {
   .comments-layout,
   .source-profile-grid,
   .source-page-grid,
-  .private-grid {
+  .private-grid,
+  .about-grid {
     grid-template-columns: 1fr;
   }
 

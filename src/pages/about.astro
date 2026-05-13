@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DashboardLayout from "../components/DashboardLayout.astro";
+---
+
+<BaseLayout title="关于我们｜复盘工作台">
+  <DashboardLayout active="关于我们">
+    <header class="topbar dark-topbar">
+      <div>
+        <p>关于我们</p>
+        <h1>复盘工作台说明</h1>
+        <span>一个按日期聚合、按来源沉淀的 A 股技术形态观察工具。</span>
+      </div>
+    </header>
+
+    <section class="about-grid">
+      <article class="panel">
+        <div class="panel-head"><h2>项目定位</h2><span>个人复盘</span></div>
+        <p class="analysis-copy">本站用于整理每日大盘状态、来源人观点、评论线索、股票池和个人操作记录。它不是荐股系统，也不构成任何投资建议。</p>
+      </article>
+      <article class="panel">
+        <div class="panel-head"><h2>数据来源</h2><span>CSV 驱动</span></div>
+        <p class="analysis-copy">第一版全部由本地 CSV 驱动，后续可以继续接入真实行情、帖子解析、视频摘要、邮件通知和历史表现跟踪。</p>
+      </article>
+      <article class="panel">
+        <div class="panel-head"><h2>加密方式</h2><span>静态加密</span></div>
+        <p class="analysis-copy">每日复盘详情和个人操作记录使用浏览器 Web Crypto API 本地解密。静态加密不是账号权限系统，如需强访问控制，后续可接 Cloudflare Access。</p>
+      </article>
+      <article class="panel">
+        <div class="panel-head"><h2>操作纪律</h2><span>风控优先</span></div>
+        <div class="private-discipline-grid stock-discipline">
+          <p><strong>不追高</strong><span>错过买点不强上。</span></p>
+          <p><strong>先看止损</strong><span>亏损能接受才考虑交易。</span></p>
+          <p><strong>仓位分批</strong><span>避免单点判断过重。</span></p>
+          <p><strong>只做复盘</strong><span>不把观察池当确定性结论。</span></p>
+        </div>
+      </article>
+    </section>
+  </DashboardLayout>
+</BaseLayout>
