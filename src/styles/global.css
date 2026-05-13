@@ -6028,38 +6028,66 @@ body {
 /* Comment source/date only controls and compact insight rows */
 .comment-workbench .comment-control-grid {
   grid-template-columns: 1fr;
+  gap: 0;
 }
 
 .comment-workbench .comment-source-switcher {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 12px;
   overflow-x: auto;
-  padding: 5px;
+  min-height: 56px;
+  border: 1px solid #e1e7f0;
+  border-radius: 10px;
+  background: #fff;
+  padding: 8px 12px;
 }
 
 .comment-date-picker {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
-  gap: 6px;
+  gap: 0;
   margin-left: auto;
   color: #4b5563;
   font-size: 12px;
   font-weight: 800;
+  position: relative;
   white-space: nowrap;
 }
 
+.comment-date-picker span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.comment-date-picker::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  background: currentColor;
+  opacity: 0.8;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1.5A2.5 2.5 0 0 1 22 6.5v12A2.5 2.5 0 0 1 19.5 21h-15A2.5 2.5 0 0 1 2 18.5v-12A2.5 2.5 0 0 1 4.5 4H6V3a1 1 0 0 1 1-1Zm12.5 8h-15v8.5a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5V10ZM5 6a1 1 0 0 0-1 1v1h16V7a1 1 0 0 0-1-1H5Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1.5A2.5 2.5 0 0 1 22 6.5v12A2.5 2.5 0 0 1 19.5 21h-15A2.5 2.5 0 0 1 2 18.5v-12A2.5 2.5 0 0 1 4.5 4H6V3a1 1 0 0 1 1-1Zm12.5 8h-15v8.5a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5V10ZM5 6a1 1 0 0 0-1 1v1h16V7a1 1 0 0 0-1-1H5Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
 .comment-date-picker select {
-  height: 32px;
-  min-width: 128px;
+  height: 40px;
+  min-width: 160px;
   border: 1px solid #dbe3ef;
-  border-radius: 6px;
+  border-radius: 8px;
   background: #fff;
   color: #111827;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 800;
-  padding: 0 30px 0 9px;
+  padding: 0 36px 0 44px;
 }
 
 .comment-insight-list {

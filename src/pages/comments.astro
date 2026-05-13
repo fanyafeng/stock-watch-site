@@ -160,7 +160,7 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
             </button>
           ))}
           <label class="comment-date-picker">
-            <span>日期</span>
+            <span aria-hidden="true">日期</span>
             <select data-date-filter data-current-date={dashboard.date}>
               {dateOptions.map((date) => (
                 <option value={date} selected={date === dashboard.date}>{date}</option>
