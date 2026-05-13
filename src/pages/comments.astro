@@ -4,16 +4,31 @@ import DashboardLayout from "../components/DashboardLayout.astro";
 import dashboard from "../data/dashboard.json";
 
 const comments = dashboard.comments ?? [];
-const sources = dashboard.sources ?? [];
+const sources = dashboard.comment_sources ?? dashboard.sources ?? [];
+const evidence = dashboard.evidence ?? {};
 const selection = [...(dashboard.selection?.short ?? []), ...(dashboard.selection?.mid ?? [])];
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const sourceColors = { yege: "blue", lihongjuan: "purple", wangduoyu: "green", longge: "orange" };
+const splitTokens = (value) => String(value || "").split(/[;；、,，]/).map((item) => item.trim()).filter(Boolean);
+const sourceName = (sourceId) => sources.find((item) => item.id === sourceId)?.name ?? sourceId;
+const assetUrl = (path) => `${base}${path}`;
 const includedCount = comments.filter((item) => item.include_in_logic === "是").length;
-const waitingCount = comments.filter((item) => item.include_in_logic !== "是").length;
-const mentionedStocks = comments.length
-  ? comments.flatMap((item) => (item.mentioned_stocks || "").split(/[;；、,，]/).filter(Boolean))
-  : selection.map((item) => item.name);
-const hotStocks = [...new Set(mentionedStocks)].slice(0, 10);
+const rejectedCount = comments.filter((item) => item.include_in_logic === "否").length;
+const waitingCount = comments.length - includedCount - rejectedCount;
+const stockCounts = comments.reduce((acc, item) => {
+  splitTokens(item.mentioned_stocks).forEach((stock) => acc.set(stock, (acc.get(stock) ?? 0) + 1));
+  return acc;
+}, new Map());
+const hotStocks = [...stockCounts.entries()]
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 10);
+const fallbackStocks = selection.map((item) => [item.name, 0]).slice(0, 10);
+const topEvidence = sources.flatMap((source) =>
+  (evidence[source.id]?.posts ?? []).map((post) => ({ ...post, source_id: source.id, source_name: source.name }))
+);
+const timelineItems = comments.length ? comments.slice(0, 14) : [
+  { source_id: "system", source_name: "系统", comment_source: "暂无评论", content: "等待补充 comments.csv", mentioned_stocks: "0 条" },
+];
 ---
 
 <BaseLayout title="评论聚合｜复盘工作台">
@@ -22,65 +37,76 @@ const hotStocks = [...new Set(mentionedStocks)].slice(0, 10);
       <div>
         <p>评论聚合 / {dashboard.date}</p>
         <h1>有价值评论聚合</h1>
-        <span>数据更新时间：{dashboard.updated_at ?? "暂无数据"}</span>
+        <span>已导入 {comments.length} 条评论/备份记录，{topEvidence.length} 条帖子/视频证据</span>
       </div>
       <div class="topbar-actions">
         <time datetime={dashboard.date}>{dashboard.date}</time>
-        <button type="button">前一天</button>
-        <button type="button">后一天</button>
         <a href={`${base}/articles/daily_${dashboard.date}/`}>打开加密详情</a>
       </div>
     </header>
 
-    <section class="comment-source-tabs">
-      <a class="active" href={`${base}/comments/`}>全部评论</a>
+    <section class="comment-source-tabs" aria-label="评论来源筛选">
+      <button class="active" type="button" data-comment-filter="all">全部 <small>{comments.length}</small></button>
       {sources.map((source) => (
-        <a href={`${base}/sources/#source-${source.id}`}>
+        <button type="button" data-comment-filter={source.id}>
           <span class={`avatar ${sourceColors[source.id] ?? ""}`}>{source.name.slice(0, 1)}</span>
-          {source.name} <small>({source.id})</small>
-        </a>
+          {source.name}
+          <small>{source.count ?? 0} 条</small>
+        </button>
       ))}
     </section>
 
     <section class="filter-toolbar">
       <div>
-        <span>时间筛选：</span>
-        {["全部", "09:00-10:30", "10:30-11:30", "13:00-14:30", "14:30-15:30", "盘后"].map((item, index) => (
-          <button class={index === 0 ? "active" : ""} type="button">{item}</button>
-        ))}
+        <span>纳入状态：</span>
+        <button class="active" type="button" data-status-filter="all">全部</button>
+        <button type="button" data-status-filter="是">已纳入</button>
+        <button type="button" data-status-filter="待确认">待确认</button>
+        <button type="button" data-status-filter="否">未纳入</button>
       </div>
       <div>
-        <span>筛选条件：</span>
-        <button type="button">全部平台</button>
-        <button type="button">全部类型</button>
-        <button type="button">全部股票/板块</button>
-        <label><input type="checkbox" /> 只看已纳入推荐逻辑</label>
+        <span>证据类型：</span>
+        <button class="active" type="button" data-media-filter="all">全部</button>
+        <button type="button" data-media-filter="media">有截图</button>
+        <button type="button" data-media-filter="video">有视频链接</button>
       </div>
-      <div>
-        <span>排序方式：</span>
-        <button class="active" type="button">价值评分（高→低）</button>
-        <button type="button">列表视图</button>
-        <button type="button">时间线视图</button>
-      </div>
+    </section>
+
+    <section class="comment-summary-grid">
+      <article class="panel comment-kpi">
+        <span>评论/备份记录</span>
+        <strong>{comments.length}</strong>
+        <small>来自 data/daily/{dashboard.date}/comments.csv</small>
+      </article>
+      <article class="panel comment-kpi">
+        <span>已纳入推荐逻辑</span>
+        <strong class="green-text">{includedCount}</strong>
+        <small>仍需结合买点与止损复核</small>
+      </article>
+      <article class="panel comment-kpi">
+        <span>待确认/仅参考</span>
+        <strong class="warning-text">{waitingCount}</strong>
+        <small>包含野哥截图证据与评论量备份</small>
+      </article>
+      <article class="panel comment-kpi">
+        <span>帖子/视频证据</span>
+        <strong>{topEvidence.length}</strong>
+        <small>同花顺、群聊、抖音视频</small>
+      </article>
     </section>
 
     <section class="comments-layout">
       <aside class="panel comment-timeline-card">
         <div class="panel-head">
-          <h2>今日评论时间分布</h2>
-          <span>共 {comments.length} 条</span>
+          <h2>今日评论时间线</h2>
+          <span>按导入顺序</span>
         </div>
-        <ol class="comment-timeline">
-          {(comments.length ? comments : [
-            { comment_source: "09:15", content: "暂无评论数据", mentioned_stocks: "0 条" },
-            { comment_source: "10:12", content: "等待补充 comments.csv", mentioned_stocks: "0 条" },
-            { comment_source: "14:20", content: "补充后显示盘中评论节点", mentioned_stocks: "0 条" },
-            { comment_source: "15:45", content: "补充后显示盘后评论节点", mentioned_stocks: "0 条" },
-          ]).map((item) => (
-            <li>
+        <ol class="comment-timeline compact-comment-timeline">
+          {timelineItems.map((item) => (
+            <li data-timeline-source={item.source_id ?? ""}>
               <time>{item.comment_source}</time>
               <strong>{item.content}</strong>
-              <span>{item.mentioned_stocks}</span>
+              <span>{item.source_name ?? item.source} / {item.mentioned_stocks}</span>
             </li>
           ))}
         </ol>
@@ -88,70 +114,172 @@ const hotStocks = [...new Set(mentionedStocks)].slice(0, 10);
 
       <main class="comment-feed">
         <div class="panel-head feed-head">
-          <h2>全部有价值评论（共 {comments.length} 条）</h2>
-          <span>{comments.length ? "来自 CSV 真实记录" : "等待 data/daily/YYYY-MM-DD/comments.csv"}</span>
+          <h2 id="comment-feed-title">全部评论与备份（共 {comments.length} 条）</h2>
+          <span>{comments.length ? "CSV 真实导入，不使用随机 mock" : "等待 data/daily/YYYY-MM-DD/comments.csv"}</span>
         </div>
         {comments.length ? (
-          comments.map((comment, index) => (
-            <article class="comment-card">
-              <div class="comment-card-main">
-                <div class="comment-meta">
-                  <strong>{index + 1} {comment.source}</strong>
-                  <span>{comment.comment_source}</span>
+          comments.map((comment, index) => {
+            const isIncluded = comment.include_in_logic === "是";
+            const isRejected = comment.include_in_logic === "否";
+            const hasVideo = Boolean(comment.video_urls?.length) || String(comment.note || "").includes("http");
+            return (
+              <article
+                class="comment-card"
+                data-comment-card
+                data-source={comment.source_id}
+                data-status={comment.include_in_logic || "待确认"}
+                data-has-media={comment.media?.length ? "true" : "false"}
+                data-has-video={hasVideo ? "true" : "false"}
+              >
+                <div class="comment-card-main">
+                  <div class="comment-meta">
+                    <strong>{index + 1} {comment.source_name ?? comment.source}</strong>
+                    <span>{comment.comment_source}</span>
+                  </div>
+                  <p>{comment.content}</p>
+                  <div class="comment-tags">
+                    {splitTokens(comment.mentioned_stocks || "暂无股票").map((item) => <em>股票：{item}</em>)}
+                    {splitTokens(comment.mentioned_sectors || "暂无板块").map((item) => <em>板块：{item}</em>)}
+                  </div>
+                  {comment.media?.length ? (
+                    <div class="comment-media-strip">
+                      {comment.media.slice(0, 4).map((path) => (
+                        <a href={assetUrl(path)} target="_blank" rel="noreferrer">
+                          <img src={assetUrl(path)} alt={`${comment.source_name ?? comment.source} 备份截图`} loading="lazy" />
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
+                  {comment.video_urls?.length ? (
+                    <div class="comment-video-links">
+                      {comment.video_urls.map((url) => (
+                        <a href={url} target="_blank" rel="noreferrer">打开视频证据</a>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
-                <p>{comment.content}</p>
-                <div class="comment-tags">
-                  {(comment.mentioned_stocks || "暂无股票").split(/[;；、,，]/).filter(Boolean).map((item) => <em>股票：{item}</em>)}
-                  {(comment.mentioned_sectors || "暂无板块").split(/[;；、,，]/).filter(Boolean).map((item) => <em>板块：{item}</em>)}
-                </div>
-              </div>
-              <aside class="comment-score">
-                <span>价值评分</span>
-                <strong>{(9.2 - index * 0.4).toFixed(1)}</strong>
-                <p>{comment.value_reason || "待补充价值原因"}</p>
-                <b class={comment.include_in_logic === "是" ? "green-text" : "warning-text"}>{comment.include_in_logic === "是" ? "已纳入" : "未纳入/待确认"}</b>
-              </aside>
-            </article>
-          ))
+                <aside class="comment-score">
+                  <span>{isIncluded ? "已纳入" : isRejected ? "未纳入" : "待确认"}</span>
+                  <strong>{isIncluded ? "IN" : isRejected ? "NO" : "WAIT"}</strong>
+                  <p>{comment.value_reason || "待补充价值原因"}</p>
+                  <small>{comment.note}</small>
+                </aside>
+              </article>
+            );
+          })
         ) : (
           <article class="panel empty-comment-state">
             <strong>暂无评论 CSV 数据</strong>
-            <p>请补充 <code>data/daily/{dashboard.date}/comments.csv</code> 后重新运行生成脚本。页面会展示评论来源、内容、提到的股票/板块、价值原因，以及是否纳入推荐逻辑。</p>
-            <a href={`${base}/sources/`}>先查看来源人详情</a>
+            <p>请补充 <code>data/daily/{dashboard.date}/comments.csv</code> 后重新运行生成脚本。</p>
           </article>
         )}
       </main>
 
       <aside class="comment-stats-stack">
-        <article class="panel">
-          <div class="panel-head"><h2>评论热点统计</h2><span>{comments.length ? "评论提及" : "暂无评论，显示观察池"}</span></div>
-          <h3>被提及最多的股票 TOP10</h3>
-          <ol class="ranking-list">
-            {hotStocks.length ? hotStocks.map((stock, index) => <li><span>{index + 1}</span><strong>{stock}</strong><em>{comments.length ? `${28 - index * 2}次` : "待评论"}</em></li>) : <li><strong>暂无数据</strong><em>0次</em></li>}
-          </ol>
+        <article class="panel evidence-panel">
+          <div class="panel-head"><h2>来源证据</h2><span>截图 / 视频 / 群聊</span></div>
+          <div class="evidence-list">
+            {topEvidence.slice(0, 12).map((post) => (
+              <article class="evidence-item" data-evidence-source={post.source_id}>
+                <div>
+                  <strong>{post.source_name}</strong>
+                  <span>{post.channel}</span>
+                </div>
+                <h3>{post.title}</h3>
+                <p>{post.summary}</p>
+                <div class="comment-tags">
+                  {splitTokens(post.mentioned_stocks).slice(0, 4).map((item) => <em>{item}</em>)}
+                </div>
+                {post.media?.length ? (
+                  <div class="evidence-media-grid">
+                    {post.media.slice(0, 3).map((path) => (
+                      <a href={assetUrl(path)} target="_blank" rel="noreferrer">
+                        <img src={assetUrl(path)} alt={`${post.source_name} 截图备份`} loading="lazy" />
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
+                {post.url && !post.url.startsWith("douyin://") ? <a class="evidence-link" href={post.url} target="_blank" rel="noreferrer">打开原始链接</a> : null}
+              </article>
+            ))}
+          </div>
         </article>
 
         <article class="panel">
-          <div class="panel-head"><h2>评论价值评分 TOP10</h2><span>高价值线索</span></div>
+          <div class="panel-head"><h2>评论热点统计</h2><span>股票提及</span></div>
           <ol class="ranking-list">
-            {(comments.length ? comments : selection.slice(0, 6)).slice(0, 10).map((item, index) => (
-              <li><span>{index + 1}</span><strong>{item.content ? item.source : item.name}</strong><em>{comments.length ? (9.2 - index * 0.3).toFixed(1) : "暂无评分"}</em></li>
+            {(hotStocks.length ? hotStocks : fallbackStocks).map(([stock, count], index) => (
+              <li><span>{index + 1}</span><strong>{stock}</strong><em>{count ? `${count}次` : "观察池"}</em></li>
             ))}
           </ol>
         </article>
 
         <article class="panel">
-          <div class="panel-head"><h2>评论纳入统计</h2><span>推荐逻辑</span></div>
-          <div class="donut-block">
-            <div class="donut comment-donut"><strong>{comments.length ? Math.round((includedCount / comments.length) * 100) : 0}%</strong><span>已纳入</span></div>
-            <div class="stat-list">
-              <p><span>已纳入</span><strong>{includedCount}条</strong></p>
-              <p><span>仅参考/待确认</span><strong class="warning-text">{waitingCount}条</strong></p>
-              <p><span>未纳入</span><strong class="danger-text">0条</strong></p>
-            </div>
+          <div class="panel-head"><h2>纳入统计</h2><span>推荐逻辑</span></div>
+          <div class="stat-list">
+            <p><span>已纳入</span><strong>{includedCount} 条</strong></p>
+            <p><span>待确认</span><strong class="warning-text">{waitingCount} 条</strong></p>
+            <p><span>未纳入</span><strong class="danger-text">{rejectedCount} 条</strong></p>
           </div>
         </article>
       </aside>
     </section>
+
+    <script>
+      const state = { source: "all", status: "all", media: "all" };
+      const sourceButtons = document.querySelectorAll("[data-comment-filter]");
+      const statusButtons = document.querySelectorAll("[data-status-filter]");
+      const mediaButtons = document.querySelectorAll("[data-media-filter]");
+      const cards = document.querySelectorAll("[data-comment-card]");
+      const evidenceItems = document.querySelectorAll("[data-evidence-source]");
+      const title = document.querySelector("#comment-feed-title");
+
+      function setActive(buttons, activeButton) {
+        buttons.forEach((button) => button.classList.toggle("active", button === activeButton));
+      }
+
+      function matchesMedia(card) {
+        if (state.media === "media") return card.dataset.hasMedia === "true";
+        if (state.media === "video") return card.dataset.hasVideo === "true";
+        return true;
+      }
+
+      function applyFilters() {
+        let visible = 0;
+        cards.forEach((card) => {
+          const sourceMatch = state.source === "all" || card.dataset.source === state.source;
+          const statusMatch = state.status === "all" || card.dataset.status === state.status;
+          const show = sourceMatch && statusMatch && matchesMedia(card);
+          card.hidden = !show;
+          if (show) visible += 1;
+        });
+        evidenceItems.forEach((item) => {
+          item.hidden = !(state.source === "all" || item.dataset.evidenceSource === state.source);
+        });
+        if (title) title.textContent = `${state.source === "all" ? "全部" : "当前来源"}评论与备份（共 ${visible} 条）`;
+      }
+
+      sourceButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          state.source = button.dataset.commentFilter || "all";
+          setActive(sourceButtons, button);
+          applyFilters();
+        });
+      });
+      statusButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          state.status = button.dataset.statusFilter || "all";
+          setActive(statusButtons, button);
+          applyFilters();
+        });
+      });
+      mediaButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          state.media = button.dataset.mediaFilter || "all";
+          setActive(mediaButtons, button);
+          applyFilters();
+        });
+      });
+    </script>
   </DashboardLayout>
 </BaseLayout>

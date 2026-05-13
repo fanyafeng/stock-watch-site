@@ -6,6 +6,7 @@ import csv
 import datetime as dt
 import html
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -1050,6 +1051,49 @@ def split_values(value: str, limit: int = 4) -> list[str]:
     return cleaned[:limit]
 
 
+def extract_media_paths(value: str) -> list[str]:
+    text = value or ""
+    matches = re.findall(r"/media/[^\s;，,]+", text)
+    return list(dict.fromkeys(matches))
+
+
+def extract_http_urls(value: str) -> list[str]:
+    text = value or ""
+    matches = re.findall(r"https?://[^\s;，,]+", text)
+    return list(dict.fromkeys(matches))
+
+
+def public_post(post: dict[str, str]) -> dict[str, Any]:
+    return {
+        "channel": post.get("channel", ""),
+        "title": post.get("title", ""),
+        "url": post.get("url", ""),
+        "media": extract_media_paths(post.get("image", "")),
+        "summary": post.get("summary") or post.get("raw_text") or post.get("note", ""),
+        "mentioned_stocks": post.get("mentioned_stocks", ""),
+        "mentioned_sectors": post.get("mentioned_sectors", ""),
+        "note": post.get("note", ""),
+    }
+
+
+def public_comment(item: dict[str, str], source_lookup: dict[str, str]) -> dict[str, Any]:
+    source_id = item.get("source", "")
+    return {
+        "source_id": source_id,
+        "source": source_lookup.get(source_id, source_id),
+        "source_name": source_lookup.get(source_id, source_id),
+        "comment_source": item.get("comment_source", ""),
+        "content": item.get("content", ""),
+        "mentioned_stocks": item.get("mentioned_stocks", ""),
+        "mentioned_sectors": item.get("mentioned_sectors", ""),
+        "value_reason": item.get("value_reason", ""),
+        "include_in_logic": item.get("include_in_logic", ""),
+        "note": item.get("note", ""),
+        "media": extract_media_paths(item.get("note", "")),
+        "video_urls": extract_http_urls(item.get("note", "")),
+    }
+
+
 def summarize_source_card(source_data: dict[str, Any]) -> dict[str, Any]:
     source = source_data["source"]
     accepted = sorted(source_data["accepted"], key=lambda item: item["total_score"], reverse=True)
@@ -1082,6 +1126,8 @@ def summarize_source_card(source_data: dict[str, Any]) -> dict[str, Any]:
             for item in holdings[:3]
         ],
         "comment_count": len(comments),
+        "posts": [public_post(post) for post in posts],
+        "comments": [public_comment(comment, {source["id"]: source["name"]}) for comment in comments[:8]],
     }
 
 
@@ -1170,18 +1216,27 @@ def write_dashboard_data(report_meta: dict[str, Any], sources: list[dict[str, An
             "short": [public_stock(item) for item in short_top],
             "mid": [public_stock(item) for item in mid_top],
         },
-        "comments": [
+        "comments": [public_comment(item, source_lookup) for item in daily["comments"]],
+        "comment_sources": [
             {
-                "source": source_lookup.get(item.get("source", ""), item.get("source", "")),
-                "comment_source": item.get("comment_source", ""),
-                "content": item.get("content", ""),
-                "mentioned_stocks": item.get("mentioned_stocks", ""),
-                "mentioned_sectors": item.get("mentioned_sectors", ""),
-                "value_reason": item.get("value_reason", ""),
-                "include_in_logic": item.get("include_in_logic", ""),
+                "id": source["id"],
+                "name": source["name"],
+                "count": len([item for item in daily["comments"] if item.get("source") == source["id"]]),
+                "post_count": len([post for post in daily["all_posts"] if post.get("source") == source["id"]]),
             }
-            for item in daily["comments"][:6]
+            for source in sources
         ],
+        "evidence": {
+            source["id"]: {
+                "name": source["name"],
+                "posts": [
+                    public_post(post)
+                    for post in daily["all_posts"]
+                    if post.get("source") == source["id"]
+                ],
+            }
+            for source in sources
+        },
     }
     DASHBOARD_FILE.parent.mkdir(parents=True, exist_ok=True)
     DASHBOARD_FILE.write_text(json.dumps(dashboard, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
