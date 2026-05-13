@@ -6024,3 +6024,149 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Comment source/date only controls and compact insight rows */
+.comment-workbench .comment-control-grid {
+  grid-template-columns: 1fr;
+}
+
+.comment-workbench .comment-source-switcher {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  overflow-x: auto;
+  padding: 5px;
+}
+
+.comment-date-picker {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.comment-date-picker select {
+  height: 32px;
+  min-width: 128px;
+  border: 1px solid #dbe3ef;
+  border-radius: 6px;
+  background: #fff;
+  color: #111827;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 0 30px 0 9px;
+}
+
+.comment-insight-list {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.8fr) minmax(150px, 1fr);
+  gap: 0;
+  border-top: 1px solid #edf1f7;
+  border-bottom: 1px solid #edf1f7;
+  background: #fff;
+  margin: 0 14px 2px;
+}
+
+.comment-insight-row {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 8px;
+  min-height: 34px;
+  border-bottom: 1px solid #edf1f7;
+  color: #1f2937;
+  padding: 7px 10px;
+}
+
+.comment-insight-row--wide,
+.comment-insight-row--status {
+  grid-column: 1 / -1;
+}
+
+.comment-insight-row:nth-child(2n + 1) {
+  border-right: 1px solid #edf1f7;
+}
+
+.comment-insight-row:nth-child(2) {
+  border-right: 0;
+}
+
+.comment-insight-row:nth-last-child(1) {
+  border-bottom: 0;
+}
+
+.comment-insight-row span {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.comment-insight-row strong {
+  color: #111827;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.comment-insight-row p {
+  margin: 0;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.comment-insight-row--status.pending strong {
+  color: #c2410c;
+}
+
+.comment-insight-row--status.included strong {
+  color: #15803d;
+}
+
+.comment-insight-row--status.rejected strong {
+  color: #b91c1c;
+}
+
+.comment-insight-row--status i {
+  margin-right: 5px;
+  font-style: normal;
+}
+
+.comment-insight-row--status {
+  grid-template-columns: 62px auto minmax(0, 1fr);
+}
+
+@media (max-width: 960px) {
+  .comment-date-picker {
+    margin-left: 0;
+  }
+
+  .comment-insight-list {
+    grid-template-columns: 1fr;
+  }
+
+  .comment-insight-row,
+  .comment-insight-row:nth-child(2n + 1) {
+    border-right: 0;
+  }
+
+  .comment-insight-row:nth-last-child(2) {
+    border-bottom: 1px solid #edf1f7;
+  }
+}
+
+@media (max-width: 620px) {
+  .comment-date-picker {
+    width: 100%;
+  }
+
+  .comment-date-picker select {
+    flex: 1;
+  }
+}

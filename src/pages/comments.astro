@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DashboardLayout from "../components/DashboardLayout.astro";
 import dashboard from "../data/dashboard.json";
+import reports from "../data/reports.json";
 
 const comments = dashboard.comments ?? [];
 const sources = dashboard.comment_sources ?? dashboard.sources ?? [];
@@ -133,9 +134,7 @@ const threadGroups = [...groupsByKey.values()].map((group) => ({
   statuses: unique(group.comments.map((comment) => comment.include_in_logic || "待确认")),
 }));
 
-const stockOptions = unique(comments.flatMap((comment) => splitTokens(comment.mentioned_stocks))).slice(0, 40);
-const sectorOptions = unique(comments.flatMap((comment) => splitTokens(comment.mentioned_sectors))).slice(0, 40);
-const timeOptions = unique(threadGroups.map((group) => group.time).filter((time) => time && time !== "--:--"));
+const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]).filter(Boolean).sort().reverse();
 ---
 
 <BaseLayout title="评论聚合｜复盘工作台">
@@ -160,52 +159,14 @@ const timeOptions = unique(threadGroups.map((group) => group.time).filter((time)
               {source.name} <small>({source.count ?? 0})</small>
             </button>
           ))}
-        </div>
-
-        <div class="comment-select-bar">
-          <label>
-            <span>时间：</span>
-            <select data-time-filter>
-              <option value="all">全部时间</option>
-              <option value="morning">上午</option>
-              <option value="afternoon">下午</option>
-              {timeOptions.map((time) => <option value={time}>{time}</option>)}
+          <label class="comment-date-picker">
+            <span>日期</span>
+            <select data-date-filter data-current-date={dashboard.date}>
+              {dateOptions.map((date) => (
+                <option value={date} selected={date === dashboard.date}>{date}</option>
+              ))}
             </select>
           </label>
-          <label>
-            <span>评论价值：</span>
-            <select data-value-filter>
-              <option value="all">全部</option>
-              <option value="valuable">高价值</option>
-              <option value="evidence">有证据</option>
-              <option value="risk">风险提示</option>
-              <option value="watch">待确认</option>
-            </select>
-          </label>
-          <label>
-            <span>纳入逻辑：</span>
-            <select data-status-filter>
-              <option value="all">全部</option>
-              <option value="是">已纳入</option>
-              <option value="待确认">待确认</option>
-              <option value="否">未纳入</option>
-            </select>
-          </label>
-          <label>
-            <span>提到股票：</span>
-            <select data-stock-filter>
-              <option value="all">全部</option>
-              {stockOptions.map((stock) => <option value={stock}>{stock}</option>)}
-            </select>
-          </label>
-          <label>
-            <span>提到板块：</span>
-            <select data-sector-filter>
-              <option value="all">全部</option>
-              {sectorOptions.map((sector) => <option value={sector}>{sector}</option>)}
-            </select>
-          </label>
-          <button class="comment-reset-btn" type="button" data-reset-filters>↻ 重置</button>
         </div>
       </section>
 
@@ -326,24 +287,24 @@ const timeOptions = unique(threadGroups.map((group) => group.time).filter((time)
                             </div>
                           </div>
 
-                          <div class="comment-judgement-grid">
-                            <article class="comment-judgement-card">
-                              <span>提到的股票</span>
+                          <div class="comment-insight-list">
+                            <div class="comment-insight-row">
+                              <span>股票</span>
                               <strong>{comment.stocks.join("、") || "暂无"}</strong>
-                            </article>
-                            <article class="comment-judgement-card">
-                              <span>提到的板块</span>
+                            </div>
+                            <div class="comment-insight-row">
+                              <span>板块</span>
                               <strong>{comment.sectors.slice(0, 3).join("、") || "暂无"}</strong>
-                            </article>
-                            <article class="comment-judgement-card">
-                              <span>为什么有价值</span>
+                            </div>
+                            <div class="comment-insight-row comment-insight-row--wide">
+                              <span>价值原因</span>
                               <p set:html={highlightKeywords(comment.value_reason || "待补充价值判断")} />
-                            </article>
-                            <article class={`comment-judgement-card ${meta.tone}`}>
-                              <span>纳入推荐逻辑</span>
+                            </div>
+                            <div class={`comment-insight-row comment-insight-row--status ${meta.tone}`}>
+                              <span>纳入状态</span>
                               <strong><i>{meta.mark}</i>{meta.label}</strong>
-                              <p>{comment.include_in_logic === "否" ? "该评论作为风险或反向观察，不直接进入推荐。" : comment.value_reason || "保留为观察依据，等待盘面验证。"}</p>
-                            </article>
+                              <p>{comment.include_in_logic === "否" ? "作为风险或反向观察，不直接进入推荐。" : "保留为观察依据，等待盘面验证。"}</p>
+                            </div>
                           </div>
 
                           <div class="comment-evidence-actions">
@@ -404,20 +365,10 @@ const timeOptions = unique(threadGroups.map((group) => group.time).filter((time)
     <script>
       const state = {
         source: "all",
-        value: "all",
-        status: "all",
-        stock: "all",
-        sector: "all",
-        time: "all",
       };
 
       const sourceButtons = document.querySelectorAll("[data-comment-filter]");
-      const valueFilter = document.querySelector("[data-value-filter]");
-      const statusFilter = document.querySelector("[data-status-filter]");
-      const stockFilter = document.querySelector("[data-stock-filter]");
-      const sectorFilter = document.querySelector("[data-sector-filter]");
-      const timeFilter = document.querySelector("[data-time-filter]");
-      const resetButton = document.querySelector("[data-reset-filters]");
+      const dateFilter = document.querySelector("[data-date-filter]");
       const threads = document.querySelectorAll("[data-comment-thread]");
       const timelineItems = document.querySelectorAll("[data-timeline-item]");
       const feedTitle = document.querySelector("#comment-feed-title");
@@ -425,27 +376,8 @@ const timeOptions = unique(threadGroups.map((group) => group.time).filter((time)
       const exportButton = document.querySelector("[data-export-comments]");
       let activeThreadId = threads[0]?.id || "";
 
-      function includesToken(value, token) {
-        return token === "all" || String(value || "").split("|").includes(token);
-      }
-
-      function matchesTime(value) {
-        if (state.time === "all") return true;
-        const hour = Number(String(value || "0").split(":")[0]);
-        if (state.time === "morning") return !Number.isNaN(hour) && hour < 12;
-        if (state.time === "afternoon") return !Number.isNaN(hour) && hour >= 12;
-        return value === state.time;
-      }
-
       function matchesDataset(dataset) {
-        return (
-          (state.source === "all" || dataset.source === state.source) &&
-          includesToken(dataset.values, state.value) &&
-          includesToken(dataset.statuses, state.status) &&
-          includesToken(dataset.stocks, state.stock) &&
-          includesToken(dataset.sectors, state.sector) &&
-          matchesTime(dataset.time)
-        );
+        return state.source === "all" || dataset.source === state.source;
       }
 
       function applyFilters() {
@@ -492,31 +424,11 @@ const timeOptions = unique(threadGroups.map((group) => group.time).filter((time)
         });
       });
 
-      [
-        [valueFilter, "value"],
-        [statusFilter, "status"],
-        [stockFilter, "stock"],
-        [sectorFilter, "sector"],
-        [timeFilter, "time"],
-      ].forEach(([select, key]) => {
-        select?.addEventListener("change", () => {
-          state[key] = select.value || "all";
-          applyFilters();
-        });
-      });
-
-      resetButton?.addEventListener("click", () => {
-        state.source = "all";
-        state.value = "all";
-        state.status = "all";
-        state.stock = "all";
-        state.sector = "all";
-        state.time = "all";
-        sourceButtons.forEach((item, index) => item.classList.toggle("active", index === 0));
-        [valueFilter, statusFilter, stockFilter, sectorFilter, timeFilter].forEach((select) => {
-          if (select) select.value = "all";
-        });
-        applyFilters();
+      dateFilter?.addEventListener("change", () => {
+        const selectedDate = dateFilter.value;
+        if (selectedDate && selectedDate !== dateFilter.dataset.currentDate) {
+          window.location.href = `${window.location.pathname}?date=${encodeURIComponent(selectedDate)}`;
+        }
       });
 
       timelineItems.forEach((item) => {
