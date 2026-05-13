@@ -146,6 +146,35 @@ SOURCE_POST_LABELS = {
 
 RISK_ORDER = {"低": 1, "中": 2, "高": 3}
 
+BASE_DISCIPLINE_RULES = [
+    "不追高，只等买点。",
+    "买入前先看止损是否能接受。",
+    "盈亏比不足不做。",
+    "跌破止损无条件退出。",
+    "多来源共同提到不等于可以买，只能提高观察优先级。",
+]
+
+POSITION_VOLUME_RULES = [
+    ("低位无量", "低位无量要等，等错也要等。"),
+    ("高位无量", "高位无量要拿，拿错了也要拿。"),
+    ("低位放量", "低位放量要跟，跟错了也要跟。"),
+    ("高位放量", "高位放量要跑，跑错了也要跑。"),
+]
+
+VOLUME_PRICE_RULES = [
+    ("量增价升", "量增价升要买入。"),
+    ("量增价减", "量增价减要卖出。"),
+    ("量增价平", "量增价平要转阴。"),
+    ("量平价升", "量平价升要加仓。"),
+    ("量平价跌", "量平价跌出局。"),
+    ("量减价升", "量减价升持有。"),
+]
+
+LOW_POSITION_WORDS = ("低位", "底部", "低吸", "底部突破")
+HIGH_POSITION_WORDS = ("高位", "顶部", "高位滞涨", "放量滞涨")
+QUIET_VOLUME_WORDS = ("无量", "缩量", "量缩")
+EXPANDED_VOLUME_WORDS = ("放量", "量增", "爆量")
+
 
 class ReportError(Exception):
     pass
@@ -343,6 +372,53 @@ def risk_reward_text(item: dict[str, Any]) -> str:
     return f"盈亏比评分 {score:.1f}，综合分 {total:.1f}，以止损位 {item.get('stop_loss')} 为纪律线。"
 
 
+def signal_text(item: dict[str, Any]) -> str:
+    fields = ("pattern", "logic", "raw_text", "note", "status")
+    return " ".join(str(item.get(field, "")) for field in fields)
+
+
+def has_any(text: str, keywords: tuple[str, ...]) -> bool:
+    return any(keyword in text for keyword in keywords)
+
+
+def volume_price_rule_for_item(item: dict[str, Any]) -> str:
+    text = signal_text(item)
+    for trigger, rule in VOLUME_PRICE_RULES:
+        if trigger in text:
+            return rule
+
+    low_position = has_any(text, LOW_POSITION_WORDS)
+    high_position = has_any(text, HIGH_POSITION_WORDS)
+    quiet_volume = has_any(text, QUIET_VOLUME_WORDS)
+    expanded_volume = has_any(text, EXPANDED_VOLUME_WORDS)
+
+    if low_position and quiet_volume:
+        return "低位无量要等，等错也要等。"
+    if high_position and quiet_volume:
+        return "高位无量要拿，拿错了也要拿。"
+    if low_position and expanded_volume:
+        return "低位放量要跟，跟错了也要跟。"
+    if high_position and expanded_volume:
+        return "高位放量要跑，跑错了也要跑。"
+    return "未标注明确量价组合，需盘中复核量能与价格方向后再执行。"
+
+
+def render_rule_list(rules: list[str]) -> str:
+    return "<ul class=\"discipline-list\">" + "".join(f"<li>{esc(rule)}</li>" for rule in rules) + "</ul>"
+
+
+def render_trading_discipline_block() -> str:
+    volume_rules = [rule for _, rule in [*POSITION_VOLUME_RULES, *VOLUME_PRICE_RULES]]
+    return f"""
+<h3>基础交易纪律</h3>
+{render_rule_list(BASE_DISCIPLINE_RULES)}
+<h3>量价交易纪律</h3>
+{render_rule_list(volume_rules)}
+<p class="empty-note">CSV 的 pattern、logic、raw_text、note 中可写入“低位无量 / 高位放量 / 量增价升”等关键词，系统会在入选理由中自动提示对应量价动作。</p>
+<p class="empty-note">本文仅为个人复盘与技术形态观察，不构成任何投资建议。</p>
+""".strip()
+
+
 def selected_reason(item: dict[str, Any]) -> str:
     parts = [
         f"趋势 {item['trend_score']:.1f}",
@@ -353,7 +429,8 @@ def selected_reason(item: dict[str, Any]) -> str:
     ]
     source_text = item.get("source_names") or item.get("source_name") or item.get("source")
     agreement = f"来源：{source_text}。"
-    return f"{agreement}{item.get('logic')} 核心评分：{' / '.join(parts)}。"
+    logic = item.get("logic") or "请结合入场区间、止损位和量价关系复核。"
+    return f"{agreement}{logic} 核心评分：{' / '.join(parts)}。量价纪律：{volume_price_rule_for_item(item)}"
 
 
 def render_holdings_section(holdings: list[dict[str, str]]) -> str:
@@ -384,7 +461,7 @@ def render_holdings_section(holdings: list[dict[str, str]]) -> str:
 
 
 def render_pick_table(rows: list[dict[str, Any]], include_sources: bool = False) -> str:
-    headers = ["股票代码", "股票名称", "类型", "技术形态", "入场区间", "止损位", "第一止盈位", "第二止盈位", "盈亏比说明", "风险等级", "当前状态", "入选理由"]
+    headers = ["股票代码", "股票名称", "类型", "技术形态", "入场区间", "止损位", "第一止盈位", "第二止盈位", "盈亏比说明", "量价纪律", "风险等级", "当前状态", "入选理由"]
     if include_sources:
         headers.insert(2, "来源人")
     table_rows = []
@@ -399,6 +476,7 @@ def render_pick_table(rows: list[dict[str, Any]], include_sources: bool = False)
             item["take_profit_1"],
             item["take_profit_2"],
             risk_reward_text(item),
+            volume_price_rule_for_item(item),
             item["risk"],
             item["status"],
             selected_reason(item),
@@ -752,20 +830,13 @@ def render_comments_section(comments: list[dict[str, str]], source_lookup: dict[
 
 
 def render_discipline_section() -> str:
-    return """
+    return f"""
 <section class="section-card section-card--warning" id="risk">
   <div class="section-title">
     <p>Risk Rules</p>
     <h2>操作纪律与风险提示</h2>
   </div>
-  <ul class="discipline-list">
-    <li>不追高，只等买点。</li>
-    <li>买入前先看止损是否能接受。</li>
-    <li>盈亏比不足不做。</li>
-    <li>跌破止损无条件退出。</li>
-    <li>多来源共同提到不等于可以买，只能提高观察优先级。</li>
-    <li>本文仅为个人复盘与技术形态观察，不构成任何投资建议。</li>
-  </ul>
+  {render_trading_discipline_block()}
 </section>
 """.strip()
 
@@ -806,13 +877,7 @@ def render_report_html(source: dict[str, Any], date_text: str, picks: list[dict[
   {render_excluded_table(rejected)}
 
   <h2>七、操作纪律</h2>
-  <ul>
-    <li>不追高，只等买点。</li>
-    <li>买入前先看止损是否能接受。</li>
-    <li>盈亏比不足不做。</li>
-    <li>跌破止损无条件退出。</li>
-    <li>本文仅为个人复盘与技术形态观察，不构成任何投资建议。</li>
-  </ul>
+  {render_trading_discipline_block()}
 </section>
 """.strip()
     meta = {
@@ -969,6 +1034,7 @@ def public_stock(item: dict[str, Any]) -> dict[str, Any]:
         "take_profit_1": item.get("take_profit_1", ""),
         "take_profit_2": item.get("take_profit_2", ""),
         "risk_reward": f"1:{item.get('risk_reward_score', 0):.1f}",
+        "trade_signal": volume_price_rule_for_item(item),
         "risk": item.get("risk", ""),
         "reason": item.get("logic", ""),
         "score": round(float(item.get("aggregate_score", item.get("total_score", 0))), 2),

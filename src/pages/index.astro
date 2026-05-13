@@ -206,12 +206,12 @@ const marketCards = [
       <div class="selection-table-wrap">
         <table class="selection-table">
           <thead>
-            <tr><th>股票名称</th><th>代码</th><th>类型</th><th>来源</th><th>形态</th><th>入场区间</th><th>止损</th><th>止盈1</th><th>止盈2</th><th>风险</th><th>入选理由</th></tr>
+            <tr><th>股票名称</th><th>代码</th><th>类型</th><th>来源</th><th>形态</th><th>入场区间</th><th>止损</th><th>止盈1</th><th>止盈2</th><th>量价纪律</th><th>风险</th><th>入选理由</th></tr>
           </thead>
           <tbody>
             {[...shortList, ...midList].map((item) => (
               <tr>
-                <td><strong>{item.name}</strong></td><td>{item.code}</td><td>{item.type}</td><td>{item.source_names}</td><td>{item.pattern}</td><td>{item.entry_range}</td><td>{item.stop_loss}</td><td>{item.take_profit_1}</td><td>{item.take_profit_2}</td><td class={item.risk === "高" ? "danger-text" : "warning-text"}>{item.risk}</td><td>{item.reason}</td>
+                <td><strong>{item.name}</strong></td><td>{item.code}</td><td>{item.type}</td><td>{item.source_names}</td><td>{item.pattern}</td><td>{item.entry_range}</td><td>{item.stop_loss}</td><td>{item.take_profit_1}</td><td>{item.take_profit_2}</td><td>{item.trade_signal ?? "等待量价复核"}</td><td class={item.risk === "高" ? "danger-text" : "warning-text"}>{item.risk}</td><td>{item.reason}</td>
               </tr>
             ))}
           </tbody>
@@ -233,7 +233,7 @@ const marketCards = [
       </article>
       <aside class="panel risk-box">
         <h2>操作纪律与风险提示</h2>
-        <ol><li>严格设置止损，单笔亏损不超过总资金的 2%。</li><li>控制仓位，单只股票仓位不超过 20%。</li><li>不追高，不盲目抄底，等待确认信号。</li><li>分批投资，避免过度集中。</li></ol>
+        <ol><li>低位无量要等，高位无量要拿。</li><li>低位放量要跟，高位放量要跑。</li><li>量增价升看买入，量增价减看卖出。</li><li>量平价跌出局，量减价升持有。</li></ol>
         <strong>本页面仅为复盘记录，不构成投资建议。</strong>
       </aside>
     </section>

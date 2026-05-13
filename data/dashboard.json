@@ -1,6 +1,6 @@
 {
   "date": "2026-05-12",
-  "updated_at": "2026-05-12 19:58:41",
+  "updated_at": "2026-05-13 14:02:45",
   "report": {
     "date": "2026-05-12",
     "source": "daily",
@@ -248,6 +248,7 @@
         "take_profit_1": "9.85",
         "take_profit_2": "10.60",
         "risk_reward": "1:8.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
         "risk": "中",
         "reason": "商业航天同批次补涨，前排分歧时观察承接",
         "score": 34.0
@@ -263,6 +264,7 @@
         "take_profit_1": "9.80",
         "take_profit_2": "10.60",
         "risk_reward": "1:8.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
         "risk": "中",
         "reason": "缩量回踩后重新站回短均线，等待右侧确认",
         "score": 33.0
@@ -278,6 +280,7 @@
         "take_profit_1": "34.20",
         "take_profit_2": "36.00",
         "risk_reward": "1:8.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
         "risk": "中",
         "reason": "消费电子趋势中继回踩，量能未失控",
         "score": 33.0
@@ -295,6 +298,7 @@
         "take_profit_1": "31.20",
         "take_profit_2": "33.00",
         "risk_reward": "1:8.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
         "risk": "中",
         "reason": "算力硬件低位区间突破，量价配合尚可",
         "score": 32.0
@@ -310,6 +314,7 @@
         "take_profit_1": "20.80",
         "take_profit_2": "22.40",
         "risk_reward": "1:8.0",
+        "trade_signal": "低位无量要等，等错也要等。",
         "risk": "中",
         "reason": "芯片设备方向缩量调整后尝试右侧修复",
         "score": 32.0
@@ -325,6 +330,7 @@
         "take_profit_1": "156.00",
         "take_profit_2": "168.00",
         "risk_reward": "1:8.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
         "risk": "中",
         "reason": "CPO趋势中继回踩，强趋势但波动较大",
         "score": 32.0

@@ -263,6 +263,9 @@ def render_report_html(date_text: str, positions: list[dict[str, str]], position
         <p><strong>不追高</strong><span>只在计划区间内执行，错过就等下一次信号。</span></p>
         <p><strong>设好止损</strong><span>每笔操作必须有止损位，跌破无条件处理。</span></p>
         <p><strong>盈亏比优先</strong><span>不做盈亏比不划算的交易。</span></p>
+        <p><strong>位置量能</strong><span>低位无量等，低位放量跟；高位无量拿，高位放量跑。</span></p>
+        <p><strong>量价关系</strong><span>量增价升买，量增价减卖；量平价升加仓，量平价跌出局。</span></p>
+        <p><strong>缩量上涨</strong><span>量减价升优先持有，但继续跟踪承接和止损线。</span></p>
         <p><strong>分批操作</strong><span>分批买入、分批止盈，降低单点判断风险。</span></p>
         <p><strong>控制仓位</strong><span>单只股票仓位不超过计划上限，总仓位按市场风险调整。</span></p>
         <p><strong>风险提示</strong><span>本文仅为个人复盘记录，不构成任何投资建议。</span></p>
