@@ -18,6 +18,16 @@ const waitingCount = comments.length - includedCount - rejectedCount;
 const extractTime = (value) => String(value || "").match(/\d{1,2}:\d{2}/)?.[0] ?? "--:--";
 const cleanChannel = (value) => String(value || "评论来源").replace(/\s*\d{1,2}:\d{2}\s*/g, "").trim() || "评论来源";
 const unique = (items) => [...new Set(items.filter(Boolean))];
+const extractStockCode = (value) => String(value || "").match(/\d{6}/)?.[0] ?? "";
+const thsStockUrl = (value) => {
+  const code = extractStockCode(value);
+  return code ? `https://basic.10jqka.com.cn/${code}/` : "";
+};
+const linkStockMentions = (value) =>
+  value.replace(/([\u4e00-\u9fa5A-Za-z0-9·*]+)\((\d{6})\)/g, (match, name, code) => {
+    const label = `${name}(${code})`;
+    return `<a class="comment-inline-stock" href="https://basic.10jqka.com.cn/${code}/" target="_blank" rel="noreferrer">${label}</a>`;
+  });
 const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (char) => ({
     "&": "&amp;",
@@ -51,7 +61,7 @@ const highlightKeywords = (value) => {
   ].sort((a, b) => b.token.length - a.token.length);
   const tokenPattern = new RegExp(keywords.map((item) => item.token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|"), "g");
   const toneMap = new Map(keywords.map((item) => [item.token, item.tone]));
-  return text.replace(tokenPattern, (match) => `<span class="comment-keyword ${toneMap.get(match) || "positive"}">${match}</span>`);
+  return linkStockMentions(text.replace(tokenPattern, (match) => `<span class="comment-keyword ${toneMap.get(match) || "positive"}">${match}</span>`));
 };
 
 const valueKindsForComment = (comment) => {
@@ -159,14 +169,6 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
               {source.name} <small>({source.count ?? 0})</small>
             </button>
           ))}
-          <label class="comment-date-picker">
-            <span aria-hidden="true">日期</span>
-            <select data-date-filter data-current-date={dashboard.date}>
-              {dateOptions.map((date) => (
-                <option value={date} selected={date === dashboard.date}>{date}</option>
-              ))}
-            </select>
-          </label>
         </div>
       </section>
 
@@ -211,12 +213,23 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
         <main class="comment-thread-feed" aria-live="polite">
           <div class="comment-feed-status">
             <strong id="comment-feed-title">全部评论区</strong>
-            <span id="comment-feed-count">显示 {threadGroups.length} 组 / {comments.length} 条评论</span>
+            <div class="comment-feed-tools">
+              <span id="comment-feed-count">显示 {threadGroups.length} 组 / {comments.length} 条评论</span>
+              <label class="comment-date-picker">
+                <span aria-hidden="true">日期</span>
+                <select data-date-filter data-current-date={dashboard.date}>
+                  {dateOptions.map((date) => (
+                    <option value={date} selected={date === dashboard.date}>{date}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
           </div>
 
           {threadGroups.length ? (
             threadGroups.map((group, index) => {
               const groupStatus = groupStatusMeta(group);
+              const primaryUrl = thsStockUrl(group.primary);
               return (
                 <section
                   class="comment-thread-card"
@@ -235,7 +248,13 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
                       <time>{group.time}</time>
                       <div class="comment-thread-head-copy">
                         <strong>{group.source_name} / {group.channel}</strong>
-                        <h2>{group.primary} 评论区</h2>
+                        <h2>
+                          {primaryUrl ? (
+                            <a href={primaryUrl} target="_blank" rel="noreferrer">{group.primary}</a>
+                          ) : (
+                            group.primary
+                          )} 评论区
+                        </h2>
                       </div>
                     </div>
                     <div class="comment-thread-head-actions">
@@ -255,7 +274,6 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
                       const author = comment.comment_source.includes("评论备份")
                         ? `${group.source_name}备份`
                         : `${group.source_name}评论`;
-                      const evidenceUrl = comment.video_urls?.[0] || group.url || "";
                       return (
                         <article
                           class="comment-decision-card"
@@ -277,62 +295,66 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
                             </div>
                             <p class="comment-main-text" set:html={highlightKeywords(comment.content || "暂无评论正文")} />
                             <div class="comment-chip-row">
-                              {(comment.stocks.length ? comment.stocks : ["暂无股票"]).slice(0, 3).map((stock) => <span>{stock}</span>)}
+                              {(comment.stocks.length ? comment.stocks : ["暂无股票"]).slice(0, 3).map((stock) => {
+                                const url = thsStockUrl(stock);
+                                return url ? (
+                                  <a class="comment-stock-chip" href={url} target="_blank" rel="noreferrer">{stock}</a>
+                                ) : (
+                                  <span>{stock}</span>
+                                );
+                              })}
                               {comment.sectors.slice(0, 2).map((sector) => <span>{sector}</span>)}
                             </div>
                             <div class="comment-origin-row">
                               <span>来源：{group.source_name} / {group.channel}</span>
                               {comment.video_urls?.length ? comment.video_urls.map((url) => <a href={url} target="_blank" rel="noreferrer">查看视频</a>) : null}
-                              {comment.media?.length ? comment.media.slice(0, 2).map((path) => <a href={assetUrl(path)} target="_blank" rel="noreferrer">查看截图</a>) : null}
                             </div>
+                            {comment.media?.length ? (
+                              <section class="comment-screenshot-section">
+                                <h3>相关截图（{comment.media.length} 张）</h3>
+                                <div class="comment-screenshot-grid">
+                                  {comment.media.slice(0, 4).map((path, mediaIndex) => (
+                                    <a href={assetUrl(path)} target="_blank" rel="noreferrer" class="comment-screenshot-card">
+                                      <img src={assetUrl(path)} alt={`${group.primary} 评论截图 ${mediaIndex + 1}`} loading="lazy" />
+                                      <span>截图 {mediaIndex + 1}</span>
+                                      <b aria-hidden="true">⌕</b>
+                                    </a>
+                                  ))}
+                                </div>
+                              </section>
+                            ) : null}
                           </div>
 
                           <div class="comment-insight-list">
                             <div class="comment-insight-row">
-                              <span>股票</span>
-                              <strong>{comment.stocks.join("、") || "暂无"}</strong>
+                              <span class="comment-insight-label"><i aria-hidden="true">▤</i> 提到的股票</span>
+                              <strong class="comment-insight-stock-links">
+                                {comment.stocks.length ? comment.stocks.map((stock) => {
+                                  const url = thsStockUrl(stock);
+                                  return url ? (
+                                    <a href={url} target="_blank" rel="noreferrer">{stock}</a>
+                                  ) : (
+                                    <span>{stock}</span>
+                                  );
+                                }) : "暂无"}
+                              </strong>
                             </div>
                             <div class="comment-insight-row">
-                              <span>板块</span>
+                              <span class="comment-insight-label"><i aria-hidden="true">▱</i> 提到的板块</span>
                               <strong>{comment.sectors.slice(0, 3).join("、") || "暂无"}</strong>
                             </div>
                             <div class="comment-insight-row comment-insight-row--wide">
-                              <span>价值原因</span>
+                              <span class="comment-insight-label"><i aria-hidden="true">◇</i> 为什么有价值</span>
                               <p set:html={highlightKeywords(comment.value_reason || "待补充价值判断")} />
                             </div>
                             <div class={`comment-insight-row comment-insight-row--status ${meta.tone}`}>
-                              <span>纳入状态</span>
+                              <span class="comment-insight-label"><i aria-hidden="true">◎</i> 纳入推荐逻辑</span>
                               <strong><i>{meta.mark}</i>{meta.label}</strong>
-                              <p>{comment.include_in_logic === "否" ? "作为风险或反向观察，不直接进入推荐。" : "保留为观察依据，等待盘面验证。"}</p>
+                              <p>纳入理由：{comment.include_in_logic === "否" ? "作为风险或反向观察，不直接进入推荐。" : "保留为观察依据，等待盘面验证。"}</p>
                             </div>
                           </div>
 
                           <div class="comment-evidence-actions">
-                            <div class="comment-evidence-strip">
-                              <div class="comment-evidence-thumb-row">
-                                {comment.media?.length ? (
-                                  comment.media.slice(0, 2).map((path, mediaIndex) => (
-                                    <a href={assetUrl(path)} target="_blank" rel="noreferrer" class="comment-evidence-thumb">
-                                      <img src={assetUrl(path)} alt={`${group.primary} 评论截图 ${mediaIndex + 1}`} loading="lazy" />
-                                      <span>截图 {mediaIndex + 1}</span>
-                                      <strong>查看证据</strong>
-                                    </a>
-                                  ))
-                                ) : (
-                                  <div class="comment-evidence-empty">
-                                    <strong>暂无截图</strong>
-                                    <span>本条评论未附带图片证据</span>
-                                  </div>
-                                )}
-                              </div>
-                              <div class="comment-evidence-link-row">
-                                {evidenceUrl ? (
-                                  <a href={evidenceUrl} target="_blank" rel="noreferrer">查看原帖 / 视频</a>
-                                ) : (
-                                  <span class="comment-muted-link">暂无可跳转原帖</span>
-                                )}
-                              </div>
-                            </div>
                             <div class="comment-action-row">
                               <button type="button">纳入推荐逻辑</button>
                               <button type="button">标记为待确认</button>
