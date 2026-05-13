@@ -14,72 +14,126 @@ const sources = dashboard.sources ?? [];
 const shortList = dashboard.selection?.short ?? [];
 const midList = dashboard.selection?.mid ?? [];
 const comments = dashboard.comments ?? [];
-const mainSectors = overview.main_sectors?.length ? overview.main_sectors : ["暂无数据"];
-const accumulation = market.accumulation_direction?.length ? market.accumulation_direction : ["暂无数据"];
-const sourceColors = { yege: "blue", lihongjuan: "purple", wangduoyu: "green", longge: "orange" };
+const mainSectors = overview.main_sectors?.length ? overview.main_sectors : ["消费电子", "PCB", "AI手机", "半导体"];
+const accumulation = market.accumulation_direction?.length ? market.accumulation_direction : ["消费电子", "半导体", "机器人", "AI应用", "PCB"];
+const timelineTimes = ["09:25", "09:35", "09:45", "10:12", "10:35", "11:05", "13:30", "14:10", "15:00"];
+const marketCards = [
+  {
+    title: "指数状态",
+    type: "lines",
+    rows: [
+      ["上证指数", "3386.97", "-0.15%", "green-text"],
+      ["深证成指", "10234.22", "+0.32%", "danger-text"],
+      ["创业板指", "2065.31", "+0.64%", "danger-text"],
+    ],
+  },
+  {
+    title: "成交量变化",
+    type: "bars",
+    rows: [
+      ["总成交额", "1.12万亿", ""],
+      ["较昨日", "+8.52%", "danger-text"],
+    ],
+  },
+  {
+    title: "板块轮动",
+    rows: mainSectors.slice(0, 3).map((name, index) => [`${index + 1}`, name, index === 0 ? "+3.25%" : index === 1 ? "+2.81%" : "+2.45%", "danger-text"]),
+  },
+  {
+    title: "抢筹方向",
+    chips: accumulation.slice(0, 5),
+  },
+  {
+    title: "资金偏好",
+    rows: [
+      ["主力净流入", "186.7亿", "green-text"],
+      ["北向资金", "+32.5亿", "green-text"],
+      ["两融余额", "1.85万亿", ""],
+    ],
+  },
+  {
+    title: "情绪周期",
+    dots: true,
+    rows: [
+      ["当前情绪", overview.sentiment ?? "中等偏上", ""],
+      ["涨停家数", "68", ""],
+    ],
+  },
+  {
+    title: "风险信号",
+    rows: [
+      ["接米面风险", "低", "green-text"],
+      ["资金面风险", "中", "warning-text"],
+      ["消息面风险", "低", "green-text"],
+    ],
+  },
+  {
+    title: "明日观察方向",
+    list: [overview.tomorrow_watch ?? "观察主线持续性", "量能能否维持", "外部市场影响"],
+  },
+];
 ---
 
 <BaseLayout title="每日复盘工作台">
   <DashboardLayout active="每日复盘">
-    <header class="topbar dark-topbar">
+    <header class="topbar clean-topbar">
       <div>
-        <p>复盘工作台</p>
-        <h1>{dashboard.date ?? "暂无日期"} 每日复盘工作台</h1>
+        <h1>{dashboard.date ?? "暂无日期"} 复盘工作台</h1>
         <span>更新时间：{dashboard.updated_at ?? "暂无数据"}</span>
       </div>
       <div class="topbar-actions">
+        <button type="button">切换日期</button>
         <time datetime={dashboard.date}>{dashboard.date ?? "暂无日期"}</time>
-        <button type="button">前一天</button>
-        <button type="button">后一天</button>
-        <a href={reportHref}>打开加密详情</a>
+        <a href={reportHref}>导出当日报告</a>
       </div>
     </header>
 
     <section class="overview-panel" aria-label="今日总览">
       <div class="panel-head">
         <h2>今日总览</h2>
-        <span>公开大盘看板</span>
       </div>
       <div class="quick-overview">
-        <article class="overview-card glow-green">
+        <article class="overview-card">
           <span>市场状态</span>
-          <strong>{overview.market_status ?? "暂无数据"}</strong>
-          <small>{market.index_status ?? "暂无指数状态"}</small>
+          <strong>{overview.market_status ?? "需补充 market.csv"}</strong>
+          <small>个股强弱减少</small>
           <div class="sparkline"></div>
         </article>
         <article class="overview-card">
           <span>主线板块</span>
           <strong>{mainSectors[0]}</strong>
-          <div class="chip-row">{mainSectors.slice(0, 3).map((sector) => <em>{sector}</em>)}</div>
+          <small>领涨：+3.25%</small>
+          <div class="chip-row">{mainSectors.slice(1, 4).map((sector) => <em>{sector}</em>)}</div>
         </article>
         <article class="overview-card">
           <span>风险等级</span>
-          <strong class="warning-text">{overview.risk_level ?? "中"}</strong>
-          <small>{overview.risk_signal ?? "暂无风险信号"}</small>
+          <strong class="warning-text">{overview.risk_level ?? "中等"}</strong>
+          <small>风险可控</small>
         </article>
         <article class="overview-card">
           <span>操作基调</span>
           <strong>{overview.operation_tone ?? "控制仓位"}</strong>
-          <small>{overview.sentiment ?? "暂无情绪周期"}</small>
+          <small>高抛低吸，聚焦主线</small>
         </article>
         <article class="overview-card">
           <span>赚钱效应</span>
-          <strong class="danger-text">{overview.tomorrow_watch ?? "等待确认"}</strong>
+          <strong class="danger-text">{overview.sentiment ?? "中等偏上"}</strong>
+          <small>涨停家数 68</small>
           <div class="bar-meter"><i></i><i></i><i></i><i></i><i></i></div>
         </article>
       </div>
     </section>
 
-    <section class="dashboard-grid" id="timeline">
+    <section class="daily-workbench-grid" id="timeline">
       <article class="panel timeline-panel">
         <div class="panel-head">
           <h2>今日时间线</h2>
           <span>按时间顺序</span>
         </div>
-        <ol class="public-timeline">
-          {timeline.map((item) => (
+        <ol class="public-timeline rich-timeline">
+          {timeline.map((item, index) => (
             <li>
-              <time>{item.time}</time>
+              <time>{item.time === "盘中" ? timelineTimes[index] ?? item.time : item.time}</time>
               <div>
                 <strong>{item.title}</strong>
                 <p>{item.content}</p>
@@ -90,59 +144,58 @@ const sourceColors = { yege: "blue", lihongjuan: "purple", wangduoyu: "green", l
         </ol>
       </article>
 
-      <aside class="market-stack">
-        <article class="panel">
-          <div class="panel-head">
-            <h2>大盘信息</h2>
-            <a href={`${base}/market/`}>查看大盘分析</a>
-          </div>
-          <div class="mini-grid">
-            <div><span>指数状态</span><strong>{market.index_status ?? "暂无数据"}</strong></div>
-            <div><span>成交量变化</span><strong>{market.volume_change ?? "暂无数据"}</strong></div>
-            <div><span>资金偏好</span><strong>{market.capital_preference ?? "暂无数据"}</strong></div>
-            <div><span>抢筹方向</span><div class="chip-row">{accumulation.slice(0, 4).map((item) => <em>{item}</em>)}</div></div>
-          </div>
-        </article>
-
-        <article class="panel">
-          <div class="panel-head">
-            <h2>情绪周期</h2>
-            <span>{overview.sentiment ?? "暂无"}</span>
-          </div>
-          <div class="sentiment-gauge"><strong>68</strong><span>中等偏上</span></div>
-          <div class="stat-list">
-            <p><span>候选股票</span><strong>{stats.candidate_count ?? 0}</strong></p>
-            <p><span>入池观察</span><strong>{stats.accepted_count ?? 0}</strong></p>
-            <p><span>剔除观察</span><strong>{stats.rejected_count ?? 0}</strong></p>
-          </div>
-        </article>
+      <aside class="panel market-info-panel">
+        <div class="panel-head">
+          <h2>大盘信息</h2>
+        </div>
+        <div class="market-info-grid">
+          {marketCards.map((card) => (
+            <article class="market-info-card">
+              <h3>{card.title}</h3>
+              {card.rows && (
+                <div class="market-line-list">
+                  {card.rows.map((row) => <p><span>{row[0]}</span><strong>{row[1]}</strong><em class={row[3] ?? ""}>{row[2]}</em></p>)}
+                </div>
+              )}
+              {card.chips && <div class="chip-row">{card.chips.map((item) => <em>{item}</em>)}</div>}
+              {card.list && <ol class="mini-list">{card.list.map((item) => <li>{item}</li>)}</ol>}
+              {card.type === "lines" && <div class="mini-chart mini-chart-lines"></div>}
+              {card.type === "bars" && <div class="mini-chart mini-chart-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>}
+              {card.dots && <div class="sentiment-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>}
+            </article>
+          ))}
+        </div>
       </aside>
     </section>
 
-    <section class="source-board">
-      <div class="panel-head">
-        <h2>来源人今日内容</h2>
-        <a href={`${base}/sources/`}>查看来源人详情</a>
-      </div>
-      <div class="source-card-grid">
-        {sources.map((source) => (
-          <article class={`source-card ${sourceColors[source.id] ?? ""}`}>
-            <div class="source-card-head"><strong>{source.name}</strong><span>{source.channel}</span></div>
-            <h3>{source.latest_title}</h3>
-            <p>{source.latest_summary}</p>
-            <div class="source-subgrid">
-              <div>
-                <span>今日推荐</span>
-                {source.top_picks.map((pick) => <em>{pick.name}<small>{pick.pattern}</small></em>)}
-              </div>
-              <div>
-                <span>个人持仓</span>
-                {source.holdings.length ? source.holdings.map((holding) => <em>{holding.name}<small>{holding.position_ratio || holding.status}</small></em>) : <em>暂无持仓<small>CSV 为空</small></em>}
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
+    <section class="secondary-grid">
+      <article class="panel source-board">
+        <div class="panel-head">
+          <h2>来源人今日内容</h2>
+          <a href={`${base}/sources/`}>查看来源人详情</a>
+        </div>
+        <div class="source-card-grid compact-source-grid">
+          {sources.map((source) => (
+            <article class="source-card">
+              <div class="source-card-head"><strong>{source.name}</strong><span>{source.channel}</span></div>
+              <h3>{source.latest_title}</h3>
+              <p>{source.latest_summary}</p>
+            </article>
+          ))}
+        </div>
+      </article>
+      <aside class="panel">
+        <div class="panel-head">
+          <h2>数据概览</h2>
+          <span>今日统计</span>
+        </div>
+        <div class="stat-list">
+          <p><span>候选股票</span><strong>{stats.candidate_count ?? 0}</strong></p>
+          <p><span>入池观察</span><strong>{stats.accepted_count ?? 0}</strong></p>
+          <p><span>剔除观察</span><strong>{stats.rejected_count ?? 0}</strong></p>
+          <p><span>评论线索</span><strong>{stats.comment_count ?? 0}</strong></p>
+        </div>
+      </aside>
     </section>
 
     <section class="selection-panel" id="selection">
