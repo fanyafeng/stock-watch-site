@@ -7696,3 +7696,66 @@ body {
     padding: 8px 0;
   }
 }
+
+/* Comment timeline marker alignment fix */
+.comment-thread-timeline {
+  padding-left: 18px;
+}
+
+.comment-thread-timeline::before {
+  left: 8px;
+  width: 2px;
+  background: #d8e1ee;
+}
+
+.comment-thread-timeline li {
+  position: relative;
+}
+
+.timeline-dot {
+  top: 22px;
+  left: -14px;
+  z-index: 2;
+  width: 9px;
+  height: 9px;
+  border: 3px solid #eff6ff;
+  background: #4f7cf5;
+  box-shadow: 0 0 0 3px rgba(79, 124, 245, 0.12);
+}
+
+.comment-thread-timeline button {
+  position: relative;
+  border-left: 1px solid transparent;
+  box-shadow: none;
+}
+
+.comment-thread-timeline button.active,
+.comment-thread-timeline button:hover {
+  border-color: #b9d5ff;
+  border-left-color: #2563eb;
+  background: #eef5ff;
+  box-shadow: none;
+}
+
+.comment-thread-timeline button.active::before,
+.comment-thread-timeline button:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1px;
+  width: 3px;
+  border-radius: 8px 0 0 8px;
+  background: #2563eb;
+}
+
+@media (max-width: 1180px) {
+  .comment-thread-timeline {
+    padding-left: 1px;
+  }
+
+  .comment-thread-timeline button.active::before,
+  .comment-thread-timeline button:hover::before {
+    display: none;
+  }
+}
