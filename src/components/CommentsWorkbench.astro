@@ -183,7 +183,25 @@ const threadGroups = [...groupsByKey.values()].map((group) => ({
   statuses: unique(group.comments.map((comment) => comment.include_in_logic || "待确认")),
 }));
 
-const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]).filter(Boolean).sort().reverse();
+const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)])
+  .filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(String(date)))
+  .sort()
+  .reverse();
+const dateParts = dateOptions.map((date) => {
+  const [year, month, day] = date.split("-");
+  return { date, year, month, day };
+});
+const currentDateParts = dateParts.find((item) => item.date === dashboard.date) ?? dateParts[0] ?? {
+  date: dashboard.date,
+  year: String(dashboard.date || "").slice(0, 4),
+  month: String(dashboard.date || "").slice(5, 7),
+  day: String(dashboard.date || "").slice(8, 10),
+};
+const yearOptions = unique(dateParts.map((item) => item.year)).sort((a, b) => Number(b) - Number(a));
+const monthOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year).map((item) => item.month))
+  .sort((a, b) => Number(b) - Number(a));
+const dayOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year && item.month === currentDateParts.month).map((item) => item.day))
+  .sort((a, b) => Number(b) - Number(a));
 ---
 
 <>
@@ -207,13 +225,31 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
               {source.name} <small>({source.count ?? 0})</small>
             </button>
           ))}
-          <label class="comment-date-picker">
+          <label
+            class="comment-date-picker"
+            data-date-picker
+            data-current-date={dashboard.date}
+            data-comments-base={commentsBase}
+            data-date-options={JSON.stringify(dateParts)}
+          >
             <span aria-hidden="true">日期</span>
-            <select data-date-filter data-current-date={dashboard.date} data-comments-base={commentsBase}>
-              {dateOptions.map((date) => (
-                <option value={date} selected={date === dashboard.date}>{date}</option>
-              ))}
-            </select>
+            <div class="comment-date-fields">
+              <select data-date-year aria-label="选择年份">
+                {yearOptions.map((year) => (
+                  <option value={year} selected={year === currentDateParts.year}>{year}年</option>
+                ))}
+              </select>
+              <select data-date-month aria-label="选择月份">
+                {monthOptions.map((month) => (
+                  <option value={month} selected={month === currentDateParts.month}>{Number(month)}月</option>
+                ))}
+              </select>
+              <select data-date-day aria-label="选择日期">
+                {dayOptions.map((day) => (
+                  <option value={day} selected={day === currentDateParts.day}>{Number(day)}日</option>
+                ))}
+              </select>
+            </div>
           </label>
         </div>
       </section>
@@ -464,7 +500,10 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
       };
 
       const sourceButtons = document.querySelectorAll("[data-comment-filter]");
-      const dateFilter = document.querySelector("[data-date-filter]");
+      const datePicker = document.querySelector("[data-date-picker]");
+      const yearSelect = document.querySelector("[data-date-year]");
+      const monthSelect = document.querySelector("[data-date-month]");
+      const daySelect = document.querySelector("[data-date-day]");
       const threads = document.querySelectorAll("[data-comment-thread]");
       const timelineItems = document.querySelectorAll("[data-timeline-item]");
       const feedTitle = document.querySelector("#comment-feed-title");
@@ -520,13 +559,72 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
         });
       });
 
-      dateFilter?.addEventListener("change", () => {
-        const selectedDate = dateFilter.value;
-        if (selectedDate && selectedDate !== dateFilter.dataset.currentDate) {
-          const commentsBase = dateFilter.dataset.commentsBase || "/comments";
+      function uniqueSorted(values, direction = "desc") {
+        const sorted = [...new Set(values.filter(Boolean))].sort((a, b) => Number(a) - Number(b));
+        return direction === "desc" ? sorted.reverse() : sorted;
+      }
+
+      function replaceSelectOptions(select, values, selectedValue, suffix) {
+        if (!select) return "";
+        select.replaceChildren();
+        values.forEach((value) => {
+          const option = document.createElement("option");
+          option.value = value;
+          option.textContent = `${Number(value)}${suffix}`;
+          option.selected = value === selectedValue;
+          select.append(option);
+        });
+        if (!values.includes(select.value)) {
+          select.value = values[0] || "";
+        }
+        return select.value;
+      }
+
+      function availableDateParts() {
+        try {
+          return JSON.parse(datePicker?.dataset.dateOptions || "[]");
+        } catch {
+          return [];
+        }
+      }
+
+      function syncDateSelects(changedPart) {
+        const dates = availableDateParts();
+        if (!dates.length || !yearSelect || !monthSelect || !daySelect) return "";
+
+        const years = uniqueSorted(dates.map((item) => item.year));
+        if (!years.includes(yearSelect.value)) {
+          yearSelect.value = years[0] || "";
+        }
+
+        const months = uniqueSorted(dates.filter((item) => item.year === yearSelect.value).map((item) => item.month));
+        const nextMonth = changedPart === "year" ? months[0] : monthSelect.value;
+        replaceSelectOptions(monthSelect, months, months.includes(nextMonth) ? nextMonth : months[0], "月");
+
+        const days = uniqueSorted(
+          dates
+            .filter((item) => item.year === yearSelect.value && item.month === monthSelect.value)
+            .map((item) => item.day)
+        );
+        const nextDay = changedPart === "year" || changedPart === "month" ? days[0] : daySelect.value;
+        replaceSelectOptions(daySelect, days, days.includes(nextDay) ? nextDay : days[0], "日");
+
+        return yearSelect.value && monthSelect.value && daySelect.value
+          ? `${yearSelect.value}-${monthSelect.value}-${daySelect.value}`
+          : "";
+      }
+
+      function navigateSelectedDate(changedPart) {
+        const selectedDate = syncDateSelects(changedPart);
+        if (selectedDate && selectedDate !== datePicker?.dataset.currentDate) {
+          const commentsBase = datePicker?.dataset.commentsBase || "/comments";
           window.location.href = `${commentsBase}/${encodeURIComponent(selectedDate)}/`;
         }
-      });
+      }
+
+      yearSelect?.addEventListener("change", () => navigateSelectedDate("year"));
+      monthSelect?.addEventListener("change", () => navigateSelectedDate("month"));
+      daySelect?.addEventListener("change", () => navigateSelectedDate("day"));
 
       timelineItems.forEach((item) => {
         item.querySelector("button")?.addEventListener("click", () => {
