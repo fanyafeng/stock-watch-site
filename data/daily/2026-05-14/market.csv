@@ -1,0 +1,14 @@
+﻿section,value,note
+market_status,冲高回落，上涨家数约1024，下跌家数约4174,导入自 20260514_160506_market_review.json
+main_sectors,防水材料、肉鸡养殖、生猪养殖、期货、氦气概念,导入自 20260514_160506_market_review.json
+risk_level,中,导入自 20260514_160506_market_review.json
+operation_tone,不追高，只等主线回踩承接；高位放量优先降风险。,导入自 20260514_160506_market_review.json
+index_status,上证指数收4177.92，涨跌幅-1.52%，形态冲高回落；深证成指收15745.74，涨跌幅-2.14%，形态高开低走；创业板指收3951.14，涨跌幅-2.16%，形态高开低走,导入自 20260514_160506_market_review.json
+volume_change,沪深主要指数成交额合计约 33623 亿，需结合昨日继续复核。,导入自 20260514_160506_market_review.json
+sector_rotation,防水材料、肉鸡养殖、生猪养殖、期货、氦气概念、昨日打二板以上表现,导入自 20260514_160506_market_review.json
+accumulation_direction,防水材料、肉鸡养殖、生猪养殖、期货,导入自 20260514_160506_market_review.json
+sector_first_limit_up,防水材料=凯伦股份(300715)@13:10;生猪养殖=天邦食品(002124)@10:13;期货=南华期货(603093)@10:01,东方财富涨停池 fbt 首次封板时间；肉鸡养殖未找到明确涨停池匹配，暂不填充
+capital_preference,主线优先看资金合力，弱分支不追高。,导入自 20260514_160506_market_review.json
+sentiment_cycle,上涨/下跌约 1024/4174，情绪按结构性修复处理。,导入自 20260514_160506_market_review.json
+risk_signal,高位放量、偏离均线过大的方向只做风险观察。,导入自 20260514_160506_market_review.json
+tomorrow_watch,观察主线板块延续性、回踩承接和量能是否继续放大。,导入自 20260514_160506_market_review.json

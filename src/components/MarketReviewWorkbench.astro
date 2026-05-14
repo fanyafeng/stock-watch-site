@@ -130,11 +130,22 @@ const sectors = unique([
 const mainSectors = sectors.length ? sectors : ["暂无主线数据"];
 const amount = parseAmount(market.volume_change);
 const coreNetInflow = amount ? amount * 0.00261 : (stats.accepted_count ?? 0) * 18.7 + 9.8;
-const structureText = `指数多头收红，涨跌家数偏多，资金集中在 ${mainSectors.slice(0, 4).join("、")}。`;
 const riskTone = overview.risk_level === "高" ? "high" : overview.risk_level === "低" ? "low" : "mid";
-const marketStructureSummary = chartRows.filter((item) => Number(item.pct) >= 0).length >= Math.ceil(Math.max(chartRows.length, 1) / 2)
+const positiveIndexCount = chartRows.filter((item) => Number(item.pct) >= 0).length;
+const positiveIndexMajority = positiveIndexCount >= Math.ceil(Math.max(chartRows.length, 1) / 2);
+const upRateValue = Number(breadth.upRate);
+const marketStructureSummary = positiveIndexMajority && upRateValue >= 50
   ? "指数多数收红，涨跌家数偏多"
-  : "指数分化，涨跌家数需继续观察";
+  : positiveIndexCount === 0 && upRateValue < 42
+    ? "指数集体走弱，涨跌家数偏少"
+    : upRateValue >= 50
+      ? "指数分化，个股修复偏多"
+      : "指数分化，涨跌家数需继续观察";
+const structureText = positiveIndexMajority && upRateValue >= 50
+  ? `指数多数收红，市场宽度偏强，资金集中在 ${mainSectors.slice(0, 4).join("、")}。`
+  : positiveIndexCount === 0 && upRateValue < 42
+    ? `核心指数回落，上涨占比仅 ${breadth.upRate}%，资金只在 ${mainSectors.slice(0, 4).join("、")} 等局部方向抢筹。`
+    : `指数与个股结构分化，上涨占比 ${breadth.upRate}%，主线仍需观察 ${mainSectors.slice(0, 4).join("、")} 的承接。`;
 const mainDirectionText = mainSectors.slice(0, 4).join(" / ");
 
 const sectorRows = mainSectors.slice(0, 6).map((name, index) => ({

@@ -1092,7 +1092,7 @@ def split_values(value: str, limit: int = 4) -> list[str]:
 
 
 def parse_sector_stock_map(value: str) -> dict[str, dict[str, str]]:
-    """Parse '板块=股票(代码);板块=股票(代码)' into a lookup map."""
+    """Parse '板块=股票(代码)@09:45;板块=股票(代码)' into a lookup map."""
     mapping: dict[str, dict[str, str]] = {}
     for segment in re.split(r"[;；\n]+", value or ""):
         text = segment.strip()
@@ -1101,11 +1101,14 @@ def parse_sector_stock_map(value: str) -> dict[str, dict[str, str]]:
         sector, stock_text = [part.strip() for part in text.split("=", 1)]
         if not sector or not stock_text:
             continue
+        time_text = ""
+        if "@" in stock_text:
+            stock_text, time_text = [part.strip() for part in stock_text.split("@", 1)]
         match = re.search(r"(.+?)\((\d{6})\)", stock_text)
         if match:
-            mapping[sector] = {"name": match.group(1).strip(), "code": match.group(2), "source": "first_limit_up"}
+            mapping[sector] = {"name": match.group(1).strip(), "code": match.group(2), "time": time_text, "source": "first_limit_up"}
         else:
-            mapping[sector] = {"name": stock_text, "code": "", "source": "first_limit_up"}
+            mapping[sector] = {"name": stock_text, "code": "", "time": time_text, "source": "first_limit_up"}
     return mapping
 
 
