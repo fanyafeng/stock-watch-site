@@ -4,16 +4,26 @@ import stockSectorMap from "../data/stock_sector_map.json";
 
 const { dashboard } = Astro.props;
 
-const shortList = dashboard.selection?.short ?? [];
-const midList = dashboard.selection?.mid ?? [];
-const pool = [...shortList, ...midList];
-const comments = dashboard.comments ?? [];
-const evidencePosts = Object.values(dashboard.evidence ?? {}).flatMap((source) => source.posts ?? []);
+const SOURCE_ORDER = ["all", "yege", "lihongjuan", "wangduoyu", "longge"];
+const SOURCE_NAMES = {
+  all: "全部来源",
+  yege: "野哥",
+  lihongjuan: "李红娟",
+  wangduoyu: "王多于",
+  longge: "龙哥",
+};
+
+const dashboardSources = dashboard.stock_pool?.sources?.length ? dashboard.stock_pool.sources : (dashboard.sources ?? []).map((source) => ({
+  id: source.id,
+  name: source.name,
+  short: (source.top_picks ?? []).filter((item) => item.type === "短期"),
+  mid: (source.top_picks ?? []).filter((item) => item.type === "中长期"),
+}));
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const stockPoolBase = `${base}/stock-pool`;
-const todayAddCount = pool.length;
-const todayRemoveCount = dashboard.stats?.removed_count ?? 0;
 const updatedAt = dashboard.updated_at ?? `${dashboard.date} 10:30`;
+const comments = dashboard.comments ?? [];
+const evidencePosts = Object.values(dashboard.evidence ?? {}).flatMap((source) => source.posts ?? []);
 const assetUrl = (path) => `${base}${path}`;
 const thsStockUrl = (code) => `https://basic.10jqka.com.cn/${code}/`;
 const splitTokens = (value) => String(value || "").split(/[;；、,，]/).map((item) => item.trim()).filter(Boolean);
@@ -21,11 +31,25 @@ const unique = (items) => [...new Set(items.filter(Boolean))];
 const normalizeRange = (value) => String(value || "").replace("-", " ~ ");
 const observationCycle = (type) => type === "短期" ? "一周周期" : "一个月周期";
 const typeDescription = (type) => type === "短期"
-  ? "适合短波段操作，推荐日起 7 天内观察是否触发止盈/止损。"
-  : "适合趋势观察，推荐日起 30 天内观察趋势延续、止盈/止损和回撤。";
-const sourceList = (value) => splitTokens(String(value || "").replace(/\s+/g, ";"));
+  ? "按来源人拆开查看短波段候选，重点看买点是否触发、止损是否清晰。"
+  : "按来源人拆开查看中长期候选，重点看趋势延续、回踩承接和板块持续性。";
 const riskTone = (risk) => risk === "高" ? "high" : risk === "低" ? "low" : "mid";
-const statusForItem = (item) => item.status || "等待买点";
+const statusForItem = (item) => item.status || (item.accepted === false ? "观察取消" : "等待买点");
+const sourceTone = (sourceId) => ({ yege: "blue", lihongjuan: "purple", wangduoyu: "green", longge: "orange" }[sourceId] ?? "slate");
+const sourceName = (sourceId) => SOURCE_NAMES[sourceId] ?? sourceId;
+const stockPoolsBySource = Object.fromEntries(dashboardSources.map((source) => [source.id, source]));
+const allSourcePool = {
+  id: "all",
+  name: "全部来源",
+  short: dashboardSources.flatMap((source) => (source.short ?? []).map((item) => ({ ...item, source_id: source.id, source_name: source.name, source_names: item.source_names || source.name }))),
+  mid: dashboardSources.flatMap((source) => (source.mid ?? []).map((item) => ({ ...item, source_id: source.id, source_name: source.name, source_names: item.source_names || source.name }))),
+};
+const activeSources = SOURCE_ORDER.map((id) => id === "all" ? allSourcePool : stockPoolsBySource[id]).filter(Boolean);
+const sourceCounts = Object.fromEntries(activeSources.map((source) => [source.id, (source.short?.length ?? 0) + (source.mid?.length ?? 0)]));
+const shortList = allSourcePool.short;
+const midList = allSourcePool.mid;
+const todayAddCount = shortList.length + midList.length;
+const todayRemoveCount = [...shortList, ...midList].filter((item) => item.accepted === false || item.status === "观察取消").length;
 const sectorForItem = (item) => {
   const mappedSectors = stockSectorMap[item.code]?.sectors ?? [];
   if (mappedSectors.length) return mappedSectors[0];
@@ -40,34 +64,31 @@ const evidenceForItem = (item) => {
   return [...new Set(matched)].slice(0, 2);
 };
 const buildReasons = (item, type) => {
-  const sources = sourceList(item.source_names).join("、") || "来源数据";
+  const sources = item.source_names || item.source_name || sourceName(item.source_id) || "来源数据";
+  const rejectText = item.accepted === false && item.excluded_reason ? `当前未进入最终推荐：${item.excluded_reason}。` : "当前保留观察，仍需盘中验证。";
   if (type === "短期") {
     return [
-      ["来源共振", `${sources}在评论区或选股数据中多次提到，市场讨论度较高。`],
-      ["技术形态", `${item.pattern || "技术形态"}，回踩不破关键支撑位，短线结构较好。`],
-      ["买点逻辑", `位于 ${normalizeRange(item.entry_range)} 观察区间，风险可控，适合短线观察。`],
-      ["风险收益比", `止损 ${item.stop_loss}，止盈 ${item.take_profit_1} / ${item.take_profit_2}，盈亏比 ${item.risk_reward || "待复核"}。`],
-      ["操作纪律", `只在 ${normalizeRange(item.entry_range)} 区间内观察，不追高，跌破 ${item.stop_loss} 取消观察。`],
+      ["来源路径", `${sources} 提到或备份数据入池，按该来源单独跟踪。`],
+      ["技术形态", `${item.pattern || "技术形态待补充"}，短线只等右侧转强或回踩承接。`],
+      ["买点纪律", `观察区间 ${normalizeRange(item.entry_range)}，止损 ${item.stop_loss || "待补充"}，不追高。`],
+      ["盈亏验证", `止盈 ${item.take_profit_1 || "待补充"} / ${item.take_profit_2 || "待补充"}，盈亏比 ${item.risk_reward || "待复核"}。`],
+      ["当前处理", rejectText],
     ];
   }
   return [
-    ["板块逻辑", `所属板块或主题与当日热点方向存在关联，具备中期观察价值。`],
-    ["趋势逻辑", `${item.pattern || "趋势观察"}，量价配合良好时优先观察延续性。`],
-    ["多来源支持", `${sources}提到或数据入池，市场关注度需要继续跟踪。`],
-    ["风险控制", `明确风险位 ${item.stop_loss}，跌破则趋势走弱，及时止损。`],
-    ["中期观察点", `未来一个月重点关注放量突破、回踩支撑和板块持续性。`],
+    ["来源路径", `${sources} 提到或备份数据入池，按中长期节奏单独跟踪。`],
+    ["趋势逻辑", `${item.pattern || "趋势观察"}，重点看趋势延续和板块持续性。`],
+    ["风险控制", `风险位 ${item.stop_loss || "待补充"}，跌破则趋势走弱，移出观察。`],
+    ["目标验证", `第一目标 ${item.take_profit_1 || "待补充"}，第二目标 ${item.take_profit_2 || "待补充"}。`],
+    ["当前处理", rejectText],
   ];
 };
-const renderPool = (items, type) => ({
-  items: items.map((item) => ({
-    ...item,
-    sector: sectorForItem(item),
-    media: evidenceForItem(item),
-    reasons: buildReasons(item, type),
-  })),
-});
-const shortPool = renderPool(shortList, "短期");
-const midPool = renderPool(midList, "中长期");
+const decoratePool = (items, type) => items.map((item) => ({
+  ...item,
+  sector: sectorForItem(item),
+  media: evidenceForItem(item),
+  reasons: buildReasons(item, type),
+}));
 const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)])
   .filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(String(date)))
   .sort()
@@ -87,14 +108,18 @@ const monthOptions = unique(dateParts.filter((item) => item.year === currentDate
   .sort((a, b) => Number(b) - Number(a));
 const dayOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year && item.month === currentDateParts.month).map((item) => item.day))
   .sort((a, b) => Number(b) - Number(a));
+const tableSections = [
+  { title: "短期观察池", badge: "一周周期", tone: "blue", type: "短期", key: "short" },
+  { title: "中长期观察池", badge: "一个月周期", tone: "purple", type: "中长期", key: "mid" },
+];
 ---
 
 <section class="stock-pool-page">
   <header class="stock-pool-hero">
     <div>
-      <p>股票池 / 综合筛选</p>
+      <p>股票池 / 按来源拆分</p>
       <h1>股票池</h1>
-      <span>多来源共振 + 技术形态筛选，仅作个人复盘观察。</span>
+      <span>按日期、来源人、短期/中长期拆开查看，不把不同博主的推荐混成一套。</span>
     </div>
     <div class="stock-pool-actions">
       <label
@@ -122,6 +147,15 @@ const dayOptions = unique(dateParts.filter((item) => item.year === currentDatePa
     </div>
   </header>
 
+  <nav class="stock-source-tabs" aria-label="来源人筛选" data-stock-source-tabs>
+    {activeSources.map((source) => (
+      <button type="button" class={source.id === "all" ? "is-active" : ""} data-source-filter={source.id}>
+        <span class={sourceTone(source.id)}>{source.name}</span>
+        <b>{sourceCounts[source.id] ?? 0}</b>
+      </button>
+    ))}
+  </nav>
+
   <section class="stock-pool-summary" aria-label="股票池统计">
     <article>
       <span class="summary-icon blue"><svg viewBox="0 0 24 24"><path d="M4 17V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="m7 15 4-4 3 3 3-5"/><path d="M3 19h18"/></svg></span>
@@ -133,117 +167,133 @@ const dayOptions = unique(dateParts.filter((item) => item.year === currentDatePa
     </article>
     <article>
       <span class="summary-icon green"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"/></svg></span>
-      <div><strong>今日新增</strong><b>{todayAddCount}</b><em>只</em></div>
+      <div><strong>来源人</strong><b>{dashboardSources.length}</b><em>个</em></div>
     </article>
     <article>
       <span class="summary-icon orange"><svg viewBox="0 0 24 24"><path d="M7 12h10"/><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"/></svg></span>
-      <div><strong>今日剔除</strong><b>{todayRemoveCount}</b><em>只</em></div>
+      <div><strong>剔除/取消</strong><b>{todayRemoveCount}</b><em>只</em></div>
     </article>
     <article class="summary-refresh">
       <span>更新时间：{updatedAt}</span>
-      <button type="button">↻ 刷新数据</button>
+      <button type="button">数据来自 11-14 号备份 CSV</button>
     </article>
   </section>
 
-  {[
-    { title: "短期观察池", badge: "一周周期", tone: "blue", type: "短期", pool: shortPool },
-    { title: "中长期观察池", badge: "一个月周期", tone: "purple", type: "中长期", pool: midPool },
-  ].map((section) => (
-    <section class={`stock-pool-section ${section.tone}`}>
-      <div class="stock-pool-section-head">
-        <div>
-          <h2>{section.title}<span>{section.badge}</span></h2>
-          <p>{typeDescription(section.type)}</p>
-        </div>
-        <button type="button">⚙ 筛选设置</button>
-      </div>
-
-      <div class="stock-pool-table-wrap">
-        <table class="stock-pool-table">
-          <thead>
-            <tr>
-              <th>股票名称</th>
-              <th>代码</th>
-              <th>来源</th>
-              {section.type === "中长期" ? <th>所属板块</th> : null}
-              <th>{section.type === "中长期" ? "中线逻辑" : "技术形态"}</th>
-              <th>入场区间</th>
-              <th>{section.type === "中长期" ? "风险位" : "止损位"}</th>
-              <th>{section.type === "中长期" ? "目标1" : "止盈1"}</th>
-              <th>{section.type === "中长期" ? "目标2" : "止盈2"}</th>
-              {section.type === "中长期" ? <th>观察周期</th> : <th>盈亏比</th>}
-              <th>当前状态</th>
-              <th>风险</th>
-              <th>入选原因（摘要）</th>
-              <th>操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            {section.pool.items.map((item) => (
-              <tr>
-                <td><a class="stock-name-link" href={thsStockUrl(item.code)} target="_blank" rel="noreferrer"><strong>{item.name}</strong></a></td>
-                <td>{item.code}</td>
-                <td>{item.source_names}</td>
-                {section.type === "中长期" ? <td>{item.sector}</td> : null}
-                <td>{item.pattern}</td>
-                <td>{normalizeRange(item.entry_range)}</td>
-                <td>{item.stop_loss}</td>
-                <td>{item.take_profit_1}</td>
-                <td>{item.take_profit_2}</td>
-                <td>{section.type === "中长期" ? observationCycle(item.type) : (item.risk_reward ?? "待复核")}</td>
-                <td><span class="stock-status-pill">{statusForItem(item)}</span></td>
-                <td><span class={`stock-risk-pill ${riskTone(item.risk)}`}>{item.risk}</span></td>
-                <td>{item.reason}</td>
-                <td><a class="stock-expand-link" href={`#${section.type}-${item.code}`}>展开⌄</a></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <div class="stock-pool-detail">
-        <div class="stock-reason-card">
-          <h3>入选原因（详细）</h3>
-          {section.pool.items.length ? (
-            <div class="stock-reason-grid">
-              {section.pool.items.map((item) => (
-                <section id={`${section.type}-${item.code}`}>
-                  <h4>{item.name} <small>{item.code}</small></h4>
-                  <ul>
-                    {item.reasons.map(([label, text]) => (
-                      <li><i aria-hidden="true">⊙</i><b>{label}：</b><span>{text}</span></li>
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </div>
-          ) : (
-            <p class="stock-empty">暂无 {section.title} 数据。</p>
-          )}
-        </div>
-
-        <div class="stock-screenshot-card">
-          <h3>相关截图（{section.pool.items.reduce((sum, item) => sum + item.media.length, 0)} 张）</h3>
-          <div class="stock-screenshot-grid">
-            {section.pool.items.flatMap((item) => item.media.map((path, index) => ({ item, path, index }))).slice(0, 4).map(({ item, path, index }) => (
-              <a href={assetUrl(path)} target="_blank" rel="noreferrer">
-                <img src={assetUrl(path)} alt={`${item.name} 相关截图 ${index + 1}`} loading="lazy" />
-                <span>⌕</span>
-              </a>
-            ))}
-            {!section.pool.items.some((item) => item.media.length) ? <p class="stock-empty">暂无关联截图，等待补充评论或图片备份。</p> : null}
+  {activeSources.map((source) => {
+    const sourceShort = decoratePool(source.short ?? [], "短期");
+    const sourceMid = decoratePool(source.mid ?? [], "中长期");
+    return (
+      <section class="stock-source-panel" data-source-panel={source.id}>
+        <div class="stock-source-panel-head">
+          <div>
+            <small class={sourceTone(source.id)}>{source.id === "all" ? "综合视图" : "来源人"}</small>
+            <h2>{source.name}</h2>
           </div>
-          {section.pool.items.some((item) => item.media.length) ? <a class="stock-all-images" href={`${base}/comments/${dashboard.date}/`}>查看全部截图（{section.pool.items.reduce((sum, item) => sum + item.media.length, 0)} 张）</a> : null}
+          <p>短期 {sourceShort.length} 只 · 中长期 {sourceMid.length} 只</p>
         </div>
-      </div>
-    </section>
-  ))}
+
+        {tableSections.map((section) => {
+          const items = section.key === "short" ? sourceShort : sourceMid;
+          return (
+            <section class={`stock-pool-section ${section.tone}`}>
+              <div class="stock-pool-section-head">
+                <div>
+                  <h2>{section.title}<span>{section.badge}</span></h2>
+                  <p>{typeDescription(section.type)}</p>
+                </div>
+              </div>
+
+              <div class="stock-pool-table-wrap">
+                <table class="stock-pool-table">
+                  <thead>
+                    <tr>
+                      <th>股票名称</th>
+                      <th>代码</th>
+                      {source.id === "all" ? <th>来源</th> : null}
+                      <th>所属板块</th>
+                      <th>{section.type === "中长期" ? "中线逻辑" : "技术形态"}</th>
+                      <th>入场区间</th>
+                      <th>{section.type === "中长期" ? "风险位" : "止损位"}</th>
+                      <th>{section.type === "中长期" ? "目标1" : "止盈1"}</th>
+                      <th>{section.type === "中长期" ? "目标2" : "止盈2"}</th>
+                      <th>{section.type === "中长期" ? "观察周期" : "盈亏比"}</th>
+                      <th>当前状态</th>
+                      <th>风险</th>
+                      <th>入选/剔除原因</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {items.map((item) => (
+                      <tr class={item.accepted === false ? "is-rejected" : ""}>
+                        <td><a class="stock-name-link" href={thsStockUrl(item.code)} target="_blank" rel="noreferrer"><strong>{item.name}</strong></a></td>
+                        <td>{item.code}</td>
+                        {source.id === "all" ? <td><span class={`stock-source-pill ${sourceTone(item.source_id)}`}>{item.source_names || item.source_name || sourceName(item.source_id)}</span></td> : null}
+                        <td>{item.sector}</td>
+                        <td>{item.pattern}</td>
+                        <td>{normalizeRange(item.entry_range)}</td>
+                        <td>{item.stop_loss}</td>
+                        <td>{item.take_profit_1}</td>
+                        <td>{item.take_profit_2}</td>
+                        <td>{section.type === "中长期" ? observationCycle(item.type) : (item.risk_reward ?? "待复核")}</td>
+                        <td><span class="stock-status-pill">{statusForItem(item)}</span></td>
+                        <td><span class={`stock-risk-pill ${riskTone(item.risk)}`}>{item.risk}</span></td>
+                        <td>{item.accepted === false ? item.excluded_reason : item.reason}</td>
+                        <td><a class="stock-expand-link" href={`#${source.id}-${section.type}-${item.code}`}>展开</a></td>
+                      </tr>
+                    ))}
+                    {!items.length ? <tr><td colspan={source.id === "all" ? 14 : 13} class="stock-empty-cell">暂无 {source.name} {section.title} 数据。</td></tr> : null}
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="stock-pool-detail">
+                <div class="stock-reason-card">
+                  <h3>入选原因（详细）</h3>
+                  {items.length ? (
+                    <div class="stock-reason-grid">
+                      {items.map((item) => (
+                        <section id={`${source.id}-${section.type}-${item.code}`}>
+                          <h4>{item.name} <small>{item.code} · {item.source_names || item.source_name || source.name}</small></h4>
+                          <ul>
+                            {item.reasons.map(([label, text]) => (
+                              <li><i aria-hidden="true">⊙</i><b>{label}：</b><span>{text}</span></li>
+                            ))}
+                          </ul>
+                        </section>
+                      ))}
+                    </div>
+                  ) : (
+                    <p class="stock-empty">暂无 {source.name} {section.title} 数据。</p>
+                  )}
+                </div>
+
+                <div class="stock-screenshot-card">
+                  <h3>相关截图（{items.reduce((sum, item) => sum + item.media.length, 0)} 张）</h3>
+                  <div class="stock-screenshot-grid">
+                    {items.flatMap((item) => item.media.map((path, index) => ({ item, path, index }))).slice(0, 4).map(({ item, path, index }) => (
+                      <a href={assetUrl(path)} target="_blank" rel="noreferrer">
+                        <img src={assetUrl(path)} alt={`${item.name} 相关截图 ${index + 1}`} loading="lazy" />
+                        <span>⌕</span>
+                      </a>
+                    ))}
+                    {!items.some((item) => item.media.length) ? <p class="stock-empty">暂无关联截图，等待补充评论或图片备份。</p> : null}
+                  </div>
+                  {items.some((item) => item.media.length) ? <a class="stock-all-images" href={`${base}/comments/${dashboard.date}/`}>查看全部截图（{items.reduce((sum, item) => sum + item.media.length, 0)} 张）</a> : null}
+                </div>
+              </div>
+            </section>
+          );
+        })}
+      </section>
+    );
+  })}
 
   <aside class="stock-pool-note">
     <span>♢</span>
     <div>
       <h2>说明</h2>
-      <p>本股票池根据多来源信息和技术形态筛选，仅供复盘观察，非投资建议。操作请结合个人风险承受能力，严格执行止损止盈纪律。</p>
+      <p>本股票池根据来源人备份 CSV 和技术形态筛选展示。不同来源人的推荐单独保留，综合视图只做汇总，不构成任何投资建议。</p>
     </div>
   </aside>
 </section>
@@ -254,6 +304,8 @@ const dayOptions = unique(dateParts.filter((item) => item.year === currentDatePa
     const yearSelect = document.querySelector("[data-stock-pool-year]");
     const monthSelect = document.querySelector("[data-stock-pool-month]");
     const daySelect = document.querySelector("[data-stock-pool-day]");
+    const sourceButtons = [...document.querySelectorAll("[data-source-filter]")];
+    const sourcePanels = [...document.querySelectorAll("[data-source-panel]")];
 
     function uniqueSorted(values, direction = "desc") {
       const sorted = [...new Set(values.filter(Boolean))].sort((a, b) => Number(a) - Number(b));
@@ -318,8 +370,18 @@ const dayOptions = unique(dateParts.filter((item) => item.year === currentDatePa
       }
     }
 
+    function activateSource(sourceId) {
+      sourceButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.sourceFilter === sourceId));
+      sourcePanels.forEach((panel) => panel.hidden = panel.dataset.sourcePanel !== sourceId);
+      window.sessionStorage?.setItem("stockPoolSource", sourceId);
+    }
+
     yearSelect?.addEventListener("change", () => navigateSelectedDate("year"));
     monthSelect?.addEventListener("change", () => navigateSelectedDate("month"));
     daySelect?.addEventListener("change", () => navigateSelectedDate("day"));
+    sourceButtons.forEach((button) => button.addEventListener("click", () => activateSource(button.dataset.sourceFilter || "all")));
+    const savedSource = window.sessionStorage?.getItem("stockPoolSource") || "all";
+    const initialSource = sourceButtons.some((button) => button.dataset.sourceFilter === savedSource) ? savedSource : "all";
+    activateSource(initialSource);
   })();
 </script>

@@ -1,6 +1,6 @@
 {
   "date": "2026-05-14",
-  "updated_at": "2026-05-14 19:24:09",
+  "updated_at": "2026-05-14 19:44:32",
   "report": {
     "date": "2026-05-14",
     "source": "daily",
@@ -317,6 +317,63 @@
   "selection": {
     "short": [],
     "mid": []
+  },
+  "stock_pool": {
+    "sources": [
+      {
+        "id": "yege",
+        "name": "野哥",
+        "short": [
+          {
+            "source_id": "yege",
+            "source_name": "野哥",
+            "code": "300442",
+            "name": "润泽科技",
+            "type": "短期",
+            "pattern": "追高风险",
+            "source_names": "野哥",
+            "entry_range": "94.06-101.62",
+            "stop_loss": "93.44",
+            "take_profit_1": "107.72",
+            "take_profit_2": "111.78",
+            "risk_reward": "1:5.0",
+            "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+            "risk": "高",
+            "status": "观察取消",
+            "reason": "无先手不追高，只看回踩",
+            "score": 23.0,
+            "accepted": false,
+            "excluded_reason": "盈亏比不足；风险扣分过高；状态为观察取消",
+            "raw_text": "润泽科技(300442)  ？？？不许v  你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
+            "note": "由真实备份信号转换，买点需人工复核。",
+            "trend_score": 8.0,
+            "breakout_score": 5.0,
+            "pullback_score": 6.0,
+            "volume_score": 7.0,
+            "risk_score": 8.0
+          }
+        ],
+        "mid": []
+      },
+      {
+        "id": "lihongjuan",
+        "name": "李红娟",
+        "short": [],
+        "mid": []
+      },
+      {
+        "id": "wangduoyu",
+        "name": "王多于",
+        "short": [],
+        "mid": []
+      },
+      {
+        "id": "longge",
+        "name": "龙哥",
+        "short": [],
+        "mid": []
+      }
+    ]
   },
   "comments": [
     {

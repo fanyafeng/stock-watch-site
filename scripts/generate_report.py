@@ -1066,6 +1066,8 @@ def generate_daily_workspace(
 
 def public_stock(item: dict[str, Any]) -> dict[str, Any]:
     return {
+        "source_id": item.get("source", ""),
+        "source_name": item.get("source_name", ""),
         "code": item.get("code", ""),
         "name": item.get("name", ""),
         "type": type_label(item.get("type", "")),
@@ -1078,8 +1080,40 @@ def public_stock(item: dict[str, Any]) -> dict[str, Any]:
         "risk_reward": f"1:{item.get('risk_reward_score', 0):.1f}",
         "trade_signal": volume_price_rule_for_item(item),
         "risk": item.get("risk", ""),
+        "status": item.get("status", ""),
         "reason": item.get("logic", ""),
         "score": round(float(item.get("aggregate_score", item.get("total_score", 0))), 2),
+    }
+
+
+def public_pool_stock(item: dict[str, Any]) -> dict[str, Any]:
+    reasons = filter_reason(item)
+    return {
+        **public_stock(item),
+        "accepted": not reasons,
+        "excluded_reason": "；".join(reasons),
+        "raw_text": item.get("raw_text", ""),
+        "note": item.get("note", ""),
+        "trend_score": item.get("trend_score", 0),
+        "breakout_score": item.get("breakout_score", 0),
+        "pullback_score": item.get("pullback_score", 0),
+        "volume_score": item.get("volume_score", 0),
+        "risk_score": item.get("risk_score", 0),
+    }
+
+
+def source_stock_pool(source_data: dict[str, Any]) -> dict[str, Any]:
+    source = source_data["source"]
+
+    def rows_for_type(candidate_type: str) -> list[dict[str, Any]]:
+        rows = [item for item in source_data["scored"] if item.get("type") == candidate_type]
+        return [public_pool_stock(item) for item in sorted(rows, key=lambda item: item["total_score"], reverse=True)]
+
+    return {
+        "id": source["id"],
+        "name": source["name"],
+        "short": rows_for_type("short"),
+        "mid": rows_for_type("mid"),
     }
 
 
@@ -1285,6 +1319,9 @@ def write_dashboard_data(
         "selection": {
             "short": [public_stock(item) for item in short_top],
             "mid": [public_stock(item) for item in mid_top],
+        },
+        "stock_pool": {
+            "sources": [source_stock_pool(item) for item in daily["source_sections"]],
         },
         "comments": [public_comment(item, source_lookup) for item in daily["comments"]],
         "comment_sources": [
