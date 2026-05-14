@@ -157,6 +157,15 @@ const coolRows = unique(["锂电池概念", "电池技术", "券商股", "镁矿
 }));
 const inflowTop = sectorRows.slice(0, 10);
 const outflowTop = coolRows.slice(0, 10);
+const breadthTotal = breadth.up + breadth.down + breadth.flat;
+const breadthDownRate = breadthTotal > 0 ? ((breadth.down / breadthTotal) * 100).toFixed(2) : "0.00";
+const breadthFlatRate = breadthTotal > 0 ? ((breadth.flat / breadthTotal) * 100).toFixed(2) : "0.00";
+const breadthTone = Number(breadth.upRate) >= 58 ? "强修复" : Number(breadth.upRate) >= 50 ? "偏强" : Number(breadth.upRate) >= 42 ? "震荡" : "偏弱";
+const breadthToneClass = Number(breadth.upRate) >= 50 ? "up" : Number(breadth.upRate) >= 42 ? "neutral" : "down";
+const coreIndexRows = indexRows.slice(0, 4);
+const flowBasisText = amount
+  ? `${market.volume_change ?? "成交额待核对"}，按板块净流口径观察。`
+  : "成交额待补充，主力净流仅作为导入数据线索复核。";
 
 const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)])
   .filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(String(date)))
@@ -194,18 +203,25 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
     <div class="market-overview-grid">
       <article class="market-breadth">
         <h3>涨跌家数</h3>
-        <strong><span class="text-red">{numberText(breadth.up)}</span> / <span class="text-green">{numberText(breadth.down)}</span> / {numberText(breadth.flat)}</strong>
-        <div class="market-breadth-labels"><span>上涨</span><span>下跌</span><span>平盘</span></div>
-        <p>上涨占比 <b class="text-red">{breadth.upRate}%</b><em>偏强</em></p>
+        <div class="market-breadth-metrics">
+          <span><b class="text-red">{numberText(breadth.up)}</b><em>上涨</em><small>{breadth.upRate}%</small></span>
+          <span><b class="text-green">{numberText(breadth.down)}</b><em>下跌</em><small>{breadthDownRate}%</small></span>
+          <span><b>{numberText(breadth.flat)}</b><em>平盘</em><small>{breadthFlatRate}%</small></span>
+        </div>
+        <p class="market-breadth-summary">
+          <span>合计跟踪 <b>{numberText(breadthTotal)}</b> 家</span>
+          <em class={breadthToneClass}>{breadthTone}</em>
+        </p>
       </article>
 
       <article class="market-core-index">
         <h3>核心指数涨跌幅</h3>
         <div>
-          {indexRows.slice(0, 3).map((item) => (
+          {coreIndexRows.map((item) => (
             <section>
               <span>{item.name}</span>
-              <strong class={toneByPct(item.pct)}>{pct(item.pct)}</strong>
+              <strong class={toneByPct(item.pct)}>{pctText(item.pct)}</strong>
+              <small>收 {item.close}</small>
               <em>{item.shape}</em>
             </section>
           ))}
@@ -214,15 +230,26 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
 
       <article class="market-net-card">
         <h3>指数主力净流(合计)</h3>
-        <strong>{money(coreNetInflow)}</strong>
+        <div class="market-net-summary">
+          <strong>{money(coreNetInflow)}</strong>
+          <span>{amount ? "成交额口径" : "待复核口径"}</span>
+        </div>
         <div class="market-mini-bars" aria-hidden="true">{Array.from({ length: 42 }).map((_, index) => <i class={index > 22 && index < 34 ? "down" : "up"} style={`height:${10 + ((index * 7) % 30)}px`}></i>)}</div>
+        <p>{flowBasisText}</p>
       </article>
 
       <article class="market-local-flow">
         <h3>局部抢筹线索 <small>净流入前四</small></h3>
-        {sectorRows.slice(0, 4).map((item) => (
-          <p><span>{item.name}</span><b>{money(item.net)}</b><i style={`--flow:${Math.min(96, Math.max(32, item.net / Math.max(coreNetInflow, 1) * 28))}%`}></i><em>{pct(item.pct)}</em></p>
-        ))}
+        <div class="market-local-flow-list">
+          {sectorRows.slice(0, 4).map((item) => (
+            <p>
+              <span><b>{item.name}</b><small>{item.leader.code ? <a class="market-stock-link" href={thsStockUrl(item.leader.code)} target="_blank" rel="noreferrer">{item.leader.name}</a> : item.leader.name}</small></span>
+              <strong>{money(item.net)}</strong>
+              <i style={`--flow:${Math.min(96, Math.max(32, item.net / Math.max(coreNetInflow, 1) * 28))}%`}></i>
+              <em>{pct(item.pct)}</em>
+            </p>
+          ))}
+        </div>
       </article>
     </div>
     <div class="market-structure-note">
