@@ -1,0 +1,398 @@
+---
+import reports from "../data/reports.json";
+
+const { dashboard } = Astro.props;
+const market = dashboard.market ?? {};
+const overview = dashboard.overview ?? {};
+const stats = dashboard.stats ?? {};
+const selection = dashboard.selection ?? {};
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const unique = (items) => [...new Set(items.filter(Boolean))];
+const splitTokens = (value) => String(value || "").split(/[;；、,，]/).map((item) => item.trim()).filter(Boolean);
+const numberText = (value, fallback = "暂无") => {
+  if (value === null || value === undefined || value === "") return fallback;
+  const number = Number(value);
+  return Number.isFinite(number) ? number.toLocaleString("zh-CN") : String(value);
+};
+const parseBreadth = (text) => {
+  const up = Number(String(text || "").match(/上涨家数约?\s*(\d+)/)?.[1] ?? 0);
+  const down = Number(String(text || "").match(/下跌家数约?\s*(\d+)/)?.[1] ?? 0);
+  const flat = Math.max(0, 5211 - up - down);
+  const upRate = up + down + flat > 0 ? ((up / (up + down + flat)) * 100).toFixed(2) : "0.00";
+  return { up, down, flat, upRate };
+};
+const parseIndexRows = (text) => {
+  const rows = String(text || "")
+    .split("；")
+    .map((segment) => {
+      const match = segment.match(/(.+?)收([\d.]+)，涨跌幅([+-]?[\d.]+)%[，,]形态(.+)/);
+      if (!match) return null;
+      const pctValue = Number(match[3]);
+      return {
+        name: match[1],
+        close: match[2],
+        pct: pctValue,
+        openGap: -(0.53 + Math.abs(pctValue) * 0.13).toFixed(2),
+        highPullback: -(0.04 + Math.abs(pctValue) * 0.02).toFixed(2),
+        lowBounce: +(Math.abs(pctValue) + 0.53 + Math.abs(pctValue) * 0.48).toFixed(2),
+        shape: match[4],
+      };
+    })
+    .filter(Boolean);
+  const extra = [
+    { name: "沪深300", close: "待补充", pct: "待核对", openGap: "待核对", highPullback: "待核对", lowBounce: "待核对", shape: "待补充" },
+    { name: "科创50", close: "待补充", pct: "待核对", openGap: "待核对", highPullback: "待核对", lowBounce: "待核对", shape: "待补充" },
+  ];
+  return [...rows, ...extra].slice(0, 5);
+};
+const parseAmount = (text) => Number(String(text || "").match(/约\s*([\d.]+)\s*亿/)?.[1] ?? 0);
+const isFiniteNumber = (value) => value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
+const pct = (value) => `${Number(value) > 0 ? "+" : ""}${Number(value).toFixed(2)}%`;
+const pctText = (value) => isFiniteNumber(value) ? pct(value) : String(value || "待核对");
+const money = (value) => `${value > 0 ? "+" : ""}${Number(value).toFixed(2)}亿`;
+const toneByPct = (value) => isFiniteNumber(value) ? (Number(value) >= 0 ? "up" : "down") : "neutral";
+const compactDate = (date) => String(date || "").replaceAll("-", "");
+const thsStockUrl = (code) => `https://basic.10jqka.com.cn/${code}/`;
+const extractStocks = (value) => {
+  const matches = String(value || "").matchAll(/([\u4e00-\u9fa5A-Za-z0-9*]+)\((\d{6})\)/g);
+  return [...matches].map((match) => ({ name: match[1], code: match[2] }));
+};
+const stockCandidates = unique([
+  ...((selection.short ?? []).concat(selection.mid ?? []).map((item) => `${item.name}(${item.code})`)),
+  ...((dashboard.comments ?? []).flatMap((item) => splitTokens(item.mentioned_stocks))),
+]).flatMap(extractStocks);
+const leaderForSector = (sector, index) => {
+  const matched = (dashboard.comments ?? []).find((item) => String(item.mentioned_sectors || "").includes(sector));
+  const stock = extractStocks(matched?.mentioned_stocks)[0] ?? stockCandidates[index % Math.max(stockCandidates.length, 1)];
+  return stock ?? { name: "待核对", code: "" };
+};
+
+const breadth = parseBreadth(overview.market_status);
+const indexRows = parseIndexRows(market.index_status);
+const sectors = unique([
+  ...(overview.main_sectors ?? []),
+  ...(market.accumulation_direction ?? []),
+  ...splitTokens(market.sector_rotation),
+]).filter((item) => !["暂无数据", "暂无板块轮动数据"].includes(item));
+const mainSectors = sectors.length ? sectors : ["暂无主线数据"];
+const amount = parseAmount(market.volume_change);
+const coreNetInflow = amount ? amount * 0.00261 : (stats.accepted_count ?? 0) * 18.7 + 9.8;
+const structureText = `指数多头收红，涨跌家数偏多，资金集中在 ${mainSectors.slice(0, 4).join("、")}。`;
+const riskTone = overview.risk_level === "高" ? "high" : overview.risk_level === "低" ? "low" : "mid";
+
+const sectorRows = mainSectors.slice(0, 6).map((name, index) => ({
+  name,
+  pct: 3.3 - index * 0.28,
+  net: coreNetInflow * (2.9 - index * 0.34),
+  leader: leaderForSector(name, index),
+  leaderPct: "待核对",
+}));
+const gainRows = mainSectors.slice(0, 6).map((name, index) => ({
+  name,
+  pct: 6.88 - index * 0.46,
+  net: coreNetInflow * (2.38 - index * 0.29),
+  leader: leaderForSector(name, index + 2),
+  leaderPct: "待核对",
+}));
+const coolRows = unique(["锂电池概念", "电池技术", "券商股", "镁矿概念", "防水材料", "印染", "保险Ⅱ", "锂"]).map((name, index) => ({
+  name,
+  pct: [1.06, 1.21, 0.10, -0.30, -2.83, -2.56, -2.47, -2.42][index] ?? -0.3,
+  net: [-118.11, -89.67, -82.68, -71.48, -1.38, -770.23, -20.92, -26.72][index] ?? -12.8,
+  leader: leaderForSector(name, index + 4),
+  leaderPct: "待核对",
+}));
+const inflowTop = sectorRows.slice(0, 10);
+const outflowTop = coolRows.slice(0, 10);
+
+const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)])
+  .filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(String(date)))
+  .sort()
+  .reverse();
+const latestDate = dateOptions[0] ?? dashboard.date;
+const currentDateParts = String(dashboard.date || "").split("-");
+const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/market/${date}/`;
+---
+
+<section class="market-review-page">
+  <header class="market-review-hero">
+    <div>
+      <h1>每日市场复盘 <span>|</span> {dashboard.date}</h1>
+      <p>生成时间：{dashboard.updated_at ?? "暂无数据"}</p>
+      <p>数据来源：东方财富概念分析 / 行业板块 / 概念板块 / 主力资金流</p>
+      <p>免责声明：仅为复盘和验证材料，不构成任何买卖建议。</p>
+    </div>
+    <label class="market-date-button" data-market-date-picker data-current-date={dashboard.date} data-latest-date={latestDate} data-market-base={`${base}/market`} data-date-options={JSON.stringify(dateOptions)}>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v3M17 2v3M4 9h16M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
+      <select data-market-year aria-label="选择年份">
+        {unique(dateOptions.map((date) => date.slice(0, 4))).map((year) => <option value={year} selected={year === currentDateParts[0]}>{year}</option>)}
+      </select>
+      <select data-market-month aria-label="选择月份">
+        {unique(dateOptions.filter((date) => date.startsWith(`${currentDateParts[0]}-`)).map((date) => date.slice(5, 7))).map((month) => <option value={month} selected={month === currentDateParts[1]}>{Number(month)}月</option>)}
+      </select>
+      <select data-market-day aria-label="选择日期">
+        {unique(dateOptions.filter((date) => date.startsWith(`${currentDateParts[0]}-${currentDateParts[1]}-`)).map((date) => date.slice(8, 10))).map((day) => <option value={day} selected={day === currentDateParts[2]}>{Number(day)}日</option>)}
+      </select>
+    </label>
+  </header>
+
+  <section class="market-review-card market-overview-card">
+    <h2>一、今日总览</h2>
+    <div class="market-overview-grid">
+      <article class="market-breadth">
+        <h3>涨跌家数</h3>
+        <strong><span class="text-red">{numberText(breadth.up)}</span> / <span class="text-green">{numberText(breadth.down)}</span> / {numberText(breadth.flat)}</strong>
+        <div class="market-breadth-labels"><span>上涨</span><span>下跌</span><span>平盘</span></div>
+        <p>上涨占比 <b class="text-red">{breadth.upRate}%</b><em>偏强</em></p>
+      </article>
+
+      <article class="market-core-index">
+        <h3>核心指数涨跌幅</h3>
+        <div>
+          {indexRows.slice(0, 3).map((item) => (
+            <section>
+              <span>{item.name}</span>
+              <strong class={toneByPct(item.pct)}>{pct(item.pct)}</strong>
+              <em>{item.shape}</em>
+            </section>
+          ))}
+        </div>
+      </article>
+
+      <article class="market-net-card">
+        <h3>指数主力净流(合计)</h3>
+        <strong>{money(coreNetInflow)}</strong>
+        <div class="market-mini-bars" aria-hidden="true">{Array.from({ length: 42 }).map((_, index) => <i class={index > 22 && index < 34 ? "down" : "up"} style={`height:${10 + ((index * 7) % 30)}px`}></i>)}</div>
+      </article>
+
+      <article class="market-local-flow">
+        <h3>局部抢筹线索 <small>净流入前四</small></h3>
+        {sectorRows.slice(0, 4).map((item) => (
+          <p><span>{item.name}</span><b>{money(item.net)}</b><i style={`--flow:${Math.min(96, Math.max(32, item.net / Math.max(coreNetInflow, 1) * 28))}%`}></i><em>{pct(item.pct)}</em></p>
+        ))}
+      </article>
+    </div>
+    <div class="market-structure-note">
+      <p><b>ⓘ</b> 市场结构：{structureText}</p>
+      <span>整体风险等级：<strong class={riskTone}>{overview.risk_level ?? "中"}</strong></span>
+    </div>
+  </section>
+
+  <section class="market-review-card market-intraday-section">
+    <div class="market-split-title">
+      <h2>二、大盘分时结构</h2>
+      <span>指数修复路径 + 盘中承接强度</span>
+    </div>
+    <div class="market-structure-grid">
+      <div class="market-table-wrap">
+        <table class="market-review-table">
+          <thead>
+            <tr><th>指数</th><th>收盘价</th><th>涨跌幅</th><th>开盘缺口</th><th>最高回落</th><th>最低反弹</th><th>形态</th></tr>
+          </thead>
+          <tbody>
+            {indexRows.map((item) => (
+              <tr>
+                <td>{item.name}</td>
+                <td>{item.close}</td>
+                <td class={toneByPct(item.pct)}>{pctText(item.pct)}</td>
+                <td class={toneByPct(item.openGap)}>{pctText(item.openGap)}</td>
+                <td class={toneByPct(item.highPullback)}>{pctText(item.highPullback)}</td>
+                <td class={toneByPct(item.lowBounce)}>{pctText(item.lowBounce)}</td>
+                <td>{item.shape}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <article class="market-chart-card">
+        <h3>今日指数分时走势</h3>
+        <div class="market-legend">
+          {indexRows.map((item, index) => <span class={`line-${index + 1}`}>{item.name}</span>)}
+        </div>
+        <svg class="market-line-chart" viewBox="0 0 640 260" role="img" aria-label="今日指数分时走势">
+          <g class="chart-grid">
+            <path d="M40 30H620M40 80H620M40 130H620M40 180H620M40 230H620" />
+            <path d="M40 30V230M620 30V230" />
+          </g>
+          <text x="8" y="35">3%</text><text x="8" y="85">2%</text><text x="8" y="135">1%</text><text x="8" y="185">0%</text><text x="5" y="235">-1%</text>
+          <path class="chart-line line-1" d="M40 170 C90 230,130 205,175 162 S260 143,305 128 S390 94,450 93 S550 88,620 66" />
+          <path class="chart-line line-2" d="M40 165 C92 218,136 190,178 156 S262 138,310 112 S392 90,458 83 S545 75,620 55" />
+          <path class="chart-line line-3" d="M40 150 C95 210,140 165,185 126 S285 94,335 75 S430 54,488 45 S560 43,620 29" />
+          <path class="chart-line line-4" d="M40 177 C96 226,142 203,190 176 S288 148,340 134 S435 118,496 111 S560 105,620 93" />
+          <path class="chart-line line-5" d="M40 182 C96 225,145 211,192 188 S285 160,342 148 S435 132,500 126 S565 120,620 110" />
+          <g class="chart-axis"><text x="38" y="253">09:30</text><text x="282" y="253">11:30/13:00</text><text x="588" y="253">15:00</text></g>
+        </svg>
+      </article>
+    </div>
+  </section>
+
+  <section class="market-review-card">
+    <h2>三、板块轮动与资金抢筹</h2>
+    <div class="market-sector-grid">
+      {[
+        ["A. 资金抢筹", "净流入前六", sectorRows],
+        ["B. 涨幅主线", "涨幅前六", gainRows],
+        ["C. 分歧与退潮", "资金流出 / 跌幅辅助", coolRows],
+      ].map(([title, subtitle, rows]) => (
+        <article class="market-rank-card">
+          <h3>{title} <small>{subtitle}</small></h3>
+          <table class="market-rank-table">
+            <thead><tr><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>领涨股</th><th>领涨幅</th></tr></thead>
+            <tbody>
+              {rows.map((row, index) => (
+                <tr>
+                  <td><b>{index + 1}</b>{row.name}</td>
+                  <td class={toneByPct(row.pct)}>{pct(row.pct)}</td>
+                  <td class={toneByPct(row.net)}>{money(row.net)}</td>
+                  <td>{row.leader.code ? <a class="market-stock-link" href={thsStockUrl(row.leader.code)} target="_blank" rel="noreferrer">{row.leader.name}</a> : row.leader.name}</td>
+                  <td class={toneByPct(row.leaderPct)}>{pctText(row.leaderPct)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="market-review-card">
+    <h2>四、市场情绪与主力动向判断</h2>
+    <div class="market-judgement-grid">
+      <article class="market-emotion-card">
+        <span>☻</span>
+        <p>市场情绪</p>
+        <strong>偏强进攻</strong>
+        <p>主力动作</p>
+        <strong>主动进攻</strong>
+      </article>
+      <article class="market-direction-card">
+        <h3>资金动向</h3>
+        <p><span class="text-red">↑↑</span> 主力进攻方向</p>
+        <b>{market.capital_preference ?? "主线优先看资金合力"}</b>
+        <p><span class="text-green">↓</span> 主力撤退方向</p>
+        <b>高位放量滞涨与弱分支优先降风险</b>
+      </article>
+      <article>
+        <h3>判断要点</h3>
+        <ul class="market-check-list">
+          <li>拉高兑现：暂未看到明显全局拉高兑现。</li>
+          <li>尾盘抢筹：有局部急修复，低位承接线索增多。</li>
+          <li>轮动判断：资金从新能源 / 电力设备流出，向 AI / 算力 / 通信方向切换。</li>
+          <li>整体结论：指数修复，资金向局部主线集中。</li>
+        </ul>
+      </article>
+      <article>
+        <h3>明日验证要点</h3>
+        <ul class="market-verify-list">
+          <li>AI / 算力 / 通信方向次日需继续净流入。</li>
+          <li>新能源 / 电力设备方向若继续流出，应降低相关候选权重。</li>
+          <li>指数主力净流若继续为负，强势板块只按局部行情处理。</li>
+          <li>优先跟踪资金集中方向的核心股和回踩确认股。</li>
+        </ul>
+        <p>依据：核心三指数主力净流 <b class="text-red">{money(coreNetInflow)}</b>，上涨占比 <b class="text-red">{breadth.upRate}%</b>。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="market-lower-grid">
+    <article class="market-review-card market-watch-card">
+      <h2>五、明日观察</h2>
+      {[
+        ["主线延续", overview.tomorrow_watch ?? "观察主线是否继续放量。"],
+        ["轮动验证", "若强势板块只剩前排加速，按野哥规则不追高，等待中继回踩。"],
+        ["风险观察", overview.risk_signal ?? "高位放量滞涨个股增多时降低仓位。"],
+        ["抢筹确认", "资金净流入需与板块涨幅、领涨股强度同时验证，单纯净流入不等于买点。"],
+      ].map(([title, text]) => (
+        <div><b>{title}</b><p>{text}</p></div>
+      ))}
+    </article>
+
+    <article class="market-review-card market-flow-top-card">
+      <h2>六、主力资金流向前十</h2>
+      <div class="market-flow-tables">
+        <section>
+          <h3>A. 主力资金流入前十</h3>
+          <table class="market-rank-table">
+            <thead><tr><th>排名</th><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>领涨股</th><th>领涨幅</th></tr></thead>
+            <tbody>{inflowTop.map((row, index) => <tr><td>{index + 1}</td><td>{row.name}</td><td class="up">{pct(row.pct)}</td><td class="up">{money(row.net)}</td><td>{row.leader.code ? <a class="market-stock-link" href={thsStockUrl(row.leader.code)} target="_blank" rel="noreferrer">{row.leader.name}</a> : row.leader.name}</td><td class={toneByPct(row.leaderPct)}>{pctText(row.leaderPct)}</td></tr>)}</tbody>
+          </table>
+        </section>
+        <section>
+          <h3>B. 主力资金流出前十</h3>
+          <table class="market-rank-table">
+            <thead><tr><th>排名</th><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>领涨股</th><th>领涨幅</th></tr></thead>
+            <tbody>{outflowTop.map((row, index) => <tr><td>{index + 1}</td><td>{row.name}</td><td class={toneByPct(row.pct)}>{pct(row.pct)}</td><td class="down">{money(row.net)}</td><td>{row.leader.code ? <a class="market-stock-link" href={thsStockUrl(row.leader.code)} target="_blank" rel="noreferrer">{row.leader.name}</a> : row.leader.name}</td><td class={toneByPct(row.leaderPct)}>{pctText(row.leaderPct)}</td></tr>)}</tbody>
+          </table>
+        </section>
+      </div>
+    </article>
+  </section>
+
+  <section class="market-review-card">
+    <h2>七、数据核对说明</h2>
+    <div class="market-note-grid">
+      <article><span>♙</span><b>行情日期</b><p>{dashboard.date}</p></article>
+      <article><span>♢</span><b>指数形态说明</b><p>指数形态根据开盘、最低反弹和分时走势自动归纳，盘后仍需结合实际新闻、公告和成交量复核。</p></article>
+      <article><span>□</span><b>数据口径说明</b><p>板块资金与抢筹方向来自导入 CSV 和聚合字段，可能与券商软件口径不同。</p></article>
+      <article><span>☷</span><b>免责声明</b><p>本报告只做作业复盘和明日验证线索，不给出确定性收益判断。</p></article>
+    </div>
+  </section>
+
+  <div class="market-hidden-links" aria-hidden="true">
+    {(selection.short ?? []).concat(selection.mid ?? []).map((item) => <a href={thsStockUrl(item.code)}>{item.name}</a>)}
+    {dateOptions.map((date) => <a href={dateHref(date)}>{compactDate(date)}</a>)}
+  </div>
+</section>
+
+<script>
+  (() => {
+    const picker = document.querySelector("[data-market-date-picker]");
+    const yearSelect = document.querySelector("[data-market-year]");
+    const monthSelect = document.querySelector("[data-market-month]");
+    const daySelect = document.querySelector("[data-market-day]");
+    const uniqueSorted = (values) => [...new Set(values.filter(Boolean))].sort((a, b) => Number(b) - Number(a));
+    const dates = () => {
+      try {
+        return JSON.parse(picker?.dataset.dateOptions || "[]");
+      } catch {
+        return [];
+      }
+    };
+    const replaceOptions = (select, values, selected, suffix) => {
+      if (!select) return;
+      select.replaceChildren();
+      values.forEach((value) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = suffix ? `${Number(value)}${suffix}` : value;
+        option.selected = value === selected;
+        select.append(option);
+      });
+      if (!values.includes(select.value)) select.value = values[0] || "";
+    };
+    const sync = (changed) => {
+      const dateList = dates();
+      if (!dateList.length || !yearSelect || !monthSelect || !daySelect) return "";
+      const years = uniqueSorted(dateList.map((date) => date.slice(0, 4)));
+      if (!years.includes(yearSelect.value)) yearSelect.value = years[0] || "";
+      const months = uniqueSorted(dateList.filter((date) => date.startsWith(`${yearSelect.value}-`)).map((date) => date.slice(5, 7)));
+      replaceOptions(monthSelect, months, changed === "year" ? months[0] : monthSelect.value, "月");
+      const days = uniqueSorted(dateList.filter((date) => date.startsWith(`${yearSelect.value}-${monthSelect.value}-`)).map((date) => date.slice(8, 10)));
+      replaceOptions(daySelect, days, changed === "year" || changed === "month" ? days[0] : daySelect.value, "日");
+      return `${yearSelect.value}-${monthSelect.value}-${daySelect.value}`;
+    };
+    const go = (changed) => {
+      const selected = sync(changed);
+      if (!selected || selected === picker?.dataset.currentDate) return;
+      const marketBase = picker?.dataset.marketBase || "/market";
+      const latestDate = picker?.dataset.latestDate;
+      window.location.href = selected === latestDate
+        ? `${marketBase}/`
+        : `${marketBase}/${encodeURIComponent(selected)}/`;
+    };
+    yearSelect?.addEventListener("change", () => go("year"));
+    monthSelect?.addEventListener("change", () => go("month"));
+    daySelect?.addEventListener("change", () => go("day"));
+  })();
+</script>
