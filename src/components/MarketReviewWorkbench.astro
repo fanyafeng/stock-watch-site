@@ -133,6 +133,10 @@ const amount = parseAmount(market.volume_change);
 const coreNetInflow = amount ? amount * 0.00261 : (stats.accepted_count ?? 0) * 18.7 + 9.8;
 const structureText = `指数多头收红，涨跌家数偏多，资金集中在 ${mainSectors.slice(0, 4).join("、")}。`;
 const riskTone = overview.risk_level === "高" ? "high" : overview.risk_level === "低" ? "low" : "mid";
+const marketStructureSummary = chartRows.filter((item) => Number(item.pct) >= 0).length >= Math.ceil(Math.max(chartRows.length, 1) / 2)
+  ? "指数多数收红，涨跌家数偏多"
+  : "指数分化，涨跌家数需继续观察";
+const mainDirectionText = mainSectors.slice(0, 4).join(" / ");
 
 const sectorRows = mainSectors.slice(0, 6).map((name, index) => ({
   name,
@@ -200,61 +204,93 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
 
   <section class="market-review-card market-overview-card">
     <h2>一、今日总览</h2>
+    <div class="market-conclusion-strip">
+      <div>
+        <span>市场结构</span>
+        <strong>{marketStructureSummary}</strong>
+        <small>{structureText}</small>
+      </div>
+      <div>
+        <span>主线方向</span>
+        <strong>{mainDirectionText}</strong>
+        <small>资金集中在核心板块，次日继续验证承接。</small>
+      </div>
+      <div>
+        <span>资金特征</span>
+        <strong>指数主力净流 <b class="text-red">{money(coreNetInflow)}</b></strong>
+        <small>{amount ? "成交额口径，盘后需复核。" : "成交额待补充，需人工复核。"}</small>
+      </div>
+      <div class="market-risk-summary">
+        <span>整体风险等级</span>
+        <strong class={riskTone}>{overview.risk_level ?? "中"}</strong>
+      </div>
+    </div>
     <div class="market-overview-grid">
       <article class="market-breadth">
-        <h3>涨跌家数</h3>
-        <div class="market-breadth-metrics">
-          <span><b class="text-red">{numberText(breadth.up)}</b><em>上涨</em><small>{breadth.upRate}%</small></span>
-          <span><b class="text-green">{numberText(breadth.down)}</b><em>下跌</em><small>{breadthDownRate}%</small></span>
-          <span><b>{numberText(breadth.flat)}</b><em>平盘</em><small>{breadthFlatRate}%</small></span>
+        <h3>涨跌家数 <small>市场宽度</small></h3>
+        <div class="market-breadth-inline">
+          <span><em>上涨</em><b class="text-red">{numberText(breadth.up)}</b></span>
+          <span><em>下跌</em><b class="text-green">{numberText(breadth.down)}</b></span>
+          <span><em>平盘</em><b>{numberText(breadth.flat)}</b></span>
         </div>
-        <p class="market-breadth-summary">
+        <div class="market-breadth-ratio" style={`--breadth-up:${breadth.upRate}%;--breadth-down:${breadthDownRate}%;--breadth-flat:${breadthFlatRate}%`}>
+          <i class="up"></i><i class="down"></i><i class="flat"></i>
+        </div>
+        <div class="market-breadth-footer">
+          <span>上涨占比 <b class="text-red">{breadth.upRate}%</b></span>
           <span>合计跟踪 <b>{numberText(breadthTotal)}</b> 家</span>
           <em class={breadthToneClass}>{breadthTone}</em>
-        </p>
+        </div>
       </article>
 
       <article class="market-core-index">
         <h3>核心指数涨跌幅</h3>
-        <div>
-          {coreIndexRows.map((item) => (
-            <section>
-              <span>{item.name}</span>
-              <strong class={toneByPct(item.pct)}>{pctText(item.pct)}</strong>
-              <small>收 {item.close}</small>
-              <em>{item.shape}</em>
-            </section>
-          ))}
+        <div class="market-index-table-wrap">
+          <table class="market-index-compact-table">
+            <thead>
+              <tr><th>指数名称</th><th>涨跌幅</th><th>收盘价</th><th>形态</th></tr>
+            </thead>
+            <tbody>
+              {coreIndexRows.map((item) => (
+                <tr>
+                  <td>{item.name}</td>
+                  <td class={toneByPct(item.pct)}>{pctText(item.pct)}</td>
+                  <td>{item.close}</td>
+                  <td><span>{item.shape}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </article>
 
       <article class="market-net-card">
         <h3>指数主力净流(合计)</h3>
-        <div class="market-net-summary">
-          <strong>{money(coreNetInflow)}</strong>
-          <span>{amount ? "成交额口径" : "待复核口径"}</span>
+        <div class="market-net-layout">
+          <div class="market-net-summary">
+            <strong>{money(coreNetInflow)}</strong>
+            <span>核心三指数合计主力净流</span>
+            <em>{amount ? "成交额口径" : "待复核口径"}</em>
+          </div>
+          <div class="market-mini-bars" aria-hidden="true">{Array.from({ length: 34 }).map((_, index) => <i class={index > 18 && index < 28 ? "down" : "up"} style={`height:${10 + ((index * 7) % 30)}px`}></i>)}</div>
         </div>
-        <div class="market-mini-bars" aria-hidden="true">{Array.from({ length: 42 }).map((_, index) => <i class={index > 22 && index < 34 ? "down" : "up"} style={`height:${10 + ((index * 7) % 30)}px`}></i>)}</div>
         <p>{flowBasisText}</p>
       </article>
 
       <article class="market-local-flow">
         <h3>局部抢筹线索 <small>净流入前四</small></h3>
-        <div class="market-local-flow-list">
-          {sectorRows.slice(0, 4).map((item) => (
-            <p>
-              <span><b>{item.name}</b><small>{item.leader.code ? <a class="market-stock-link" href={thsStockUrl(item.leader.code)} target="_blank" rel="noreferrer">{item.leader.name}</a> : item.leader.name}</small></span>
-              <strong>{money(item.net)}</strong>
-              <i style={`--flow:${Math.min(96, Math.max(32, item.net / Math.max(coreNetInflow, 1) * 28))}%`}></i>
-              <em>{pct(item.pct)}</em>
-            </p>
+        <div class="market-local-rank-list">
+          {sectorRows.slice(0, 4).map((item, index) => (
+            <div class="market-local-rank-row">
+              <b>{index + 1}</b>
+              <span><strong>{item.name}</strong><small>{item.leader.code ? <a class="market-stock-link" href={thsStockUrl(item.leader.code)} target="_blank" rel="noreferrer">{item.leader.name}</a> : item.leader.name}</small></span>
+              <em>{money(item.net)}</em>
+              <i class={toneByPct(item.pct)}>{pct(item.pct)}</i>
+              <small style={`--flow:${Math.min(96, Math.max(34, item.net / Math.max(coreNetInflow, 1) * 28))}%`}></small>
+            </div>
           ))}
         </div>
       </article>
-    </div>
-    <div class="market-structure-note">
-      <p><b>ⓘ</b> 市场结构：{structureText}</p>
-      <span>整体风险等级：<strong class={riskTone}>{overview.risk_level ?? "中"}</strong></span>
     </div>
   </section>
 
