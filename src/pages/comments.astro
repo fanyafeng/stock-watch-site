@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import DashboardLayout from "../components/DashboardLayout.astro";
 import dashboard from "../data/dashboard.json";
 import reports from "../data/reports.json";
+import stockSectorMap from "../data/stock_sector_map.json";
 
 const comments = dashboard.comments ?? [];
 const sources = dashboard.comment_sources ?? dashboard.sources ?? [];
@@ -14,14 +15,52 @@ const assetUrl = (path) => `${base}${path}`;
 const includedCount = comments.filter((item) => item.include_in_logic === "是").length;
 const rejectedCount = comments.filter((item) => item.include_in_logic === "否").length;
 const waitingCount = comments.length - includedCount - rejectedCount;
+const nonMarketSectorLabels = new Set([
+  "风险提示",
+  "含图片/截图核对",
+  "个股相关",
+  "野哥同花顺逻辑",
+  "交易动作",
+  "减仓/退出风险",
+]);
 
 const extractTime = (value) => String(value || "").match(/\d{1,2}:\d{2}/)?.[0] ?? "--:--";
 const cleanChannel = (value) => String(value || "评论来源").replace(/\s*\d{1,2}:\d{2}\s*/g, "").trim() || "评论来源";
 const unique = (items) => [...new Set(items.filter(Boolean))];
+const marketFocusSectors = unique([
+  ...(dashboard.overview?.main_sectors ?? []),
+  ...(dashboard.market?.accumulation_direction ?? []),
+].flatMap((item) => splitTokens(item)).filter((item) => !["暂无数据", "需补充 market.csv"].includes(item)));
 const extractStockCode = (value) => String(value || "").match(/\d{6}/)?.[0] ?? "";
+const stockDisplayName = (value) => String(value || "").replace(/\s+/g, "");
 const thsStockUrl = (value) => {
   const code = extractStockCode(value);
   return code ? `https://basic.10jqka.com.cn/${code}/` : "";
+};
+const sectorsForStock = (stock, commentSectors = []) => {
+  const code = extractStockCode(stock);
+  const mapped = code ? stockSectorMap[code]?.sectors ?? [] : [];
+  const usableCommentSectors = commentSectors.filter((sector) => !nonMarketSectorLabels.has(sector));
+  return unique([...mapped, ...usableCommentSectors]);
+};
+const sectorMatchesMarket = (sector) => marketFocusSectors.some((marketSector) => sector.includes(marketSector) || marketSector.includes(sector));
+const sectorRelationForComment = (comment) => {
+  const stocks = comment.stocks?.length ? comment.stocks : splitTokens(comment.mentioned_stocks);
+  const commentSectors = comment.sectors?.length ? comment.sectors : splitTokens(comment.mentioned_sectors);
+  const relations = stocks.map((stock) => {
+    const sectors = sectorsForStock(stock, commentSectors);
+    return {
+      stock,
+      sectors,
+      marketHits: sectors.filter(sectorMatchesMarket),
+    };
+  }).filter((item) => item.stock || item.sectors.length);
+  const fallbackSectors = commentSectors.filter((sector) => !nonMarketSectorLabels.has(sector));
+  return {
+    relations,
+    fallbackSectors,
+    hasMarketData: marketFocusSectors.length > 0,
+  };
 };
 const linkStockMentions = (value) =>
   value.replace(/([\u4e00-\u9fa5A-Za-z0-9·*]+)\((\d{6})\)/g, (match, name, code) => {
@@ -341,7 +380,44 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
                             </div>
                             <div class="comment-insight-row">
                               <span class="comment-insight-label"><i aria-hidden="true">▱</i> 提到的板块</span>
-                              <strong>{comment.sectors.slice(0, 3).join("、") || "暂无"}</strong>
+                              {(() => {
+                                const relation = sectorRelationForComment(comment);
+                                return (
+                                  <div class="comment-sector-linkage">
+                                    {relation.relations.length ? relation.relations.map((item) => {
+                                      const stockUrl = thsStockUrl(item.stock);
+                                      return (
+                                        <div class="comment-sector-linkage-item">
+                                          <span class="comment-sector-stock">
+                                            {stockUrl ? (
+                                              <a href={stockUrl} target="_blank" rel="noreferrer">{stockDisplayName(item.stock)}</a>
+                                            ) : (
+                                              stockDisplayName(item.stock)
+                                            )}
+                                          </span>
+                                          <span class="comment-sector-arrow">→</span>
+                                          <span class="comment-sector-tags">
+                                            {item.sectors.length ? item.sectors.map((sector) => (
+                                              <em class={sectorMatchesMarket(sector) ? "market-hit" : ""}>{sector}</em>
+                                            )) : <em>待补充板块</em>}
+                                          </span>
+                                          <small class={item.marketHits.length ? "market-hit" : ""}>
+                                            {item.marketHits.length ? `命中大盘：${item.marketHits.join("、")}` : (relation.hasMarketData ? "未命中今日主线" : "大盘板块待补充")}
+                                          </small>
+                                        </div>
+                                      );
+                                    }) : (
+                                      <div class="comment-sector-linkage-item">
+                                        <span class="comment-sector-stock">暂无明确股票</span>
+                                        <span class="comment-sector-arrow">→</span>
+                                        <span class="comment-sector-tags">
+                                          {(relation.fallbackSectors.length ? relation.fallbackSectors : ["待补充板块"]).slice(0, 4).map((sector) => <em>{sector}</em>)}
+                                        </span>
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              })()}
                             </div>
                             <div class="comment-insight-row comment-insight-row--wide">
                               <span class="comment-insight-label"><i aria-hidden="true">◇</i> 为什么有价值</span>

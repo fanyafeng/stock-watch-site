@@ -7759,3 +7759,102 @@ body {
     display: none;
   }
 }
+
+/* Comment sector linkage */
+.comment-sector-linkage {
+  display: grid;
+  gap: 7px;
+}
+
+.comment-sector-linkage-item {
+  display: grid;
+  grid-template-columns: minmax(116px, max-content) auto minmax(0, 1fr) max-content;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.comment-sector-stock {
+  color: #1f2937;
+  font-size: 12.5px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.comment-sector-stock a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.comment-sector-stock a:hover {
+  text-decoration: underline;
+}
+
+.comment-sector-arrow {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.comment-sector-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-width: 0;
+}
+
+.comment-sector-tags em {
+  display: inline-flex;
+  min-height: 22px;
+  align-items: center;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 850;
+  line-height: 1;
+  padding: 0 8px;
+}
+
+.comment-sector-tags em.market-hit {
+  background: #ecfeff;
+  color: #0e7490;
+}
+
+.comment-sector-linkage-item small {
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+
+.comment-sector-linkage-item small.market-hit {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+@media (max-width: 900px) {
+  .comment-sector-linkage-item {
+    grid-template-columns: minmax(104px, max-content) auto minmax(0, 1fr);
+  }
+
+  .comment-sector-linkage-item small {
+    grid-column: 1 / -1;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 680px) {
+  .comment-sector-linkage-item {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .comment-sector-arrow {
+    display: none;
+  }
+}
