@@ -7290,3 +7290,409 @@ body {
     flex: 1 1 132px;
   }
 }
+
+/* Comment aggregation tighter workspace pass */
+.comment-workbench {
+  gap: 8px;
+}
+
+.comment-page-head {
+  padding-bottom: 0;
+}
+
+.comment-page-head h1 {
+  font-size: 23px;
+}
+
+.comment-page-head p {
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.comment-export-btn {
+  min-height: 30px;
+  border-radius: 7px;
+  font-size: 12px;
+  padding: 0 11px;
+}
+
+.comment-workbench .comment-control-grid {
+  gap: 5px;
+}
+
+.comment-workbench .comment-source-switcher {
+  min-height: 42px;
+  gap: 7px;
+  border-radius: 10px;
+  padding: 5px 7px;
+}
+
+.comment-workbench .comment-source-switcher button {
+  min-height: 30px;
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 0 11px;
+}
+
+.comment-workbench .comment-source-switcher .comment-date-picker select {
+  height: 34px;
+  min-width: 154px;
+  border-radius: 8px;
+  font-size: 13px;
+  padding-left: 36px;
+}
+
+.comment-date-picker::before {
+  left: 12px;
+  width: 16px;
+  height: 16px;
+}
+
+.comment-workbench-layout {
+  grid-template-columns: 274px minmax(0, 1fr);
+  gap: 10px;
+}
+
+.comment-timeline-panel,
+.comment-thread-feed {
+  border-radius: 10px;
+}
+
+.comment-timeline-panel {
+  padding: 9px 8px;
+}
+
+.comment-panel-title h2 {
+  font-size: 15px;
+}
+
+.comment-panel-title span,
+.comment-timeline-summary {
+  font-size: 11px;
+}
+
+.comment-timeline-summary {
+  margin: 6px 0 6px;
+}
+
+.comment-thread-timeline {
+  gap: 3px;
+  max-height: min(680px, calc(100vh - 200px));
+  padding-left: 9px;
+}
+
+.comment-thread-timeline button {
+  gap: 2px;
+  border-radius: 7px;
+  padding: 6px 8px 6px 10px;
+}
+
+.comment-thread-timeline time {
+  font-size: 13px;
+}
+
+.comment-thread-timeline strong {
+  font-size: 11px;
+}
+
+.comment-thread-timeline em {
+  font-size: 12px;
+}
+
+.comment-thread-timeline small {
+  font-size: 10.5px;
+}
+
+.comment-thread-timeline span.comment-status-badge {
+  min-height: 20px;
+  font-size: 10.5px;
+  padding: 0 7px;
+}
+
+.comment-feed-status {
+  min-height: 56px;
+  padding: 10px 15px;
+}
+
+.comment-feed-status strong {
+  font-size: 18px;
+}
+
+.comment-feed-status span#comment-feed-count {
+  font-size: 12px;
+}
+
+.comment-thread-card {
+  padding: 15px 15px 17px;
+}
+
+.comment-thread-feed .comment-thread-head {
+  gap: 12px;
+  padding-bottom: 13px;
+}
+
+.comment-thread-head .comment-thread-head-main {
+  gap: 10px;
+}
+
+.comment-thread-head .comment-thread-head-main time {
+  font-size: 21px;
+}
+
+.comment-thread-head .comment-thread-head-copy {
+  gap: 3px;
+}
+
+.comment-thread-head .comment-thread-head-copy strong {
+  font-size: 12px;
+}
+
+.comment-thread-head .comment-thread-head-copy h2 {
+  font-size: 17px;
+}
+
+.comment-thread-head .comment-thread-head-actions {
+  gap: 6px;
+}
+
+.comment-thread-head .comment-thread-head-actions a {
+  min-height: 30px;
+  border-radius: 7px;
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+.comment-thread-head span.comment-status-badge,
+.comment-author-row span.comment-status-badge,
+.comment-status-badge {
+  min-height: 24px;
+  font-size: 11px;
+  padding: 0 8px;
+}
+
+.comment-detail-list {
+  gap: 9px;
+}
+
+.comment-decision-card {
+  border-radius: 9px;
+}
+
+.comment-main-card {
+  padding: 14px 15px 0;
+}
+
+.comment-author-row {
+  gap: 8px;
+  margin-bottom: 11px;
+}
+
+.comment-avatar {
+  width: 30px;
+  height: 30px;
+  font-size: 13px;
+}
+
+.comment-author-copy {
+  gap: 7px;
+}
+
+.comment-author-copy strong {
+  font-size: 14px;
+}
+
+.comment-author-copy span {
+  font-size: 12px;
+}
+
+.comment-author-copy span::before {
+  margin-right: 7px;
+}
+
+.comment-author-row > .comment-status-badge {
+  min-height: 23px;
+  font-size: 11px;
+  padding: 0 8px;
+}
+
+.comment-main-text {
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.62;
+}
+
+.comment-chip-row {
+  gap: 6px;
+  margin-top: 11px;
+}
+
+.comment-chip-row span,
+.comment-chip-row a {
+  min-height: 26px;
+  border-radius: 999px;
+  font-size: 11px;
+  padding: 0 9px;
+}
+
+.comment-origin-row {
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 11.5px;
+}
+
+.comment-origin-row a {
+  min-height: 26px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  padding: 0 8px;
+}
+
+.comment-screenshot-section {
+  margin-top: 12px;
+  padding-top: 11px;
+}
+
+.comment-screenshot-section h3 {
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.comment-screenshot-grid {
+  grid-template-columns: repeat(2, minmax(150px, 236px));
+  gap: 9px;
+}
+
+.comment-screenshot-card {
+  border-radius: 8px;
+}
+
+.comment-screenshot-card span {
+  padding: 6px 9px 7px;
+  font-size: 11px;
+}
+
+.comment-screenshot-card b {
+  top: 7px;
+  right: 7px;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+.comment-insight-list {
+  margin: 12px 15px 0;
+}
+
+.comment-insight-row,
+.comment-insight-row--status {
+  grid-template-columns: 138px minmax(0, 1fr);
+  gap: 11px;
+  padding: 9px 0;
+}
+
+.comment-insight-row--status {
+  grid-template-columns: 138px auto minmax(0, 1fr);
+}
+
+.comment-insight-label {
+  gap: 6px;
+  font-size: 12.5px !important;
+}
+
+.comment-insight-label i {
+  width: 17px;
+  height: 17px;
+  font-size: 13px;
+}
+
+.comment-insight-row strong,
+.comment-insight-row p {
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.comment-insight-row--status strong {
+  min-height: 22px;
+  font-size: 11px;
+  padding: 0 8px;
+}
+
+.comment-evidence-actions {
+  padding: 11px 15px 15px;
+}
+
+.comment-action-row {
+  gap: 7px;
+  padding-top: 11px;
+}
+
+.comment-action-row button,
+.comment-action-row a,
+.comment-action-disabled {
+  min-height: 32px;
+  min-width: 96px;
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+@media (max-width: 1180px) {
+  .comment-thread-timeline li {
+    flex-basis: 176px;
+    min-width: 176px;
+  }
+
+  .comment-thread-timeline button {
+    min-height: 76px;
+  }
+}
+
+@media (max-width: 820px) {
+  .comment-feed-status {
+    min-height: 48px;
+    padding: 9px 11px;
+  }
+
+  .comment-thread-card {
+    padding: 12px 11px 14px;
+  }
+
+  .comment-main-card {
+    padding: 12px 12px 0;
+  }
+
+  .comment-insight-list {
+    margin: 10px 12px 0;
+  }
+
+  .comment-evidence-actions {
+    padding: 10px 12px 12px;
+  }
+}
+
+@media (max-width: 680px) {
+  .comment-thread-timeline li {
+    flex-basis: 160px;
+    min-width: 160px;
+  }
+
+  .comment-thread-timeline button {
+    min-height: 72px;
+  }
+
+  .comment-thread-head .comment-thread-head-main time {
+    font-size: 19px;
+  }
+
+  .comment-thread-head .comment-thread-head-copy h2 {
+    font-size: 16px;
+  }
+
+  .comment-insight-row,
+  .comment-insight-row--status {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 8px 0;
+  }
+}
