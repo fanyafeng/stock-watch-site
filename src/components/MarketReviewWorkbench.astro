@@ -53,7 +53,24 @@ const pctText = (value) => isFiniteNumber(value) ? pct(value) : String(value || 
 const money = (value) => `${value > 0 ? "+" : ""}${Number(value).toFixed(2)}亿`;
 const toneByPct = (value) => isFiniteNumber(value) ? (Number(value) >= 0 ? "up" : "down") : "neutral";
 const compactDate = (date) => String(date || "").replaceAll("-", "");
-const wrapSectorName = (value) => String(value || "暂无").replace(/\s+/g, "").match(/.{1,4}/g)?.join("\n") ?? String(value || "暂无");
+const wrapSectorName = (value) => String(value || "暂无").replace(/\s+/g, "").match(/.{1,5}/g)?.join("\n") ?? String(value || "暂无");
+const parseFlowSeries = (value) => String(value || "")
+  .split(/[;；]/)
+  .map((segment) => {
+    const equalIndex = segment.indexOf("=");
+    if (equalIndex < 0) return null;
+    const time = segment.slice(0, equalIndex).trim();
+    const rawValue = segment.slice(equalIndex + 1).trim();
+    const amount = Number(rawValue);
+    if (!time || !Number.isFinite(amount)) return null;
+    return { time, amount };
+  })
+  .filter(Boolean);
+const smoothSeries = (items, targetCount = 38) => {
+  if (!items.length) return [];
+  const step = Math.max(1, Math.ceil(items.length / targetCount));
+  return items.filter((_, index) => index % step === 0).slice(0, targetCount);
+};
 const thsStockUrl = (code) => `https://basic.10jqka.com.cn/${code}/`;
 const extractStocks = (value) => {
   const matches = String(value || "").matchAll(/([\u4e00-\u9fa5A-Za-z0-9*]+)\((\d{6})\)/g);
@@ -145,7 +162,24 @@ const sectors = unique([
 ]).filter((item) => !["暂无数据", "暂无板块轮动数据"].includes(item));
 const mainSectors = sectors.length ? sectors : ["暂无主线数据"];
 const amount = parseAmount(market.volume_change);
-const coreNetInflow = amount ? amount * 0.00261 : (stats.accepted_count ?? 0) * 18.7 + 9.8;
+const flowSeries = parseFlowSeries(market.index_money_flow_series);
+const coreNetInflow = flowSeries.length
+  ? flowSeries[flowSeries.length - 1].amount
+  : amount ? amount * 0.00261 : (stats.accepted_count ?? 0) * 18.7 + 9.8;
+const sampledFlowSeries = smoothSeries(flowSeries);
+const flowAbsMax = Math.max(1, ...sampledFlowSeries.map((item) => Math.abs(item.amount)));
+const flowPathWidth = 232;
+const flowPathHeight = 68;
+const flowZeroY = flowPathHeight / 2;
+const flowLinePoints = sampledFlowSeries.map((item, index) => ({
+  ...item,
+  x: sampledFlowSeries.length <= 1 ? 0 : (index / (sampledFlowSeries.length - 1)) * flowPathWidth,
+  y: flowZeroY - (item.amount / flowAbsMax) * (flowPathHeight * 0.42),
+}));
+const flowAreaPath = flowLinePoints.length
+  ? `${flowLinePoints.map((point, index) => `${index === 0 ? "M" : "L"}${point.x.toFixed(2)} ${point.y.toFixed(2)}`).join(" ")} L${flowPathWidth} ${flowZeroY} L0 ${flowZeroY} Z`
+  : "";
+const flowLinePath = flowLinePoints.map((point, index) => `${index === 0 ? "M" : "L"}${point.x.toFixed(2)} ${point.y.toFixed(2)}`).join(" ");
 const riskTone = overview.risk_level === "高" ? "high" : overview.risk_level === "低" ? "low" : "mid";
 const positiveIndexCount = chartRows.filter((item) => Number(item.pct) >= 0).length;
 const positiveIndexMajority = positiveIndexCount >= Math.ceil(Math.max(chartRows.length, 1) / 2);
@@ -163,18 +197,19 @@ const structureText = positiveIndexMajority && upRateValue >= 50
     ? `核心指数回落，上涨占比仅 ${breadth.upRate}%，资金只在 ${mainSectors.slice(0, 4).join("、")} 等局部方向抢筹。`
     : `指数与个股结构分化，上涨占比 ${breadth.upRate}%，主线仍需观察 ${mainSectors.slice(0, 4).join("、")} 的承接。`;
 const mainDirectionText = mainSectors.slice(0, 4).join(" / ");
+const sectorFlowBase = Math.max(22, Math.min(96, Math.abs(coreNetInflow) * 0.04));
 
 const sectorRows = mainSectors.slice(0, 6).map((name, index) => ({
   name,
   pct: 3.3 - index * 0.28,
-  net: coreNetInflow * (2.9 - index * 0.34),
+  net: sectorFlowBase * (2.9 - index * 0.34),
   firstLimitUp: firstLimitUpForSector(name),
   leaderPct: "待补充",
 }));
 const gainRows = mainSectors.slice(0, 6).map((name, index) => ({
   name,
   pct: 6.88 - index * 0.46,
-  net: coreNetInflow * (2.38 - index * 0.29),
+  net: sectorFlowBase * (2.38 - index * 0.29),
   firstLimitUp: firstLimitUpForSector(name),
   leaderPct: "待补充",
 }));
@@ -243,8 +278,8 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
       </div>
       <div>
         <span>资金特征</span>
-        <strong>指数主力净流 <b class="text-red">{money(coreNetInflow)}</b></strong>
-        <small>{amount ? "成交额口径，盘后需复核。" : "成交额待补充，需人工复核。"}</small>
+        <strong>指数主力净流 <b class={toneByPct(coreNetInflow)}>{money(coreNetInflow)}</b></strong>
+        <small>{flowSeries.length ? "逐分钟主力净流口径，盘后需复核。" : amount ? "成交额估算口径，盘后需复核。" : "成交额待补充，需人工复核。"}</small>
       </div>
       <div class="market-risk-summary">
         <span>整体风险等级</span>
@@ -294,11 +329,26 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
         <h3>指数主力净流(合计)</h3>
         <div class="market-net-layout">
           <div class="market-net-summary">
-            <strong>{money(coreNetInflow)}</strong>
+            <strong class={toneByPct(coreNetInflow)}>{money(coreNetInflow)}</strong>
             <span>核心三指数合计主力净流</span>
-            <em>{amount ? "成交额口径" : "待复核口径"}</em>
+            <em>{flowSeries.length ? "逐分钟资金流" : amount ? "成交额估算" : "待复核口径"}</em>
           </div>
-          <div class="market-mini-bars" aria-hidden="true">{Array.from({ length: 34 }).map((_, index) => <i class={index > 18 && index < 28 ? "down" : "up"} style={`height:${10 + ((index * 7) % 30)}px`}></i>)}</div>
+          {sampledFlowSeries.length ? (
+            <div class={`market-flow-line ${toneByPct(coreNetInflow)}`} aria-label="核心指数主力净流分时曲线">
+              <svg viewBox={`0 0 ${flowPathWidth} ${flowPathHeight}`} role="img">
+                <line x1="0" x2={flowPathWidth} y1={flowZeroY} y2={flowZeroY}></line>
+                <path class="market-flow-area" d={flowAreaPath}></path>
+                <path class="market-flow-path" d={flowLinePath}></path>
+              </svg>
+              <span>{sampledFlowSeries[0].time}</span>
+              <span>{sampledFlowSeries[sampledFlowSeries.length - 1].time}</span>
+            </div>
+          ) : (
+            <div class="market-flow-empty">
+              <strong>资金分时待补充</strong>
+              <span>运行 fetch_market_flow 后展示真实曲线</span>
+            </div>
+          )}
         </div>
         <p>{flowBasisText}</p>
       </article>
@@ -312,7 +362,7 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
               <span><strong class="market-sector-name">{wrapSectorName(item.name)}</strong><small class={item.firstLimitUp.missing ? "market-missing-stock" : ""}>{item.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(item.firstLimitUp.code)} target="_blank" rel="noreferrer">{item.firstLimitUp.name}</a> : item.firstLimitUp.name}</small></span>
               <em>{money(item.net)}</em>
               <i class={toneByPct(item.pct)}>{pct(item.pct)}</i>
-              <small style={`--flow:${Math.min(96, Math.max(34, item.net / Math.max(coreNetInflow, 1) * 28))}%`}></small>
+              <small style={`--flow:${Math.min(96, Math.max(34, item.net / Math.max(sectorFlowBase, 1) * 28))}%`}></small>
             </div>
           ))}
         </div>

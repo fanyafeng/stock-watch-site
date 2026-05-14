@@ -612,6 +612,7 @@ def import_market(backup_root: Path, date_text: str) -> list[dict[str, Any]]:
         "operation_tone": operation_tone,
         "index_status": index_status,
         "volume_change": f"沪深主要指数成交额合计约 {amount:.0f} 亿，需结合昨日继续复核。",
+        "index_money_flow_series": "",
         "sector_rotation": "、".join(top_boards[:6]) or "暂无板块轮动数据",
         "accumulation_direction": "、".join([item.get("name", "") for item in gainers[:4]]) or "暂无数据",
         "sector_first_limit_up": "",

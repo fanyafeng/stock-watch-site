@@ -110,6 +110,7 @@ MARKET_SECTIONS = [
     ("operation_tone", "今日操作基调"),
     ("index_status", "指数状态"),
     ("volume_change", "成交量变化"),
+    ("index_money_flow_series", "指数主力净流分时"),
     ("sector_rotation", "板块轮动"),
     ("accumulation_direction", "抢筹方向"),
     ("sector_first_limit_up", "板块首个涨停股"),
@@ -1265,6 +1266,7 @@ def write_dashboard_data(
         "market": {
             "index_status": plain_market_value(daily["market"], "index_status", "暂无指数状态"),
             "volume_change": plain_market_value(daily["market"], "volume_change", "暂无成交量数据"),
+            "index_money_flow_series": plain_market_value(daily["market"], "index_money_flow_series", ""),
             "sector_rotation": plain_market_value(daily["market"], "sector_rotation", "暂无板块轮动数据"),
             "accumulation_direction": split_values(plain_market_value(daily["market"], "accumulation_direction", "暂无数据")),
             "sector_first_limit_up": parse_sector_stock_map(plain_market_value(daily["market"], "sector_first_limit_up", "")),

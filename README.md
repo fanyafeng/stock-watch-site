@@ -93,9 +93,17 @@ source,date,code,name,position_type,cost_price,current_price,position_ratio,hold
 section,value,note
 ```
 
-`section` 建议使用：`market_status`、`main_sectors`、`risk_level`、`operation_tone`、`index_status`、`volume_change`、`sector_rotation`、`accumulation_direction`、`sector_first_limit_up`、`capital_preference`、`sentiment_cycle`、`risk_signal`、`tomorrow_watch`。
+`section` 建议使用：`market_status`、`main_sectors`、`risk_level`、`operation_tone`、`index_status`、`volume_change`、`index_money_flow_series`、`sector_rotation`、`accumulation_direction`、`sector_first_limit_up`、`capital_preference`、`sentiment_cycle`、`risk_signal`、`tomorrow_watch`。
 
 `sector_first_limit_up` 用于“局部抢筹线索”的首封股/最先涨停股，格式为 `板块=股票(代码);板块=股票(代码)`。如果没有首封时间或最先涨停数据，请留空，页面会显示“首封股待补充”，不要用普通领涨股或评论提到的股票代替。
+
+`index_money_flow_series` 用于“指数主力净流(合计)”右侧曲线，格式为 `09:31=-2.34;09:32=1.18`，单位为亿元，含义是核心三指数逐分钟主力净流合计。可以用脚本自动补充：
+
+```bash
+python scripts/fetch_market_flow.py --date 2026-05-14 --mode loose
+```
+
+脚本会优先保留同花顺主力净流扩展点；如果没有稳定公开接口，则使用东方财富逐分钟主力资金流公开数据补充。拉取失败时 loose 模式不会阻塞构建，页面会显示“资金分时待补充”。
 
 时间线：`data/daily/YYYY-MM-DD/timeline.csv`
 
@@ -296,6 +304,14 @@ total_score = trend_score + breakout_score + pullback_score + volume_score + ris
 `Settings → Pages → Build and deployment → Source` 选择 `GitHub Actions`。
 
 工作流文件是 `.github/workflows/daily.yml`，支持手动触发 `workflow_dispatch`，也会在工作日北京时间 16:30 自动运行。GitHub Actions cron 使用 UTC，因此配置为 `30 8 * * 1-5`。
+
+工作流在生成报告前会运行：
+
+```bash
+python scripts/fetch_market_flow.py --mode loose
+```
+
+用于补充大盘分析里的指数主力净流分时曲线；失败不影响整站构建。
 
 手动运行方式：
 

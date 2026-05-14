@@ -8987,9 +8987,9 @@ body {
 
 .market-net-layout {
   display: grid;
-  grid-template-columns: minmax(176px, 0.72fr) minmax(170px, 1fr);
-  gap: 12px;
-  align-items: end;
+  grid-template-columns: minmax(148px, 0.62fr) minmax(190px, 1fr);
+  gap: 10px;
+  align-items: center;
 }
 
 .market-net-summary {
@@ -8997,53 +8997,122 @@ body {
   gap: 6px;
 }
 
-.market-net-summary strong {
+.market-net-summary > strong {
   display: block;
   color: var(--market-red);
-  font-size: clamp(28px, 3vw, 38px);
+  font-size: clamp(23px, 2.25vw, 32px);
   font-weight: 700;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.055em;
   line-height: 1;
+  white-space: nowrap;
+}
+
+.market-net-summary > strong.down {
+  color: var(--market-green);
+}
+
+.market-net-summary > strong.neutral {
+  color: #64748b;
 }
 
 .market-net-summary span {
   color: #334155;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
+  line-height: 1.35;
 }
 
 .market-net-summary em {
   color: #6b7280;
-  font-size: 13px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 600;
 }
 
-.market-mini-bars {
-  display: flex;
-  align-items: end;
-  height: 56px;
-  gap: 2px;
-  border-bottom: 1px dashed #d6dee9;
-  padding: 0 4px;
+.market-flow-line {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 8px;
+  min-width: 0;
 }
 
-.market-mini-bars i {
-  display: block;
-  width: 4px;
-  border-radius: 2px 2px 0 0;
-  background: rgba(239, 63, 70, 0.45);
+.market-flow-line svg {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 62px;
+  overflow: visible;
 }
 
-.market-mini-bars i.down {
-  background: rgba(16, 166, 106, 0.7);
+.market-flow-line line {
+  stroke: #cbd5e1;
+  stroke-dasharray: 5 4;
+}
+
+.market-flow-area {
+  fill: rgba(239, 63, 70, 0.1);
+}
+
+.market-flow-path {
+  fill: none;
+  stroke: var(--market-red);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.6;
+}
+
+.market-flow-line.down .market-flow-area {
+  fill: rgba(16, 166, 106, 0.1);
+}
+
+.market-flow-line.down .market-flow-path {
+  stroke: var(--market-green);
+}
+
+.market-flow-line.neutral .market-flow-area {
+  fill: rgba(100, 116, 139, 0.1);
+}
+
+.market-flow-line.neutral .market-flow-path {
+  stroke: #64748b;
+}
+
+.market-flow-line span {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.market-flow-line span:last-child {
+  text-align: right;
+}
+
+.market-flow-empty {
+  display: grid;
+  min-height: 76px;
+  place-content: center;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #64748b;
+  text-align: center;
+}
+
+.market-flow-empty strong {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.market-flow-empty span {
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .market-net-card p {
   color: #66758a;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .market-local-flow h3 small {
@@ -9063,16 +9132,16 @@ body {
 
 .market-local-rank-row {
   display: grid;
-  grid-template-columns: 28px minmax(112px, 1fr) 82px 58px minmax(76px, 0.55fr);
-  gap: 8px;
+  grid-template-columns: 26px minmax(104px, 1fr) minmax(70px, max-content) 52px minmax(54px, 0.38fr);
+  gap: 6px;
   align-items: center;
   min-width: 0;
   margin: 0;
   border-bottom: 1px solid #e5eaf2;
   background: #fbfdff;
-  padding: 5px 10px;
+  padding: 5px 8px;
   color: #253246;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -9082,13 +9151,13 @@ body {
 
 .market-local-rank-row > b {
   display: inline-grid;
-  width: 22px;
-  height: 22px;
+  width: 21px;
+  height: 21px;
   place-items: center;
   border-radius: 50%;
   background: #dbeafe;
   color: var(--market-blue);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
 }
 
@@ -9118,14 +9187,15 @@ body {
 
 .market-local-rank-row em {
   color: var(--market-red);
-  font-size: 12px;
+  font-size: 11px;
   font-style: normal;
   font-weight: 800;
+  letter-spacing: -0.02em;
   white-space: nowrap;
 }
 
 .market-local-rank-row i {
-  font-size: 12px;
+  font-size: 11px;
   font-style: normal;
   font-weight: 800;
   white-space: nowrap;
@@ -9134,7 +9204,7 @@ body {
 .market-local-rank-row > small {
   position: relative;
   display: block;
-  height: 8px;
+  height: 6px;
   overflow: hidden;
   border-radius: 999px;
   background: #edf2f7;
@@ -9489,11 +9559,11 @@ body {
 
 .market-sector-name {
   display: inline-block;
-  width: 4.25em;
-  max-width: 4.8em;
+  width: 5.6em;
+  max-width: 6em;
   color: #243246;
   font-weight: 950;
-  line-height: 1.22;
+  line-height: 1.18;
   text-align: left;
   white-space: pre-line;
   word-break: keep-all;
