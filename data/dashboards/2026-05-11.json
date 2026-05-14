@@ -1,0 +1,3132 @@
+{
+  "date": "2026-05-11",
+  "updated_at": "2026-05-14 11:02:38",
+  "report": {
+    "date": "2026-05-11",
+    "source": "daily",
+    "source_name": "综合复盘",
+    "report_type": "daily_workbench",
+    "title": "2026-05-11 A股综合复盘工作台",
+    "summary": "按日期聚合四个来源，短期观察 3 只，中长期观察 3 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
+    "tags": [
+      "综合复盘",
+      "今日总览",
+      "时间线",
+      "大盘信息",
+      "来源聚合",
+      "技术形态"
+    ],
+    "slug": "daily_2026-05-11",
+    "url": "/articles/daily_2026-05-11/"
+  },
+  "overview": {
+    "market_status": "探底回升，上涨家数约3064，下跌家数约2054",
+    "main_sectors": [
+      "稀土",
+      "半导体设备",
+      "半导体材料",
+      "疫苗"
+    ],
+    "risk_level": "中",
+    "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
+    "sentiment": "上涨/下跌约 3064/2054，情绪按结构性修复处理。",
+    "risk_signal": "高位放量、偏离均线过大的方向只做风险观察。",
+    "tomorrow_watch": "观察主线板块延续性、回踩承接和量能是否继续放大。"
+  },
+  "market": {
+    "index_status": "上证指数收4225.02，涨跌幅1.08%，形态探底回升；深证成指收15899.3，涨跌幅2.16%，形态探底回升；创业板指收3928.97，涨跌幅3.5%，形态探底回升",
+    "volume_change": "沪深主要指数成交额合计约 35389 亿，需结合昨日继续复核。",
+    "sector_rotation": "稀土、半导体设备、半导体材料、疫苗、昨日打二板以上表现、先进封装",
+    "accumulation_direction": [
+      "稀土",
+      "半导体设备",
+      "半导体材料",
+      "疫苗"
+    ],
+    "capital_preference": "主线优先看资金合力，弱分支不追高。"
+  },
+  "stats": {
+    "source_count": 4,
+    "candidate_count": 17,
+    "accepted_count": 11,
+    "rejected_count": 6,
+    "comment_count": 126,
+    "top_patterns": [
+      "强势延续",
+      "观察",
+      "中继回踩",
+      "右侧转强"
+    ]
+  },
+  "timeline": [
+    {
+      "time": "22:08",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-11 22:08 圣阳股份(002580);大唐发电(601991);合力泰(002217)",
+      "content": "圣阳股份(002580) 大唐发电(601991) 合力泰(002217) 幽默的拉萨家人。。。"
+    },
+    {
+      "time": "14:36",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-11 14:36 野哥同花顺动态",
+      "content": "topicName:家族里第一个打开同花顺的人,topicCode:T86nzcb既然选择家族第一个打开k线的人。就勇敢的走下去。哪怕不成功你也为家族努力过。"
+    },
+    {
+      "time": "14:16",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-11 14:16 锦龙股份(000712);长江证券(000783)",
+      "content": "锦龙股份(000712) 长江证券(000783) 现在能不能理解野哥说的，渣男动了才是五月行情的开始。不要在弄丢你的筹码了，也不要在高抛低吸了。耐心持股才是王道。"
+    },
+    {
+      "time": "14:09",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-11 14:09 天华新能(300390)",
+      "content": "天华新能(300390) 没动，这有啥好动的，昨天说了行情来的时候，不要乱动。要重拳出击不要唯唯诺诺。视频告诉你们怎么做了，还有很多粉丝追涨杀跌了吧！以为是自己的理解力。其实就是为自己的操作找个借口而已。"
+    },
+    {
+      "time": "13:58",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-11 13:58 圣阳股份(002580)",
+      "content": "圣阳股份(002580) 每一根k线背后都是代表的你们的情绪。在上下振幅的时候你能克制住自己的贪婪和恐惧吗？那个下单的人，真的是那个性格底色的你吗？不敢想象以前骂我那一波人现在还有没有了。现在过前高了，没有任何一个套牢盘了。现在对于羊我是不敢多说什么。缘由就是那些性格底色是恶的人。"
+    },
+    {
+      "time": "09:46",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-11 09:46 合力泰(002217)",
+      "content": "合力泰(002217) 我就是不做t。有啥好做的。自己砸自己。"
+    },
+    {
+      "time": "09:27",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-11 09:27 野哥同花顺动态",
+      "content": "今天全部符合我的心理预期。"
+    },
+    {
+      "time": "盘中",
+      "category": "lihongjuan_post",
+      "source": "李红娟",
+      "title": "李红娟 2026-05-11 群聊评论备份",
+      "content": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没…"
+    }
+  ],
+  "sources": [
+    {
+      "id": "yege",
+      "name": "野哥",
+      "channel": "同花顺帖子",
+      "latest_title": "2026-05-11 22:08 圣阳股份(002580);大唐发电(601991);合力泰(002217)",
+      "latest_summary": "圣阳股份(002580) 大唐发电(601991) 合力泰(002217) 幽默的拉萨家人。。。",
+      "top_picks": [
+        {
+          "code": "000783",
+          "name": "长江证券",
+          "type": "中长期",
+          "pattern": "强势延续"
+        },
+        {
+          "code": "300390",
+          "name": "天华新能",
+          "type": "中长期",
+          "pattern": "观察"
+        }
+      ],
+      "holdings": [],
+      "comment_count": 7,
+      "posts": [
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 22:08 圣阳股份(002580);大唐发电(601991);合力泰(002217)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_2208_2342377167.jpg",
+            "/media/2026-05-11/yege/daily_01_2208_2342377167.jpg"
+          ],
+          "summary": "圣阳股份(002580) 大唐发电(601991) 合力泰(002217) 幽默的拉萨家人。。。",
+          "mentioned_stocks": "圣阳股份(002580);大唐发电(601991);合力泰(002217)",
+          "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;储能;铅酸电池;电力;消费电子;光学光电子",
+          "note": "优先级 P1; 点赞 407; 评论 168; 转发 10; 本地截图 2 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 14:36 野哥同花顺动态",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfiylefss8nau30a03fa7",
+          "media": [],
+          "summary": "topicName:家族里第一个打开同花顺的人,topicCode:T86nzcb既然选择家族第一个打开k线的人。就勇敢的走下去。哪怕不成功你也为家族努力过。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "优先级 P3; 点赞 3332; 评论 694; 转发 66; 本地截图 0 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 14:16 锦龙股份(000712);长江证券(000783)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfhz5zbh8fg8m84c19261",
+          "media": [],
+          "summary": "锦龙股份(000712) 长江证券(000783) 现在能不能理解野哥说的，渣男动了才是五月行情的开始。不要在弄丢你的筹码了，也不要在高抛低吸了。耐心持股才是王道。",
+          "mentioned_stocks": "锦龙股份(000712);长江证券(000783)",
+          "mentioned_sectors": "交易动作;持仓表达;个股相关;野哥同花顺逻辑;证券",
+          "note": "优先级 P1; 点赞 1147; 评论 335; 转发 45; 本地截图 0 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 14:09 天华新能(300390)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfhmqqui0k2yec2017599",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_1409_2342194756.jpg",
+            "/media/2026-05-11/yege/daily_01_1409_2342194756.jpg",
+            "/media/2026-05-11/yege/daily_02_1409_2342194756.jpg"
+          ],
+          "summary": "天华新能(300390) 没动，这有啥好动的，昨天说了行情来的时候，不要乱动。要重拳出击不要唯唯诺诺。视频告诉你们怎么做了，还有很多粉丝追涨杀跌了吧！以为是自己的理解力。其实就是为自己的操作找个借口而已。",
+          "mentioned_stocks": "天华新能(300390)",
+          "mentioned_sectors": "持仓表达;含图片/截图核对;个股相关;锂电材料",
+          "note": "优先级 P1; 点赞 555; 评论 180; 转发 18; 本地截图 3 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 13:58 圣阳股份(002580)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfh3j2fnlmpkm1574c159",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/alert_02_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/daily_02_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/daily_03_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/daily_04_1358_2342175243.jpg"
+          ],
+          "summary": "圣阳股份(002580) 每一根k线背后都是代表的你们的情绪。在上下振幅的时候你能克制住自己的贪婪和恐惧吗？那个下单的人，真的是那个性格底色的你吗？不敢想象以前骂我那一波人现在还有没有了。现在过前高了，没有任何一个套牢盘了。现在对于羊我是不敢多说什么。缘由就是那些性格底色是恶的人。",
+          "mentioned_stocks": "圣阳股份(002580)",
+          "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;储能;铅酸电池",
+          "note": "优先级 P1; 点赞 1071; 评论 399; 转发 41; 本地截图 5 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 09:46 合力泰(002217)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1df6yaip03f3sm7babcebd",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_0946_2341804308.jpg",
+            "/media/2026-05-11/yege/daily_01_0946_2341804308.jpg",
+            "/media/2026-05-11/yege/daily_04_0946_2341804308.jpg",
+            "/media/2026-05-11/yege/daily_05_0946_2341804308.jpg"
+          ],
+          "summary": "合力泰(002217) 我就是不做t。有啥好做的。自己砸自己。",
+          "mentioned_stocks": "合力泰(002217)",
+          "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;消费电子;光学光电子",
+          "note": "优先级 P1; 点赞 1772; 评论 1007; 转发 44; 本地截图 4 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 09:27 野哥同花顺动态",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1df5mrziyspwc6e2f566b1",
+          "media": [],
+          "summary": "今天全部符合我的心理预期。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "优先级 P3; 点赞 1632; 评论 457; 转发 11; 本地截图 0 张"
+        }
+      ],
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 22:08",
+          "content": "帖子评论量备份：168 条。帖子摘要：圣阳股份(002580)  大唐发电(601991)  合力泰(002217)  幽默的拉萨家人。。。",
+          "mentioned_stocks": "圣阳股份(002580);大唐发电(601991);合力泰(002217)",
+          "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;储能;铅酸电池;电力;消费电子;光学光电子",
+          "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+          "include_in_logic": "待确认",
+          "note": "post_id=2342377167; media=/media/2026-05-11/yege/alert_01_2208_2342377167.jpg;/media/2026-05-11/yege/daily_01_2208_2342377167.jpg",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_2208_2342377167.jpg",
+            "/media/2026-05-11/yege/daily_01_2208_2342377167.jpg"
+          ],
+          "video_urls": []
+        },
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 14:36",
+          "content": "帖子评论量备份：694 条。帖子摘要：topicName:家族里第一个打开同花顺的人,topicCode:T86nzcb既然选择家族第一个打开k线的人。就勇敢的走下去。哪怕不成功你也为家族努力过。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
+          "include_in_logic": "待确认",
+          "note": "post_id=2342243354; media=",
+          "media": [],
+          "video_urls": []
+        },
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 14:16",
+          "content": "帖子评论量备份：335 条。帖子摘要：锦龙股份(000712)  长江证券(000783)  现在能不能理解野哥说的，渣男动了才是五月行情的开始。不要在弄丢你的筹码了，也不要在高抛低吸了。耐心持股才是王道。",
+          "mentioned_stocks": "锦龙股份(000712);长江证券(000783)",
+          "mentioned_sectors": "交易动作;持仓表达;个股相关;野哥同花顺逻辑;证券",
+          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+          "include_in_logic": "待确认",
+          "note": "post_id=2342207373; media=",
+          "media": [],
+          "video_urls": []
+        },
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 14:09",
+          "content": "帖子评论量备份：180 条。帖子摘要：天华新能(300390)  没动，这有啥好动的，昨天说了行情来的时候，不要乱动。要重拳出击不要唯唯诺诺。视频告诉你们怎么做了，还有很多粉丝追涨杀跌了吧！以为是自己的理解力。其实就是为自己的操作找个借口而已。",
+          "mentioned_stocks": "天华新能(300390)",
+          "mentioned_sectors": "持仓表达;含图片/截图核对;个股相关;锂电材料",
+          "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。",
+          "include_in_logic": "待确认",
+          "note": "post_id=2342194756; media=/media/2026-05-11/yege/alert_01_1409_2342194756.jpg;/media/2026-05-11/yege/daily_01_1409_2342194756.jpg;/media/2026-05-11/yege/daily_02_1409_2342194756.jpg",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_1409_2342194756.jpg",
+            "/media/2026-05-11/yege/daily_01_1409_2342194756.jpg",
+            "/media/2026-05-11/yege/daily_02_1409_2342194756.jpg"
+          ],
+          "video_urls": []
+        },
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 13:58",
+          "content": "帖子评论量备份：399 条。帖子摘要：圣阳股份(002580)  每一根k线背后都是代表的你们的情绪。在上下振幅的时候你能克制住自己的贪婪和恐惧吗？那个下单的人，真的是那个性格底色的你吗？不敢想象以前骂我那一波人现在还有没有了。现在过前高了，没有任何一个套牢盘了。现在对于羊我是不敢多说什么。缘由就是那些性格底色是恶的人。",
+          "mentioned_stocks": "圣阳股份(002580)",
+          "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;储能;铅酸电池",
+          "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+          "include_in_logic": "待确认",
+          "note": "post_id=2342175243; media=/media/2026-05-11/yege/alert_01_1358_2342175243.jpg;/media/2026-05-11/yege/alert_02_1358_2342175243.jpg;/media/2026-05-11/yege/daily_02_1358_2342175243.jpg;/media/2026-05-11/yege/daily_03_1358_2342175243.jpg;/media/2026-05-11/yege/daily_04_1358_2342175243.jpg",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/alert_02_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/daily_02_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/daily_03_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/daily_04_1358_2342175243.jpg"
+          ],
+          "video_urls": []
+        },
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 09:46",
+          "content": "帖子评论量备份：1007 条。帖子摘要：合力泰(002217)  我就是不做t。有啥好做的。自己砸自己。",
+          "mentioned_stocks": "合力泰(002217)",
+          "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;消费电子;光学光电子",
+          "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+          "include_in_logic": "待确认",
+          "note": "post_id=2341804308; media=/media/2026-05-11/yege/alert_01_0946_2341804308.jpg;/media/2026-05-11/yege/daily_01_0946_2341804308.jpg;/media/2026-05-11/yege/daily_04_0946_2341804308.jpg;/media/2026-05-11/yege/daily_05_0946_2341804308.jpg",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_0946_2341804308.jpg",
+            "/media/2026-05-11/yege/daily_01_0946_2341804308.jpg",
+            "/media/2026-05-11/yege/daily_04_0946_2341804308.jpg",
+            "/media/2026-05-11/yege/daily_05_0946_2341804308.jpg"
+          ],
+          "video_urls": []
+        },
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 09:27",
+          "content": "帖子评论量备份：457 条。帖子摘要：今天全部符合我的心理预期。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
+          "include_in_logic": "待确认",
+          "note": "post_id=2341756052; media=",
+          "media": [],
+          "video_urls": []
+        }
+      ]
+    },
+    {
+      "id": "lihongjuan",
+      "name": "李红娟",
+      "channel": "图文/帖子",
+      "latest_title": "李红娟 2026-05-11 群聊评论备份",
+      "latest_summary": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
+      "top_picks": [],
+      "holdings": [],
+      "comment_count": 7,
+      "posts": [
+        {
+          "channel": "图文/帖子",
+          "title": "李红娟 2026-05-11 群聊评论备份",
+          "url": "douyin://im/group",
+          "media": [],
+          "summary": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
+          "mentioned_stocks": "汉钟精机(002158);信维通信(300136);天通股份(600330);航天发展(000547);航天动力(600343);航天电子(600879)",
+          "mentioned_sectors": "芯片设备;通用设备;消费电子;射频;商业航天;光通信;军工电子",
+          "note": "群聊原话 4 条；有效股票评论 7 条；来源备份 20260511_*_lihongjuan_group_report.json"
+        }
+      ],
+      "comments": [
+        {
+          "source_id": "lihongjuan",
+          "source": "李红娟",
+          "source_name": "李红娟",
+          "comment_source": "李红娟群聊 14:26",
+          "content": "芯片hzjj也来了",
+          "mentioned_stocks": "汉钟精机(002158)",
+          "mentioned_sectors": "芯片设备;通用设备",
+          "value_reason": "群聊原话已识别股票线索：汉钟精机(002158)；情绪=bullish。",
+          "include_in_logic": "是",
+          "note": "creator=李红娟; source=偶尔心情好发发群聊",
+          "media": [],
+          "video_urls": []
+        },
+        {
+          "source_id": "lihongjuan",
+          "source": "李红娟",
+          "source_name": "李红娟",
+          "comment_source": "李红娟群聊 14:26",
+          "content": "今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了",
+          "mentioned_stocks": "信维通信(300136)",
+          "mentioned_sectors": "消费电子;射频",
+          "value_reason": "群聊原话已识别股票线索：信维通信(300136)；情绪=risk。",
+          "include_in_logic": "否",
+          "note": "creator=李红娟; source=偶尔心情好发发群聊",
+          "media": [],
+          "video_urls": []
+        },
+        {
+          "source_id": "lihongjuan",
+          "source": "李红娟",
+          "source_name": "李红娟",
+          "comment_source": "李红娟群聊 13:01",
+          "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+          "mentioned_stocks": "天通股份(600330)",
+          "mentioned_sectors": "商业航天;光通信",
+          "value_reason": "群聊原话已识别股票线索：天通股份(600330)；情绪=risk。",
+          "include_in_logic": "否",
+          "note": "creator=李红娟; source=偶尔心情好发发群聊",
+          "media": [],
+          "video_urls": []
+        },
+        {
+          "source_id": "lihongjuan",
+          "source": "李红娟",
+          "source_name": "李红娟",
+          "comment_source": "李红娟群聊 13:01",
+          "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+          "mentioned_stocks": "天通股份(600330)",
+          "mentioned_sectors": "商业航天;光通信",
+          "value_reason": "群聊原话已识别股票线索：天通股份(600330)；情绪=risk。",
+          "include_in_logic": "否",
+          "note": "creator=李红娟; source=偶尔心情好发发群聊",
+          "media": [],
+          "video_urls": []
+        },
+        {
+          "source_id": "lihongjuan",
+          "source": "李红娟",
+          "source_name": "李红娟",
+          "comment_source": "李红娟群聊 13:01",
+          "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+          "mentioned_stocks": "航天发展(000547)",
+          "mentioned_sectors": "商业航天;军工电子",
+          "value_reason": "群聊原话已识别股票线索：航天发展(000547)；情绪=risk。",
+          "include_in_logic": "否",
+          "note": "creator=李红娟; source=偶尔心情好发发群聊",
+          "media": [],
+          "video_urls": []
+        },
+        {
+          "source_id": "lihongjuan",
+          "source": "李红娟",
+          "source_name": "李红娟",
+          "comment_source": "李红娟群聊 13:01",
+          "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+          "mentioned_stocks": "航天动力(600343)",
+          "mentioned_sectors": "商业航天",
+          "value_reason": "群聊原话已识别股票线索：航天动力(600343)；情绪=risk。",
+          "include_in_logic": "否",
+          "note": "creator=李红娟; source=偶尔心情好发发群聊",
+          "media": [],
+          "video_urls": []
+        },
+        {
+          "source_id": "lihongjuan",
+          "source": "李红娟",
+          "source_name": "李红娟",
+          "comment_source": "李红娟群聊 13:01",
+          "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+          "mentioned_stocks": "航天电子(600879)",
+          "mentioned_sectors": "商业航天;军工电子",
+          "value_reason": "群聊原话已识别股票线索：航天电子(600879)；情绪=risk。",
+          "include_in_logic": "否",
+          "note": "creator=李红娟; source=偶尔心情好发发群聊",
+          "media": [],
+          "video_urls": []
+        }
+      ]
+    },
+    {
+      "id": "wangduoyu",
+      "name": "王多于",
+      "channel": "抖音视频列表",
+      "latest_title": "2026-05-11 11:36:35 太多了#内容过于真实 #股民 #基金 #王多于股之子 #vlog十亿流量扶持计划",
+      "latest_summary": "视频评论量备份：1876 条。视频标题：太多了#内容过于真实 #股民 #基金 #王多于股之子 #vlog十亿流量扶持计划",
+      "top_picks": [
+        {
+          "code": "600487",
+          "name": "亨通光电",
+          "type": "短期",
+          "pattern": "中继回踩"
+        },
+        {
+          "code": "002445",
+          "name": "中南文化",
+          "type": "短期",
+          "pattern": "中继回踩"
+        },
+        {
+          "code": "601778",
+          "name": "晶科科技",
+          "type": "短期",
+          "pattern": "中继回踩"
+        }
+      ],
+      "holdings": [],
+      "comment_count": 48,
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-05-11 11:36:35 太多了#内容过于真实 #股民 #基金 #王多于股之子 #vlog十亿流量扶持计划",
+          "url": "https://www.douyin.com/video/7638473042481957733",
+          "media": [],
+          "summary": "视频评论量备份：1876 条。视频标题：太多了#内容过于真实 #股民 #基金 #王多于股之子 #vlog十亿流量扶持计划",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7638473042481957733; creator=王多于-股之子; 来源备份 20260511_*_douyin_comment_picks.json"
+        }
+      ],
+      "comments": [
+        {
+          "source_id": "wangduoyu",
+          "source": "王多于",
+          "source_name": "王多于",
+          "comment_source": "抖音评论 11:57",
+          "content": "我之前推荐了大家中长线拿美诺华，大家不要再去了。衙门快刀架在国晟头上，估计鑫多多概念很难有活跃资金去接力了，恐怕要调整很久。最近行情这么好，不要在这个票上浪费行情了。",
+          "mentioned_stocks": "美诺华(603538)",
+          "mentioned_sectors": "医药",
+          "value_reason": "评论聚合提及 12 次，有效评论 12 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=23",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638473042481957733"
+          ]
+        },
+        {
+          "source_id": "wangduoyu",
+          "source": "王多于",
+          "source_name": "王多于",
+          "comment_source": "抖音评论 14:35",
+          "content": "平潭发展八连阳，还没启动，主力正在吸筹",
+          "mentioned_stocks": "平潭发展(000592)",
+          "mentioned_sectors": "林业;福建自贸区",
+          "value_reason": "评论聚合提及 6 次，有效评论 6 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=16",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638473042481957733"
+          ]
+        },
+        {
+          "source_id": "wangduoyu",
+          "source": "王多于",
+          "source_name": "王多于",
+          "comment_source": "抖音评论 12:42",
+          "content": "山东玻纤我记得4月7号我就说了吧，一个月拿着不动都七十多个点了，都有谁吃上了我看看[皱眉]",
+          "mentioned_stocks": "山东玻纤(605006)",
+          "mentioned_sectors": "玻纤",
+          "value_reason": "评论聚合提及 6 次，有效评论 6 条；bullish 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=12",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638473042481957733"
+          ]
+        },
+        {
+          "source_id": "wangduoyu",
+          "source": "王多于",
+          "source_name": "王多于",
+          "comment_source": "抖音评论 12:13",
+          "content": "大哥们，亨通光电怎么看，79.3买入的[流泪]",
+          "mentioned_stocks": "亨通光电(600487)",
+          "mentioned_sectors": "通信设备;光通信",
+          "value_reason": "评论聚合提及 6 次，有效评论 6 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=4",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638473042481957733"
+          ]
+        },
+        {
+          "source_id": "wangduoyu",
+          "source": "王多于",
+          "source_name": "王多于",
+          "comment_source": "抖音评论 13:36",
+          "content": "你们都买合力泰了吗？",
+          "mentioned_stocks": "合力泰(002217)",
+          "mentioned_sectors": "消费电子;光学光电子",
+          "value_reason": "评论聚合提及 5 次，有效评论 5 条；question 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=3",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638473042481957733"
+          ]
+        },
+        {
+          "source_id": "wangduoyu",
+          "source": "王多于",
+          "source_name": "王多于",
+          "comment_source": "抖音评论 13:37",
+          "content": "上周谁说的中南文化[流泪]",
+          "mentioned_stocks": "中南文化(002445)",
+          "mentioned_sectors": "通用设备",
+          "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=7",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638473042481957733"
+          ]
+        },
+        {
+          "source_id": "wangduoyu",
+          "source": "王多于",
+          "source_name": "王多于",
+          "comment_source": "抖音评论 15:20",
+          "content": "晶科科技有没有大佬说下",
+          "mentioned_stocks": "晶科科技(601778)",
+          "mentioned_sectors": "电力;光伏",
+          "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=1",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638473042481957733"
+          ]
+        },
+        {
+          "source_id": "wangduoyu",
+          "source": "王多于",
+          "source_name": "王多于",
+          "comment_source": "抖音评论 15:43",
+          "content": "今天听劝抄底盈峰环境，没想到抄到半山腰[流泪]",
+          "mentioned_stocks": "盈峰环境(000967)",
+          "mentioned_sectors": "环保设备",
+          "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638473042481957733"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "longge",
+      "name": "龙哥",
+      "channel": "抖音视频列表",
+      "latest_title": "2026-05-11 15:13:23 小肉小肉，但满足了，不贪#股票 #股民 #vlgo十亿流量扶持计划",
+      "latest_summary": "视频评论量备份：703 条。视频标题：小肉小肉，但满足了，不贪#股票 #股民 #vlgo十亿流量扶持计划",
+      "top_picks": [
+        {
+          "code": "600487",
+          "name": "亨通光电",
+          "type": "短期",
+          "pattern": "中继回踩"
+        },
+        {
+          "code": "002445",
+          "name": "中南文化",
+          "type": "短期",
+          "pattern": "中继回踩"
+        },
+        {
+          "code": "601778",
+          "name": "晶科科技",
+          "type": "短期",
+          "pattern": "中继回踩"
+        }
+      ],
+      "holdings": [],
+      "comment_count": 64,
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-05-11 15:13:23 小肉小肉，但满足了，不贪#股票 #股民 #vlgo十亿流量扶持计划",
+          "url": "https://www.douyin.com/video/7638528911140416997",
+          "media": [],
+          "summary": "视频评论量备份：703 条。视频标题：小肉小肉，但满足了，不贪#股票 #股民 #vlgo十亿流量扶持计划",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7638528911140416997; creator=阿龙闯大A📈; 来源备份 20260511_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-05-11 13:03:01 投资和应急是两码事，量力而为#度小满助你乘风有底气#度小满乘风2026",
+          "url": "https://www.douyin.com/video/7637899323326136185",
+          "media": [],
+          "summary": "视频评论量备份：215 条。视频标题：投资和应急是两码事，量力而为#度小满助你乘风有底气#度小满乘风2026",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7637899323326136185; creator=阿龙闯大A📈; 来源备份 20260511_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-05-11 11:36:11 女股民的实力不容小嘘#股票 #股民 #vlgo十亿流量扶持计划",
+          "url": "https://www.douyin.com/video/7638472937862974650",
+          "media": [],
+          "summary": "视频评论量备份：1829 条。视频标题：女股民的实力不容小嘘#股票 #股民 #vlgo十亿流量扶持计划",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7638472937862974650; creator=阿龙闯大A📈; 来源备份 20260511_*_douyin_comment_picks.json"
+        }
+      ],
+      "comments": [
+        {
+          "source_id": "longge",
+          "source": "龙哥",
+          "source_name": "龙哥",
+          "comment_source": "抖音评论 14:24",
+          "content": "没人来平潭发展嘛[呲牙][呲牙]",
+          "mentioned_stocks": "平潭发展(000592)",
+          "mentioned_sectors": "林业;福建自贸区",
+          "value_reason": "评论聚合提及 6 次，有效评论 6 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=5",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638472937862974650"
+          ]
+        },
+        {
+          "source_id": "longge",
+          "source": "龙哥",
+          "source_name": "龙哥",
+          "comment_source": "抖音评论 15:41",
+          "content": "山东玻纤",
+          "mentioned_stocks": "山东玻纤(605006)",
+          "mentioned_sectors": "玻纤",
+          "value_reason": "评论聚合提及 6 次，有效评论 6 条；bullish 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7637899323326136185; creator=阿龙闯大A📈; like=1",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7637899323326136185"
+          ]
+        },
+        {
+          "source_id": "longge",
+          "source": "龙哥",
+          "source_name": "龙哥",
+          "comment_source": "抖音评论 13:38",
+          "content": "有没有大佬说说亨通光电……我今天最高点进去的……赔的我心肝肺都疼[懵]",
+          "mentioned_stocks": "亨通光电(600487)",
+          "mentioned_sectors": "通信设备;光通信",
+          "value_reason": "评论聚合提及 6 次，有效评论 6 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=1",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638472937862974650"
+          ]
+        },
+        {
+          "source_id": "longge",
+          "source": "龙哥",
+          "source_name": "龙哥",
+          "comment_source": "抖音评论 15:17",
+          "content": "合力泰有人吗",
+          "mentioned_stocks": "合力泰(002217)",
+          "mentioned_sectors": "消费电子;光学光电子",
+          "value_reason": "评论聚合提及 5 次，有效评论 5 条；question 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=6",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638528911140416997"
+          ]
+        },
+        {
+          "source_id": "longge",
+          "source": "龙哥",
+          "source_name": "龙哥",
+          "comment_source": "抖音评论 12:32",
+          "content": "各位大哥帮忙看看中南文化",
+          "mentioned_stocks": "中南文化(002445)",
+          "mentioned_sectors": "通用设备",
+          "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=3",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638472937862974650"
+          ]
+        },
+        {
+          "source_id": "longge",
+          "source": "龙哥",
+          "source_name": "龙哥",
+          "comment_source": "抖音评论 16:04",
+          "content": "晶科科技没有人吗[裂开][裂开][裂开]我下午还补了两次",
+          "mentioned_stocks": "晶科科技(601778)",
+          "mentioned_sectors": "电力;光伏",
+          "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=1",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638472937862974650"
+          ]
+        },
+        {
+          "source_id": "longge",
+          "source": "龙哥",
+          "source_name": "龙哥",
+          "comment_source": "抖音评论 14:44",
+          "content": "盈峰环境拉爆了",
+          "mentioned_stocks": "盈峰环境(000967)",
+          "mentioned_sectors": "环保设备",
+          "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=1",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638472937862974650"
+          ]
+        },
+        {
+          "source_id": "longge",
+          "source": "龙哥",
+          "source_name": "龙哥",
+          "comment_source": "抖音评论 14:45",
+          "content": "卓郎智能",
+          "mentioned_stocks": "卓郎智能(600545)",
+          "mentioned_sectors": "工业母机",
+          "value_reason": "评论聚合提及 4 次，有效评论 4 条；neutral 情绪；跨来源共振。",
+          "include_in_logic": "是",
+          "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+          "media": [],
+          "video_urls": [
+            "https://www.douyin.com/video/7638472937862974650"
+          ]
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "short": [
+      {
+        "code": "600487",
+        "name": "亨通光电",
+        "type": "短期",
+        "pattern": "中继回踩",
+        "source_names": "王多于、龙哥",
+        "entry_range": "74.99-74.99",
+        "stop_loss": "71.18",
+        "take_profit_1": "80.7",
+        "take_profit_2": "83.37",
+        "risk_reward": "1:8.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+        "risk": "中",
+        "reason": "通信设备方向有评论关注；当前 2026-05-11 收盘 74.99，涨跌幅 -2.95%，MA5/10/20=73.14/71.18/64.04，量比近5日均量 1.44，状态：强势延续。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、MKT-03(+3)、SEL-01(+4)、SEL-03(+3)、TRD-03(+3)。 多来源共振，需优先确认共同买点与止损纪律。",
+        "score": 29.5
+      },
+      {
+        "code": "002445",
+        "name": "中南文化",
+        "type": "短期",
+        "pattern": "中继回踩",
+        "source_names": "王多于、龙哥",
+        "entry_range": "3.87-3.87",
+        "stop_loss": "3.74",
+        "take_profit_1": "4.06",
+        "take_profit_2": "4.16",
+        "risk_reward": "1:8.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+        "risk": "中",
+        "reason": "通用设备方向有评论关注；当前 2026-05-11 收盘 3.87，涨跌幅 -2.03%，MA5/10/20=3.81/3.74/3.58，量比近5日均量 0.7，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：SEL-02(+7)、SEL-02(+5)、ENT-02(+7)、TRD-03(+3)、THS-06(+5)。 多来源共振，需优先确认共同买点与止损纪律。",
+        "score": 29.5
+      },
+      {
+        "code": "601778",
+        "name": "晶科科技",
+        "type": "短期",
+        "pattern": "中继回踩",
+        "source_names": "王多于、龙哥",
+        "entry_range": "7.3-7.3",
+        "stop_loss": "7.11",
+        "take_profit_1": "7.63",
+        "take_profit_2": "7.78",
+        "risk_reward": "1:8.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+        "risk": "中",
+        "reason": "电力方向有评论关注；当前 2026-05-11 收盘 7.3，涨跌幅 -1.22%，MA5/10/20=7.15/7.11/6.59，量比近5日均量 0.97，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、MKT-03(+3)、SEL-01(+4)、SEL-02(+7)、SEL-02(+5)、SEL-03(+3)、ENT-02(+7)、TRD-03(+3)。 多来源共振，需优先确认共同买点与止损纪律。",
+        "score": 29.5
+      }
+    ],
+    "mid": [
+      {
+        "code": "000783",
+        "name": "长江证券",
+        "type": "中长期",
+        "pattern": "强势延续",
+        "source_names": "野哥",
+        "entry_range": "7.81-8.76",
+        "stop_loss": "7.53",
+        "take_profit_1": "9.29",
+        "take_profit_2": "9.64",
+        "risk_reward": "1:7.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+        "risk": "中",
+        "reason": "强提醒，仍需结合位置和仓位控制",
+        "score": 31.0
+      },
+      {
+        "code": "000762",
+        "name": "西藏矿业",
+        "type": "中长期",
+        "pattern": "右侧转强",
+        "source_names": "王多于、龙哥",
+        "entry_range": "20-37.43",
+        "stop_loss": "35.18",
+        "take_profit_1": "40.8",
+        "take_profit_2": "42.38",
+        "risk_reward": "1:8.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+        "risk": "中",
+        "reason": "能源金属方向有评论关注；当前 2026-05-11 收盘 37.43，涨跌幅 0%，MA5/10/20=38.31/37.89/36.4，量比近5日均量 1.11，状态：破位风险。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(-8)、SEL-02(+7)、SEL-02(+5)、ENT-01(+6)、ENT-02(+7)、TRD-03(+3)、THS-06(+5)。 多来源共振，需优先确认共同买点与止损纪律。",
+        "score": 29.5
+      },
+      {
+        "code": "603690",
+        "name": "至纯科技",
+        "type": "中长期",
+        "pattern": "右侧转强",
+        "source_names": "王多于",
+        "entry_range": "20-26.5",
+        "stop_loss": "25.62",
+        "take_profit_1": "27.82",
+        "take_profit_2": "28.44",
+        "risk_reward": "1:8.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+        "risk": "中",
+        "reason": "半导体方向有评论关注；当前 2026-05-11 收盘 26.5，涨跌幅 3.8%，MA5/10/20=25.61/25.62/25.61，量比近5日均量 1.49，状态：观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、MKT-02(+3)、SEL-01(+4)、SEL-03(+3)、TRD-03(+3)。",
+        "score": 28.0
+      }
+    ]
+  },
+  "comments": [
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 22:08",
+      "content": "帖子评论量备份：168 条。帖子摘要：圣阳股份(002580)  大唐发电(601991)  合力泰(002217)  幽默的拉萨家人。。。",
+      "mentioned_stocks": "圣阳股份(002580);大唐发电(601991);合力泰(002217)",
+      "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;储能;铅酸电池;电力;消费电子;光学光电子",
+      "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+      "include_in_logic": "待确认",
+      "note": "post_id=2342377167; media=/media/2026-05-11/yege/alert_01_2208_2342377167.jpg;/media/2026-05-11/yege/daily_01_2208_2342377167.jpg",
+      "media": [
+        "/media/2026-05-11/yege/alert_01_2208_2342377167.jpg",
+        "/media/2026-05-11/yege/daily_01_2208_2342377167.jpg"
+      ],
+      "video_urls": []
+    },
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 14:36",
+      "content": "帖子评论量备份：694 条。帖子摘要：topicName:家族里第一个打开同花顺的人,topicCode:T86nzcb既然选择家族第一个打开k线的人。就勇敢的走下去。哪怕不成功你也为家族努力过。",
+      "mentioned_stocks": "",
+      "mentioned_sectors": "",
+      "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
+      "include_in_logic": "待确认",
+      "note": "post_id=2342243354; media=",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 14:16",
+      "content": "帖子评论量备份：335 条。帖子摘要：锦龙股份(000712)  长江证券(000783)  现在能不能理解野哥说的，渣男动了才是五月行情的开始。不要在弄丢你的筹码了，也不要在高抛低吸了。耐心持股才是王道。",
+      "mentioned_stocks": "锦龙股份(000712);长江证券(000783)",
+      "mentioned_sectors": "交易动作;持仓表达;个股相关;野哥同花顺逻辑;证券",
+      "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+      "include_in_logic": "待确认",
+      "note": "post_id=2342207373; media=",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 14:09",
+      "content": "帖子评论量备份：180 条。帖子摘要：天华新能(300390)  没动，这有啥好动的，昨天说了行情来的时候，不要乱动。要重拳出击不要唯唯诺诺。视频告诉你们怎么做了，还有很多粉丝追涨杀跌了吧！以为是自己的理解力。其实就是为自己的操作找个借口而已。",
+      "mentioned_stocks": "天华新能(300390)",
+      "mentioned_sectors": "持仓表达;含图片/截图核对;个股相关;锂电材料",
+      "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。",
+      "include_in_logic": "待确认",
+      "note": "post_id=2342194756; media=/media/2026-05-11/yege/alert_01_1409_2342194756.jpg;/media/2026-05-11/yege/daily_01_1409_2342194756.jpg;/media/2026-05-11/yege/daily_02_1409_2342194756.jpg",
+      "media": [
+        "/media/2026-05-11/yege/alert_01_1409_2342194756.jpg",
+        "/media/2026-05-11/yege/daily_01_1409_2342194756.jpg",
+        "/media/2026-05-11/yege/daily_02_1409_2342194756.jpg"
+      ],
+      "video_urls": []
+    },
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 13:58",
+      "content": "帖子评论量备份：399 条。帖子摘要：圣阳股份(002580)  每一根k线背后都是代表的你们的情绪。在上下振幅的时候你能克制住自己的贪婪和恐惧吗？那个下单的人，真的是那个性格底色的你吗？不敢想象以前骂我那一波人现在还有没有了。现在过前高了，没有任何一个套牢盘了。现在对于羊我是不敢多说什么。缘由就是那些性格底色是恶的人。",
+      "mentioned_stocks": "圣阳股份(002580)",
+      "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;储能;铅酸电池",
+      "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+      "include_in_logic": "待确认",
+      "note": "post_id=2342175243; media=/media/2026-05-11/yege/alert_01_1358_2342175243.jpg;/media/2026-05-11/yege/alert_02_1358_2342175243.jpg;/media/2026-05-11/yege/daily_02_1358_2342175243.jpg;/media/2026-05-11/yege/daily_03_1358_2342175243.jpg;/media/2026-05-11/yege/daily_04_1358_2342175243.jpg",
+      "media": [
+        "/media/2026-05-11/yege/alert_01_1358_2342175243.jpg",
+        "/media/2026-05-11/yege/alert_02_1358_2342175243.jpg",
+        "/media/2026-05-11/yege/daily_02_1358_2342175243.jpg",
+        "/media/2026-05-11/yege/daily_03_1358_2342175243.jpg",
+        "/media/2026-05-11/yege/daily_04_1358_2342175243.jpg"
+      ],
+      "video_urls": []
+    },
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 09:46",
+      "content": "帖子评论量备份：1007 条。帖子摘要：合力泰(002217)  我就是不做t。有啥好做的。自己砸自己。",
+      "mentioned_stocks": "合力泰(002217)",
+      "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;消费电子;光学光电子",
+      "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+      "include_in_logic": "待确认",
+      "note": "post_id=2341804308; media=/media/2026-05-11/yege/alert_01_0946_2341804308.jpg;/media/2026-05-11/yege/daily_01_0946_2341804308.jpg;/media/2026-05-11/yege/daily_04_0946_2341804308.jpg;/media/2026-05-11/yege/daily_05_0946_2341804308.jpg",
+      "media": [
+        "/media/2026-05-11/yege/alert_01_0946_2341804308.jpg",
+        "/media/2026-05-11/yege/daily_01_0946_2341804308.jpg",
+        "/media/2026-05-11/yege/daily_04_0946_2341804308.jpg",
+        "/media/2026-05-11/yege/daily_05_0946_2341804308.jpg"
+      ],
+      "video_urls": []
+    },
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 09:27",
+      "content": "帖子评论量备份：457 条。帖子摘要：今天全部符合我的心理预期。",
+      "mentioned_stocks": "",
+      "mentioned_sectors": "",
+      "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
+      "include_in_logic": "待确认",
+      "note": "post_id=2341756052; media=",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "lihongjuan",
+      "source": "李红娟",
+      "source_name": "李红娟",
+      "comment_source": "李红娟群聊 14:26",
+      "content": "芯片hzjj也来了",
+      "mentioned_stocks": "汉钟精机(002158)",
+      "mentioned_sectors": "芯片设备;通用设备",
+      "value_reason": "群聊原话已识别股票线索：汉钟精机(002158)；情绪=bullish。",
+      "include_in_logic": "是",
+      "note": "creator=李红娟; source=偶尔心情好发发群聊",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "lihongjuan",
+      "source": "李红娟",
+      "source_name": "李红娟",
+      "comment_source": "李红娟群聊 14:26",
+      "content": "今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了",
+      "mentioned_stocks": "信维通信(300136)",
+      "mentioned_sectors": "消费电子;射频",
+      "value_reason": "群聊原话已识别股票线索：信维通信(300136)；情绪=risk。",
+      "include_in_logic": "否",
+      "note": "creator=李红娟; source=偶尔心情好发发群聊",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "lihongjuan",
+      "source": "李红娟",
+      "source_name": "李红娟",
+      "comment_source": "李红娟群聊 13:01",
+      "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+      "mentioned_stocks": "天通股份(600330)",
+      "mentioned_sectors": "商业航天;光通信",
+      "value_reason": "群聊原话已识别股票线索：天通股份(600330)；情绪=risk。",
+      "include_in_logic": "否",
+      "note": "creator=李红娟; source=偶尔心情好发发群聊",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "lihongjuan",
+      "source": "李红娟",
+      "source_name": "李红娟",
+      "comment_source": "李红娟群聊 13:01",
+      "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+      "mentioned_stocks": "天通股份(600330)",
+      "mentioned_sectors": "商业航天;光通信",
+      "value_reason": "群聊原话已识别股票线索：天通股份(600330)；情绪=risk。",
+      "include_in_logic": "否",
+      "note": "creator=李红娟; source=偶尔心情好发发群聊",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "lihongjuan",
+      "source": "李红娟",
+      "source_name": "李红娟",
+      "comment_source": "李红娟群聊 13:01",
+      "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+      "mentioned_stocks": "航天发展(000547)",
+      "mentioned_sectors": "商业航天;军工电子",
+      "value_reason": "群聊原话已识别股票线索：航天发展(000547)；情绪=risk。",
+      "include_in_logic": "否",
+      "note": "creator=李红娟; source=偶尔心情好发发群聊",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "lihongjuan",
+      "source": "李红娟",
+      "source_name": "李红娟",
+      "comment_source": "李红娟群聊 13:01",
+      "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+      "mentioned_stocks": "航天动力(600343)",
+      "mentioned_sectors": "商业航天",
+      "value_reason": "群聊原话已识别股票线索：航天动力(600343)；情绪=risk。",
+      "include_in_logic": "否",
+      "note": "creator=李红娟; source=偶尔心情好发发群聊",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "lihongjuan",
+      "source": "李红娟",
+      "source_name": "李红娟",
+      "comment_source": "李红娟群聊 13:01",
+      "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+      "mentioned_stocks": "航天电子(600879)",
+      "mentioned_sectors": "商业航天;军工电子",
+      "value_reason": "群聊原话已识别股票线索：航天电子(600879)；情绪=risk。",
+      "include_in_logic": "否",
+      "note": "creator=李红娟; source=偶尔心情好发发群聊",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 11:57",
+      "content": "我之前推荐了大家中长线拿美诺华，大家不要再去了。衙门快刀架在国晟头上，估计鑫多多概念很难有活跃资金去接力了，恐怕要调整很久。最近行情这么好，不要在这个票上浪费行情了。",
+      "mentioned_stocks": "美诺华(603538)",
+      "mentioned_sectors": "医药",
+      "value_reason": "评论聚合提及 12 次，有效评论 12 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=23",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 14:35",
+      "content": "平潭发展八连阳，还没启动，主力正在吸筹",
+      "mentioned_stocks": "平潭发展(000592)",
+      "mentioned_sectors": "林业;福建自贸区",
+      "value_reason": "评论聚合提及 6 次，有效评论 6 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=16",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:24",
+      "content": "没人来平潭发展嘛[呲牙][呲牙]",
+      "mentioned_stocks": "平潭发展(000592)",
+      "mentioned_sectors": "林业;福建自贸区",
+      "value_reason": "评论聚合提及 6 次，有效评论 6 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=5",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:42",
+      "content": "山东玻纤我记得4月7号我就说了吧，一个月拿着不动都七十多个点了，都有谁吃上了我看看[皱眉]",
+      "mentioned_stocks": "山东玻纤(605006)",
+      "mentioned_sectors": "玻纤",
+      "value_reason": "评论聚合提及 6 次，有效评论 6 条；bullish 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=12",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 15:41",
+      "content": "山东玻纤",
+      "mentioned_stocks": "山东玻纤(605006)",
+      "mentioned_sectors": "玻纤",
+      "value_reason": "评论聚合提及 6 次，有效评论 6 条；bullish 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7637899323326136185; creator=阿龙闯大A📈; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7637899323326136185"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:13",
+      "content": "大哥们，亨通光电怎么看，79.3买入的[流泪]",
+      "mentioned_stocks": "亨通光电(600487)",
+      "mentioned_sectors": "通信设备;光通信",
+      "value_reason": "评论聚合提及 6 次，有效评论 6 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=4",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:38",
+      "content": "有没有大佬说说亨通光电……我今天最高点进去的……赔的我心肝肺都疼[懵]",
+      "mentioned_stocks": "亨通光电(600487)",
+      "mentioned_sectors": "通信设备;光通信",
+      "value_reason": "评论聚合提及 6 次，有效评论 6 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 15:17",
+      "content": "合力泰有人吗",
+      "mentioned_stocks": "合力泰(002217)",
+      "mentioned_sectors": "消费电子;光学光电子",
+      "value_reason": "评论聚合提及 5 次，有效评论 5 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=6",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 13:36",
+      "content": "你们都买合力泰了吗？",
+      "mentioned_stocks": "合力泰(002217)",
+      "mentioned_sectors": "消费电子;光学光电子",
+      "value_reason": "评论聚合提及 5 次，有效评论 5 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 13:37",
+      "content": "上周谁说的中南文化[流泪]",
+      "mentioned_stocks": "中南文化(002445)",
+      "mentioned_sectors": "通用设备",
+      "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=7",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:32",
+      "content": "各位大哥帮忙看看中南文化",
+      "mentioned_stocks": "中南文化(002445)",
+      "mentioned_sectors": "通用设备",
+      "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 15:20",
+      "content": "晶科科技有没有大佬说下",
+      "mentioned_stocks": "晶科科技(601778)",
+      "mentioned_sectors": "电力;光伏",
+      "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:04",
+      "content": "晶科科技没有人吗[裂开][裂开][裂开]我下午还补了两次",
+      "mentioned_stocks": "晶科科技(601778)",
+      "mentioned_sectors": "电力;光伏",
+      "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:44",
+      "content": "盈峰环境拉爆了",
+      "mentioned_stocks": "盈峰环境(000967)",
+      "mentioned_sectors": "环保设备",
+      "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 15:43",
+      "content": "今天听劝抄底盈峰环境，没想到抄到半山腰[流泪]",
+      "mentioned_stocks": "盈峰环境(000967)",
+      "mentioned_sectors": "环保设备",
+      "value_reason": "评论聚合提及 5 次，有效评论 5 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:09",
+      "content": "卓郎智能在你评论区吃的，确实有高手，这都两个板了",
+      "mentioned_stocks": "卓郎智能(600545)",
+      "mentioned_sectors": "工业母机",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=9",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:45",
+      "content": "卓郎智能",
+      "mentioned_stocks": "卓郎智能(600545)",
+      "mentioned_sectors": "工业母机",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:24",
+      "content": "大唐发电还能板吗",
+      "mentioned_stocks": "大唐发电(601991)",
+      "mentioned_sectors": "电力",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:35",
+      "content": "大唐发电没人吗[躺平]",
+      "mentioned_stocks": "大唐发电(601991)",
+      "mentioned_sectors": "电力",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 15:57",
+      "content": "中国长城短线能拿吗",
+      "mentioned_stocks": "中国长城(000066)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 16:19",
+      "content": "我在你这看到了中国长城，真的牛逼",
+      "mentioned_stocks": "中国长城(000066)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 15:39",
+      "content": "我在新能泰山",
+      "mentioned_stocks": "新能泰山(000720)",
+      "mentioned_sectors": "电网设备;电力",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:59",
+      "content": "新能泰山",
+      "mentioned_stocks": "新能泰山(000720)",
+      "mentioned_sectors": "电网设备;电力",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:51",
+      "content": "有帮看看美利云的吗？ 能抄底博弈反弹吗？",
+      "mentioned_stocks": "美利云(000815)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:14",
+      "content": "@美利云有没有人分析下",
+      "mentioned_stocks": "美利云(000815)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 13:13",
+      "content": "青山纸业有没有在的 江特电机有没有在的",
+      "mentioned_stocks": "江特电机(002176)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=19",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 11:56",
+      "content": "江特电机怎么办？",
+      "mentioned_stocks": "江特电机(002176)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:36",
+      "content": "睿能科技，三维通信，德恩精工",
+      "mentioned_stocks": "三维通信(002115)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=8",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 16:25",
+      "content": "三维通信咋说",
+      "mentioned_stocks": "三维通信(002115)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:24",
+      "content": "中国巨石",
+      "mentioned_stocks": "中国巨石(600176)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=8",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 16:47",
+      "content": "路过的大佬，帮忙看看我的持仓上峰水泥重仓板，华勤技术微利，华胜天成亏，中国巨石（新进亏），准备进众合科技，东北证券，，谢谢",
+      "mentioned_stocks": "中国巨石(600176)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 14:34",
+      "content": "我今天航天发展卖飞了[捂脸][捂脸][捂脸]",
+      "mentioned_stocks": "航天发展(000547)",
+      "mentioned_sectors": "商业航天;军工电子",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；risk 情绪；跨来源共振。",
+      "include_in_logic": "否",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 15:31",
+      "content": "航天发展有入的吗",
+      "mentioned_stocks": "航天发展(000547)",
+      "mentioned_sectors": "商业航天;军工电子",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；risk 情绪；跨来源共振。",
+      "include_in_logic": "否",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:18",
+      "content": "下午华电辽能能不能涨停啊[呲牙]",
+      "mentioned_stocks": "华电辽能(600396)",
+      "mentioned_sectors": "电力",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；bullish 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 11:41",
+      "content": "华电辽能和华电新能我选了新能，工业富联和中国巨力我选了巨力[打脸]上周共达电声和金安国纪选了金安[泣不成声]虽然都有赚就是吃不到肉",
+      "mentioned_stocks": "华电辽能(600396)",
+      "mentioned_sectors": "电力",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；bullish 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:50",
+      "content": "节能风电要拉涨停么[懵]",
+      "mentioned_stocks": "节能风电(601016)",
+      "mentioned_sectors": "电力;风电",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；bullish 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 15:30",
+      "content": "哪位大神解释一下节能风电最后十分钟拉那一下子，对于明天是好是坏呢？[抱拳]",
+      "mentioned_stocks": "节能风电(601016)",
+      "mentioned_sectors": "电力;风电",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；bullish 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:32",
+      "content": "中天科技有人么 怎么看",
+      "mentioned_stocks": "中天科技(600522)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 14:15",
+      "content": "中天科技有没有在的",
+      "mentioned_stocks": "中天科技(600522)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 17:25",
+      "content": "我的法尔胜[流泪][流泪][流泪][流泪][流泪][流泪]",
+      "mentioned_stocks": "法尔胜(000890)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:58",
+      "content": "大佬们 能不能帮忙看看法尔胜[拜拜][拜拜][拜拜][拜拜][拜拜]",
+      "mentioned_stocks": "法尔胜(000890)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 15:36",
+      "content": "中泰化学还有救吗",
+      "mentioned_stocks": "中泰化学(002092)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:39",
+      "content": "中泰化学还有救吗[泪奔]",
+      "mentioned_stocks": "中泰化学(002092)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:27",
+      "content": "有研新材进去的5月吃了十几厘米了吧，明天继续",
+      "mentioned_stocks": "有研新材(600206)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=7",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:37",
+      "content": "大家对有研新材怎么看",
+      "mentioned_stocks": "有研新材(600206)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 15:17",
+      "content": "美年健康怎么样",
+      "mentioned_stocks": "美年健康(002044)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:47",
+      "content": "有没有进美年健康的",
+      "mentioned_stocks": "美年健康(002044)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:12",
+      "content": "我在联德股份和中超控股躲了好久的牛市[戳手手][戳手手]",
+      "mentioned_stocks": "中超控股(002471)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 15:58",
+      "content": "昨天晚上在评论区看了中超控股，今天有点追高了，大佬知道明天啥情况吗？跑不跑[流泪]",
+      "mentioned_stocks": "中超控股(002471)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:03",
+      "content": "信维通信买了吗",
+      "mentioned_stocks": "信维通信(300136)",
+      "mentioned_sectors": "消费电子;射频",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:07",
+      "content": "信维通信怎么样，可以入么",
+      "mentioned_stocks": "信维通信(300136)",
+      "mentioned_sectors": "消费电子;射频",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7637899323326136185; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7637899323326136185"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:09",
+      "content": "在华胜天成里亏钱",
+      "mentioned_stocks": "华胜天成(600410)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；risk 情绪；跨来源共振。",
+      "include_in_logic": "否",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 16:47",
+      "content": "路过的大佬，帮忙看看我的持仓上峰水泥重仓板，华勤技术微利，华胜天成亏，中国巨石（新进亏），准备进众合科技，东北证券，，谢谢",
+      "mentioned_stocks": "华胜天成(600410)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；risk 情绪；跨来源共振。",
+      "include_in_logic": "否",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 17:11",
+      "content": "大业股份今天买了[杀马特]",
+      "mentioned_stocks": "大业股份(603278)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；bullish 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 15:42",
+      "content": "有没有大老帮我看看大业股份[流泪]",
+      "mentioned_stocks": "大业股份(603278)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；bullish 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:07",
+      "content": "水发燃气",
+      "mentioned_stocks": "水发燃气(603318)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 16:44",
+      "content": "我感觉水发燃气还会有一波[捂脸]",
+      "mentioned_stocks": "水发燃气(603318)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 15:57",
+      "content": "西藏矿业我踩了顶38",
+      "mentioned_stocks": "西藏矿业(000762)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:42",
+      "content": "西藏矿业 咋办[泣不成声]",
+      "mentioned_stocks": "西藏矿业(000762)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:14",
+      "content": "大哥，合肥城建，还能继续拿吗？",
+      "mentioned_stocks": "合肥城建(002208)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:12",
+      "content": "大哥，合肥城建，要不要继续拿？",
+      "mentioned_stocks": "合肥城建(002208)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；question 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 13:25",
+      "content": "中国卫星",
+      "mentioned_stocks": "中国卫星(600118)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:12",
+      "content": "大哥们中国卫星是等着破前高，还是走[抱拳][玫瑰]",
+      "mentioned_stocks": "中国卫星(600118)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 16:32",
+      "content": "鼎胜新材[杀马特]行不行了",
+      "mentioned_stocks": "鼎胜新材(603876)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；bearish 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:02",
+      "content": "鼎胜新材[流泪]",
+      "mentioned_stocks": "鼎胜新材(603876)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；bearish 情绪；跨来源共振。",
+      "include_in_logic": "是",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 11:56",
+      "content": "我提的上峰水泥都吃到了么，虽然今天炸板了[躺平]",
+      "mentioned_stocks": "上峰水泥(000672)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 6 次，有效评论 6 条；risk 情绪；单来源线索。",
+      "include_in_logic": "否",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=22",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 15:14",
+      "content": "福龙马，出来，给你寄特产",
+      "mentioned_stocks": "福龙马(603686)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 4 次，有效评论 4 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=4",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:40",
+      "content": "昨天说中航光电的大哥我忘记关注了，早上噌的一下拉涨停。我都还没进去就结束了 还有说福龙马，苏州高新，这两只就很一般[捂脸]",
+      "mentioned_stocks": "苏州高新(600736)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 14:22",
+      "content": "哪位大哥说的远东股份，谢谢[色]",
+      "mentioned_stocks": "远东股份(600869)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 3 次，有效评论 3 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=1",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:32",
+      "content": "上次那个大哥说的沃格光电拿到六月底，我没信现在天天涨[流泪]大哥的号还禁言了[捂脸]",
+      "mentioned_stocks": "沃格光电(603773)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=15",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:46",
+      "content": "通鼎互联拿5天",
+      "mentioned_stocks": "通鼎互联(002491)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:07",
+      "content": "没想到美凯龙提前了一天[呲牙]",
+      "mentioned_stocks": "美凯龙(601828)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=5",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 15:41",
+      "content": "华天科技有没有帮看一下的[躺平][躺平]",
+      "mentioned_stocks": "华天科技(002185)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=4",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:15",
+      "content": "至纯科技",
+      "mentioned_stocks": "至纯科技(603690)",
+      "mentioned_sectors": "半导体设备",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:40",
+      "content": "昨天说中航光电的大哥我忘记关注了，早上噌的一下拉涨停。我都还没进去就结束了 还有说福龙马，苏州高新，这两只就很一般[捂脸]",
+      "mentioned_stocks": "中航光电(002179)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:42",
+      "content": "目前赣锋锂业亏损5点 能看到多少 有分析的吗 年底能看到150吗",
+      "mentioned_stocks": "赣锋锂业(002460)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；risk 情绪；单来源线索。",
+      "include_in_logic": "否",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 15:34",
+      "content": "天顺风能有大哥说说吗",
+      "mentioned_stocks": "天顺风能(002531)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；question 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 15:47",
+      "content": "脑子一抽尾盘进了卫星化学，明天会不会埋人",
+      "mentioned_stocks": "卫星化学(002648)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；question 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:59",
+      "content": "有没有在奥瑞德，今早被挂山顶了[泣不成声]",
+      "mentioned_stocks": "奥瑞德(600666)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:30",
+      "content": "三安光电，周五买的沃格今天涨停了，反手入的三安，横盘一天了",
+      "mentioned_stocks": "三安光电(600703)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:48",
+      "content": "中国西电快要发力了",
+      "mentioned_stocks": "中国西电(601179)",
+      "mentioned_sectors": "电网设备",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:10",
+      "content": "巨轮智能。明天福达合金断板，螳螂变盘，储存回调。新一轮就是巨轮智能。",
+      "mentioned_stocks": "福达合金(603045)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；question 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:57",
+      "content": "璞泰来还能拿吗？我有点想割了",
+      "mentioned_stocks": "璞泰来(603659)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 2 次，有效评论 2 条；risk 情绪；单来源线索。",
+      "include_in_logic": "否",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=0",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 13:13",
+      "content": "青山纸业有没有在的 江特电机有没有在的",
+      "mentioned_stocks": "青山纸业(600103)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=19",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:15",
+      "content": "广信股份拿一周[抱拳][抱拳][抱拳]",
+      "mentioned_stocks": "广信股份(603599)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=11",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:02",
+      "content": "兆新股份趋势上行，准备死拿",
+      "mentioned_stocks": "兆新股份(002256)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=9",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:36",
+      "content": "睿能科技，三维通信，德恩精工",
+      "mentioned_stocks": "德恩精工(300780)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=8",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:36",
+      "content": "睿能科技，三维通信，德恩精工",
+      "mentioned_stocks": "睿能科技(603933)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=8",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:39",
+      "content": "永鼎股份怎么样[看]",
+      "mentioned_stocks": "永鼎股份(600105)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=7",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:57",
+      "content": "中视传媒，世界杯转播权今天谈判落地",
+      "mentioned_stocks": "中视传媒(600088)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=6",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 11:38",
+      "content": "第二天说了 好太太[黄脸干杯]",
+      "mentioned_stocks": "好太太(603848)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=6",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:05",
+      "content": "中科软",
+      "mentioned_stocks": "中科软(603927)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=6",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:23",
+      "content": "达安基因",
+      "mentioned_stocks": "达安基因(002030)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=5",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:12",
+      "content": "大为股份那天进没？",
+      "mentioned_stocks": "大为股份(002213)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；question 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=5",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:27",
+      "content": "太辰光 拿着就行了",
+      "mentioned_stocks": "太辰光(300570)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=5",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 15:46",
+      "content": "今天全仓进赤天化，坐等上龙",
+      "mentioned_stocks": "赤天化(600227)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=5",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:21",
+      "content": "骏亚科技拿两天",
+      "mentioned_stocks": "骏亚科技(603386)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=5",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 15:29",
+      "content": "江海股份，不涨停一直拿，闷声发大财[不看]",
+      "mentioned_stocks": "江海股份(002484)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638528911140416997; creator=阿龙闯大A📈; like=4",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638528911140416997"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:11",
+      "content": "东方明珠 拿好",
+      "mentioned_stocks": "东方明珠(600637)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=4",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:11",
+      "content": "东方明珠 拿好",
+      "mentioned_stocks": "东方明珠(600832)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；bullish 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=4",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 14:03",
+      "content": "东方材料和大连电瓷[奸笑]",
+      "mentioned_stocks": "东方材料(603110)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=4",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 16:09",
+      "content": "长川科技 想要特产[色]",
+      "mentioned_stocks": "长川科技(300604)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:12",
+      "content": "航天动力抄底去",
+      "mentioned_stocks": "航天动力(600343)",
+      "mentioned_sectors": "商业航天",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 12:04",
+      "content": "中安科怎么样？有人玩吧？",
+      "mentioned_stocks": "中安科(600654)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；question 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:32",
+      "content": "万泰生物",
+      "mentioned_stocks": "万泰生物(603392)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 13:23",
+      "content": "只能说说博敏电子的大哥是真的大佬",
+      "mentioned_stocks": "博敏电子(603936)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 13:39",
+      "content": "那个说王力安防的大哥，还在吗",
+      "mentioned_stocks": "王力安防(605268)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；question 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 11:48",
+      "content": "中复神鹰[看]",
+      "mentioned_stocks": "中复神鹰(688295)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=3",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 16:01",
+      "content": "我在九鼎新材，有救吗[笑哭]",
+      "mentioned_stocks": "九鼎新材(002201)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 13:48",
+      "content": "水晶光电。",
+      "mentioned_stocks": "水晶光电(002273)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    },
+    {
+      "source_id": "longge",
+      "source": "龙哥",
+      "source_name": "龙哥",
+      "comment_source": "抖音评论 12:40",
+      "content": "大哥们，汉缆股份还能不能玩呀？",
+      "mentioned_stocks": "汉缆股份(002498)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；question 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638472937862974650; creator=阿龙闯大A📈; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638472937862974650"
+      ]
+    },
+    {
+      "source_id": "wangduoyu",
+      "source": "王多于",
+      "source_name": "王多于",
+      "comment_source": "抖音评论 15:22",
+      "content": "中瓷电子喊了几百遍了[发怒][发怒][发怒]",
+      "mentioned_stocks": "中瓷电子(003031)",
+      "mentioned_sectors": "",
+      "value_reason": "评论聚合提及 1 次，有效评论 1 条；neutral 情绪；单来源线索。",
+      "include_in_logic": "待确认",
+      "note": "video_url=https://www.douyin.com/video/7638473042481957733; creator=王多于-股之子; like=2",
+      "media": [],
+      "video_urls": [
+        "https://www.douyin.com/video/7638473042481957733"
+      ]
+    }
+  ],
+  "comment_sources": [
+    {
+      "id": "yege",
+      "name": "野哥",
+      "count": 7,
+      "post_count": 7
+    },
+    {
+      "id": "lihongjuan",
+      "name": "李红娟",
+      "count": 7,
+      "post_count": 1
+    },
+    {
+      "id": "wangduoyu",
+      "name": "王多于",
+      "count": 48,
+      "post_count": 1
+    },
+    {
+      "id": "longge",
+      "name": "龙哥",
+      "count": 64,
+      "post_count": 3
+    }
+  ],
+  "evidence": {
+    "yege": {
+      "name": "野哥",
+      "posts": [
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 22:08 圣阳股份(002580);大唐发电(601991);合力泰(002217)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_2208_2342377167.jpg",
+            "/media/2026-05-11/yege/daily_01_2208_2342377167.jpg"
+          ],
+          "summary": "圣阳股份(002580) 大唐发电(601991) 合力泰(002217) 幽默的拉萨家人。。。",
+          "mentioned_stocks": "圣阳股份(002580);大唐发电(601991);合力泰(002217)",
+          "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;储能;铅酸电池;电力;消费电子;光学光电子",
+          "note": "优先级 P1; 点赞 407; 评论 168; 转发 10; 本地截图 2 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 14:36 野哥同花顺动态",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfiylefss8nau30a03fa7",
+          "media": [],
+          "summary": "topicName:家族里第一个打开同花顺的人,topicCode:T86nzcb既然选择家族第一个打开k线的人。就勇敢的走下去。哪怕不成功你也为家族努力过。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "优先级 P3; 点赞 3332; 评论 694; 转发 66; 本地截图 0 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 14:16 锦龙股份(000712);长江证券(000783)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfhz5zbh8fg8m84c19261",
+          "media": [],
+          "summary": "锦龙股份(000712) 长江证券(000783) 现在能不能理解野哥说的，渣男动了才是五月行情的开始。不要在弄丢你的筹码了，也不要在高抛低吸了。耐心持股才是王道。",
+          "mentioned_stocks": "锦龙股份(000712);长江证券(000783)",
+          "mentioned_sectors": "交易动作;持仓表达;个股相关;野哥同花顺逻辑;证券",
+          "note": "优先级 P1; 点赞 1147; 评论 335; 转发 45; 本地截图 0 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 14:09 天华新能(300390)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfhmqqui0k2yec2017599",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_1409_2342194756.jpg",
+            "/media/2026-05-11/yege/daily_01_1409_2342194756.jpg",
+            "/media/2026-05-11/yege/daily_02_1409_2342194756.jpg"
+          ],
+          "summary": "天华新能(300390) 没动，这有啥好动的，昨天说了行情来的时候，不要乱动。要重拳出击不要唯唯诺诺。视频告诉你们怎么做了，还有很多粉丝追涨杀跌了吧！以为是自己的理解力。其实就是为自己的操作找个借口而已。",
+          "mentioned_stocks": "天华新能(300390)",
+          "mentioned_sectors": "持仓表达;含图片/截图核对;个股相关;锂电材料",
+          "note": "优先级 P1; 点赞 555; 评论 180; 转发 18; 本地截图 3 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 13:58 圣阳股份(002580)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfh3j2fnlmpkm1574c159",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/alert_02_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/daily_02_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/daily_03_1358_2342175243.jpg",
+            "/media/2026-05-11/yege/daily_04_1358_2342175243.jpg"
+          ],
+          "summary": "圣阳股份(002580) 每一根k线背后都是代表的你们的情绪。在上下振幅的时候你能克制住自己的贪婪和恐惧吗？那个下单的人，真的是那个性格底色的你吗？不敢想象以前骂我那一波人现在还有没有了。现在过前高了，没有任何一个套牢盘了。现在对于羊我是不敢多说什么。缘由就是那些性格底色是恶的人。",
+          "mentioned_stocks": "圣阳股份(002580)",
+          "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;储能;铅酸电池",
+          "note": "优先级 P1; 点赞 1071; 评论 399; 转发 41; 本地截图 5 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 09:46 合力泰(002217)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1df6yaip03f3sm7babcebd",
+          "media": [
+            "/media/2026-05-11/yege/alert_01_0946_2341804308.jpg",
+            "/media/2026-05-11/yege/daily_01_0946_2341804308.jpg",
+            "/media/2026-05-11/yege/daily_04_0946_2341804308.jpg",
+            "/media/2026-05-11/yege/daily_05_0946_2341804308.jpg"
+          ],
+          "summary": "合力泰(002217) 我就是不做t。有啥好做的。自己砸自己。",
+          "mentioned_stocks": "合力泰(002217)",
+          "mentioned_sectors": "含图片/截图核对;个股相关;野哥同花顺逻辑;消费电子;光学光电子",
+          "note": "优先级 P1; 点赞 1772; 评论 1007; 转发 44; 本地截图 4 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-11 09:27 野哥同花顺动态",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1df5mrziyspwc6e2f566b1",
+          "media": [],
+          "summary": "今天全部符合我的心理预期。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "优先级 P3; 点赞 1632; 评论 457; 转发 11; 本地截图 0 张"
+        }
+      ]
+    },
+    "lihongjuan": {
+      "name": "李红娟",
+      "posts": [
+        {
+          "channel": "图文/帖子",
+          "title": "李红娟 2026-05-11 群聊评论备份",
+          "url": "douyin://im/group",
+          "media": [],
+          "summary": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
+          "mentioned_stocks": "汉钟精机(002158);信维通信(300136);天通股份(600330);航天发展(000547);航天动力(600343);航天电子(600879)",
+          "mentioned_sectors": "芯片设备;通用设备;消费电子;射频;商业航天;光通信;军工电子",
+          "note": "群聊原话 4 条；有效股票评论 7 条；来源备份 20260511_*_lihongjuan_group_report.json"
+        }
+      ]
+    },
+    "wangduoyu": {
+      "name": "王多于",
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-05-11 11:36:35 太多了#内容过于真实 #股民 #基金 #王多于股之子 #vlog十亿流量扶持计划",
+          "url": "https://www.douyin.com/video/7638473042481957733",
+          "media": [],
+          "summary": "视频评论量备份：1876 条。视频标题：太多了#内容过于真实 #股民 #基金 #王多于股之子 #vlog十亿流量扶持计划",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7638473042481957733; creator=王多于-股之子; 来源备份 20260511_*_douyin_comment_picks.json"
+        }
+      ]
+    },
+    "longge": {
+      "name": "龙哥",
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-05-11 15:13:23 小肉小肉，但满足了，不贪#股票 #股民 #vlgo十亿流量扶持计划",
+          "url": "https://www.douyin.com/video/7638528911140416997",
+          "media": [],
+          "summary": "视频评论量备份：703 条。视频标题：小肉小肉，但满足了，不贪#股票 #股民 #vlgo十亿流量扶持计划",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7638528911140416997; creator=阿龙闯大A📈; 来源备份 20260511_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-05-11 13:03:01 投资和应急是两码事，量力而为#度小满助你乘风有底气#度小满乘风2026",
+          "url": "https://www.douyin.com/video/7637899323326136185",
+          "media": [],
+          "summary": "视频评论量备份：215 条。视频标题：投资和应急是两码事，量力而为#度小满助你乘风有底气#度小满乘风2026",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7637899323326136185; creator=阿龙闯大A📈; 来源备份 20260511_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-05-11 11:36:11 女股民的实力不容小嘘#股票 #股民 #vlgo十亿流量扶持计划",
+          "url": "https://www.douyin.com/video/7638472937862974650",
+          "media": [],
+          "summary": "视频评论量备份：1829 条。视频标题：女股民的实力不容小嘘#股票 #股民 #vlgo十亿流量扶持计划",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7638472937862974650; creator=阿龙闯大A📈; 来源备份 20260511_*_douyin_comment_picks.json"
+        }
+      ]
+    }
+  }
+}

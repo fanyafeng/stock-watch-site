@@ -18,6 +18,7 @@
 - `data/source_config.json`：来源配置。
 - `data/reports.json`：每日工作台索引，不包含正文和密码。
 - `data/dashboard.json`：公开首页看板数据，不包含文章密码。
+- `data/dashboards/YYYY-MM-DD.json`：公开看板的按日期快照，供评论聚合历史日期页使用。
 - `data/sources/{source}/picks/YYYY-MM-DD.csv`：来源当日选股数据。
 - `data/sources/{source}/holdings/YYYY-MM-DD.csv`：来源当日持仓数据。
 - `data/sources/{source}/posts/YYYY-MM-DD.csv`：可选，来源当日帖子、图文、视频摘要。
@@ -32,11 +33,13 @@
 - `encrypted/my/`：我的持仓 / 操作记录密文 payload，可提交。
 - `src/data/reports.json`：同步给 Astro 使用的文章索引。
 - `src/data/dashboard.json`：同步给 Astro 使用的公开看板数据。
+- `src/data/dashboards/YYYY-MM-DD.json`：同步给 Astro 使用的按日期公开看板快照。
 - `src/data/my_positions_index.json`：同步给 Astro 使用的我的持仓密文索引。
 - `src/pages/`：Astro 页面。
 - `scripts/generate_report.py`：读取 CSV 并生成临时明文 HTML 报告。
 - `scripts/encrypt_article.py`：按文章日期生成密码并加密报告。
 - `scripts/sync_reports_to_astro.py`：校验密文 payload 并同步索引。
+- `scripts/import_yeren_backup.py`：从本机 `yeren_signal_monitor` 真实备份导入历史帖子、评论、截图、市场和信号 CSV。
 
 ## picks CSV 字段
 
@@ -155,7 +158,8 @@ python scripts/encrypt_my_positions.py --mode loose
 - `/`：每日复盘首页，展示今日总览、时间线、来源人概要、综合筛选和评论概览。
 - `/market/`：大盘分析页，展示指数表现、市场资金、板块轮动、量能、情绪和明日关注方向。
 - `/sources/`：来源人详情页，展示野哥、李红娟、王多于、龙哥的公开摘要、推荐、持仓和历史概览。
-- `/comments/`：评论聚合页，展示评论筛选、时间分布、价值评论列表、热点股票和纳入统计。
+- `/comments/`：评论聚合页，默认展示最新公开看板。
+- `/comments/YYYY-MM-DD/`：按日期查看评论聚合，例如 `/comments/2026-05-11/`、`/comments/2026-05-13/`。
 - `/my-positions/`：我的持仓 / 操作记录私密页，使用独立密码解锁。
 - `/articles/daily_YYYY-MM-DD/`：加密复盘详情页，只有这里需要输入文章密码。
 
@@ -196,6 +200,41 @@ npm run build
 python scripts/generate_report.py --source lihongjuan --date 2026-05-12
 python scripts/encrypt_article.py --source lihongjuan --date 2026-05-12
 python scripts/sync_reports_to_astro.py
+```
+
+## 导入历史备份
+
+如果本机存在同级目录 `../yeren_signal_monitor`，可以从真实备份导入历史数据：
+
+```bash
+python scripts/import_yeren_backup.py --date 2026-05-11 --date 2026-05-12 --date 2026-05-13
+```
+
+该脚本会导入：
+
+- 野哥同花顺帖子、评论备份和本地截图到 `data/sources/yege/posts/`、`data/daily/YYYY-MM-DD/comments.csv`、`public/media/YYYY-MM-DD/yege/`。
+- 李红娟群聊报告到 `data/sources/lihongjuan/posts/` 和评论聚合。
+- 王多于、龙哥抖音视频和评论聚合到对应来源目录。
+- 大盘复盘 JSON 到 `data/daily/YYYY-MM-DD/market.csv`。
+- 当日可解析信号到 `data/sources/{source}/picks/YYYY-MM-DD.csv`。
+
+导入脚本不会生成随机推荐。某来源当天没有可解析真实选股时，只会写入空表头 CSV；生成历史页面时可使用：
+
+```bash
+python scripts/generate_report.py --all --date 2026-05-13 --loose-source-data
+```
+
+`--loose-source-data` 只建议用于历史导入或补档场景。日常生成不加这个参数，缺少 picks/holdings 仍会明确报错，避免漏数据时悄悄生成空页面。
+
+导入后生成 5 月 11 日到 13 日的完整流程：
+
+```bash
+for d in 2026-05-11 2026-05-12 2026-05-13; do
+  python scripts/generate_report.py --all --date "$d" --loose-source-data
+  python scripts/encrypt_article.py --date "$d"
+done
+python scripts/sync_reports_to_astro.py
+npm run build
 ```
 
 ## 每日文章密码规则

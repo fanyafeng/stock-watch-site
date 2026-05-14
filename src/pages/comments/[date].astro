@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DashboardLayout from "../../components/DashboardLayout.astro";
+import CommentsWorkbench from "../../components/CommentsWorkbench.astro";
+import reports from "../../data/reports.json";
+
+export function getStaticPaths() {
+  const dates = [...new Set(reports.map((item) => item.date).filter(Boolean))];
+  return dates.map((date) => ({ params: { date } }));
+}
+
+const { date } = Astro.params;
+const dashboard = await import(`../../data/dashboards/${date}.json`).then((module) => module.default);
+---
+
+<BaseLayout title={`评论聚合 ${date}｜复盘工作台`}>
+  <DashboardLayout active="评论聚合">
+    <CommentsWorkbench dashboard={dashboard} />
+  </DashboardLayout>
+</BaseLayout>

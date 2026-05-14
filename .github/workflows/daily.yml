@@ -60,7 +60,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/reports.json data/dashboard.json encrypted/articles encrypted/my src/data/reports.json src/data/dashboard.json src/data/my_positions_index.json
+          git add data/reports.json data/dashboard.json data/dashboards encrypted/articles encrypted/my src/data/reports.json src/data/dashboard.json src/data/dashboards src/data/my_positions_index.json
           git diff --cached --quiet || git commit -m "chore: update encrypted reports"
           git push || true
 

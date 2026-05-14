@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_FILE = ROOT / "data" / "source_config.json"
 REPORT_INDEX_FILE = ROOT / "data" / "reports.json"
 DASHBOARD_FILE = ROOT / "data" / "dashboard.json"
+DASHBOARDS_DIR = ROOT / "data" / "dashboards"
 TMP_DIR = ROOT / "build" / "tmp"
 
 PICK_FIELDS = [
@@ -248,6 +249,29 @@ def load_holdings(source_id: str, date_text: str) -> list[dict[str, str]]:
     path = ROOT / "data" / "sources" / source_id / "holdings" / f"{date_text}.csv"
     if not path.exists():
         raise ReportError(f"未找到 {source_id} 在 {date_text} 的持仓数据，请先创建 data/sources/{source_id}/holdings/{date_text}.csv")
+    return [row for row in read_csv_rows(path, HOLDING_FIELDS) if any(row.values())]
+
+
+def load_picks_for_daily(source_id: str, date_text: str, loose_source_data: bool) -> list[dict[str, str]]:
+    if not loose_source_data:
+        return load_picks(source_id, date_text)
+    path = ROOT / "data" / "sources" / source_id / "picks" / f"{date_text}.csv"
+    if not path.exists():
+        print(f"loose: 未找到 {source_id} 在 {date_text} 的选股数据，来源板块将显示暂无数据")
+        return []
+    rows = [row for row in read_csv_rows(path, PICK_FIELDS) if any(row.values())]
+    if not rows:
+        print(f"loose: {source_id} 在 {date_text} 的选股数据为空，来源板块将显示暂无数据")
+    return rows
+
+
+def load_holdings_for_daily(source_id: str, date_text: str, loose_source_data: bool) -> list[dict[str, str]]:
+    if not loose_source_data:
+        return load_holdings(source_id, date_text)
+    path = ROOT / "data" / "sources" / source_id / "holdings" / f"{date_text}.csv"
+    if not path.exists():
+        print(f"loose: 未找到 {source_id} 在 {date_text} 的持仓数据，来源板块将显示暂无数据")
+        return []
     return [row for row in read_csv_rows(path, HOLDING_FIELDS) if any(row.values())]
 
 
@@ -895,7 +919,12 @@ def render_report_html(source: dict[str, Any], date_text: str, picks: list[dict[
     return html_text, meta
 
 
-def collect_daily_data(sources: list[dict[str, Any]], date_text: str, strict_extra: bool) -> dict[str, Any]:
+def collect_daily_data(
+    sources: list[dict[str, Any]],
+    date_text: str,
+    strict_extra: bool,
+    loose_source_data: bool = False,
+) -> dict[str, Any]:
     comments = load_daily_comments(date_text, strict_extra)
     comments_by_source: dict[str, list[dict[str, str]]] = {}
     for comment in comments:
@@ -908,8 +937,8 @@ def collect_daily_data(sources: list[dict[str, Any]], date_text: str, strict_ext
     all_posts: list[dict[str, str]] = []
 
     for source in sources:
-        picks = load_picks(source["id"], date_text)
-        holdings = load_holdings(source["id"], date_text)
+        picks = load_picks_for_daily(source["id"], date_text, loose_source_data)
+        holdings = load_holdings_for_daily(source["id"], date_text, loose_source_data)
         posts = load_source_posts(source["id"], date_text, strict_extra)
         scored = score_candidates(picks, source["name"])
         accepted, rejected = filter_candidates(scored)
@@ -942,8 +971,13 @@ def collect_daily_data(sources: list[dict[str, Any]], date_text: str, strict_ext
     }
 
 
-def render_daily_report_html(sources: list[dict[str, Any]], date_text: str, strict_extra: bool) -> tuple[str, dict[str, Any]]:
-    daily = collect_daily_data(sources, date_text, strict_extra)
+def render_daily_report_html(
+    sources: list[dict[str, Any]],
+    date_text: str,
+    strict_extra: bool,
+    loose_source_data: bool = False,
+) -> tuple[str, dict[str, Any]]:
+    daily = collect_daily_data(sources, date_text, strict_extra, loose_source_data)
     source_lookup = {source["id"]: source["name"] for source in sources}
     updated_at = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     selection_html, short_count, mid_count = render_aggregate_section(daily["all_accepted"], daily["all_rejected"])
@@ -1014,8 +1048,13 @@ def generate_for_source(source: dict[str, Any], date_text: str) -> dict[str, Any
     return meta
 
 
-def generate_daily_workspace(sources: list[dict[str, Any]], date_text: str, strict_extra: bool) -> dict[str, Any]:
-    report_html, meta = render_daily_report_html(sources, date_text, strict_extra)
+def generate_daily_workspace(
+    sources: list[dict[str, Any]],
+    date_text: str,
+    strict_extra: bool,
+    loose_source_data: bool = False,
+) -> dict[str, Any]:
+    report_html, meta = render_daily_report_html(sources, date_text, strict_extra, loose_source_data)
     TMP_DIR.mkdir(parents=True, exist_ok=True)
     out_file = TMP_DIR / f"daily_{date_text}.html"
     out_file.write_text(report_html, encoding="utf-8")
@@ -1171,8 +1210,14 @@ def fallback_timeline_from_sources(daily: dict[str, Any], source_lookup: dict[st
     return items[:8]
 
 
-def write_dashboard_data(report_meta: dict[str, Any], sources: list[dict[str, Any]], date_text: str, strict_extra: bool) -> None:
-    daily = collect_daily_data(sources, date_text, strict_extra)
+def write_dashboard_data(
+    report_meta: dict[str, Any],
+    sources: list[dict[str, Any]],
+    date_text: str,
+    strict_extra: bool,
+    loose_source_data: bool = False,
+) -> None:
+    daily = collect_daily_data(sources, date_text, strict_extra, loose_source_data)
     source_lookup = {source["id"]: source["name"] for source in sources}
     aggregated = aggregate_candidates(daily["all_accepted"])
     short_top = pick_top_candidates(aggregated, "short")
@@ -1240,7 +1285,11 @@ def write_dashboard_data(report_meta: dict[str, Any], sources: list[dict[str, An
     }
     DASHBOARD_FILE.parent.mkdir(parents=True, exist_ok=True)
     DASHBOARD_FILE.write_text(json.dumps(dashboard, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    DASHBOARDS_DIR.mkdir(parents=True, exist_ok=True)
+    dated_dashboard = DASHBOARDS_DIR / f"{date_text}.json"
+    dated_dashboard.write_text(json.dumps(dashboard, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"updated: {DASHBOARD_FILE}")
+    print(f"updated: {dated_dashboard}")
 
 
 def main() -> int:
@@ -1249,6 +1298,7 @@ def main() -> int:
     parser.add_argument("--date", help="报告日期 YYYY-MM-DD，默认今天")
     parser.add_argument("--all", action="store_true", help="生成全部 enabled 来源的每日综合复盘工作台")
     parser.add_argument("--strict-extra", action="store_true", help="可选的大盘、时间线、帖子/视频、评论 CSV 缺失时直接报错")
+    parser.add_argument("--loose-source-data", action="store_true", help="历史导入使用：某来源 picks/holdings 缺失时显示暂无数据，不生成随机内容")
     args = parser.parse_args()
 
     try:
@@ -1259,9 +1309,9 @@ def main() -> int:
             metas = [generate_for_source(source, date_text) for source in sources]
             upsert_report_index(metas)
         else:
-            meta = generate_daily_workspace(sources, date_text, args.strict_extra)
+            meta = generate_daily_workspace(sources, date_text, args.strict_extra, args.loose_source_data)
             upsert_report_index([meta], replace_date_with_daily=date_text)
-            write_dashboard_data(meta, sources, date_text, args.strict_extra)
+            write_dashboard_data(meta, sources, date_text, args.strict_extra, args.loose_source_data)
         print(f"updated: {REPORT_INDEX_FILE}")
         return 0
     except Exception as error:

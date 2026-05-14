@@ -8,8 +8,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS_FILE = ROOT / "data" / "reports.json"
 DASHBOARD_FILE = ROOT / "data" / "dashboard.json"
+DASHBOARDS_DIR = ROOT / "data" / "dashboards"
 ASTRO_REPORTS_FILE = ROOT / "src" / "data" / "reports.json"
 ASTRO_DASHBOARD_FILE = ROOT / "src" / "data" / "dashboard.json"
+ASTRO_DASHBOARDS_DIR = ROOT / "src" / "data" / "dashboards"
 ENCRYPTED_DIR = ROOT / "encrypted" / "articles"
 
 
@@ -48,6 +50,14 @@ def sync_dashboard() -> None:
     ASTRO_DASHBOARD_FILE.parent.mkdir(parents=True, exist_ok=True)
     ASTRO_DASHBOARD_FILE.write_text(json.dumps(dashboard, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"synced: {ASTRO_DASHBOARD_FILE}")
+
+    ASTRO_DASHBOARDS_DIR.mkdir(parents=True, exist_ok=True)
+    if DASHBOARDS_DIR.exists():
+        for source_file in DASHBOARDS_DIR.glob("*.json"):
+            data = json.loads(source_file.read_text(encoding="utf-8"))
+            target_file = ASTRO_DASHBOARDS_DIR / source_file.name
+            target_file.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            print(f"synced: {target_file}")
 
 
 def main() -> int:
