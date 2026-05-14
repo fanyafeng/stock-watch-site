@@ -7945,7 +7945,7 @@ body {
   white-space: nowrap;
 }
 
-.stock-pool-actions time,
+.stock-pool-date-picker,
 .stock-pool-actions a {
   display: inline-flex;
   min-height: 48px;
@@ -7962,11 +7962,16 @@ body {
   padding: 0 16px;
 }
 
+.stock-pool-date-picker {
+  position: relative;
+  padding-right: 10px;
+}
+
 .stock-pool-actions a {
   color: #1667f2;
 }
 
-.stock-pool-actions svg {
+.stock-pool-date-picker svg {
   width: 18px;
   height: 18px;
   fill: none;
@@ -7974,6 +7979,42 @@ body {
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.stock-pool-date-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.stock-pool-date-fields {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stock-pool-date-fields select {
+  height: 34px;
+  border: 1px solid #dbe3ef;
+  border-radius: 7px;
+  background: #fff;
+  color: #111827;
+  font-size: 12.5px;
+  font-weight: 850;
+  line-height: 1;
+  padding: 0 24px 0 9px;
+}
+
+.stock-pool-date-fields select[data-stock-pool-year] {
+  width: 82px;
+}
+
+.stock-pool-date-fields select[data-stock-pool-month],
+.stock-pool-date-fields select[data-stock-pool-day] {
+  width: 58px;
 }
 
 .stock-pool-summary,
@@ -8463,6 +8504,26 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
+  }
+
+  .stock-pool-date-picker,
+  .stock-pool-actions a {
+    width: 100%;
+  }
+
+  .stock-pool-date-fields {
+    flex: 1;
+  }
+
+  .stock-pool-date-fields select[data-stock-pool-year] {
+    flex: 1.15;
+    width: auto;
+  }
+
+  .stock-pool-date-fields select[data-stock-pool-month],
+  .stock-pool-date-fields select[data-stock-pool-day] {
+    flex: 0.85;
+    width: auto;
   }
 
   .stock-pool-summary {

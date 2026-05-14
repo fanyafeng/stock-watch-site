@@ -1,0 +1,325 @@
+---
+import reports from "../data/reports.json";
+import stockSectorMap from "../data/stock_sector_map.json";
+
+const { dashboard } = Astro.props;
+
+const shortList = dashboard.selection?.short ?? [];
+const midList = dashboard.selection?.mid ?? [];
+const pool = [...shortList, ...midList];
+const comments = dashboard.comments ?? [];
+const evidencePosts = Object.values(dashboard.evidence ?? {}).flatMap((source) => source.posts ?? []);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const stockPoolBase = `${base}/stock-pool`;
+const todayAddCount = pool.length;
+const todayRemoveCount = dashboard.stats?.removed_count ?? 0;
+const updatedAt = dashboard.updated_at ?? `${dashboard.date} 10:30`;
+const assetUrl = (path) => `${base}${path}`;
+const thsStockUrl = (code) => `https://basic.10jqka.com.cn/${code}/`;
+const splitTokens = (value) => String(value || "").split(/[;；、,，]/).map((item) => item.trim()).filter(Boolean);
+const unique = (items) => [...new Set(items.filter(Boolean))];
+const normalizeRange = (value) => String(value || "").replace("-", " ~ ");
+const observationCycle = (type) => type === "短期" ? "一周周期" : "一个月周期";
+const typeDescription = (type) => type === "短期"
+  ? "适合短波段操作，推荐日起 7 天内观察是否触发止盈/止损。"
+  : "适合趋势观察，推荐日起 30 天内观察趋势延续、止盈/止损和回撤。";
+const sourceList = (value) => splitTokens(String(value || "").replace(/\s+/g, ";"));
+const riskTone = (risk) => risk === "高" ? "high" : risk === "低" ? "low" : "mid";
+const statusForItem = (item) => item.status || "等待买点";
+const sectorForItem = (item) => {
+  const mappedSectors = stockSectorMap[item.code]?.sectors ?? [];
+  if (mappedSectors.length) return mappedSectors[0];
+  const related = [...comments, ...evidencePosts].find((comment) => String(comment.mentioned_stocks || "").includes(item.code));
+  const sectors = splitTokens(related?.mentioned_sectors).filter((sector) => !["含图片/截图核对", "个股相关", "野哥同花顺逻辑", "风险提示"].includes(sector));
+  return sectors[0] || item.pattern || "待补充板块";
+};
+const evidenceForItem = (item) => {
+  const matched = [...comments, ...evidencePosts]
+    .filter((entry) => String(entry.mentioned_stocks || "").includes(item.code))
+    .flatMap((entry) => entry.media ?? []);
+  return [...new Set(matched)].slice(0, 2);
+};
+const buildReasons = (item, type) => {
+  const sources = sourceList(item.source_names).join("、") || "来源数据";
+  if (type === "短期") {
+    return [
+      ["来源共振", `${sources}在评论区或选股数据中多次提到，市场讨论度较高。`],
+      ["技术形态", `${item.pattern || "技术形态"}，回踩不破关键支撑位，短线结构较好。`],
+      ["买点逻辑", `位于 ${normalizeRange(item.entry_range)} 观察区间，风险可控，适合短线观察。`],
+      ["风险收益比", `止损 ${item.stop_loss}，止盈 ${item.take_profit_1} / ${item.take_profit_2}，盈亏比 ${item.risk_reward || "待复核"}。`],
+      ["操作纪律", `只在 ${normalizeRange(item.entry_range)} 区间内观察，不追高，跌破 ${item.stop_loss} 取消观察。`],
+    ];
+  }
+  return [
+    ["板块逻辑", `所属板块或主题与当日热点方向存在关联，具备中期观察价值。`],
+    ["趋势逻辑", `${item.pattern || "趋势观察"}，量价配合良好时优先观察延续性。`],
+    ["多来源支持", `${sources}提到或数据入池，市场关注度需要继续跟踪。`],
+    ["风险控制", `明确风险位 ${item.stop_loss}，跌破则趋势走弱，及时止损。`],
+    ["中期观察点", `未来一个月重点关注放量突破、回踩支撑和板块持续性。`],
+  ];
+};
+const renderPool = (items, type) => ({
+  items: items.map((item) => ({
+    ...item,
+    sector: sectorForItem(item),
+    media: evidenceForItem(item),
+    reasons: buildReasons(item, type),
+  })),
+});
+const shortPool = renderPool(shortList, "短期");
+const midPool = renderPool(midList, "中长期");
+const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)])
+  .filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(String(date)))
+  .sort()
+  .reverse();
+const dateParts = dateOptions.map((date) => {
+  const [year, month, day] = date.split("-");
+  return { date, year, month, day };
+});
+const currentDateParts = dateParts.find((item) => item.date === dashboard.date) ?? dateParts[0] ?? {
+  date: dashboard.date,
+  year: String(dashboard.date || "").slice(0, 4),
+  month: String(dashboard.date || "").slice(5, 7),
+  day: String(dashboard.date || "").slice(8, 10),
+};
+const yearOptions = unique(dateParts.map((item) => item.year)).sort((a, b) => Number(b) - Number(a));
+const monthOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year).map((item) => item.month))
+  .sort((a, b) => Number(b) - Number(a));
+const dayOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year && item.month === currentDateParts.month).map((item) => item.day))
+  .sort((a, b) => Number(b) - Number(a));
+---
+
+<section class="stock-pool-page">
+  <header class="stock-pool-hero">
+    <div>
+      <p>股票池 / 综合筛选</p>
+      <h1>股票池</h1>
+      <span>多来源共振 + 技术形态筛选，仅作个人复盘观察。</span>
+    </div>
+    <div class="stock-pool-actions">
+      <label
+        class="stock-pool-date-picker"
+        data-stock-pool-date-picker
+        data-current-date={dashboard.date}
+        data-stock-pool-base={stockPoolBase}
+        data-date-options={JSON.stringify(dateParts)}
+      >
+        <span class="stock-pool-date-label">日期</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v3M17 2v3M4 9h16M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
+        <div class="stock-pool-date-fields">
+          <select data-stock-pool-year aria-label="选择年份">
+            {yearOptions.map((year) => <option value={year} selected={year === currentDateParts.year}>{year}年</option>)}
+          </select>
+          <select data-stock-pool-month aria-label="选择月份">
+            {monthOptions.map((month) => <option value={month} selected={month === currentDateParts.month}>{Number(month)}月</option>)}
+          </select>
+          <select data-stock-pool-day aria-label="选择日期">
+            {dayOptions.map((day) => <option value={day} selected={day === currentDateParts.day}>{Number(day)}日</option>)}
+          </select>
+        </div>
+      </label>
+      <a href={`${base}/articles/daily_${dashboard.date}/`}>打开加密详情</a>
+    </div>
+  </header>
+
+  <section class="stock-pool-summary" aria-label="股票池统计">
+    <article>
+      <span class="summary-icon blue"><svg viewBox="0 0 24 24"><path d="M4 17V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="m7 15 4-4 3 3 3-5"/><path d="M3 19h18"/></svg></span>
+      <div><strong>短期观察</strong><b>{shortList.length}</b><em>只</em></div>
+    </article>
+    <article>
+      <span class="summary-icon purple"><svg viewBox="0 0 24 24"><path d="M5 19V9h4v10M10 19V5h4v14M15 19v-7h4v7"/><path d="M4 19h16"/></svg></span>
+      <div><strong>中长期观察</strong><b>{midList.length}</b><em>只</em></div>
+    </article>
+    <article>
+      <span class="summary-icon green"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"/></svg></span>
+      <div><strong>今日新增</strong><b>{todayAddCount}</b><em>只</em></div>
+    </article>
+    <article>
+      <span class="summary-icon orange"><svg viewBox="0 0 24 24"><path d="M7 12h10"/><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"/></svg></span>
+      <div><strong>今日剔除</strong><b>{todayRemoveCount}</b><em>只</em></div>
+    </article>
+    <article class="summary-refresh">
+      <span>更新时间：{updatedAt}</span>
+      <button type="button">↻ 刷新数据</button>
+    </article>
+  </section>
+
+  {[
+    { title: "短期观察池", badge: "一周周期", tone: "blue", type: "短期", pool: shortPool },
+    { title: "中长期观察池", badge: "一个月周期", tone: "purple", type: "中长期", pool: midPool },
+  ].map((section) => (
+    <section class={`stock-pool-section ${section.tone}`}>
+      <div class="stock-pool-section-head">
+        <div>
+          <h2>{section.title}<span>{section.badge}</span></h2>
+          <p>{typeDescription(section.type)}</p>
+        </div>
+        <button type="button">⚙ 筛选设置</button>
+      </div>
+
+      <div class="stock-pool-table-wrap">
+        <table class="stock-pool-table">
+          <thead>
+            <tr>
+              <th>股票名称</th>
+              <th>代码</th>
+              <th>来源</th>
+              {section.type === "中长期" ? <th>所属板块</th> : null}
+              <th>{section.type === "中长期" ? "中线逻辑" : "技术形态"}</th>
+              <th>入场区间</th>
+              <th>{section.type === "中长期" ? "风险位" : "止损位"}</th>
+              <th>{section.type === "中长期" ? "目标1" : "止盈1"}</th>
+              <th>{section.type === "中长期" ? "目标2" : "止盈2"}</th>
+              {section.type === "中长期" ? <th>观察周期</th> : <th>盈亏比</th>}
+              <th>当前状态</th>
+              <th>风险</th>
+              <th>入选原因（摘要）</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {section.pool.items.map((item) => (
+              <tr>
+                <td><a class="stock-name-link" href={thsStockUrl(item.code)} target="_blank" rel="noreferrer"><strong>{item.name}</strong></a></td>
+                <td>{item.code}</td>
+                <td>{item.source_names}</td>
+                {section.type === "中长期" ? <td>{item.sector}</td> : null}
+                <td>{item.pattern}</td>
+                <td>{normalizeRange(item.entry_range)}</td>
+                <td>{item.stop_loss}</td>
+                <td>{item.take_profit_1}</td>
+                <td>{item.take_profit_2}</td>
+                <td>{section.type === "中长期" ? observationCycle(item.type) : (item.risk_reward ?? "待复核")}</td>
+                <td><span class="stock-status-pill">{statusForItem(item)}</span></td>
+                <td><span class={`stock-risk-pill ${riskTone(item.risk)}`}>{item.risk}</span></td>
+                <td>{item.reason}</td>
+                <td><a class="stock-expand-link" href={`#${section.type}-${item.code}`}>展开⌄</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="stock-pool-detail">
+        <div class="stock-reason-card">
+          <h3>入选原因（详细）</h3>
+          {section.pool.items.length ? (
+            <div class="stock-reason-grid">
+              {section.pool.items.map((item) => (
+                <section id={`${section.type}-${item.code}`}>
+                  <h4>{item.name} <small>{item.code}</small></h4>
+                  <ul>
+                    {item.reasons.map(([label, text]) => (
+                      <li><i aria-hidden="true">⊙</i><b>{label}：</b><span>{text}</span></li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <p class="stock-empty">暂无 {section.title} 数据。</p>
+          )}
+        </div>
+
+        <div class="stock-screenshot-card">
+          <h3>相关截图（{section.pool.items.reduce((sum, item) => sum + item.media.length, 0)} 张）</h3>
+          <div class="stock-screenshot-grid">
+            {section.pool.items.flatMap((item) => item.media.map((path, index) => ({ item, path, index }))).slice(0, 4).map(({ item, path, index }) => (
+              <a href={assetUrl(path)} target="_blank" rel="noreferrer">
+                <img src={assetUrl(path)} alt={`${item.name} 相关截图 ${index + 1}`} loading="lazy" />
+                <span>⌕</span>
+              </a>
+            ))}
+            {!section.pool.items.some((item) => item.media.length) ? <p class="stock-empty">暂无关联截图，等待补充评论或图片备份。</p> : null}
+          </div>
+          {section.pool.items.some((item) => item.media.length) ? <a class="stock-all-images" href={`${base}/comments/${dashboard.date}/`}>查看全部截图（{section.pool.items.reduce((sum, item) => sum + item.media.length, 0)} 张）</a> : null}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <aside class="stock-pool-note">
+    <span>♢</span>
+    <div>
+      <h2>说明</h2>
+      <p>本股票池根据多来源信息和技术形态筛选，仅供复盘观察，非投资建议。操作请结合个人风险承受能力，严格执行止损止盈纪律。</p>
+    </div>
+  </aside>
+</section>
+
+<script>
+  (() => {
+    const datePicker = document.querySelector("[data-stock-pool-date-picker]");
+    const yearSelect = document.querySelector("[data-stock-pool-year]");
+    const monthSelect = document.querySelector("[data-stock-pool-month]");
+    const daySelect = document.querySelector("[data-stock-pool-day]");
+
+    function uniqueSorted(values, direction = "desc") {
+      const sorted = [...new Set(values.filter(Boolean))].sort((a, b) => Number(a) - Number(b));
+      return direction === "desc" ? sorted.reverse() : sorted;
+    }
+
+    function replaceSelectOptions(select, values, selectedValue, suffix) {
+      if (!select) return "";
+      select.replaceChildren();
+      values.forEach((value) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = `${Number(value)}${suffix}`;
+        option.selected = value === selectedValue;
+        select.append(option);
+      });
+      if (!values.includes(select.value)) {
+        select.value = values[0] || "";
+      }
+      return select.value;
+    }
+
+    function availableDateParts() {
+      try {
+        return JSON.parse(datePicker?.dataset.dateOptions || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function syncDateSelects(changedPart) {
+      const dates = availableDateParts();
+      if (!dates.length || !yearSelect || !monthSelect || !daySelect) return "";
+
+      const years = uniqueSorted(dates.map((item) => item.year));
+      if (!years.includes(yearSelect.value)) {
+        yearSelect.value = years[0] || "";
+      }
+
+      const months = uniqueSorted(dates.filter((item) => item.year === yearSelect.value).map((item) => item.month));
+      const nextMonth = changedPart === "year" ? months[0] : monthSelect.value;
+      replaceSelectOptions(monthSelect, months, months.includes(nextMonth) ? nextMonth : months[0], "月");
+
+      const days = uniqueSorted(
+        dates
+          .filter((item) => item.year === yearSelect.value && item.month === monthSelect.value)
+          .map((item) => item.day)
+      );
+      const nextDay = changedPart === "year" || changedPart === "month" ? days[0] : daySelect.value;
+      replaceSelectOptions(daySelect, days, days.includes(nextDay) ? nextDay : days[0], "日");
+
+      return yearSelect.value && monthSelect.value && daySelect.value
+        ? `${yearSelect.value}-${monthSelect.value}-${daySelect.value}`
+        : "";
+    }
+
+    function navigateSelectedDate(changedPart) {
+      const selectedDate = syncDateSelects(changedPart);
+      if (selectedDate && selectedDate !== datePicker?.dataset.currentDate) {
+        const stockPoolBase = datePicker?.dataset.stockPoolBase || "/stock-pool";
+        window.location.href = `${stockPoolBase}/${encodeURIComponent(selectedDate)}/`;
+      }
+    }
+
+    yearSelect?.addEventListener("change", () => navigateSelectedDate("year"));
+    monthSelect?.addEventListener("change", () => navigateSelectedDate("month"));
+    daySelect?.addEventListener("change", () => navigateSelectedDate("day"));
+  })();
+</script>
