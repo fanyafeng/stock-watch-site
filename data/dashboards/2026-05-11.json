@@ -1,6 +1,6 @@
 {
   "date": "2026-05-11",
-  "updated_at": "2026-05-14 11:02:38",
+  "updated_at": "2026-05-14 17:42:03",
   "report": {
     "date": "2026-05-11",
     "source": "daily",
@@ -43,6 +43,7 @@
       "半导体材料",
       "疫苗"
     ],
+    "sector_first_limit_up": {},
     "capital_preference": "主线优先看资金合力，弱分支不追高。"
   },
   "stats": {

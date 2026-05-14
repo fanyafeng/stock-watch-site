@@ -614,12 +614,17 @@ def import_market(backup_root: Path, date_text: str) -> list[dict[str, Any]]:
         "volume_change": f"沪深主要指数成交额合计约 {amount:.0f} 亿，需结合昨日继续复核。",
         "sector_rotation": "、".join(top_boards[:6]) or "暂无板块轮动数据",
         "accumulation_direction": "、".join([item.get("name", "") for item in gainers[:4]]) or "暂无数据",
+        "sector_first_limit_up": "",
         "capital_preference": "主线优先看资金合力，弱分支不追高。",
         "sentiment_cycle": f"上涨/下跌约 {up_count}/{down_count}，情绪按结构性修复处理。",
         "risk_signal": "高位放量、偏离均线过大的方向只做风险观察。",
         "tomorrow_watch": "观察主线板块延续性、回踩承接和量能是否继续放大。",
     }
-    return [{"section": key, "value": value, "note": f"导入自 {path.name}"} for key, value in rows.items()]
+    result = []
+    for key, value in rows.items():
+        note = "需人工补充每个板块最先封板的股票，格式：板块=股票(代码);板块=股票(代码)" if key == "sector_first_limit_up" else f"导入自 {path.name}"
+        result.append({"section": key, "value": value, "note": note})
+    return result
 
 
 def import_timeline(backup_root: Path, date_text: str, comments: list[dict[str, Any]], posts: list[dict[str, Any]]) -> list[dict[str, Any]]:

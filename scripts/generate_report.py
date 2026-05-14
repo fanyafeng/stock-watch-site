@@ -112,6 +112,7 @@ MARKET_SECTIONS = [
     ("volume_change", "成交量变化"),
     ("sector_rotation", "板块轮动"),
     ("accumulation_direction", "抢筹方向"),
+    ("sector_first_limit_up", "板块首个涨停股"),
     ("capital_preference", "资金偏好"),
     ("sentiment_cycle", "情绪周期"),
     ("risk_signal", "风险信号"),
@@ -1090,6 +1091,24 @@ def split_values(value: str, limit: int = 4) -> list[str]:
     return cleaned[:limit]
 
 
+def parse_sector_stock_map(value: str) -> dict[str, dict[str, str]]:
+    """Parse '板块=股票(代码);板块=股票(代码)' into a lookup map."""
+    mapping: dict[str, dict[str, str]] = {}
+    for segment in re.split(r"[;；\n]+", value or ""):
+        text = segment.strip()
+        if not text or "=" not in text:
+            continue
+        sector, stock_text = [part.strip() for part in text.split("=", 1)]
+        if not sector or not stock_text:
+            continue
+        match = re.search(r"(.+?)\((\d{6})\)", stock_text)
+        if match:
+            mapping[sector] = {"name": match.group(1).strip(), "code": match.group(2), "source": "first_limit_up"}
+        else:
+            mapping[sector] = {"name": stock_text, "code": "", "source": "first_limit_up"}
+    return mapping
+
+
 def extract_media_paths(value: str) -> list[str]:
     text = value or ""
     matches = re.findall(r"/media/[^\s;，,]+", text)
@@ -1245,6 +1264,7 @@ def write_dashboard_data(
             "volume_change": plain_market_value(daily["market"], "volume_change", "暂无成交量数据"),
             "sector_rotation": plain_market_value(daily["market"], "sector_rotation", "暂无板块轮动数据"),
             "accumulation_direction": split_values(plain_market_value(daily["market"], "accumulation_direction", "暂无数据")),
+            "sector_first_limit_up": parse_sector_stock_map(plain_market_value(daily["market"], "sector_first_limit_up", "")),
             "capital_preference": plain_market_value(daily["market"], "capital_preference", "暂无资金偏好数据"),
         },
         "stats": {

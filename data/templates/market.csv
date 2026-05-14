@@ -7,6 +7,7 @@ index_status,上证指数缩量震荡，创业板尝试修复,示例
 volume_change,成交量较昨日小幅放大,示例
 sector_rotation,AI硬件分歧后回流，新能源低位轮动,示例
 accumulation_direction,算力服务器、商业航天补涨,示例
+sector_first_limit_up,算力服务器=浪潮信息(000977);商业航天=航天发展(000547),示例：填写每个抢筹板块最先涨停/最先封板的股票；没有数据请留空，不要用普通领涨股代替
 capital_preference,偏好低位右侧转强和中继回踩,示例
 sentiment_cycle,修复初段，持续性待确认,示例
 risk_signal,高位放量滞涨个股增多,示例

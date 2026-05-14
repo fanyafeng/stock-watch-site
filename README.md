@@ -93,7 +93,9 @@ source,date,code,name,position_type,cost_price,current_price,position_ratio,hold
 section,value,note
 ```
 
-`section` 建议使用：`market_status`、`main_sectors`、`risk_level`、`operation_tone`、`index_status`、`volume_change`、`sector_rotation`、`accumulation_direction`、`capital_preference`、`sentiment_cycle`、`risk_signal`、`tomorrow_watch`。
+`section` 建议使用：`market_status`、`main_sectors`、`risk_level`、`operation_tone`、`index_status`、`volume_change`、`sector_rotation`、`accumulation_direction`、`sector_first_limit_up`、`capital_preference`、`sentiment_cycle`、`risk_signal`、`tomorrow_watch`。
+
+`sector_first_limit_up` 用于“局部抢筹线索”的首封股/最先涨停股，格式为 `板块=股票(代码);板块=股票(代码)`。如果没有首封时间或最先涨停数据，请留空，页面会显示“首封股待补充”，不要用普通领涨股或评论提到的股票代替。
 
 时间线：`data/daily/YYYY-MM-DD/timeline.csv`
 

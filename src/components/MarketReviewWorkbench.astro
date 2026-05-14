@@ -58,14 +58,13 @@ const extractStocks = (value) => {
   const matches = String(value || "").matchAll(/([\u4e00-\u9fa5A-Za-z0-9*]+)\((\d{6})\)/g);
   return [...matches].map((match) => ({ name: match[1], code: match[2] }));
 };
-const stockCandidates = unique([
-  ...((selection.short ?? []).concat(selection.mid ?? []).map((item) => `${item.name}(${item.code})`)),
-  ...((dashboard.comments ?? []).flatMap((item) => splitTokens(item.mentioned_stocks))),
-]).flatMap(extractStocks);
-const leaderForSector = (sector, index) => {
-  const matched = (dashboard.comments ?? []).find((item) => String(item.mentioned_sectors || "").includes(sector));
-  const stock = extractStocks(matched?.mentioned_stocks)[0] ?? stockCandidates[index % Math.max(stockCandidates.length, 1)];
-  return stock ?? { name: "待核对", code: "" };
+const firstLimitUpMap = market.sector_first_limit_up ?? {};
+const firstLimitUpForSector = (sector) => {
+  const direct = firstLimitUpMap[sector];
+  if (direct) return { ...direct, missing: false };
+  const matchedKey = Object.keys(firstLimitUpMap).find((key) => sector.includes(key) || key.includes(sector));
+  if (matchedKey) return { ...firstLimitUpMap[matchedKey], missing: false };
+  return { name: "首封股待补充", code: "", source: "missing", missing: true };
 };
 
 const breadth = parseBreadth(overview.market_status);
@@ -142,22 +141,22 @@ const sectorRows = mainSectors.slice(0, 6).map((name, index) => ({
   name,
   pct: 3.3 - index * 0.28,
   net: coreNetInflow * (2.9 - index * 0.34),
-  leader: leaderForSector(name, index),
-  leaderPct: "待核对",
+  firstLimitUp: firstLimitUpForSector(name),
+  leaderPct: "待补充",
 }));
 const gainRows = mainSectors.slice(0, 6).map((name, index) => ({
   name,
   pct: 6.88 - index * 0.46,
   net: coreNetInflow * (2.38 - index * 0.29),
-  leader: leaderForSector(name, index + 2),
-  leaderPct: "待核对",
+  firstLimitUp: firstLimitUpForSector(name),
+  leaderPct: "待补充",
 }));
 const coolRows = unique(["锂电池概念", "电池技术", "券商股", "镁矿概念", "防水材料", "印染", "保险Ⅱ", "锂"]).map((name, index) => ({
   name,
   pct: [1.06, 1.21, 0.10, -0.30, -2.83, -2.56, -2.47, -2.42][index] ?? -0.3,
   net: [-118.11, -89.67, -82.68, -71.48, -1.38, -770.23, -20.92, -26.72][index] ?? -12.8,
-  leader: leaderForSector(name, index + 4),
-  leaderPct: "待核对",
+  firstLimitUp: firstLimitUpForSector(name),
+  leaderPct: "待补充",
 }));
 const inflowTop = sectorRows.slice(0, 10);
 const outflowTop = coolRows.slice(0, 10);
@@ -283,7 +282,7 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
           {sectorRows.slice(0, 4).map((item, index) => (
             <div class="market-local-rank-row">
               <b>{index + 1}</b>
-              <span><strong>{item.name}</strong><small>{item.leader.code ? <a class="market-stock-link" href={thsStockUrl(item.leader.code)} target="_blank" rel="noreferrer">{item.leader.name}</a> : item.leader.name}</small></span>
+              <span><strong>{item.name}</strong><small class={item.firstLimitUp.missing ? "market-missing-stock" : ""}>{item.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(item.firstLimitUp.code)} target="_blank" rel="noreferrer">{item.firstLimitUp.name}</a> : item.firstLimitUp.name}</small></span>
               <em>{money(item.net)}</em>
               <i class={toneByPct(item.pct)}>{pct(item.pct)}</i>
               <small style={`--flow:${Math.min(96, Math.max(34, item.net / Math.max(coreNetInflow, 1) * 28))}%`}></small>
@@ -356,15 +355,15 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
         <article class="market-rank-card">
           <h3>{title} <small>{subtitle}</small></h3>
           <table class="market-rank-table">
-            <thead><tr><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>领涨股</th><th>领涨幅</th></tr></thead>
+            <thead><tr><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>首封股</th><th>首封时间</th></tr></thead>
             <tbody>
               {rows.map((row, index) => (
                 <tr>
                   <td><b>{index + 1}</b>{row.name}</td>
                   <td class={toneByPct(row.pct)}>{pct(row.pct)}</td>
                   <td class={toneByPct(row.net)}>{money(row.net)}</td>
-                  <td>{row.leader.code ? <a class="market-stock-link" href={thsStockUrl(row.leader.code)} target="_blank" rel="noreferrer">{row.leader.name}</a> : row.leader.name}</td>
-                  <td class={toneByPct(row.leaderPct)}>{pctText(row.leaderPct)}</td>
+                  <td>{row.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(row.firstLimitUp.code)} target="_blank" rel="noreferrer">{row.firstLimitUp.name}</a> : row.firstLimitUp.name}</td>
+                  <td>{row.firstLimitUp.time ?? "待补充"}</td>
                 </tr>
               ))}
             </tbody>
@@ -420,7 +419,7 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
         ["主线延续", overview.tomorrow_watch ?? "观察主线是否继续放量。"],
         ["轮动验证", "若强势板块只剩前排加速，按野哥规则不追高，等待中继回踩。"],
         ["风险观察", overview.risk_signal ?? "高位放量滞涨个股增多时降低仓位。"],
-        ["抢筹确认", "资金净流入需与板块涨幅、领涨股强度同时验证，单纯净流入不等于买点。"],
+        ["抢筹确认", "资金净流入需与板块涨幅、首封股强度同时验证，单纯净流入不等于买点。"],
       ].map(([title, text]) => (
         <div><b>{title}</b><p>{text}</p></div>
       ))}
@@ -432,15 +431,15 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
         <section>
           <h3>A. 主力资金流入前十</h3>
           <table class="market-rank-table">
-            <thead><tr><th>排名</th><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>领涨股</th><th>领涨幅</th></tr></thead>
-            <tbody>{inflowTop.map((row, index) => <tr><td>{index + 1}</td><td>{row.name}</td><td class="up">{pct(row.pct)}</td><td class="up">{money(row.net)}</td><td>{row.leader.code ? <a class="market-stock-link" href={thsStockUrl(row.leader.code)} target="_blank" rel="noreferrer">{row.leader.name}</a> : row.leader.name}</td><td class={toneByPct(row.leaderPct)}>{pctText(row.leaderPct)}</td></tr>)}</tbody>
+            <thead><tr><th>排名</th><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>首封股</th><th>首封时间</th></tr></thead>
+            <tbody>{inflowTop.map((row, index) => <tr><td>{index + 1}</td><td>{row.name}</td><td class="up">{pct(row.pct)}</td><td class="up">{money(row.net)}</td><td>{row.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(row.firstLimitUp.code)} target="_blank" rel="noreferrer">{row.firstLimitUp.name}</a> : row.firstLimitUp.name}</td><td>{row.firstLimitUp.time ?? "待补充"}</td></tr>)}</tbody>
           </table>
         </section>
         <section>
           <h3>B. 主力资金流出前十</h3>
           <table class="market-rank-table">
-            <thead><tr><th>排名</th><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>领涨股</th><th>领涨幅</th></tr></thead>
-            <tbody>{outflowTop.map((row, index) => <tr><td>{index + 1}</td><td>{row.name}</td><td class={toneByPct(row.pct)}>{pct(row.pct)}</td><td class="down">{money(row.net)}</td><td>{row.leader.code ? <a class="market-stock-link" href={thsStockUrl(row.leader.code)} target="_blank" rel="noreferrer">{row.leader.name}</a> : row.leader.name}</td><td class={toneByPct(row.leaderPct)}>{pctText(row.leaderPct)}</td></tr>)}</tbody>
+            <thead><tr><th>排名</th><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>首封股</th><th>首封时间</th></tr></thead>
+            <tbody>{outflowTop.map((row, index) => <tr><td>{index + 1}</td><td>{row.name}</td><td class={toneByPct(row.pct)}>{pct(row.pct)}</td><td class="down">{money(row.net)}</td><td>{row.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(row.firstLimitUp.code)} target="_blank" rel="noreferrer">{row.firstLimitUp.name}</a> : row.firstLimitUp.name}</td><td>{row.firstLimitUp.time ?? "待补充"}</td></tr>)}</tbody>
           </table>
         </section>
       </div>

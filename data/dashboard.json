@@ -1,6 +1,6 @@
 {
   "date": "2026-05-13",
-  "updated_at": "2026-05-14 11:02:40",
+  "updated_at": "2026-05-14 17:43:58",
   "report": {
     "date": "2026-05-13",
     "source": "daily",
@@ -43,6 +43,7 @@
       "钨",
       "其他电源设备Ⅲ"
     ],
+    "sector_first_limit_up": {},
     "capital_preference": "主线优先看资金合力，弱分支不追高。"
   },
   "stats": {
