@@ -6946,3 +6946,361 @@ body {
     font-size: 12px;
   }
 }
+
+/* Comment aggregation density and timeline responsive tuning */
+.comment-workbench-layout {
+  grid-template-columns: 286px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.comment-timeline-panel {
+  padding: 10px 9px;
+}
+
+.comment-thread-timeline {
+  gap: 4px;
+  max-height: min(720px, calc(100vh - 220px));
+  padding-left: 11px;
+}
+
+.comment-thread-timeline button {
+  gap: 3px;
+  border-radius: 8px;
+  padding: 7px 9px 7px 11px;
+}
+
+.comment-thread-timeline time {
+  font-size: 14px;
+}
+
+.comment-thread-timeline strong {
+  font-size: 11.5px;
+}
+
+.comment-thread-timeline em {
+  font-size: 13px;
+}
+
+.comment-thread-timeline small {
+  font-size: 11px;
+}
+
+.comment-feed-status {
+  min-height: 64px;
+  padding: 12px 18px;
+}
+
+.comment-feed-status strong {
+  font-size: 20px;
+}
+
+.comment-feed-status span#comment-feed-count {
+  font-size: 13px;
+}
+
+.comment-feed-status .comment-date-picker select {
+  height: 38px;
+  min-width: 158px;
+  font-size: 14px;
+  padding-left: 39px;
+}
+
+.comment-thread-card {
+  padding: 19px 18px 21px;
+}
+
+.comment-thread-head .comment-thread-head-main {
+  gap: 12px;
+}
+
+.comment-thread-head .comment-thread-head-main time {
+  font-size: 23px;
+}
+
+.comment-thread-head .comment-thread-head-copy strong {
+  font-size: 13px;
+}
+
+.comment-thread-head .comment-thread-head-copy h2 {
+  font-size: 19px;
+}
+
+.comment-thread-head .comment-thread-head-actions {
+  gap: 7px;
+}
+
+.comment-thread-head .comment-thread-head-actions a {
+  min-height: 34px;
+  font-size: 13px;
+  padding: 0 12px;
+}
+
+.comment-thread-head span.comment-status-badge,
+.comment-author-row span.comment-status-badge,
+.comment-status-badge {
+  min-height: 28px;
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+.comment-main-card {
+  padding: 19px 19px 0;
+}
+
+.comment-author-row {
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.comment-avatar {
+  width: 36px;
+  height: 36px;
+  font-size: 15px;
+}
+
+.comment-author-copy strong {
+  font-size: 15px;
+}
+
+.comment-author-copy span {
+  font-size: 13px;
+}
+
+.comment-main-text {
+  font-size: 15px;
+  line-height: 1.68;
+}
+
+.comment-chip-row {
+  gap: 7px;
+  margin-top: 15px;
+}
+
+.comment-chip-row span,
+.comment-chip-row a {
+  min-height: 30px;
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+.comment-origin-row {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.comment-screenshot-section {
+  margin-top: 16px;
+  padding-top: 14px;
+}
+
+.comment-screenshot-section h3 {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.comment-screenshot-grid {
+  grid-template-columns: repeat(2, minmax(180px, 280px));
+  gap: 12px;
+}
+
+.comment-screenshot-card span {
+  padding: 7px 10px 9px;
+  font-size: 12px;
+}
+
+.comment-screenshot-card b {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.comment-insight-list {
+  margin: 16px 19px 0;
+}
+
+.comment-insight-row,
+.comment-insight-row--status {
+  grid-template-columns: 158px minmax(0, 1fr);
+  gap: 14px;
+  padding: 12px 0;
+}
+
+.comment-insight-row--status {
+  grid-template-columns: 158px auto minmax(0, 1fr);
+}
+
+.comment-insight-label {
+  gap: 8px;
+  font-size: 14px !important;
+}
+
+.comment-insight-label i {
+  width: 19px;
+  height: 19px;
+  font-size: 15px;
+}
+
+.comment-insight-row strong,
+.comment-insight-row p {
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+.comment-insight-row--status strong {
+  min-height: 25px;
+  font-size: 12px;
+  padding: 0 10px;
+}
+
+.comment-evidence-actions {
+  padding: 14px 19px 19px;
+}
+
+.comment-action-row {
+  gap: 9px;
+  padding-top: 15px;
+}
+
+.comment-action-row button,
+.comment-action-row a,
+.comment-action-disabled {
+  min-height: 36px;
+  min-width: 112px;
+  font-size: 13px;
+  padding: 0 13px;
+}
+
+@media (max-width: 1180px) {
+  .comment-workbench-layout {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .comment-timeline-panel {
+    position: static;
+    padding: 9px;
+  }
+
+  .comment-panel-title {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .comment-timeline-summary {
+    margin: 7px 0 8px;
+  }
+
+  .comment-thread-timeline {
+    display: flex;
+    gap: 7px;
+    max-height: none;
+    overflow-x: auto;
+    padding: 2px 1px 8px;
+    scroll-snap-type: x proximity;
+  }
+
+  .comment-thread-timeline::before,
+  .timeline-dot {
+    display: none;
+  }
+
+  .comment-thread-timeline li {
+    flex: 0 0 190px;
+    min-width: 190px;
+    scroll-snap-align: start;
+  }
+
+  .comment-thread-timeline button {
+    min-height: 86px;
+    height: 100%;
+    padding: 8px 9px;
+  }
+
+  .comment-thread-timeline .comment-status-badge {
+    margin-top: 1px;
+  }
+
+  .comment-load-more {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .comment-feed-status {
+    gap: 8px;
+    padding: 11px 12px;
+  }
+
+  .comment-feed-tools {
+    align-items: center;
+  }
+
+  .comment-thread-feed .comment-thread-head {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .comment-thread-head .comment-thread-head-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .comment-thread-head .comment-thread-head-main {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .comment-author-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .comment-thread-card {
+    padding: 14px 12px 16px;
+  }
+}
+
+@media (max-width: 680px) {
+  .comment-thread-feed .comment-thread-head,
+  .comment-thread-head .comment-thread-head-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .comment-thread-head .comment-thread-head-main {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .comment-thread-timeline li {
+    flex-basis: 174px;
+    min-width: 174px;
+  }
+
+  .comment-thread-timeline button {
+    min-height: 82px;
+  }
+
+  .comment-thread-timeline time {
+    font-size: 13px;
+  }
+
+  .comment-thread-timeline em {
+    font-size: 12px;
+  }
+
+  .comment-screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comment-insight-row,
+  .comment-insight-row--status {
+    grid-template-columns: 1fr;
+  }
+
+  .comment-action-row button,
+  .comment-action-row a,
+  .comment-action-disabled {
+    flex: 1 1 132px;
+  }
+}
