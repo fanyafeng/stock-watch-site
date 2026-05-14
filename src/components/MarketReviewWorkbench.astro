@@ -53,6 +53,7 @@ const pctText = (value) => isFiniteNumber(value) ? pct(value) : String(value || 
 const money = (value) => `${value > 0 ? "+" : ""}${Number(value).toFixed(2)}亿`;
 const toneByPct = (value) => isFiniteNumber(value) ? (Number(value) >= 0 ? "up" : "down") : "neutral";
 const compactDate = (date) => String(date || "").replaceAll("-", "");
+const wrapSectorName = (value) => String(value || "暂无").replace(/\s+/g, "").match(/.{1,4}/g)?.join("\n") ?? String(value || "暂无");
 const thsStockUrl = (code) => `https://basic.10jqka.com.cn/${code}/`;
 const extractStocks = (value) => {
   const matches = String(value || "").matchAll(/([\u4e00-\u9fa5A-Za-z0-9*]+)\((\d{6})\)/g);
@@ -72,14 +73,11 @@ const indexRows = parseIndexRows(market.index_status);
 const chartRows = indexRows.filter((item) => isFiniteNumber(item.pct)).slice(0, 5);
 const chartTimes = ["09:30", "10:00", "10:30", "11:00", "11:30/13:00", "13:30", "14:00", "14:30", "15:00"];
 const chartColors = ["#6b4df6", "#fb923c", "#ef4444", "#14b8a6", "#64748b"];
-const chartMin = -1;
-const chartMax = 3;
-const chartLeft = 40;
-const chartRight = 620;
-const chartTop = 30;
-const chartBottom = 230;
+const chartLeft = 44;
+const chartRight = 612;
+const chartTop = 32;
+const chartBottom = 218;
 const chartX = (index) => chartLeft + (index / (chartTimes.length - 1)) * (chartRight - chartLeft);
-const chartY = (value) => chartBottom - ((value - chartMin) / (chartMax - chartMin)) * (chartBottom - chartTop);
 const buildTrendValues = (finalPct, index) => {
   const finalValue = Number(finalPct);
   const earlyLow = -Math.min(0.85, Math.max(0.18, Math.abs(finalValue) * 0.22 + index * 0.06));
@@ -96,8 +94,26 @@ const buildTrendValues = (finalPct, index) => {
     finalValue,
   ].map((value) => Number(value.toFixed(2)));
 };
-const chartSeries = chartRows.map((item, index) => {
-  const values = buildTrendValues(item.pct, index);
+const rawChartSeries = chartRows.map((item, index) => ({
+  item,
+  index,
+  values: buildTrendValues(item.pct, index),
+}));
+const chartValueList = rawChartSeries.flatMap((series) => series.values);
+const rawChartMin = Math.min(-0.2, ...chartValueList);
+const rawChartMax = Math.max(0.2, ...chartValueList);
+const chartPadding = Math.max(0.25, (rawChartMax - rawChartMin) * 0.12);
+const chartMin = Math.floor((rawChartMin - chartPadding) * 2) / 2;
+const chartMax = Math.ceil((rawChartMax + chartPadding) * 2) / 2;
+const chartRange = Math.max(1, chartMax - chartMin);
+const chartY = (value) => chartBottom - ((value - chartMin) / chartRange) * (chartBottom - chartTop);
+const chartTickValues = Array.from({ length: 5 }, (_, index) => Number((chartMax - (chartRange / 4) * index).toFixed(2)));
+const chartGridLines = chartTickValues.map((value) => ({
+  value,
+  y: Number(chartY(value).toFixed(2)),
+}));
+const chartTickLabel = (value) => `${value > 0 ? "+" : ""}${Number.isInteger(value) ? value.toFixed(0) : value.toFixed(1)}%`;
+const chartSeries = rawChartSeries.map(({ item, index, values }) => {
   const points = values.map((value, pointIndex) => ({
     time: chartTimes[pointIndex],
     value,
@@ -293,7 +309,7 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
           {sectorRows.slice(0, 4).map((item, index) => (
             <div class="market-local-rank-row">
               <b>{index + 1}</b>
-              <span><strong>{item.name}</strong><small class={item.firstLimitUp.missing ? "market-missing-stock" : ""}>{item.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(item.firstLimitUp.code)} target="_blank" rel="noreferrer">{item.firstLimitUp.name}</a> : item.firstLimitUp.name}</small></span>
+              <span><strong class="market-sector-name">{wrapSectorName(item.name)}</strong><small class={item.firstLimitUp.missing ? "market-missing-stock" : ""}>{item.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(item.firstLimitUp.code)} target="_blank" rel="noreferrer">{item.firstLimitUp.name}</a> : item.firstLimitUp.name}</small></span>
               <em>{money(item.net)}</em>
               <i class={toneByPct(item.pct)}>{pct(item.pct)}</i>
               <small style={`--flow:${Math.min(96, Math.max(34, item.net / Math.max(coreNetInflow, 1) * 28))}%`}></small>
@@ -337,17 +353,18 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
           {chartSeries.map((item, index) => <span style={`--legend-color:${item.color}`} class={`line-${index + 1}`}>{item.name}</span>)}
         </div>
         <div class="market-chart-frame" data-market-chart data-chart-points={JSON.stringify(chartHoverPoints)}>
-          <svg class="market-line-chart" viewBox="0 0 640 260" role="img" aria-label="今日指数分时走势">
+          <svg class="market-line-chart" viewBox="0 0 640 276" role="img" aria-label="今日指数分时走势">
             <g class="chart-grid">
-              <path d="M40 30H620M40 80H620M40 130H620M40 180H620M40 230H620" />
-              <path d="M40 30V230M620 30V230" />
+              {chartGridLines.map((tick) => <line x1={chartLeft} x2={chartRight} y1={tick.y} y2={tick.y} />)}
+              <line x1={chartLeft} x2={chartLeft} y1={chartTop} y2={chartBottom} />
+              <line x1={chartRight} x2={chartRight} y1={chartTop} y2={chartBottom} />
             </g>
-            <text x="8" y="35">3%</text><text x="8" y="85">2%</text><text x="8" y="135">1%</text><text x="8" y="185">0%</text><text x="5" y="235">-1%</text>
+            {chartGridLines.map((tick) => <text x="6" y={tick.y + 4}>{chartTickLabel(tick.value)}</text>)}
             {chartSeries.map((series) => <path class="chart-line" style={`--chart-color:${series.color}`} d={series.path} />)}
             <line class="market-chart-crosshair" data-market-chart-crosshair x1={chartLeft} x2={chartLeft} y1={chartTop} y2={chartBottom}></line>
             {chartSeries.map((series, index) => <circle class="market-chart-dot" data-market-chart-dot data-series-index={index} r="4.5" fill={series.color}></circle>)}
             <rect class="market-chart-hitarea" x={chartLeft} y={chartTop} width={chartRight - chartLeft} height={chartBottom - chartTop}></rect>
-            <g class="chart-axis"><text x="38" y="253">09:30</text><text x="282" y="253">11:30/13:00</text><text x="588" y="253">15:00</text></g>
+            <g class="chart-axis"><text x={chartLeft - 4} y="258">09:30</text><text x="284" y="258">11:30/13:00</text><text x={chartRight - 24} y="258">15:00</text></g>
           </svg>
           <div class="market-chart-tooltip" data-market-chart-tooltip></div>
         </div>
@@ -370,7 +387,7 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
             <tbody>
               {rows.map((row, index) => (
                 <tr>
-                  <td><b>{index + 1}</b>{row.name}</td>
+                  <td class="market-sector-cell"><b>{index + 1}</b><span class="market-sector-name">{wrapSectorName(row.name)}</span></td>
                   <td class={toneByPct(row.pct)}>{pct(row.pct)}</td>
                   <td class={toneByPct(row.net)}>{money(row.net)}</td>
                   <td>{row.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(row.firstLimitUp.code)} target="_blank" rel="noreferrer">{row.firstLimitUp.name}</a> : row.firstLimitUp.name}</td>
@@ -443,14 +460,14 @@ const dateHref = (date) => date === latestDate ? `${base}/market/` : `${base}/ma
           <h3>A. 主力资金流入前十</h3>
           <table class="market-rank-table">
             <thead><tr><th>排名</th><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>首封股</th><th>首封时间</th></tr></thead>
-            <tbody>{inflowTop.map((row, index) => <tr><td>{index + 1}</td><td>{row.name}</td><td class="up">{pct(row.pct)}</td><td class="up">{money(row.net)}</td><td>{row.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(row.firstLimitUp.code)} target="_blank" rel="noreferrer">{row.firstLimitUp.name}</a> : row.firstLimitUp.name}</td><td>{row.firstLimitUp.time ?? "待补充"}</td></tr>)}</tbody>
+            <tbody>{inflowTop.map((row, index) => <tr><td>{index + 1}</td><td><span class="market-sector-name">{wrapSectorName(row.name)}</span></td><td class="up">{pct(row.pct)}</td><td class="up">{money(row.net)}</td><td>{row.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(row.firstLimitUp.code)} target="_blank" rel="noreferrer">{row.firstLimitUp.name}</a> : row.firstLimitUp.name}</td><td>{row.firstLimitUp.time ?? "待补充"}</td></tr>)}</tbody>
           </table>
         </section>
         <section>
           <h3>B. 主力资金流出前十</h3>
           <table class="market-rank-table">
             <thead><tr><th>排名</th><th>板块</th><th>涨跌幅</th><th>主力净流</th><th>首封股</th><th>首封时间</th></tr></thead>
-            <tbody>{outflowTop.map((row, index) => <tr><td>{index + 1}</td><td>{row.name}</td><td class={toneByPct(row.pct)}>{pct(row.pct)}</td><td class="down">{money(row.net)}</td><td>{row.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(row.firstLimitUp.code)} target="_blank" rel="noreferrer">{row.firstLimitUp.name}</a> : row.firstLimitUp.name}</td><td>{row.firstLimitUp.time ?? "待补充"}</td></tr>)}</tbody>
+            <tbody>{outflowTop.map((row, index) => <tr><td>{index + 1}</td><td><span class="market-sector-name">{wrapSectorName(row.name)}</span></td><td class={toneByPct(row.pct)}>{pct(row.pct)}</td><td class="down">{money(row.net)}</td><td>{row.firstLimitUp.code ? <a class="market-stock-link" href={thsStockUrl(row.firstLimitUp.code)} target="_blank" rel="noreferrer">{row.firstLimitUp.name}</a> : row.firstLimitUp.name}</td><td>{row.firstLimitUp.time ?? "待补充"}</td></tr>)}</tbody>
           </table>
         </section>
       </div>

@@ -9223,6 +9223,7 @@ body {
 
 .market-table-wrap,
 .market-flow-tables section {
+  min-width: 0;
   overflow-x: auto;
 }
 
@@ -9305,6 +9306,11 @@ body {
 
 .chart-grid path {
   fill: none;
+  stroke: #e3ebf4;
+  stroke-width: 1;
+}
+
+.chart-grid line {
   stroke: #e3ebf4;
   stroke-width: 1;
 }
@@ -9398,7 +9404,7 @@ body {
 
 .market-sector-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 12px;
 }
 
@@ -9423,8 +9429,39 @@ body {
 
 .market-rank-table th,
 .market-rank-table td {
-  padding: 7px 6px;
-  font-size: 12px;
+  padding: 6px 5px;
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+.market-rank-table {
+  table-layout: fixed;
+  white-space: normal;
+}
+
+.market-rank-card .market-rank-table th:nth-child(1),
+.market-rank-card .market-rank-table td:nth-child(1) {
+  width: 30%;
+}
+
+.market-rank-card .market-rank-table th:nth-child(2),
+.market-rank-card .market-rank-table td:nth-child(2) {
+  width: 14%;
+}
+
+.market-rank-card .market-rank-table th:nth-child(3),
+.market-rank-card .market-rank-table td:nth-child(3) {
+  width: 18%;
+}
+
+.market-rank-card .market-rank-table th:nth-child(4),
+.market-rank-card .market-rank-table td:nth-child(4) {
+  width: 23%;
+}
+
+.market-rank-card .market-rank-table th:nth-child(5),
+.market-rank-card .market-rank-table td:nth-child(5) {
+  width: 15%;
 }
 
 .market-rank-table td b {
@@ -9437,6 +9474,45 @@ body {
   background: #e8f1ff;
   color: var(--market-blue);
   font-size: 11px;
+}
+
+.market-sector-cell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 6.6em;
+}
+
+.market-sector-cell b {
+  flex: 0 0 auto;
+}
+
+.market-sector-name {
+  display: inline-block;
+  width: 4.25em;
+  max-width: 4.8em;
+  color: #243246;
+  font-weight: 950;
+  line-height: 1.22;
+  text-align: left;
+  white-space: pre-line;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.market-rank-table .market-sector-name {
+  vertical-align: middle;
+}
+
+.market-rank-table td,
+.market-rank-table th {
+  overflow-wrap: normal;
+  vertical-align: middle;
+}
+
+.market-rank-table td:not(.market-sector-cell),
+.market-rank-table th:not(:first-child) {
+  word-break: keep-all;
 }
 
 .market-stock-link {
@@ -9598,11 +9674,52 @@ body {
 .market-flow-tables h3 {
   margin-bottom: 8px;
   color: #0f9f63;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .market-flow-tables section:last-child h3 {
   color: #0f9f63;
+}
+
+.market-flow-tables .market-rank-table {
+  min-width: 0;
+}
+
+.market-flow-tables .market-rank-table th,
+.market-flow-tables .market-rank-table td {
+  padding: 5px 4px;
+  font-size: 11px;
+  line-height: 1.28;
+}
+
+.market-flow-tables .market-rank-table th:nth-child(1),
+.market-flow-tables .market-rank-table td:nth-child(1) {
+  width: 8%;
+}
+
+.market-flow-tables .market-rank-table th:nth-child(2),
+.market-flow-tables .market-rank-table td:nth-child(2) {
+  width: 22%;
+}
+
+.market-flow-tables .market-rank-table th:nth-child(3),
+.market-flow-tables .market-rank-table td:nth-child(3) {
+  width: 13%;
+}
+
+.market-flow-tables .market-rank-table th:nth-child(4),
+.market-flow-tables .market-rank-table td:nth-child(4) {
+  width: 18%;
+}
+
+.market-flow-tables .market-rank-table th:nth-child(5),
+.market-flow-tables .market-rank-table td:nth-child(5) {
+  width: 24%;
+}
+
+.market-flow-tables .market-rank-table th:nth-child(6),
+.market-flow-tables .market-rank-table td:nth-child(6) {
+  width: 15%;
 }
 
 .market-note-grid {
