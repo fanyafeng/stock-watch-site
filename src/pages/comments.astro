@@ -169,6 +169,14 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
               {source.name} <small>({source.count ?? 0})</small>
             </button>
           ))}
+          <label class="comment-date-picker">
+            <span aria-hidden="true">日期</span>
+            <select data-date-filter data-current-date={dashboard.date}>
+              {dateOptions.map((date) => (
+                <option value={date} selected={date === dashboard.date}>{date}</option>
+              ))}
+            </select>
+          </label>
         </div>
       </section>
 
@@ -215,14 +223,6 @@ const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)]
             <strong id="comment-feed-title">全部评论区</strong>
             <div class="comment-feed-tools">
               <span id="comment-feed-count">显示 {threadGroups.length} 组 / {comments.length} 条评论</span>
-              <label class="comment-date-picker">
-                <span aria-hidden="true">日期</span>
-                <select data-date-filter data-current-date={dashboard.date}>
-                  {dateOptions.map((date) => (
-                    <option value={date} selected={date === dashboard.date}>{date}</option>
-                  ))}
-                </select>
-              </label>
             </div>
           </div>
 

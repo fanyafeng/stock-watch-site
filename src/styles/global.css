@@ -6216,6 +6216,21 @@ body {
   padding: 6px 8px;
 }
 
+.comment-workbench .comment-source-switcher .comment-date-picker {
+  margin-left: auto;
+}
+
+.comment-workbench .comment-source-switcher .comment-date-picker select {
+  height: 38px;
+  min-width: 170px;
+  border-color: #cfd8e6;
+  border-radius: 9px;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 800;
+  padding-left: 39px;
+}
+
 .comment-workbench .comment-source-switcher button {
   min-height: 32px;
   border-radius: 9px;
@@ -6297,7 +6312,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 22px;
+  gap: 0;
 }
 
 .comment-feed-status span#comment-feed-count {
@@ -6305,28 +6320,6 @@ body {
   font-size: 14px;
   font-weight: 800;
   white-space: nowrap;
-}
-
-.comment-feed-status .comment-date-picker {
-  margin-left: 0;
-}
-
-.comment-feed-status .comment-date-picker::before {
-  left: 14px;
-  width: 17px;
-  height: 17px;
-  color: #1f2a44;
-}
-
-.comment-feed-status .comment-date-picker select {
-  height: 44px;
-  min-width: 176px;
-  border-color: #cfd8e6;
-  border-radius: 9px;
-  color: #111827;
-  font-size: 16px;
-  font-weight: 800;
-  padding-left: 42px;
 }
 
 .comment-thread-card {
@@ -6922,8 +6915,8 @@ body {
     justify-items: stretch;
   }
 
-  .comment-feed-status .comment-date-picker,
-  .comment-feed-status .comment-date-picker select {
+  .comment-workbench .comment-source-switcher .comment-date-picker,
+  .comment-workbench .comment-source-switcher .comment-date-picker select {
     width: 100%;
   }
 
@@ -6996,13 +6989,6 @@ body {
 
 .comment-feed-status span#comment-feed-count {
   font-size: 13px;
-}
-
-.comment-feed-status .comment-date-picker select {
-  height: 38px;
-  min-width: 158px;
-  font-size: 14px;
-  padding-left: 39px;
 }
 
 .comment-thread-card {
