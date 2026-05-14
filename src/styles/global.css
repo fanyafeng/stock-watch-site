@@ -4099,8 +4099,7 @@ body {
 }
 
 .comment-export-btn,
-.comment-reset-btn,
-.comment-load-more {
+.comment-reset-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -4348,11 +4347,6 @@ body {
   background: #e8f0ff;
   color: #5c7ee8;
   font-size: 12px;
-}
-
-.comment-load-more {
-  width: 100%;
-  margin-top: 12px;
 }
 
 .comment-thread-feed {
@@ -4840,8 +4834,7 @@ body {
 }
 
 .comment-export-btn,
-.comment-reset-btn,
-.comment-load-more {
+.comment-reset-btn {
   min-height: 36px;
   border-radius: 8px;
   background: #f8fafc;
@@ -5621,8 +5614,7 @@ body {
 }
 
 .comment-export-btn,
-.comment-reset-btn,
-.comment-load-more {
+.comment-reset-btn {
   min-height: 32px;
   border-radius: 6px;
   font-size: 12px;
@@ -7205,10 +7197,6 @@ body {
   .comment-thread-timeline .comment-status-badge {
     margin-top: 1px;
   }
-
-  .comment-load-more {
-    display: none;
-  }
 }
 
 @media (max-width: 820px) {
@@ -7703,13 +7691,26 @@ body {
 }
 
 .comment-thread-timeline::before {
-  left: 8px;
-  width: 2px;
-  background: #d8e1ee;
+  display: none;
 }
 
 .comment-thread-timeline li {
   position: relative;
+}
+
+.comment-thread-timeline li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -4px;
+  left: -10px;
+  width: 2px;
+  border-radius: 999px;
+  background: #d8e1ee;
+}
+
+.comment-thread-timeline li:last-child::before {
+  bottom: 18px;
 }
 
 .timeline-dot {
@@ -7752,6 +7753,10 @@ body {
 @media (max-width: 1180px) {
   .comment-thread-timeline {
     padding-left: 1px;
+  }
+
+  .comment-thread-timeline li::before {
+    display: none;
   }
 
   .comment-thread-timeline button.active::before,
