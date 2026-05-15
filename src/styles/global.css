@@ -13714,6 +13714,10 @@ body:has(.comment-workbench) .comment-video-kpis b {
   transition: opacity 0.16s ease, transform 0.16s ease;
 }
 
+.collapsed-icon-nav {
+  display: none;
+}
+
 .dashboard-shell.sidebar-collapsed {
   grid-template-columns: 48px minmax(0, 1fr);
 }
@@ -13747,6 +13751,7 @@ body:has(.comment-workbench) .comment-video-kpis b {
 }
 
 .dashboard-shell.sidebar-collapsed .brand,
+.dashboard-shell.sidebar-collapsed .side-nav,
 .dashboard-shell.sidebar-collapsed .brand-copy,
 .dashboard-shell.sidebar-collapsed .sidebar-card,
 .dashboard-shell.sidebar-collapsed .sidebar-foot,
@@ -13754,7 +13759,7 @@ body:has(.comment-workbench) .comment-video-kpis b {
   display: none;
 }
 
-.dashboard-shell.sidebar-collapsed .side-nav {
+.dashboard-shell.sidebar-collapsed .collapsed-icon-nav {
   display: grid;
   justify-items: center;
   gap: 8px;
@@ -13764,16 +13769,38 @@ body:has(.comment-workbench) .comment-video-kpis b {
   transform: none;
 }
 
-.dashboard-shell.sidebar-collapsed .side-nav a {
+.dashboard-shell.sidebar-collapsed .collapsed-icon-nav a {
+  display: grid;
   width: 38px;
   min-height: 38px;
-  justify-content: center;
+  place-items: center;
   padding: 0;
   border-radius: 10px;
+  color: #d3e3f5;
 }
 
-.dashboard-shell.sidebar-collapsed .nav-icon {
+.dashboard-shell.sidebar-collapsed .collapsed-icon-nav a.active,
+.dashboard-shell.sidebar-collapsed .collapsed-icon-nav a:hover {
+  color: #fff;
+  background: rgba(37, 99, 235, 0.28);
+}
+
+.dashboard-shell.sidebar-collapsed .collapsed-icon-nav .nav-icon {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
   margin-right: 0;
+}
+
+.dashboard-shell.sidebar-collapsed .collapsed-icon-nav .nav-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 @media (max-width: 860px) {
@@ -13791,6 +13818,10 @@ body:has(.comment-workbench) .comment-video-kpis b {
 
   .dashboard-shell.sidebar-collapsed .side-nav {
     display: grid;
+  }
+
+  .dashboard-shell.sidebar-collapsed .collapsed-icon-nav {
+    display: none;
   }
 
   .dashboard-shell.sidebar-collapsed .brand,

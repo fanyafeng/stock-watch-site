@@ -54,6 +54,14 @@ const linkFor = (href) => `${base}${href}`;
       ))}
     </nav>
 
+    <nav class="collapsed-icon-nav" aria-label="收起状态主导航">
+      {navItems.map((item) => (
+        <a class={item.label === active ? "active" : ""} href={linkFor(item.href)} title={item.label} aria-label={item.label}>
+          <span class="nav-icon" set:html={item.icon}></span>
+        </a>
+      ))}
+    </nav>
+
     <div class="sidebar-card">
       <span>今日更新</span>
       <strong>{dashboard.date ?? "暂无"}</strong>
