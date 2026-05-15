@@ -45,7 +45,7 @@ jobs:
         if: github.event_name != 'push'
         run: |
           python scripts/fetch_market_flow.py --mode loose
-          python scripts/generate_report.py --all
+          python scripts/generate_report.py --all --loose-source-data
 
       - name: Encrypt reports
         if: github.event_name != 'push'
