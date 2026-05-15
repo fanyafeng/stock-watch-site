@@ -25,11 +25,21 @@ const navItems = [
 const linkFor = (href) => `${base}${href}`;
 ---
 
-<main class="dashboard-shell">
+<main class="dashboard-shell" data-dashboard-shell>
   <aside class="dashboard-sidebar">
+    <button
+      class="sidebar-toggle"
+      type="button"
+      aria-label="收起侧边栏"
+      aria-expanded="true"
+      data-sidebar-toggle
+    >
+      <span aria-hidden="true"></span>
+    </button>
+
     <div class="brand">
       <div class="brand-mark">复</div>
-      <div>
+      <div class="brand-copy">
         <strong>复盘工作台</strong>
         <span>聚合信息，价值沉淀</span>
       </div>
@@ -37,8 +47,9 @@ const linkFor = (href) => `${base}${href}`;
 
     <nav class="side-nav" aria-label="主导航">
       {navItems.map((item) => (
-        <a class={item.label === active ? "active" : ""} href={linkFor(item.href)}>
-          <span class="nav-icon" set:html={item.icon}></span>{item.label}
+        <a class={item.label === active ? "active" : ""} href={linkFor(item.href)} title={item.label}>
+          <span class="nav-icon" set:html={item.icon}></span>
+          <span class="nav-label">{item.label}</span>
         </a>
       ))}
     </nav>
@@ -61,3 +72,40 @@ const linkFor = (href) => `${base}${href}`;
     <slot />
   </section>
 </main>
+
+<script>
+  const shell = document.querySelector("[data-dashboard-shell]");
+  const toggle = document.querySelector("[data-sidebar-toggle]");
+  const storageKey = "stock-watch-sidebar-collapsed";
+
+  function readSavedState() {
+    try {
+      return window.localStorage?.getItem(storageKey) === "true";
+    } catch {
+      return false;
+    }
+  }
+
+  function saveState(collapsed) {
+    try {
+      window.localStorage?.setItem(storageKey, String(collapsed));
+    } catch {
+      // Some embedded preview contexts disable localStorage; the toggle still works for this session.
+    }
+  }
+
+  function setSidebarCollapsed(collapsed) {
+    shell?.classList.toggle("sidebar-collapsed", collapsed);
+    toggle?.setAttribute("aria-expanded", String(!collapsed));
+    toggle?.setAttribute("aria-label", collapsed ? "展开侧边栏" : "收起侧边栏");
+  }
+
+  const saved = readSavedState();
+  setSidebarCollapsed(saved);
+
+  toggle?.addEventListener("click", () => {
+    const nextCollapsed = !shell?.classList.contains("sidebar-collapsed");
+    setSidebarCollapsed(nextCollapsed);
+    saveState(nextCollapsed);
+  });
+</script>
