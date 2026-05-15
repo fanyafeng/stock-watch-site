@@ -105,12 +105,14 @@ def stageable_paths(date_text: str, *, include_source_config: bool = False) -> l
         ROOT / "data" / "daily" / date_text,
         ROOT / "data" / "reports.json",
         ROOT / "data" / "dashboard.json",
+        ROOT / "data" / "source_stock_tracks.json",
         ROOT / "data" / "dashboards" / f"{date_text}.json",
         ROOT / "encrypted" / "articles" / f"daily_{date_text}.json",
         ROOT / "encrypted" / "my" / f"{date_text}.json",
         ROOT / "public" / "media" / date_text,
         ROOT / "src" / "data" / "reports.json",
         ROOT / "src" / "data" / "dashboard.json",
+        ROOT / "src" / "data" / "source_stock_tracks.json",
         ROOT / "src" / "data" / "dashboards" / f"{date_text}.json",
         ROOT / "src" / "data" / "my_positions_index.json",
         *source_data_paths(date_text),
@@ -148,6 +150,13 @@ def sync_report_data(args: argparse.Namespace, date_text: str) -> None:
         run_python(
             "encrypt_my_positions.py",
             ["--date", date_text, "--mode", args.my_positions_mode],
+            dry_run=args.dry_run,
+        )
+
+    if not args.skip_source_tracks:
+        run_python(
+            "generate_source_stock_tracks.py",
+            ["--date", date_text, "--source", "yege", "--mode", args.source_tracks_mode],
             dry_run=args.dry_run,
         )
 
@@ -193,6 +202,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-market-flow", action="store_true", help="跳过指数主力净流分时拉取")
     parser.add_argument("--skip-my-positions", action="store_true", help="跳过我的持仓加密")
     parser.add_argument("--my-positions-mode", choices=["strict", "loose"], default="loose", help="我的持仓数据缺失处理方式，默认 loose")
+    parser.add_argument("--skip-source-tracks", action="store_true", help="跳过来源人股票跟踪汇总生成")
+    parser.add_argument("--source-tracks-mode", choices=["strict", "loose"], default="loose", help="来源人股票跟踪行情缺失处理方式，默认 loose")
     parser.add_argument("--allow-missing-payloads", action="store_true", help="同步报告索引时跳过缺失密文 payload 的报告")
     parser.add_argument("--skip-build", action="store_true", help="跳过 npm run build 验证")
     parser.add_argument("--include-source-config", action="store_true", help="同时提交 data/source_config.json")

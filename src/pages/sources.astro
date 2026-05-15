@@ -2,11 +2,30 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DashboardLayout from "../components/DashboardLayout.astro";
 import dashboard from "../data/dashboard.json";
+import sourceStockTracks from "../data/source_stock_tracks.json";
 
 const sources = dashboard.sources ?? [];
 const sourceColors = { yege: "blue", lihongjuan: "purple", wangduoyu: "green", longge: "orange" };
 const activeSource = sources[0] ?? {};
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const yegeTrackData = sourceStockTracks.sources?.yege ?? {};
+const yegeTracks = yegeTrackData.tracks ?? [];
+const yegeStats = yegeTrackData.stats ?? {};
+const shownTrackCards = yegeTracks.slice(0, 4);
+const formatPct = (value) => typeof value === "number" ? `${value > 0 ? "+" : ""}${value.toFixed(2)}%` : "待行情";
+const pctClass = (value) => typeof value === "number" ? (value >= 0 ? "danger-text" : "green-text") : "muted-text";
+const formatPrice = (value) => typeof value === "number" ? value.toFixed(2) : "待行情";
+const mediaUrl = (value = "") => value.startsWith("/") ? `${base}${value}` : value;
+const actionClass = (status = "") => {
+  if (status.includes("卖出") || status.includes("减仓")) return "is-sold";
+  if (status.includes("持有")) return "is-hold";
+  if (status.includes("观察")) return "is-watch";
+  return "is-mention";
+};
+const primaryEvidence = (track) => {
+  const evidence = track.sell_evidence?.length ? track.sell_evidence : track.buy_evidence?.length ? track.buy_evidence : track.latest_evidence ?? [];
+  return evidence.slice(0, 4);
+};
 ---
 
 <BaseLayout title="来源人｜复盘工作台">
@@ -45,6 +64,120 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
           <small>({source.id})</small>
         </a>
       ))}
+    </section>
+
+    <section class="source-track-workbench" id="yege-stock-tracks">
+      <article class="source-track-hero">
+        <div>
+          <p>野哥股票跟踪汇总</p>
+          <h2>按股票聚合买入、卖出、持有与截图证据</h2>
+          <span>统计截至 {sourceStockTracks.date}；收益优先按公开日 K 收盘价估算，截图与买卖点仍需人工核对。</span>
+        </div>
+        <a href="#source-yege">查看野哥来源</a>
+      </article>
+
+      <div class="source-track-stats">
+        <article><span>跟踪股票</span><strong>{yegeStats.track_count ?? 0}</strong><small>跨日去重</small></article>
+        <article><span>持有 / 观察</span><strong>{yegeStats.active_count ?? 0}</strong><small>未出现卖出线索</small></article>
+        <article><span>卖出 / 减仓</span><strong>{yegeStats.sold_count ?? 0}</strong><small>根据帖子关键词识别</small></article>
+        <article><span>证据截图</span><strong>{yegeStats.screenshot_count ?? 0}</strong><small>买卖截图与动态截图</small></article>
+        <article><span>平均收益</span><strong class={pctClass(yegeStats.avg_return_pct)}>{formatPct(yegeStats.avg_return_pct)}</strong><small>行情可用后自动计算</small></article>
+      </div>
+
+      <article class="panel source-track-panel">
+        <div class="panel-head">
+          <h2>野哥股票跟踪表</h2>
+          <span>{sourceStockTracks.price_note}</span>
+        </div>
+        <div class="source-track-table-wrap">
+          <table class="source-track-table">
+            <thead>
+              <tr>
+                <th>股票</th>
+                <th>首次入池</th>
+                <th>买入 / 首次动作</th>
+                <th>卖出 / 最新状态</th>
+                <th>区间收益</th>
+                <th>证据</th>
+                <th>最新摘要</th>
+              </tr>
+            </thead>
+            <tbody>
+              {yegeTracks.length ? yegeTracks.map((track) => (
+                  <tr>
+                    <td>
+                      <a class="track-stock-link" href={track.stock_url} target="_blank" rel="noreferrer">
+                        <strong>{track.name}</strong>
+                        <span>{track.code}</span>
+                      </a>
+                    </td>
+                    <td>
+                      <b>{track.first_selected_date || track.first_seen_date}</b>
+                      <small>{track.event_count} 条线索</small>
+                    </td>
+                    <td>
+                      <b>{track.buy_date || "待确认"}</b>
+                      <small>{track.buy_action || "暂无明确买入动作"}</small>
+                    </td>
+                    <td>
+                      <span class={`track-status ${actionClass(track.status)}`}>{track.status}</span>
+                      <small>{track.sell_date ? `卖出线索：${track.sell_date}` : `最新：${track.latest_date}`}</small>
+                    </td>
+                    <td>
+                      <strong class={pctClass(track.return_pct)}>{formatPct(track.return_pct)}</strong>
+                      <small>{formatPrice(track.buy_price)} → {formatPrice(track.end_price)}</small>
+                    </td>
+                    <td>
+                      <div class="track-evidence-mini">
+                        {primaryEvidence(track).length ? primaryEvidence(track).map((item) => (
+                          <a href={mediaUrl(item.image)} target="_blank" rel="noreferrer" title={`${item.date} ${item.action}`}>
+                            <img src={mediaUrl(item.image)} alt={`${track.name} ${item.action}截图`} loading="lazy" />
+                          </a>
+                        )) : <span>暂无截图</span>}
+                      </div>
+                    </td>
+                    <td><p>{track.latest_summary}</p></td>
+                  </tr>
+                )) : (
+                <tr>
+                  <td colspan="7">
+                    <p class="source-track-empty">暂无野哥股票跟踪数据，请先补充 `data/sources/yege/picks/` 或 `data/sources/yege/posts/` 后重新生成。</p>
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      {shownTrackCards.length ? (
+        <div class="source-track-cards">
+          {shownTrackCards.map((track) => (
+          <article class="source-track-card">
+            <header>
+              <div>
+                <strong>{track.name}</strong>
+                <span>{track.code} · {track.status}</span>
+              </div>
+              <em class={pctClass(track.return_pct)}>{formatPct(track.return_pct)}</em>
+            </header>
+            <p>{track.latest_summary}</p>
+            <div class="track-card-meta">
+              <span>买入/首动：{track.buy_date || "待确认"}</span>
+              <span>{track.sell_date ? `卖出/减仓：${track.sell_date}` : `最新线索：${track.latest_date}`}</span>
+              <span>{track.screenshot_count} 张截图</span>
+            </div>
+            <div class="track-evidence-row">
+              {primaryEvidence(track).slice(0, 3).map((item) => (
+                <a href={mediaUrl(item.image)} target="_blank" rel="noreferrer">
+                  <img src={mediaUrl(item.image)} alt={`${track.name}证据截图`} loading="lazy" />
+                </a>
+              ))}
+            </div>
+          </article>
+          ))}
+        </div>
+      ) : null}
     </section>
 
     <section class="source-profile-grid" id={`source-${activeSource.id}`}>
