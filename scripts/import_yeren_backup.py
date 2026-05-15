@@ -84,6 +84,21 @@ COMMENT_FIELDS = [
     "value_reason",
     "include_in_logic",
     "note",
+    "time",
+    "platform",
+    "parent_type",
+    "parent_title",
+    "commenter",
+    "parent_id",
+    "parent_url",
+    "parent_cover",
+    "comment_id",
+    "comment_time",
+    "include_status",
+    "sentiment",
+    "action_note",
+    "value_score",
+    "is_selected",
 ]
 
 MARKET_FIELDS = ["section", "value", "note"]
@@ -396,12 +411,218 @@ def latest_pick_report(backup_root: Path, compact: str, name: str) -> dict[str, 
     return load_json(path) if path else None
 
 
-def source_from_creator(creator_name: str) -> str:
-    if "王多于" in creator_name:
+def source_from_creator(creator_name: str = "", creator_id: str = "") -> str:
+    normalized_id = creator_id.strip().lower()
+    if normalized_id == "yeren" or "全能的野人" in creator_name or "野人" in creator_name:
+        return "yege"
+    if normalized_id == "wangduoyu" or "王多于" in creator_name:
         return "wangduoyu"
-    if "阿龙" in creator_name or "龙" in creator_name:
+    if normalized_id in {"along", "longge"} or "阿龙" in creator_name or "龙哥" in creator_name or "龙" in creator_name:
         return "longge"
     return ""
+
+
+def extract_video_id_from_url(url: str) -> str:
+    match = re.search(r"/video/(\d+)", url or "")
+    return match.group(1) if match else ""
+
+
+def comment_signature(
+    *,
+    creator_name: str,
+    video_url: str,
+    text: str,
+    create_time_text: str,
+    source_type: str,
+    parent_comment_text: str,
+) -> tuple[str, str, str, str, str, str]:
+    return (
+        creator_name.strip(),
+        video_url.strip(),
+        re.sub(r"\s+", " ", text or "").strip(),
+        (create_time_text or "").strip(),
+        (source_type or "comment").strip().lower(),
+        re.sub(r"\s+", " ", parent_comment_text or "").strip(),
+    )
+
+
+def clamp(value: float, minimum: float, maximum: float) -> float:
+    return max(minimum, min(maximum, value))
+
+
+def unique_pairs(items: list[tuple[str, str]]) -> list[tuple[str, str]]:
+    return list(dict.fromkeys([(left, right) for left, right in items if left]))
+
+
+def douyin_sentiment_label(value: str) -> str:
+    text = (value or "").strip().lower()
+    if text in {"risk", "bearish", "cautious"}:
+        return "谨慎"
+    if text in {"bullish", "positive"}:
+        return "看多"
+    if text in {"negative"}:
+        return "看空"
+    return "中性"
+
+
+def merge_include_status(statuses: list[str]) -> str:
+    if "已纳入" in statuses:
+        return "已纳入"
+    if "待确认" in statuses:
+        return "待确认"
+    if "未纳入" in statuses:
+        return "未纳入"
+    if "无效评论" in statuses:
+        return "无效评论"
+    return "待确认"
+
+
+def merge_sentiment(values: list[str]) -> str:
+    if "看多" in values:
+        return "看多"
+    if "谨慎" in values:
+        return "谨慎"
+    if "看空" in values:
+        return "看空"
+    return values[0] if values else "中性"
+
+
+def effective_comment_score(value_score: float, mentioned_stocks: list[str], include_status: str, value_reason: str) -> bool:
+    return (
+        value_score >= 6.5
+        or bool(mentioned_stocks)
+        or include_status in {"已纳入", "待确认"}
+        or bool(value_reason.strip())
+    )
+
+
+def aggregate_include_status(aggregate: dict[str, Any], selected_codes: set[str]) -> str:
+    code = str(aggregate.get("stock_code", "")).strip()
+    if code in selected_codes:
+        return "已纳入"
+    if str(aggregate.get("sentiment", "")).lower() == "risk":
+        return "未纳入"
+    return "待确认"
+
+
+def aggregate_value_score(aggregate: dict[str, Any], selected_codes: set[str]) -> float:
+    code = str(aggregate.get("stock_code", "")).strip()
+    mention_count = int(aggregate.get("mention_count") or 0)
+    valid_count = int(aggregate.get("valid_comment_count") or 0)
+    creator_count = int(aggregate.get("creator_count") or 0)
+    base = 5.8 + min(mention_count, 9) * 0.22 + min(valid_count, 8) * 0.18 + min(creator_count, 2) * 0.25
+    if aggregate.get("cross_creator"):
+        base += 0.45
+    if str(aggregate.get("sentiment", "")).lower() == "risk":
+        base -= 0.55
+    if code in selected_codes:
+        base += 0.8
+    return round(clamp(base, 4.6, 9.6), 1)
+
+
+def annotation_reason_for_aggregate(
+    aggregate: dict[str, Any],
+    stock: str,
+    include_status: str,
+) -> str:
+    mention_count = int(aggregate.get("mention_count") or 0)
+    valid_count = int(aggregate.get("valid_comment_count") or 0)
+    creator_count = int(aggregate.get("creator_count") or 0)
+    sentiment = douyin_sentiment_label(str(aggregate.get("sentiment", "")))
+    resonance = "跨来源共振" if aggregate.get("cross_creator") else "单视频线索"
+    decision = "已进入推荐候选" if include_status == "已纳入" else ("保留观察" if include_status == "待确认" else "偏风险观察")
+    return f"{stock} 被提及 {mention_count} 次，有效评论 {valid_count} 条，来源 {creator_count} 个，{resonance}，情绪 {sentiment}，当前判断：{decision}。"
+
+
+def yeren_signal_annotations(report: dict[str, Any]) -> dict[tuple[str, str], dict[str, Any]]:
+    yeren = report.get("data_source", {}).get("yeren_douyin_video_signals") or {}
+    annotations: dict[tuple[str, str], dict[str, Any]] = {}
+    for signal in yeren.get("signals", []) or []:
+        signal_id = str(signal.get("id", "")).strip()
+        video_id = str(signal.get("video_id", "")).strip()
+        if not signal_id or not video_id:
+            continue
+        stock = stock_label(str(signal.get("stock_code", "")), str(signal.get("stock_name", "")))
+        direction = str(signal.get("direction", "")).strip()
+        notes = "；".join(str(item) for item in signal.get("strategy_notes", []) or [] if item)
+        mentioned_stocks = stock
+        mentioned_sectors = direction or "交易纪律"
+        include_status = "待确认" if signal.get("sentiment") != "cautious" else "未纳入"
+        sentiment = douyin_sentiment_label(str(signal.get("sentiment", "")))
+        value_score = round(clamp(float(signal.get("confidence") or 6.6), 4.6, 9.2), 1)
+        reason = str(signal.get("reason", "")).strip() or f"野哥抖音视频提到 {stock or direction or notes}，需结合盘面二次确认。"
+        annotations[(video_id, signal_id)] = {
+            "stock": stock,
+            "sectors": mentioned_sectors,
+            "value_reason": reason,
+            "include_status": include_status,
+            "sentiment": sentiment,
+            "value_score": value_score,
+            "is_selected": False,
+            "direction": direction,
+        }
+    return annotations
+
+
+def build_douyin_comment_annotations(report: dict[str, Any]) -> dict[tuple[str, str, str, str, str, str], list[dict[str, Any]]]:
+    selected_codes = {
+        str(item.get("stock_code", "")).strip()
+        for item in [*(report.get("short_term_picks", []) or []), *(report.get("long_term_picks", []) or [])]
+        if str(item.get("stock_code", "")).strip()
+    }
+    annotations: dict[tuple[str, str, str, str, str, str], list[dict[str, Any]]] = {}
+
+    for aggregate in report.get("comment_aggregates", []) or []:
+        code = str(aggregate.get("stock_code", "")).strip()
+        name = str(aggregate.get("stock_name", "")).strip()
+        stock = stock_label(code, name)
+        if not stock:
+            continue
+        sectors = sectors_for_code(code)
+        include_status = aggregate_include_status(aggregate, selected_codes)
+        sentiment = douyin_sentiment_label(str(aggregate.get("sentiment", "")))
+        value_score = aggregate_value_score(aggregate, selected_codes)
+        is_selected = include_status == "已纳入"
+        reason = annotation_reason_for_aggregate(aggregate, stock, include_status)
+
+        for sample in [*(aggregate.get("sample_comments", []) or []), *(aggregate.get("sample_reply_comments", []) or [])]:
+            signature = comment_signature(
+                creator_name=str(sample.get("creator_name", "")),
+                video_url=str(sample.get("video_url", "")),
+                text=str(sample.get("text", "")),
+                create_time_text=str(sample.get("create_time_text", "")),
+                source_type=str(sample.get("source_type", "comment")),
+                parent_comment_text=str(sample.get("parent_comment_text", "")),
+            )
+            if not signature[2]:
+                continue
+            annotations.setdefault(signature, []).append(
+                {
+                    "stock": stock,
+                    "sectors": sectors,
+                    "value_reason": reason,
+                    "include_status": include_status,
+                    "sentiment": sentiment,
+                    "value_score": value_score,
+                    "is_selected": is_selected,
+                }
+            )
+
+    return annotations
+
+
+def load_douyin_raw_snapshot(backup_root: Path, compact: str, report: dict[str, Any]) -> dict[str, Any] | None:
+    raw_path_text = str(report.get("data_source", {}).get("raw_comments_file", "")).strip()
+    candidates: list[Path] = []
+    if raw_path_text:
+        candidates.append(Path(raw_path_text))
+    candidates.extend(sorted((backup_root / "outbox").glob(f"{compact}_*_douyin_comments_raw.json"), reverse=True))
+    for path in candidates:
+        if path.exists():
+            payload = load_json(path)
+            if isinstance(payload, dict):
+                return payload
+    return None
 
 
 def import_douyin(backup_root: Path, date_text: str) -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, Any]]]:
@@ -410,58 +631,158 @@ def import_douyin(backup_root: Path, date_text: str) -> tuple[dict[str, list[dic
     if not report:
         return {source: [] for source in ("wangduoyu", "longge")}, []
 
-    posts_by_source = {source: [] for source in ("wangduoyu", "longge")}
-    for creator in report.get("data_source", {}).get("creators", []):
-        source = "wangduoyu" if creator.get("id") == "wangduoyu" else "longge" if creator.get("id") in ("along", "longge") else ""
+    raw_snapshot = load_douyin_raw_snapshot(backup_root, compact, report) or {}
+    annotations = build_douyin_comment_annotations(report)
+    yeren_annotations = yeren_signal_annotations(report)
+    comments: list[dict[str, Any]] = []
+    video_rows: dict[str, list[dict[str, Any]]] = {}
+
+    for raw_comment in raw_snapshot.get("comments", []) or []:
+        source = source_from_creator(str(raw_comment.get("creator_name", "")), str(raw_comment.get("creator_id", "")))
         if not source:
             continue
-        for video in creator.get("latest_scanned_videos", []):
-            if video.get("publish_date") != date_text:
-                continue
-            posts_by_source[source].append(
-                {
-                    "source": source,
-                    "date": date_text,
-                    "channel": "抖音视频",
-                    "title": f"{video.get('publish_time', '')} {video.get('title', '')}",
-                    "url": video.get("url", ""),
-                    "image": "",
-                    "summary": f"视频评论量备份：{video.get('comment_count', 0)} 条。视频标题：{video.get('title', '')}",
-                    "mentioned_stocks": "",
-                    "mentioned_sectors": "",
-                    "raw_text": video.get("title", ""),
-                    "note": f"video_id={video.get('id', '')}; creator={creator.get('name', '')}; 来源备份 {compact}_*_douyin_comment_picks.json",
-                }
-            )
+        video_id = str(raw_comment.get("video_id", "")).strip() or extract_video_id_from_url(str(raw_comment.get("video_url", "")))
+        video_url = str(raw_comment.get("video_url", "")).strip()
+        create_time_text = str(raw_comment.get("create_time_text", "")).strip()
+        signature = comment_signature(
+            creator_name=str(raw_comment.get("creator_name", "")),
+            video_url=video_url,
+            text=str(raw_comment.get("text", "")),
+            create_time_text=create_time_text,
+            source_type=str(raw_comment.get("source_type", "comment")),
+            parent_comment_text=str(raw_comment.get("parent_comment_text", "")),
+        )
+        matched = annotations.get(signature, [])
+        yeren_signal = raw_comment.get("yeren_signal") or {}
+        yeren_annotation = yeren_annotations.get((video_id, str(yeren_signal.get("id", "")).strip()))
+        stocks = unique([item["stock"] for item in matched if item.get("stock")])
+        sectors = unique([sector for item in matched for sector in item.get("sectors", [])])
+        include_statuses = [str(item.get("include_status", "")) for item in matched if item.get("include_status")]
+        sentiments = [str(item.get("sentiment", "")) for item in matched if item.get("sentiment")]
+        value_reasons = unique([str(item.get("value_reason", "")) for item in matched if item.get("value_reason")])
+        selected = any(bool(item.get("is_selected")) for item in matched)
+        value_score = round(max([float(item.get("value_score") or 0) for item in matched] or [0.0]), 1)
+        if yeren_annotation:
+            if yeren_annotation.get("stock"):
+                stocks = unique([*stocks, yeren_annotation["stock"]])
+            if yeren_annotation.get("sectors"):
+                sectors = unique([*sectors, *str(yeren_annotation["sectors"]).split("、")])
+            include_statuses.append(str(yeren_annotation.get("include_status", "")))
+            sentiments.append(str(yeren_annotation.get("sentiment", "")))
+            value_reasons.append(str(yeren_annotation.get("value_reason", "")))
+            selected = selected or bool(yeren_annotation.get("is_selected"))
+            value_score = max(value_score, float(yeren_annotation.get("value_score") or 0))
+        include_status = merge_include_status(include_statuses) if include_statuses else "未纳入"
+        sentiment = merge_sentiment(sentiments) if sentiments else "中性"
 
-    comments = []
-    for aggregate in report.get("comment_aggregates", [])[:80]:
-        stock = stock_label(aggregate.get("stock_code", ""), aggregate.get("stock_name", ""))
-        stock_sectors = ";".join(sectors_for_code(aggregate.get("stock_code", "")))
-        samples = aggregate.get("sample_comments") or []
-        top = aggregate.get("top_comment") or (samples[0] if samples else {})
-        creators = unique([sample.get("creator_name", "") for sample in samples] or [top.get("creator_name", "")])
-        for creator_name in creators:
-            source = source_from_creator(creator_name)
-            if not source:
+        if not matched and (int(raw_comment.get("like_count") or 0) >= 8 or int(raw_comment.get("reply_count") or 0) >= 6):
+            include_status = "待确认"
+            sentiment = "中性"
+            value_score = max(value_score, 6.2)
+            value_reasons = ["评论热度较高，但暂未自动识别到明确股票线索，保留人工复核。"]
+
+        row = {
+            "date": date_text,
+            "source": source,
+            "comment_source": f"抖音评论 {extract_time(create_time_text) or create_time_text or '未标注时间'}",
+            "content": str(raw_comment.get("text", "")).strip(),
+            "mentioned_stocks": ";".join(stocks),
+            "mentioned_sectors": ";".join(sectors),
+            "value_reason": "；".join(value_reasons),
+            "include_in_logic": {"已纳入": "是", "待确认": "待确认", "未纳入": "否", "无效评论": "否"}.get(include_status, "待确认"),
+            "note": (
+                f"video_id={video_id}; video_url={video_url}; creator={raw_comment.get('creator_name', '')}; "
+                f"like={raw_comment.get('like_count', 0)}; reply={raw_comment.get('reply_count', 0)}; "
+                f"source_type={raw_comment.get('source_type', 'comment')}; yeren_signal_id={yeren_signal.get('id', '')}; "
+                f"parent_comment_text={raw_comment.get('parent_comment_text', '')}"
+            ),
+            "time": extract_time(str(raw_comment.get("video_title", ""))) or extract_time(create_time_text) or "--:--",
+            "platform": "抖音视频" if yeren_annotation else "抖音评论",
+            "parent_type": "video",
+            "parent_title": str(raw_comment.get("video_title", "")).strip(),
+            "commenter": str(raw_comment.get("user_nickname", "")).strip() or str(raw_comment.get("creator_name", "")).strip(),
+            "parent_id": video_id,
+            "parent_url": video_url,
+            "parent_cover": "",
+            "comment_id": str(raw_comment.get("id", "")).strip(),
+            "comment_time": extract_time(create_time_text) or "--:--",
+            "include_status": include_status,
+            "sentiment": sentiment,
+            "action_note": "野哥抖音视频方向/个股线索，自动映射到评论聚合池。" if yeren_annotation else "自动映射到抖音视频评论池。",
+            "value_score": f"{value_score:.1f}" if value_score else "",
+            "is_selected": "true" if selected else "false",
+        }
+        comments.append(row)
+        if video_id:
+            video_rows.setdefault(video_id, []).append(row)
+
+    posts_by_source = {source: [] for source in ("yege", "wangduoyu", "longge")}
+    raw_videos = raw_snapshot.get("videos", []) or report.get("data_source", {}).get("videos", []) or []
+    videos_by_key = {}
+    for video in raw_videos:
+        if str(video.get("publish_date", "")).strip() != date_text:
+            continue
+        video_id = str(video.get("id", "")).strip() or extract_video_id_from_url(str(video.get("url", "")))
+        if not video_id:
+            continue
+        videos_by_key[video_id] = video
+
+    for creator in report.get("data_source", {}).get("creators", []) or []:
+        source = source_from_creator(str(creator.get("name", "")), str(creator.get("id", "")))
+        if not source:
+            continue
+        for video in creator.get("latest_scanned_videos", []) or []:
+            if str(video.get("publish_date", "")).strip() != date_text:
                 continue
-            sample = next((item for item in samples if item.get("creator_name") == creator_name), top)
-            text = sample.get("text") or top.get("text") or ""
-            created_at = sample.get("create_time_text") or ""
-            include = "否" if aggregate.get("sentiment") == "risk" else ("是" if aggregate.get("cross_creator") else "待确认")
-            comments.append(
-                {
-                    "date": date_text,
-                    "source": source,
-                    "comment_source": f"抖音评论 {extract_time(created_at) or created_at or '未标注时间'}",
-                    "content": text,
-                    "mentioned_stocks": stock,
-                    "mentioned_sectors": stock_sectors,
-                    "value_reason": f"评论聚合提及 {aggregate.get('mention_count', 0)} 次，有效评论 {aggregate.get('valid_comment_count', 0)} 条；{aggregate.get('sentiment', 'neutral')} 情绪；{'跨来源共振' if aggregate.get('cross_creator') else '单来源线索'}。",
-                    "include_in_logic": include,
-                    "note": f"video_url={sample.get('video_url') or top.get('video_url', '')}; creator={creator_name}; like={sample.get('like_count', top.get('like_count', 0))}",
-                }
-            )
+            video_id = str(video.get("id", "")).strip() or extract_video_id_from_url(str(video.get("url", "")))
+            if not video_id:
+                continue
+            videos_by_key.setdefault(video_id, video)
+
+    for video_id, video in sorted(videos_by_key.items(), key=lambda item: str(item[1].get("publish_time", "")), reverse=True):
+        source = source_from_creator(str(video.get("creator_name", "")), str(video.get("creator_id", "")))
+        if not source:
+            continue
+        rows = video_rows.get(video_id, [])
+        effective_rows = [row for row in rows if effective_comment_score(float(row.get("value_score") or 0), unique(row.get("mentioned_stocks", "").split(";")) if row.get("mentioned_stocks") else [], row.get("include_status", ""), row.get("value_reason", ""))]
+        stock_counter: dict[str, int] = {}
+        sector_counter: dict[str, int] = {}
+        for row in rows:
+            for stock in [item for item in row.get("mentioned_stocks", "").split(";") if item]:
+                stock_counter[stock] = stock_counter.get(stock, 0) + 1
+            for sector in [item for item in row.get("mentioned_sectors", "").split(";") if item]:
+                sector_counter[sector] = sector_counter.get(sector, 0) + 1
+        top_stocks = [stock for stock, _count in sorted(stock_counter.items(), key=lambda item: (-item[1], item[0]))[:6]]
+        top_sectors = [sector for sector, _count in sorted(sector_counter.items(), key=lambda item: (-item[1], item[0]))[:6]]
+        publish_time = str(video.get("publish_time", "")).strip()
+        comment_total = len(rows) or int(video.get("comment_count") or 0)
+        summary_bits = [f"视频评论抓取 {comment_total} 条"]
+        if source == "yege":
+            summary_bits = [f"野哥抖音视频信号 {comment_total} 条"]
+        if effective_rows:
+            summary_bits.append(f"有效线索 {len(effective_rows)} 条")
+        if top_stocks:
+            summary_bits.append(f"重点股票：{'、'.join(top_stocks[:4])}")
+        posts_by_source[source].append(
+            {
+                "source": source,
+                "date": date_text,
+                "channel": "抖音视频",
+                "title": f"{publish_time} {str(video.get('title', '')).strip()}".strip(),
+                "url": str(video.get("url", "")).strip(),
+                "image": "",
+                "summary": "；".join(summary_bits) or f"视频标题：{str(video.get('title', '')).strip()}",
+                "mentioned_stocks": ";".join(top_stocks),
+                "mentioned_sectors": ";".join(top_sectors),
+                "raw_text": str(video.get("title", "")).strip(),
+                "note": (
+                    f"video_id={video_id}; creator={video.get('creator_name', '')}; "
+                    f"comment_count={video.get('comment_count', 0)}; digg={video.get('digg_count', 0)}; share={video.get('share_count', 0)}; "
+                    f"来源备份 {compact}_*_douyin_comment_picks.json"
+                ),
+            }
+        )
+
     return posts_by_source, comments
 
 
@@ -713,7 +1034,7 @@ def import_date(backup_root: Path, date_text: str) -> None:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Import real yeren_signal_monitor backups into stock-watch-site CSV files.")
     parser.add_argument("--backup-root", default=str(DEFAULT_BACKUP_ROOT), help="yeren_signal_monitor 目录")
-    parser.add_argument("--date", action="append", help="导入日期 YYYY-MM-DD，可重复。默认导入 2026-05-11 到 2026-05-13")
+    parser.add_argument("--date", action="append", help="导入日期 YYYY-MM-DD，可重复。默认导入 2026-05-11 到 2026-05-14")
     return parser.parse_args()
 
 
@@ -722,7 +1043,7 @@ def main() -> int:
     backup_root = Path(args.backup_root)
     if not backup_root.exists():
         raise ImportErrorMessage(f"未找到备份目录：{backup_root}")
-    dates = args.date or ["2026-05-11", "2026-05-12", "2026-05-13"]
+    dates = args.date or ["2026-05-11", "2026-05-12", "2026-05-13", "2026-05-14"]
     for date_text in dates:
         dt.date.fromisoformat(date_text)
         import_date(backup_root, date_text)

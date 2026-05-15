@@ -1,13 +1,13 @@
 {
   "date": "2026-05-14",
-  "updated_at": "2026-05-14 19:44:32",
+  "updated_at": "2026-05-15 15:53:29",
   "report": {
     "date": "2026-05-14",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
     "title": "2026-05-14 A股综合复盘工作台",
-    "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
+    "summary": "按日期聚合四个来源，短期观察 1 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
       "今日总览",
@@ -36,7 +36,7 @@
   "market": {
     "index_status": "上证指数收4177.92，涨跌幅-1.52%，形态冲高回落；深证成指收15745.74，涨跌幅-2.14%，形态高开低走；创业板指收3951.14，涨跌幅-2.16%，形态高开低走",
     "volume_change": "沪深主要指数成交额合计约 33623 亿，需结合昨日继续复核。",
-    "index_money_flow_series": "09:31=2.00;09:36=-165.86;09:41=-311.20;09:46=-421.00;09:51=-480.13;09:56=-592.28;10:01=-743.83;10:06=-795.84;10:11=-847.36;10:16=-929.52;10:21=-983.78;10:26=-1019.95;10:31=-1057.89;10:36=-1091.03;10:41=-1165.24;10:46=-1281.18;10:51=-1308.98;10:56=-1322.09;11:01=-1335.63;11:06=-1378.32;11:11=-1450.53;11:16=-1549.24;11:21=-1618.06;11:26=-1663.56;13:01=-1678.35;13:06=-1701.05;13:11=-1702.18;13:16=-1697.67;13:21=-1690.49;13:26=-1687.07;13:31=-1674.69;13:36=-1712.31;13:41=-1745.35;13:46=-1771.13;13:51=-1771.90;13:56=-1768.20;14:01=-1777.30;14:06=-1785.45;14:11=-1780.17;14:16=-1765.50;14:21=-1753.70;14:26=-1753.35;14:31=-1768.32;14:36=-1793.54;14:41=-1835.43;14:46=-1895.90;14:51=-2001.01;14:56=-2120.61;15:00=-2156.43",
+    "index_money_flow_series": "",
     "sector_rotation": "防水材料、肉鸡养殖、生猪养殖、期货、氦气概念、昨日打二板以上表现",
     "accumulation_direction": [
       "防水材料",
@@ -44,35 +44,18 @@
       "生猪养殖",
       "期货"
     ],
-    "sector_first_limit_up": {
-      "防水材料": {
-        "name": "凯伦股份",
-        "code": "300715",
-        "time": "13:10",
-        "source": "first_limit_up"
-      },
-      "生猪养殖": {
-        "name": "天邦食品",
-        "code": "002124",
-        "time": "10:13",
-        "source": "first_limit_up"
-      },
-      "期货": {
-        "name": "南华期货",
-        "code": "603093",
-        "time": "10:01",
-        "source": "first_limit_up"
-      }
-    },
+    "sector_first_limit_up": {},
     "capital_preference": "主线优先看资金合力，弱分支不追高。"
   },
   "stats": {
     "source_count": 4,
     "candidate_count": 1,
-    "accepted_count": 0,
-    "rejected_count": 1,
+    "accepted_count": 1,
+    "rejected_count": 0,
     "comment_count": 5,
-    "top_patterns": []
+    "top_patterns": [
+      "回踩观察"
+    ]
   },
   "timeline": [
     {
@@ -115,21 +98,21 @@
       "category": "valuable_comment",
       "source": "野哥",
       "title": "同花顺评论备份 14:59",
-      "content": "帖子评论量备份：165 条。帖子摘要：本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～"
+      "content": "帖子评论量备份：663 条。帖子摘要：本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～"
     },
     {
       "time": "14:19",
       "category": "valuable_comment",
       "source": "野哥",
       "title": "同花顺评论备份 14:19",
-      "content": "帖子评论量备份：528 条。帖子摘要：润泽科技(300442) ？？？不许v 你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。"
+      "content": "帖子评论量备份：548 条。帖子摘要：润泽科技(300442) ？？？不许v 你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。"
     },
     {
       "time": "13:14",
       "category": "valuable_comment",
       "source": "野哥",
       "title": "同花顺评论备份 13:14",
-      "content": "帖子评论量备份：859 条。帖子摘要：啊呀！快给我v红。。。。"
+      "content": "帖子评论量备份：865 条。帖子摘要：啊呀！快给我v红。。。。"
     }
   ],
   "sources": [
@@ -139,7 +122,14 @@
       "channel": "同花顺帖子",
       "latest_title": "2026-05-14 14:59 野哥同花顺动态",
       "latest_summary": "本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～",
-      "top_picks": [],
+      "top_picks": [
+        {
+          "code": "300442",
+          "name": "润泽科技",
+          "type": "短期",
+          "pattern": "回踩观察"
+        }
+      ],
       "holdings": [],
       "comment_count": 5,
       "posts": [
@@ -153,7 +143,7 @@
           "summary": "本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～",
           "mentioned_stocks": "",
           "mentioned_sectors": "含图片/截图核对",
-          "note": "优先级 P1; 点赞 388; 评论 165; 转发 6; 本地截图 1 张"
+          "note": "优先级 P1; 点赞 1089; 评论 663; 转发 24; 本地截图 1 张"
         },
         {
           "channel": "同花顺帖子",
@@ -162,8 +152,8 @@
           "media": [],
           "summary": "润泽科技(300442) ？？？不许v 你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
           "mentioned_stocks": "润泽科技(300442)",
-          "mentioned_sectors": "交易动作;个股相关;野哥同花顺逻辑;AIDC;数据中心",
-          "note": "优先级 P1; 点赞 700; 评论 528; 转发 8; 本地截图 0 张"
+          "mentioned_sectors": "交易动作;个股相关;AIDC;数据中心",
+          "note": "优先级 P1; 点赞 813; 评论 548; 转发 10; 本地截图 0 张"
         },
         {
           "channel": "同花顺帖子",
@@ -173,7 +163,7 @@
           "summary": "啊呀！快给我v红。。。。",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "优先级 P3; 点赞 1410; 评论 859; 转发 10; 本地截图 0 张"
+          "note": "优先级 P3; 点赞 1462; 评论 865; 转发 10; 本地截图 0 张"
         },
         {
           "channel": "同花顺帖子",
@@ -183,7 +173,7 @@
           "summary": "手上居然全绿。今天大盘预期就是冲高回落。所以预期之内的。我就不动了，启动睡觉大法了。",
           "mentioned_stocks": "",
           "mentioned_sectors": "持仓表达",
-          "note": "优先级 P3; 点赞 1715; 评论 784; 转发 21; 本地截图 0 张"
+          "note": "优先级 P3; 点赞 2017; 评论 933; 转发 27; 本地截图 0 张"
         },
         {
           "channel": "同花顺帖子",
@@ -196,7 +186,7 @@
           "summary": "润泽科技(300442) 试错，加仓。我错了也认。",
           "mentioned_stocks": "润泽科技(300442)",
           "mentioned_sectors": "交易动作;含图片/截图核对;个股相关;野哥同花顺逻辑;AIDC;数据中心",
-          "note": "优先级 P1; 点赞 699; 评论 356; 转发 7; 本地截图 2 张"
+          "note": "优先级 P1; 点赞 810; 评论 511; 转发 10; 本地截图 2 张"
         }
       ],
       "comments": [
@@ -205,11 +195,25 @@
           "source": "野哥",
           "source_name": "野哥",
           "comment_source": "同花顺评论备份 14:59",
-          "content": "帖子评论量备份：165 条。帖子摘要：本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～",
+          "content": "帖子评论量备份：663 条。帖子摘要：本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～",
           "mentioned_stocks": "",
           "mentioned_sectors": "含图片/截图核对",
           "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。",
           "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "",
+          "parent_type": "",
+          "parent_id": "",
+          "parent_title": "",
+          "parent_url": "",
+          "parent_cover": "",
+          "comment_id": "",
+          "comment_time": "",
+          "commenter": "",
+          "sentiment": "",
+          "value_score": "",
+          "is_selected": "",
+          "action_note": "",
           "note": "post_id=2344640230; media=/media/2026-05-14/yege/daily_01_1459_2344640230.jpg",
           "media": [
             "/media/2026-05-14/yege/daily_01_1459_2344640230.jpg"
@@ -221,11 +225,25 @@
           "source": "野哥",
           "source_name": "野哥",
           "comment_source": "同花顺评论备份 14:19",
-          "content": "帖子评论量备份：528 条。帖子摘要：润泽科技(300442)  ？？？不许v  你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
+          "content": "帖子评论量备份：548 条。帖子摘要：润泽科技(300442)  ？？？不许v  你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
           "mentioned_stocks": "润泽科技(300442)",
-          "mentioned_sectors": "交易动作;个股相关;野哥同花顺逻辑;AIDC;数据中心",
-          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+          "mentioned_sectors": "交易动作;个股相关;AIDC;数据中心",
+          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。",
           "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "",
+          "parent_type": "",
+          "parent_id": "",
+          "parent_title": "",
+          "parent_url": "",
+          "parent_cover": "",
+          "comment_id": "",
+          "comment_time": "",
+          "commenter": "",
+          "sentiment": "",
+          "value_score": "",
+          "is_selected": "",
+          "action_note": "",
           "note": "post_id=2344546745; media=",
           "media": [],
           "video_urls": []
@@ -235,11 +253,25 @@
           "source": "野哥",
           "source_name": "野哥",
           "comment_source": "同花顺评论备份 13:14",
-          "content": "帖子评论量备份：859 条。帖子摘要：啊呀！快给我v红。。。。",
+          "content": "帖子评论量备份：865 条。帖子摘要：啊呀！快给我v红。。。。",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
           "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
           "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "",
+          "parent_type": "",
+          "parent_id": "",
+          "parent_title": "",
+          "parent_url": "",
+          "parent_cover": "",
+          "comment_id": "",
+          "comment_time": "",
+          "commenter": "",
+          "sentiment": "",
+          "value_score": "",
+          "is_selected": "",
+          "action_note": "",
           "note": "post_id=2344413694; media=",
           "media": [],
           "video_urls": []
@@ -249,11 +281,25 @@
           "source": "野哥",
           "source_name": "野哥",
           "comment_source": "同花顺评论备份 09:47",
-          "content": "帖子评论量备份：784 条。帖子摘要：手上居然全绿。今天大盘预期就是冲高回落。所以预期之内的。我就不动了，启动睡觉大法了。",
+          "content": "帖子评论量备份：933 条。帖子摘要：手上居然全绿。今天大盘预期就是冲高回落。所以预期之内的。我就不动了，启动睡觉大法了。",
           "mentioned_stocks": "",
           "mentioned_sectors": "持仓表达",
           "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
           "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "",
+          "parent_type": "",
+          "parent_id": "",
+          "parent_title": "",
+          "parent_url": "",
+          "parent_cover": "",
+          "comment_id": "",
+          "comment_time": "",
+          "commenter": "",
+          "sentiment": "",
+          "value_score": "",
+          "is_selected": "",
+          "action_note": "",
           "note": "post_id=2344047205; media=",
           "media": [],
           "video_urls": []
@@ -263,11 +309,25 @@
           "source": "野哥",
           "source_name": "野哥",
           "comment_source": "同花顺评论备份 09:27",
-          "content": "帖子评论量备份：356 条。帖子摘要：润泽科技(300442)  试错，加仓。我错了也认。",
+          "content": "帖子评论量备份：511 条。帖子摘要：润泽科技(300442)  试错，加仓。我错了也认。",
           "mentioned_stocks": "润泽科技(300442)",
           "mentioned_sectors": "交易动作;含图片/截图核对;个股相关;野哥同花顺逻辑;AIDC;数据中心",
-          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高；THS-07 中军只能小仓试错。",
+          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-07 中军只能小仓试错。",
           "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "",
+          "parent_type": "",
+          "parent_id": "",
+          "parent_title": "",
+          "parent_url": "",
+          "parent_cover": "",
+          "comment_id": "",
+          "comment_time": "",
+          "commenter": "",
+          "sentiment": "",
+          "value_score": "",
+          "is_selected": "",
+          "action_note": "",
           "note": "post_id=2343975983; media=/media/2026-05-14/yege/daily_01_0927_2343975983.jpg;/media/2026-05-14/yege/daily_02_0927_2343975983.jpg",
           "media": [
             "/media/2026-05-14/yege/daily_01_0927_2343975983.jpg",
@@ -315,7 +375,27 @@
     }
   ],
   "selection": {
-    "short": [],
+    "short": [
+      {
+        "source_id": "yege",
+        "source_name": "野哥",
+        "code": "300442",
+        "name": "润泽科技",
+        "type": "短期",
+        "pattern": "回踩观察",
+        "source_names": "野哥",
+        "entry_range": "95.01-99.67",
+        "stop_loss": "93.96",
+        "take_profit_1": "105.65",
+        "take_profit_2": "109.64",
+        "risk_reward": "1:7.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+        "risk": "中",
+        "status": "等待买点",
+        "reason": "回踩观察，按小仓试错思路验证",
+        "score": 31.0
+      }
+    ],
     "mid": []
   },
   "stock_pool": {
@@ -330,27 +410,27 @@
             "code": "300442",
             "name": "润泽科技",
             "type": "短期",
-            "pattern": "追高风险",
+            "pattern": "回踩观察",
             "source_names": "野哥",
-            "entry_range": "94.06-101.62",
-            "stop_loss": "93.44",
-            "take_profit_1": "107.72",
-            "take_profit_2": "111.78",
-            "risk_reward": "1:5.0",
+            "entry_range": "95.01-99.67",
+            "stop_loss": "93.96",
+            "take_profit_1": "105.65",
+            "take_profit_2": "109.64",
+            "risk_reward": "1:7.0",
             "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
-            "risk": "高",
-            "status": "观察取消",
-            "reason": "无先手不追高，只看回踩",
-            "score": 23.0,
-            "accepted": false,
-            "excluded_reason": "盈亏比不足；风险扣分过高；状态为观察取消",
+            "risk": "中",
+            "status": "等待买点",
+            "reason": "回踩观察，按小仓试错思路验证",
+            "score": 31.0,
+            "accepted": true,
+            "excluded_reason": "",
             "raw_text": "润泽科技(300442)  ？？？不许v  你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
             "note": "由真实备份信号转换，买点需人工复核。",
             "trend_score": 8.0,
             "breakout_score": 5.0,
-            "pullback_score": 6.0,
+            "pullback_score": 8.0,
             "volume_score": 7.0,
-            "risk_score": 8.0
+            "risk_score": 4.0
           }
         ],
         "mid": []
@@ -381,11 +461,25 @@
       "source": "野哥",
       "source_name": "野哥",
       "comment_source": "同花顺评论备份 14:59",
-      "content": "帖子评论量备份：165 条。帖子摘要：本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～",
+      "content": "帖子评论量备份：663 条。帖子摘要：本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～",
       "mentioned_stocks": "",
       "mentioned_sectors": "含图片/截图核对",
       "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。",
       "include_in_logic": "待确认",
+      "include_status": "待确认",
+      "platform": "同花顺帖子",
+      "parent_type": "post",
+      "parent_id": "2344640230",
+      "parent_title": "2026-05-14 14:59 野哥同花顺动态",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhcinkb51ssfq71ae9771",
+      "parent_cover": "/media/2026-05-14/yege/daily_01_1459_2344640230.jpg",
+      "comment_id": "yege-post-2344640230-14:59",
+      "comment_time": "14:59",
+      "commenter": "野哥",
+      "sentiment": "中性",
+      "value_score": 5.4,
+      "is_selected": false,
+      "action_note": "",
       "note": "post_id=2344640230; media=/media/2026-05-14/yege/daily_01_1459_2344640230.jpg",
       "media": [
         "/media/2026-05-14/yege/daily_01_1459_2344640230.jpg"
@@ -397,11 +491,25 @@
       "source": "野哥",
       "source_name": "野哥",
       "comment_source": "同花顺评论备份 14:19",
-      "content": "帖子评论量备份：528 条。帖子摘要：润泽科技(300442)  ？？？不许v  你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
+      "content": "帖子评论量备份：548 条。帖子摘要：润泽科技(300442)  ？？？不许v  你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
       "mentioned_stocks": "润泽科技(300442)",
-      "mentioned_sectors": "交易动作;个股相关;野哥同花顺逻辑;AIDC;数据中心",
-      "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+      "mentioned_sectors": "交易动作;个股相关;AIDC;数据中心",
+      "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。",
       "include_in_logic": "待确认",
+      "include_status": "待确认",
+      "platform": "同花顺帖子",
+      "parent_type": "post",
+      "parent_id": "2344546745",
+      "parent_title": "润泽科技(300442)",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dh9ylspj0x0c6cda7dadf",
+      "parent_cover": "",
+      "comment_id": "yege-post-2344546745-14:19",
+      "comment_time": "14:19",
+      "commenter": "野哥",
+      "sentiment": "看多",
+      "value_score": 5.4,
+      "is_selected": false,
+      "action_note": "",
       "note": "post_id=2344546745; media=",
       "media": [],
       "video_urls": []
@@ -411,11 +519,25 @@
       "source": "野哥",
       "source_name": "野哥",
       "comment_source": "同花顺评论备份 13:14",
-      "content": "帖子评论量备份：859 条。帖子摘要：啊呀！快给我v红。。。。",
+      "content": "帖子评论量备份：865 条。帖子摘要：啊呀！快给我v红。。。。",
       "mentioned_stocks": "",
       "mentioned_sectors": "",
       "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
       "include_in_logic": "待确认",
+      "include_status": "待确认",
+      "platform": "同花顺帖子",
+      "parent_type": "post",
+      "parent_id": "2344413694",
+      "parent_title": "2026-05-14 13:14 野哥同花顺动态",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dh6blj6ywf2t200cd249e",
+      "parent_cover": "",
+      "comment_id": "yege-post-2344413694-13:14",
+      "comment_time": "13:14",
+      "commenter": "野哥",
+      "sentiment": "中性",
+      "value_score": 5.4,
+      "is_selected": false,
+      "action_note": "",
       "note": "post_id=2344413694; media=",
       "media": [],
       "video_urls": []
@@ -425,11 +547,25 @@
       "source": "野哥",
       "source_name": "野哥",
       "comment_source": "同花顺评论备份 09:47",
-      "content": "帖子评论量备份：784 条。帖子摘要：手上居然全绿。今天大盘预期就是冲高回落。所以预期之内的。我就不动了，启动睡觉大法了。",
+      "content": "帖子评论量备份：933 条。帖子摘要：手上居然全绿。今天大盘预期就是冲高回落。所以预期之内的。我就不动了，启动睡觉大法了。",
       "mentioned_stocks": "",
       "mentioned_sectors": "持仓表达",
       "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
       "include_in_logic": "待确认",
+      "include_status": "待确认",
+      "platform": "同花顺帖子",
+      "parent_type": "post",
+      "parent_id": "2344047205",
+      "parent_title": "2026-05-14 09:47 野哥同花顺动态",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgwaqkyqiz4l22a1ecdc2",
+      "parent_cover": "",
+      "comment_id": "yege-post-2344047205-09:47",
+      "comment_time": "09:47",
+      "commenter": "野哥",
+      "sentiment": "中性",
+      "value_score": 5.4,
+      "is_selected": false,
+      "action_note": "",
       "note": "post_id=2344047205; media=",
       "media": [],
       "video_urls": []
@@ -439,17 +575,385 @@
       "source": "野哥",
       "source_name": "野哥",
       "comment_source": "同花顺评论备份 09:27",
-      "content": "帖子评论量备份：356 条。帖子摘要：润泽科技(300442)  试错，加仓。我错了也认。",
+      "content": "帖子评论量备份：511 条。帖子摘要：润泽科技(300442)  试错，加仓。我错了也认。",
       "mentioned_stocks": "润泽科技(300442)",
       "mentioned_sectors": "交易动作;含图片/截图核对;个股相关;野哥同花顺逻辑;AIDC;数据中心",
-      "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高；THS-07 中军只能小仓试错。",
+      "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-07 中军只能小仓试错。",
       "include_in_logic": "待确认",
+      "include_status": "待确认",
+      "platform": "同花顺帖子",
+      "parent_type": "post",
+      "parent_id": "2343975983",
+      "parent_title": "润泽科技(300442)",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dguclz184qak62478d21a",
+      "parent_cover": "/media/2026-05-14/yege/daily_01_0927_2343975983.jpg;/media/2026-05-14/yege/daily_02_0927_2343975983.jpg",
+      "comment_id": "yege-post-2343975983-09:27",
+      "comment_time": "09:27",
+      "commenter": "野哥",
+      "sentiment": "看多",
+      "value_score": 5.4,
+      "is_selected": false,
+      "action_note": "",
       "note": "post_id=2343975983; media=/media/2026-05-14/yege/daily_01_0927_2343975983.jpg;/media/2026-05-14/yege/daily_02_0927_2343975983.jpg",
       "media": [
         "/media/2026-05-14/yege/daily_01_0927_2343975983.jpg",
         "/media/2026-05-14/yege/daily_02_0927_2343975983.jpg"
       ],
       "video_urls": []
+    }
+  ],
+  "comment_groups": [
+    {
+      "group_id": "yege|comment|yege-post-2344640230-14:59|0",
+      "group_mode": "single_comment",
+      "source": "yege",
+      "source_id": "yege",
+      "source_name": "野哥",
+      "parent_type": "post",
+      "parent_id": "2344640230",
+      "parent_title": "2026-05-14 14:59 野哥同花顺动态",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhcinkb51ssfq71ae9771",
+      "parent_cover": "/media/2026-05-14/yege/daily_01_1459_2344640230.jpg",
+      "platform": "同花顺帖子",
+      "time": "14:59",
+      "published_at": "2026-05-14 14:59",
+      "summary": "本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～",
+      "mentioned_stocks": [],
+      "mentioned_sectors": [
+        "含图片",
+        "截图核对"
+      ],
+      "comment_count": 1,
+      "valuable_comment_count": 0,
+      "include_status_summary": "待确认",
+      "include_counts": {
+        "已纳入": 0,
+        "待确认": 1,
+        "未纳入": 0,
+        "无效评论": 0
+      },
+      "sentiment_counts": {
+        "看多": 0,
+        "看空": 0,
+        "中性": 1,
+        "谨慎": 0
+      },
+      "support_direction": "仅作参考",
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 14:59",
+          "content": "帖子评论量备份：663 条。帖子摘要：本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "含图片/截图核对",
+          "value_reason": "动态包含图片，可能有交易截图，需人工点开核对。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "同花顺帖子",
+          "parent_type": "post",
+          "parent_id": "2344640230",
+          "parent_title": "2026-05-14 14:59 野哥同花顺动态",
+          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhcinkb51ssfq71ae9771",
+          "parent_cover": "/media/2026-05-14/yege/daily_01_1459_2344640230.jpg",
+          "comment_id": "yege-post-2344640230-14:59",
+          "comment_time": "14:59",
+          "commenter": "野哥",
+          "sentiment": "中性",
+          "value_score": 5.4,
+          "is_selected": false,
+          "action_note": "",
+          "note": "post_id=2344640230; media=/media/2026-05-14/yege/daily_01_1459_2344640230.jpg",
+          "media": [
+            "/media/2026-05-14/yege/daily_01_1459_2344640230.jpg"
+          ],
+          "video_urls": []
+        }
+      ],
+      "selected_comments": []
+    },
+    {
+      "group_id": "yege|comment|yege-post-2344546745-14:19|1",
+      "group_mode": "single_comment",
+      "source": "yege",
+      "source_id": "yege",
+      "source_name": "野哥",
+      "parent_type": "post",
+      "parent_id": "2344546745",
+      "parent_title": "润泽科技(300442)",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dh9ylspj0x0c6cda7dadf",
+      "parent_cover": "",
+      "platform": "同花顺帖子",
+      "time": "14:19",
+      "published_at": "2026-05-14 14:19",
+      "summary": "润泽科技(300442) ？？？不许v 你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
+      "mentioned_stocks": [
+        "润泽科技(300442)"
+      ],
+      "mentioned_sectors": [
+        "交易动作",
+        "个股相关",
+        "AIDC",
+        "数据中心"
+      ],
+      "comment_count": 1,
+      "valuable_comment_count": 0,
+      "include_status_summary": "待确认",
+      "include_counts": {
+        "已纳入": 0,
+        "待确认": 1,
+        "未纳入": 0,
+        "无效评论": 0
+      },
+      "sentiment_counts": {
+        "看多": 1,
+        "看空": 0,
+        "中性": 0,
+        "谨慎": 0
+      },
+      "support_direction": "仅作参考",
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 14:19",
+          "content": "帖子评论量备份：548 条。帖子摘要：润泽科技(300442)  ？？？不许v  你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
+          "mentioned_stocks": "润泽科技(300442)",
+          "mentioned_sectors": "交易动作;个股相关;AIDC;数据中心",
+          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "同花顺帖子",
+          "parent_type": "post",
+          "parent_id": "2344546745",
+          "parent_title": "润泽科技(300442)",
+          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dh9ylspj0x0c6cda7dadf",
+          "parent_cover": "",
+          "comment_id": "yege-post-2344546745-14:19",
+          "comment_time": "14:19",
+          "commenter": "野哥",
+          "sentiment": "看多",
+          "value_score": 5.4,
+          "is_selected": false,
+          "action_note": "",
+          "note": "post_id=2344546745; media=",
+          "media": [],
+          "video_urls": []
+        }
+      ],
+      "selected_comments": []
+    },
+    {
+      "group_id": "yege|comment|yege-post-2344413694-13:14|2",
+      "group_mode": "single_comment",
+      "source": "yege",
+      "source_id": "yege",
+      "source_name": "野哥",
+      "parent_type": "post",
+      "parent_id": "2344413694",
+      "parent_title": "2026-05-14 13:14 野哥同花顺动态",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dh6blj6ywf2t200cd249e",
+      "parent_cover": "",
+      "platform": "同花顺帖子",
+      "time": "13:14",
+      "published_at": "2026-05-14 13:14",
+      "summary": "啊呀！快给我v红。。。。",
+      "mentioned_stocks": [],
+      "mentioned_sectors": [],
+      "comment_count": 1,
+      "valuable_comment_count": 0,
+      "include_status_summary": "待确认",
+      "include_counts": {
+        "已纳入": 0,
+        "待确认": 1,
+        "未纳入": 0,
+        "无效评论": 0
+      },
+      "sentiment_counts": {
+        "看多": 0,
+        "看空": 0,
+        "中性": 1,
+        "谨慎": 0
+      },
+      "support_direction": "仅作参考",
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 13:14",
+          "content": "帖子评论量备份：865 条。帖子摘要：啊呀！快给我v红。。。。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "同花顺帖子",
+          "parent_type": "post",
+          "parent_id": "2344413694",
+          "parent_title": "2026-05-14 13:14 野哥同花顺动态",
+          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dh6blj6ywf2t200cd249e",
+          "parent_cover": "",
+          "comment_id": "yege-post-2344413694-13:14",
+          "comment_time": "13:14",
+          "commenter": "野哥",
+          "sentiment": "中性",
+          "value_score": 5.4,
+          "is_selected": false,
+          "action_note": "",
+          "note": "post_id=2344413694; media=",
+          "media": [],
+          "video_urls": []
+        }
+      ],
+      "selected_comments": []
+    },
+    {
+      "group_id": "yege|comment|yege-post-2344047205-09:47|3",
+      "group_mode": "single_comment",
+      "source": "yege",
+      "source_id": "yege",
+      "source_name": "野哥",
+      "parent_type": "post",
+      "parent_id": "2344047205",
+      "parent_title": "2026-05-14 09:47 野哥同花顺动态",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgwaqkyqiz4l22a1ecdc2",
+      "parent_cover": "",
+      "platform": "同花顺帖子",
+      "time": "09:47",
+      "published_at": "2026-05-14 09:47",
+      "summary": "手上居然全绿。今天大盘预期就是冲高回落。所以预期之内的。我就不动了，启动睡觉大法了。",
+      "mentioned_stocks": [],
+      "mentioned_sectors": [
+        "持仓表达"
+      ],
+      "comment_count": 1,
+      "valuable_comment_count": 0,
+      "include_status_summary": "待确认",
+      "include_counts": {
+        "已纳入": 0,
+        "待确认": 1,
+        "未纳入": 0,
+        "无效评论": 0
+      },
+      "sentiment_counts": {
+        "看多": 0,
+        "看空": 0,
+        "中性": 1,
+        "谨慎": 0
+      },
+      "support_direction": "仅作参考",
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 09:47",
+          "content": "帖子评论量备份：933 条。帖子摘要：手上居然全绿。今天大盘预期就是冲高回落。所以预期之内的。我就不动了，启动睡觉大法了。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "持仓表达",
+          "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "同花顺帖子",
+          "parent_type": "post",
+          "parent_id": "2344047205",
+          "parent_title": "2026-05-14 09:47 野哥同花顺动态",
+          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgwaqkyqiz4l22a1ecdc2",
+          "parent_cover": "",
+          "comment_id": "yege-post-2344047205-09:47",
+          "comment_time": "09:47",
+          "commenter": "野哥",
+          "sentiment": "中性",
+          "value_score": 5.4,
+          "is_selected": false,
+          "action_note": "",
+          "note": "post_id=2344047205; media=",
+          "media": [],
+          "video_urls": []
+        }
+      ],
+      "selected_comments": []
+    },
+    {
+      "group_id": "yege|comment|yege-post-2343975983-09:27|4",
+      "group_mode": "single_comment",
+      "source": "yege",
+      "source_id": "yege",
+      "source_name": "野哥",
+      "parent_type": "post",
+      "parent_id": "2343975983",
+      "parent_title": "润泽科技(300442)",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dguclz184qak62478d21a",
+      "parent_cover": "/media/2026-05-14/yege/daily_01_0927_2343975983.jpg;/media/2026-05-14/yege/daily_02_0927_2343975983.jpg",
+      "platform": "同花顺帖子",
+      "time": "09:27",
+      "published_at": "2026-05-14 09:27",
+      "summary": "润泽科技(300442) 试错，加仓。我错了也认。",
+      "mentioned_stocks": [
+        "润泽科技(300442)"
+      ],
+      "mentioned_sectors": [
+        "交易动作",
+        "含图片",
+        "截图核对",
+        "个股相关",
+        "野哥同花顺逻辑",
+        "AIDC",
+        "数据中心"
+      ],
+      "comment_count": 1,
+      "valuable_comment_count": 0,
+      "include_status_summary": "待确认",
+      "include_counts": {
+        "已纳入": 0,
+        "待确认": 1,
+        "未纳入": 0,
+        "无效评论": 0
+      },
+      "sentiment_counts": {
+        "看多": 1,
+        "看空": 0,
+        "中性": 0,
+        "谨慎": 0
+      },
+      "support_direction": "仅作参考",
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 09:27",
+          "content": "帖子评论量备份：511 条。帖子摘要：润泽科技(300442)  试错，加仓。我错了也认。",
+          "mentioned_stocks": "润泽科技(300442)",
+          "mentioned_sectors": "交易动作;含图片/截图核对;个股相关;野哥同花顺逻辑;AIDC;数据中心",
+          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-07 中军只能小仓试错。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "同花顺帖子",
+          "parent_type": "post",
+          "parent_id": "2343975983",
+          "parent_title": "润泽科技(300442)",
+          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dguclz184qak62478d21a",
+          "parent_cover": "/media/2026-05-14/yege/daily_01_0927_2343975983.jpg;/media/2026-05-14/yege/daily_02_0927_2343975983.jpg",
+          "comment_id": "yege-post-2343975983-09:27",
+          "comment_time": "09:27",
+          "commenter": "野哥",
+          "sentiment": "看多",
+          "value_score": 5.4,
+          "is_selected": false,
+          "action_note": "",
+          "note": "post_id=2343975983; media=/media/2026-05-14/yege/daily_01_0927_2343975983.jpg;/media/2026-05-14/yege/daily_02_0927_2343975983.jpg",
+          "media": [
+            "/media/2026-05-14/yege/daily_01_0927_2343975983.jpg",
+            "/media/2026-05-14/yege/daily_02_0927_2343975983.jpg"
+          ],
+          "video_urls": []
+        }
+      ],
+      "selected_comments": []
     }
   ],
   "comment_sources": [
@@ -492,7 +996,7 @@
           "summary": "本来应该从从容容游刃有余，现在是匆匆忙忙连滚带爬～",
           "mentioned_stocks": "",
           "mentioned_sectors": "含图片/截图核对",
-          "note": "优先级 P1; 点赞 388; 评论 165; 转发 6; 本地截图 1 张"
+          "note": "优先级 P1; 点赞 1089; 评论 663; 转发 24; 本地截图 1 张"
         },
         {
           "channel": "同花顺帖子",
@@ -501,8 +1005,8 @@
           "media": [],
           "summary": "润泽科技(300442) ？？？不许v 你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
           "mentioned_stocks": "润泽科技(300442)",
-          "mentioned_sectors": "交易动作;个股相关;野哥同花顺逻辑;AIDC;数据中心",
-          "note": "优先级 P1; 点赞 700; 评论 528; 转发 8; 本地截图 0 张"
+          "mentioned_sectors": "交易动作;个股相关;AIDC;数据中心",
+          "note": "优先级 P1; 点赞 813; 评论 548; 转发 10; 本地截图 0 张"
         },
         {
           "channel": "同花顺帖子",
@@ -512,7 +1016,7 @@
           "summary": "啊呀！快给我v红。。。。",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "优先级 P3; 点赞 1410; 评论 859; 转发 10; 本地截图 0 张"
+          "note": "优先级 P3; 点赞 1462; 评论 865; 转发 10; 本地截图 0 张"
         },
         {
           "channel": "同花顺帖子",
@@ -522,7 +1026,7 @@
           "summary": "手上居然全绿。今天大盘预期就是冲高回落。所以预期之内的。我就不动了，启动睡觉大法了。",
           "mentioned_stocks": "",
           "mentioned_sectors": "持仓表达",
-          "note": "优先级 P3; 点赞 1715; 评论 784; 转发 21; 本地截图 0 张"
+          "note": "优先级 P3; 点赞 2017; 评论 933; 转发 27; 本地截图 0 张"
         },
         {
           "channel": "同花顺帖子",
@@ -535,7 +1039,7 @@
           "summary": "润泽科技(300442) 试错，加仓。我错了也认。",
           "mentioned_stocks": "润泽科技(300442)",
           "mentioned_sectors": "交易动作;含图片/截图核对;个股相关;野哥同花顺逻辑;AIDC;数据中心",
-          "note": "优先级 P1; 点赞 699; 评论 356; 转发 7; 本地截图 2 张"
+          "note": "优先级 P1; 点赞 810; 评论 511; 转发 10; 本地截图 2 张"
         }
       ]
     },

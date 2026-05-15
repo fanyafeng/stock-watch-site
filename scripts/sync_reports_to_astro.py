@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import sys
+import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -61,9 +62,19 @@ def sync_dashboard() -> None:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Sync public dashboard data and encrypted report index to Astro.")
+    parser.add_argument("--dashboard-only", action="store_true", help="只同步公开看板数据，不校验密文文章 payload")
+    parser.add_argument("--allow-missing-payloads", action="store_true", help="同步 reports.json 时跳过缺失密文 payload 的报告")
+    args = parser.parse_args()
     try:
         reports = load_reports()
-        validate_payloads(reports)
+        if args.dashboard_only:
+            sync_dashboard()
+            return 0
+        if args.allow_missing_payloads:
+            reports = [report for report in reports if (ENCRYPTED_DIR / f"{report.get('slug')}.json").exists()]
+        else:
+            validate_payloads(reports)
         sorted_reports = sorted(reports, key=lambda item: (item.get("date", ""), item.get("source", "")), reverse=True)
         ASTRO_REPORTS_FILE.parent.mkdir(parents=True, exist_ok=True)
         ASTRO_REPORTS_FILE.write_text(json.dumps(sorted_reports, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

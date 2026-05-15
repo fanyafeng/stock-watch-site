@@ -103,6 +103,26 @@ COMMENT_FIELDS = [
     "note",
 ]
 
+COMMENT_OPTIONAL_FIELDS = [
+    "time",
+    "platform",
+    "parent_type",
+    "parent_title",
+    "commenter",
+    "parent_id",
+    "parent_url",
+    "parent_cover",
+    "comment_id",
+    "comment_time",
+    "include_status",
+    "sentiment",
+    "action_note",
+    "value_score",
+    "is_selected",
+]
+
+VIDEO_POOL_COMMENT_SOURCES = {"wangduoyu", "longge"}
+
 MARKET_SECTIONS = [
     ("market_status", "今日市场状态"),
     ("main_sectors", "今日主线板块"),
@@ -228,12 +248,43 @@ def read_csv_rows(path: Path, required_fields: list[str]) -> list[dict[str, str]
         return [{field: (row.get(field) or "").strip() for field in required_fields} for row in reader]
 
 
+def read_csv_rows_with_optional(
+    path: Path,
+    required_fields: list[str],
+    optional_fields: list[str],
+) -> list[dict[str, str]]:
+    with path.open("r", encoding="utf-8-sig", newline="") as file:
+        reader = csv.DictReader(file)
+        fieldnames = reader.fieldnames or []
+        if not fieldnames:
+          return []
+        missing = [field for field in required_fields if field not in fieldnames]
+        if missing:
+            raise ReportError(f"{path} 缺少字段：{', '.join(missing)}")
+        fields = [*required_fields, *[field for field in optional_fields if field in fieldnames]]
+        return [{field: (row.get(field) or "").strip() for field in fields} for row in reader]
+
+
 def read_optional_rows(path: Path, required_fields: list[str], strict_extra: bool, label: str) -> list[dict[str, str]]:
     if not path.exists():
         if strict_extra:
             raise ReportError(f"未找到{label}数据：{rel(path)}")
         return []
     return [row for row in read_csv_rows(path, required_fields) if any(row.values())]
+
+
+def read_optional_rows_with_optional(
+    path: Path,
+    required_fields: list[str],
+    optional_fields: list[str],
+    strict_extra: bool,
+    label: str,
+) -> list[dict[str, str]]:
+    if not path.exists():
+        if strict_extra:
+            raise ReportError(f"未找到{label}数据：{rel(path)}")
+        return []
+    return [row for row in read_csv_rows_with_optional(path, required_fields, optional_fields) if any(row.values())]
 
 
 def load_picks(source_id: str, date_text: str) -> list[dict[str, str]]:
@@ -290,7 +341,7 @@ def load_timeline(date_text: str, strict_extra: bool) -> list[dict[str, str]]:
 
 def load_daily_comments(date_text: str, strict_extra: bool) -> list[dict[str, str]]:
     path = ROOT / "data" / "daily" / date_text / "comments.csv"
-    return read_optional_rows(path, COMMENT_FIELDS, strict_extra, "有价值评论")
+    return read_optional_rows_with_optional(path, COMMENT_FIELDS, COMMENT_OPTIONAL_FIELDS, strict_extra, "有价值评论")
 
 
 def load_source_posts(source_id: str, date_text: str, strict_extra: bool) -> list[dict[str, str]]:
@@ -928,6 +979,7 @@ def collect_daily_data(
     loose_source_data: bool = False,
 ) -> dict[str, Any]:
     comments = load_daily_comments(date_text, strict_extra)
+    source_lookup = {source["id"]: source["name"] for source in sources}
     comments_by_source: dict[str, list[dict[str, str]]] = {}
     for comment in comments:
         comments_by_source.setdefault(comment.get("source", ""), []).append(comment)
@@ -961,10 +1013,15 @@ def collect_daily_data(
         all_rejected.extend(rejected)
         all_posts.extend(posts)
 
+    post_lookup = build_post_lookup(all_posts)
+    normalized_comments = [normalize_comment_row(comment, source_lookup, post_lookup) for comment in comments]
+    comment_groups = build_comment_groups(normalized_comments)
+
     return {
         "market": load_market_info(date_text, strict_extra),
         "timeline": load_timeline(date_text, strict_extra),
-        "comments": comments,
+        "comments": normalized_comments,
+        "comment_groups": comment_groups,
         "source_sections": source_sections,
         "all_scored": all_scored,
         "all_accepted": all_accepted,
@@ -1126,6 +1183,101 @@ def split_values(value: str, limit: int = 4) -> list[str]:
     return cleaned[:limit]
 
 
+def split_all_values(value: str) -> list[str]:
+    separators = ["；", ";", "、", ",", "，", "|", "/"]
+    values = [value]
+    for separator in separators:
+        values = [part for item in values for part in item.split(separator)]
+    return [item.strip() for item in values if item.strip()]
+
+
+def unique_strings(items: list[str]) -> list[str]:
+    return list(dict.fromkeys([item for item in items if item]))
+
+
+def normalize_include_status(value: str) -> str:
+    text = (value or "").strip()
+    if text in {"是", "纳入"}:
+        return "已纳入"
+    if text in {"否"}:
+        return "未纳入"
+    if text in {"无效评论"}:
+        return "无效评论"
+    if text in {"待确认", "观察", "已纳入", "未纳入"}:
+        return text
+    return text or "待确认"
+
+
+def normalize_parent_type(value: str, platform: str, channel: str, note: str) -> str:
+    text = (value or "").strip().lower()
+    if text in {"video", "post"}:
+        return text
+    merged = " ".join([platform or "", channel or "", note or ""])
+    if "抖音" in merged or "video_url=" in merged or "video_id=" in merged:
+        return "video"
+    return "post"
+
+
+def infer_sentiment(value: str, content: str, value_reason: str, include_status: str) -> str:
+    text = f"{value} {content} {value_reason}".lower()
+    if value:
+        return value
+    if "看空" in text:
+        return "看空"
+    if any(token in text for token in ["risk", "风险", "止损", "减仓", "退出", "跌停", "走不走", "谨慎"]):
+        return "谨慎"
+    if any(token in text for token in ["看多", "涨停", "买入", "加仓", "冲进", "持有", "修复"]):
+        return "看多"
+    if include_status == "已纳入":
+        return "看多"
+    return "中性"
+
+
+def parse_numeric_score(value: str, fallback_text: str = "") -> float:
+    text = (value or "").strip()
+    if text:
+        try:
+            return round(float(text), 1)
+        except ValueError:
+            pass
+    mention_match = re.search(r"提及\s*(\d+)\s*次", fallback_text)
+    valid_match = re.search(r"有效评论\s*(\d+)\s*条", fallback_text)
+    mention_count = int(mention_match.group(1)) if mention_match else 0
+    valid_count = int(valid_match.group(1)) if valid_match else 0
+    base = 5.4 + min(max(mention_count, valid_count), 8) * 0.38 + min(valid_count, 8) * 0.08
+    if "跨来源共振" in fallback_text:
+        base += 0.6
+    if "risk" in fallback_text.lower() or "风险" in fallback_text:
+        base -= 0.5
+    return round(max(0.0, min(9.8, base)), 1)
+
+
+def normalize_comment_time(row: dict[str, str]) -> str:
+    for key in ("comment_time", "time", "comment_source"):
+        match = re.search(r"\d{1,2}:\d{2}", row.get(key, "") or "")
+        if match:
+            return match.group(0)
+    return "--:--"
+
+
+def extract_post_id(note: str) -> str:
+    match = re.search(r"post_id=([^;]+)", note or "")
+    return match.group(1).strip() if match else ""
+
+
+def extract_video_id(note: str, parent_url: str = "") -> str:
+    note_match = re.search(r"video_id=([^;]+)", note or "")
+    if note_match:
+        return note_match.group(1).strip()
+    url_match = re.search(r"/video/(\d+)", parent_url or "")
+    return url_match.group(1).strip() if url_match else ""
+
+
+def extract_note_value(note: str, key: str) -> str:
+    match = re.search(rf"{re.escape(key)}=([^;]+)", note or "")
+    return match.group(1).strip() if match else ""
+
+
 def parse_sector_stock_map(value: str) -> dict[str, dict[str, str]]:
     """Parse '板块=股票(代码)@09:45;板块=股票(代码)' into a lookup map."""
     mapping: dict[str, dict[str, str]] = {}
@@ -1159,6 +1311,245 @@ def extract_http_urls(value: str) -> list[str]:
     return list(dict.fromkeys(matches))
 
 
+def build_post_lookup(posts: list[dict[str, str]]) -> dict[tuple[str, str, str], dict[str, str]]:
+    lookup: dict[tuple[str, str, str], dict[str, str]] = {}
+    for post in posts:
+        source = post.get("source", "")
+        url = post.get("url", "")
+        title = post.get("title", "")
+        note = post.get("note", "")
+        time_match = re.search(r"\d{1,2}:\d{2}", title or "")
+        if url:
+            lookup[(source, "url", url)] = post
+        if title:
+            lookup[(source, "title", title)] = post
+        if time_match:
+            lookup[(source, "time", time_match.group(0))] = post
+        post_id = extract_post_id(note)
+        if post_id:
+            lookup[(source, "post_id", post_id)] = post
+        video_id = extract_video_id(note, url)
+        if video_id:
+            lookup[(source, "video_id", video_id)] = post
+    return lookup
+
+
+def post_match_for_comment(comment: dict[str, str], post_lookup: dict[tuple[str, str, str], dict[str, str]]) -> dict[str, str] | None:
+    source = comment.get("source", "")
+    note = comment.get("note", "")
+    comment_source = comment.get("comment_source", "")
+    url_candidates = unique_strings([
+        comment.get("parent_url", ""),
+        extract_note_value(note, "video_url"),
+        *extract_http_urls(note),
+    ])
+    for url in url_candidates:
+        matched = post_lookup.get((source, "url", url))
+        if matched:
+            return matched
+
+    post_id = comment.get("parent_id", "") if comment.get("parent_type") == "post" else ""
+    post_id = post_id or extract_post_id(note)
+    if post_id:
+        matched = post_lookup.get((source, "post_id", post_id))
+        if matched:
+            return matched
+
+    video_id = comment.get("parent_id", "") if comment.get("parent_type") == "video" else ""
+    video_id = video_id or extract_video_id(note, url_candidates[0] if url_candidates else "")
+    if video_id:
+        matched = post_lookup.get((source, "video_id", video_id))
+        if matched:
+            return matched
+
+    time_match = re.search(r"\d{1,2}:\d{2}", comment_source or "")
+    if time_match:
+        matched = post_lookup.get((source, "time", time_match.group(0)))
+        if matched:
+            return matched
+
+    match = re.search(r"\d{4}-\d{2}-\d{2}\s+\d{1,2}:\d{2}.*", comment_source or "")
+    if match:
+        matched = post_lookup.get((source, "title", match.group(0).strip()))
+        if matched:
+            return matched
+
+    return None
+
+
+def normalize_comment_row(comment: dict[str, str], source_lookup: dict[str, str], post_lookup: dict[tuple[str, str, str], dict[str, str]]) -> dict[str, Any]:
+    note = comment.get("note", "")
+    source_id = comment.get("source", "")
+    source_name = source_lookup.get(source_id, source_id)
+    matched_post = post_match_for_comment(comment, post_lookup) or {}
+    platform = comment.get("platform") or matched_post.get("channel") or comment.get("comment_source", "")
+    channel = matched_post.get("channel") or comment.get("platform") or comment.get("comment_source", "")
+    parent_type = normalize_parent_type(comment.get("parent_type", ""), platform, channel, note)
+    parent_url = comment.get("parent_url", "") or matched_post.get("url", "") or extract_note_value(note, "video_url")
+    parent_id = comment.get("parent_id", "")
+    if not parent_id:
+        parent_id = extract_video_id(note, parent_url) if parent_type == "video" else extract_post_id(note)
+    parent_title = comment.get("parent_title", "") or matched_post.get("title", "")
+    if matched_post.get("mentioned_stocks") and not comment.get("parent_title"):
+        primary_stock = split_all_values(matched_post.get("mentioned_stocks", ""))
+        if primary_stock:
+            parent_title = primary_stock[0]
+    cover = comment.get("parent_cover", "") or matched_post.get("image", "")
+    time_text = normalize_comment_time(comment)
+    include_status = normalize_include_status(comment.get("include_status", "") or comment.get("include_in_logic", ""))
+    score = parse_numeric_score(comment.get("value_score", ""), comment.get("value_reason", ""))
+    is_selected = (comment.get("is_selected", "") or "").strip().lower() in {"1", "true", "yes"} or include_status == "已纳入"
+    sentiment = infer_sentiment(comment.get("sentiment", ""), comment.get("content", ""), comment.get("value_reason", ""), include_status)
+    mentioned_stocks = split_all_values(comment.get("mentioned_stocks", ""))
+    mentioned_sectors = split_all_values(comment.get("mentioned_sectors", ""))
+
+    return {
+        **comment,
+        "source_id": source_id,
+        "source_name": source_name,
+        "platform": platform,
+        "channel": channel,
+        "parent_type": parent_type,
+        "parent_id": parent_id,
+        "parent_title": parent_title,
+        "parent_url": parent_url,
+        "parent_cover": cover,
+        "parent_summary": matched_post.get("summary", "") or matched_post.get("raw_text", ""),
+        "comment_id": comment.get("comment_id", "") or f"{source_id}-{parent_type}-{parent_id or parent_title}-{time_text}",
+        "comment_time": comment.get("comment_time", "") or time_text,
+        "time": comment.get("time", "") or time_text,
+        "commenter": comment.get("commenter", "") or extract_note_value(note, "creator") or source_name,
+        "include_status": include_status,
+        "sentiment": sentiment,
+        "value_score": score,
+        "is_selected": is_selected,
+        "action_note": comment.get("action_note", ""),
+        "mentioned_stock_list": mentioned_stocks,
+        "mentioned_sector_list": mentioned_sectors,
+        "media": extract_media_paths(note) or extract_media_paths(cover),
+        "video_urls": unique_strings([parent_url, *extract_http_urls(note)]),
+        "matched_post": matched_post,
+    }
+
+
+def is_video_pool_comment(comment: dict[str, Any]) -> bool:
+    return comment.get("source_id", "") in VIDEO_POOL_COMMENT_SOURCES and comment.get("parent_type", "") == "video"
+
+
+def build_comment_group_key(comment: dict[str, Any], index: int) -> str:
+    source_id = comment.get("source_id", "")
+    parent_type = comment.get("parent_type", "")
+    parent_id = comment.get("parent_id", "")
+    if is_video_pool_comment(comment):
+        if parent_id:
+            return f"{source_id}|{parent_type}|{parent_id}"
+        return f"{source_id}|{parent_type}|{comment.get('parent_title', '')}|{comment.get('date', '')}|{comment.get('time', '')}"
+    # 非视频池来源按评论明细进入时间线，避免李红娟这类“一段话拆多只股票”的行被再次合并。
+    comment_id = comment.get("comment_id", "")
+    if comment_id:
+        return f"{source_id}|comment|{comment_id}|{index}"
+    return f"{source_id}|comment|{comment.get('parent_id', '')}|{comment.get('comment_time', '')}|{index}"
+
+
+def status_summary_from_comments(items: list[dict[str, Any]]) -> str:
+    statuses = unique_strings([item.get("include_status", "") for item in items])
+    if statuses == ["已纳入"]:
+        return "已纳入"
+    if statuses == ["未纳入"] or statuses == ["无效评论"]:
+        return "未纳入"
+    if "已纳入" in statuses:
+        return "部分纳入"
+    return "待确认"
+
+
+def build_comment_groups(comments: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    groups: dict[str, dict[str, Any]] = {}
+    for index, comment in enumerate(comments):
+        key = build_comment_group_key(comment, index)
+        if key not in groups:
+            matched_post = comment.get("matched_post", {})
+            published_at = matched_post.get("title", "") or comment.get("date", "")
+            if matched_post.get("title", ""):
+                published_match = re.search(r"\d{4}-\d{2}-\d{2}\s+\d{1,2}:\d{2}(?::\d{2})?", matched_post.get("title", ""))
+                published_at = published_match.group(0) if published_match else matched_post.get("title", "")
+            if comment.get("parent_type") == "video" and comment.get("parent_title"):
+                published_match = re.search(r"\d{4}-\d{2}-\d{2}\s+\d{1,2}:\d{2}(?::\d{2})?", comment.get("parent_title", ""))
+                if published_match:
+                    published_at = published_match.group(0)
+            groups[key] = {
+                "group_id": key,
+                "group_mode": "video_pool" if is_video_pool_comment(comment) else "single_comment",
+                "source": comment.get("source_id", ""),
+                "source_id": comment.get("source_id", ""),
+                "source_name": comment.get("source_name", ""),
+                "parent_type": comment.get("parent_type", "post"),
+                "parent_id": comment.get("parent_id", ""),
+                "parent_title": comment.get("parent_title", "") or comment.get("mentioned_stocks", "") or "综合主题",
+                "parent_url": comment.get("parent_url", ""),
+                "parent_cover": comment.get("parent_cover", ""),
+                "platform": matched_post.get("channel", "") or comment.get("platform", ""),
+                "time": comment.get("time", "--:--"),
+                "published_at": published_at,
+                "summary": comment.get("parent_summary", "") or matched_post.get("summary", "") or matched_post.get("raw_text", "") or comment.get("content", ""),
+                "mentioned_stocks": [],
+                "mentioned_sectors": [],
+                "comments": [],
+            }
+        group = groups[key]
+        group["comments"].append(comment)
+        group["mentioned_stocks"].extend(comment.get("mentioned_stock_list", []))
+        group["mentioned_sectors"].extend(comment.get("mentioned_sector_list", []))
+
+    result: list[dict[str, Any]] = []
+    for group in groups.values():
+        group_comments = sorted(group["comments"], key=lambda item: item.get("comment_time", ""))
+        comment_count = len(group_comments)
+        value_comments = [item for item in group_comments if item.get("is_selected") or float(item.get("value_score", 0)) >= 8]
+        if group.get("parent_type") == "video" and group.get("published_at"):
+            match = re.search(r"(\d{1,2}:\d{2})", group.get("published_at", ""))
+            if match:
+                group["time"] = match.group(1)
+        include_counts = {
+            "已纳入": len([item for item in group_comments if item.get("include_status") == "已纳入"]),
+            "待确认": len([item for item in group_comments if item.get("include_status") == "待确认"]),
+            "未纳入": len([item for item in group_comments if item.get("include_status") == "未纳入"]),
+            "无效评论": len([item for item in group_comments if item.get("include_status") == "无效评论"]),
+        }
+        sentiment_counts = {
+            "看多": len([item for item in group_comments if item.get("sentiment") == "看多"]),
+            "看空": len([item for item in group_comments if item.get("sentiment") == "看空"]),
+            "中性": len([item for item in group_comments if item.get("sentiment") == "中性"]),
+            "谨慎": len([item for item in group_comments if item.get("sentiment") == "谨慎"]),
+        }
+        status_summary = status_summary_from_comments(group_comments)
+        support_direction = "增强观察" if include_counts["已纳入"] else ("不纳入" if include_counts["未纳入"] and not include_counts["待确认"] else "仅作参考")
+        result.append({
+            **group,
+            "comments": group_comments,
+            "mentioned_stocks": unique_strings(group["mentioned_stocks"]),
+            "mentioned_sectors": unique_strings(group["mentioned_sectors"]),
+            "comment_count": comment_count,
+            "valuable_comment_count": len(value_comments),
+            "include_status_summary": status_summary,
+            "include_counts": include_counts,
+            "sentiment_counts": sentiment_counts,
+            "selected_comments": value_comments,
+            "support_direction": support_direction,
+        })
+
+    def sort_key(item: dict[str, Any]) -> tuple[int, int, str]:
+        published_at = item.get("published_at", "")
+        published_match = re.search(r"(\d{1,2}):(\d{2})", published_at or "")
+        if published_match:
+            minutes = int(published_match.group(1)) * 60 + int(published_match.group(2))
+            return (-minutes, 0 if item.get("parent_type") == "video" else 1, item.get("source_name", ""))
+        match = re.search(r"(\d{1,2}):(\d{2})", item.get("time", ""))
+        minutes = int(match.group(1)) * 60 + int(match.group(2)) if match else -1
+        return (-minutes, 0 if item.get("parent_type") == "video" else 1, item.get("source_name", ""))
+
+    return sorted(result, key=sort_key)
+
+
 def public_post(post: dict[str, str]) -> dict[str, Any]:
     return {
         "channel": post.get("channel", ""),
@@ -1184,9 +1575,52 @@ def public_comment(item: dict[str, str], source_lookup: dict[str, str]) -> dict[
         "mentioned_sectors": item.get("mentioned_sectors", ""),
         "value_reason": item.get("value_reason", ""),
         "include_in_logic": item.get("include_in_logic", ""),
+        "include_status": normalize_include_status(item.get("include_status", "") or item.get("include_in_logic", "")),
+        "platform": item.get("platform", ""),
+        "parent_type": item.get("parent_type", ""),
+        "parent_id": item.get("parent_id", ""),
+        "parent_title": item.get("parent_title", ""),
+        "parent_url": item.get("parent_url", ""),
+        "parent_cover": item.get("parent_cover", ""),
+        "comment_id": item.get("comment_id", ""),
+        "comment_time": item.get("comment_time", ""),
+        "commenter": item.get("commenter", ""),
+        "sentiment": item.get("sentiment", ""),
+        "value_score": item.get("value_score", ""),
+        "is_selected": item.get("is_selected", ""),
+        "action_note": item.get("action_note", ""),
         "note": item.get("note", ""),
         "media": extract_media_paths(item.get("note", "")),
         "video_urls": extract_http_urls(item.get("note", "")),
+    }
+
+
+def public_comment_group(group: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "group_id": group.get("group_id", ""),
+        "group_mode": group.get("group_mode", ""),
+        "source": group.get("source", ""),
+        "source_id": group.get("source_id", ""),
+        "source_name": group.get("source_name", ""),
+        "parent_type": group.get("parent_type", ""),
+        "parent_id": group.get("parent_id", ""),
+        "parent_title": group.get("parent_title", ""),
+        "parent_url": group.get("parent_url", ""),
+        "parent_cover": group.get("parent_cover", ""),
+        "platform": group.get("platform", ""),
+        "time": group.get("time", ""),
+        "published_at": group.get("published_at", ""),
+        "summary": group.get("summary", ""),
+        "mentioned_stocks": group.get("mentioned_stocks", []),
+        "mentioned_sectors": group.get("mentioned_sectors", []),
+        "comment_count": group.get("comment_count", 0),
+        "valuable_comment_count": group.get("valuable_comment_count", 0),
+        "include_status_summary": group.get("include_status_summary", ""),
+        "include_counts": group.get("include_counts", {}),
+        "sentiment_counts": group.get("sentiment_counts", {}),
+        "support_direction": group.get("support_direction", ""),
+        "comments": [public_comment(item, {group.get("source_id", ""): group.get("source_name", "")}) for item in group.get("comments", [])],
+        "selected_comments": [public_comment(item, {group.get("source_id", ""): group.get("source_name", "")}) for item in group.get("selected_comments", [])],
     }
 
 
@@ -1324,6 +1758,7 @@ def write_dashboard_data(
             "sources": [source_stock_pool(item) for item in daily["source_sections"]],
         },
         "comments": [public_comment(item, source_lookup) for item in daily["comments"]],
+        "comment_groups": [public_comment_group(item) for item in daily["comment_groups"]],
         "comment_sources": [
             {
                 "id": source["id"],

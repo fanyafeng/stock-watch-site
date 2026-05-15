@@ -4,69 +4,81 @@ import stockSectorMap from "../data/stock_sector_map.json";
 
 const { dashboard } = Astro.props;
 
-const comments = dashboard.comments ?? [];
-const sources = dashboard.comment_sources ?? dashboard.sources ?? [];
-const evidence = dashboard.evidence ?? {};
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const commentsBase = `${base}/comments`;
 const sourceColors = { yege: "blue", lihongjuan: "purple", wangduoyu: "green", longge: "orange" };
-const splitTokens = (value) => String(value || "").split(/[;；、,，]/).map((item) => item.trim()).filter(Boolean);
-const assetUrl = (path) => `${base}${path}`;
-const includedCount = comments.filter((item) => item.include_in_logic === "是").length;
-const rejectedCount = comments.filter((item) => item.include_in_logic === "否").length;
-const waitingCount = comments.length - includedCount - rejectedCount;
-const nonMarketSectorLabels = new Set([
-  "风险提示",
-  "含图片/截图核对",
-  "个股相关",
-  "野哥同花顺逻辑",
-  "交易动作",
-  "减仓/退出风险",
+
+const commentSources = dashboard.comment_sources ?? dashboard.sources ?? [];
+const flatCommentsRaw = dashboard.comments ?? [];
+const commentGroupsFromDashboard = dashboard.comment_groups ?? [];
+const sourceDetails = dashboard.sources ?? [];
+const evidence = dashboard.evidence ?? {};
+const videoPoolSources = new Set(["wangduoyu", "longge"]);
+const sourceAliasMap = new Map([
+  ["yege", "yege"],
+  ["野哥", "yege"],
+  ["lihongjuan", "lihongjuan"],
+  ["李红娟", "lihongjuan"],
+  ["wangduoyu", "wangduoyu"],
+  ["王多于", "wangduoyu"],
+  ["王多于股之子", "wangduoyu"],
+  ["longge", "longge"],
+  ["龙哥", "longge"],
+  ["龙哥闯大A", "longge"],
 ]);
 
-const extractTime = (value) => String(value || "").match(/\d{1,2}:\d{2}/)?.[0] ?? "--:--";
-const cleanChannel = (value) => String(value || "评论来源").replace(/\s*\d{1,2}:\d{2}\s*/g, "").trim() || "评论来源";
 const unique = (items) => [...new Set(items.filter(Boolean))];
-const marketFocusSectors = unique([
-  ...(dashboard.overview?.main_sectors ?? []),
-  ...(dashboard.market?.accumulation_direction ?? []),
-].flatMap((item) => splitTokens(item)).filter((item) => !["暂无数据", "需补充 market.csv"].includes(item)));
+const splitTokens = (value) => String(value || "").split(/[;；、,，]/).map((item) => item.trim()).filter(Boolean);
 const extractStockCode = (value) => String(value || "").match(/\d{6}/)?.[0] ?? "";
-const stockDisplayName = (value) => String(value || "").replace(/\s+/g, "");
+const isFullStockLabel = (value) => /[\u4e00-\u9fa5A-Za-z]+.*\(\d{6}\)/.test(String(value || ""));
 const thsStockUrl = (value) => {
   const code = extractStockCode(value);
   return code ? `https://basic.10jqka.com.cn/${code}/` : "";
 };
-const sectorsForStock = (stock, commentSectors = []) => {
-  const code = extractStockCode(stock);
-  const mapped = code ? stockSectorMap[code]?.sectors ?? [] : [];
-  const usableCommentSectors = commentSectors.filter((sector) => !nonMarketSectorLabels.has(sector));
-  return unique([...mapped, ...usableCommentSectors]);
+const assetUrl = (path) => `${base}${path}`;
+const stripDatePrefix = (value) => String(value || "").replace(/^\d{4}-\d{2}-\d{2}\s+\d{1,2}:\d{2}(?::\d{2})?\s*/, "").trim();
+const normalizeStatus = (value) => {
+  const text = String(value || "").trim();
+  if (["已纳入", "是", "纳入"].includes(text)) return "已纳入";
+  if (["未纳入", "否"].includes(text)) return "未纳入";
+  if (["无效评论"].includes(text)) return "无效评论";
+  if (["待确认", "观察", "部分纳入"].includes(text)) return text;
+  return text || "待确认";
 };
-const sectorMatchesMarket = (sector) => marketFocusSectors.some((marketSector) => sector.includes(marketSector) || marketSector.includes(sector));
-const sectorRelationForComment = (comment) => {
-  const stocks = comment.stocks?.length ? comment.stocks : splitTokens(comment.mentioned_stocks);
-  const commentSectors = comment.sectors?.length ? comment.sectors : splitTokens(comment.mentioned_sectors);
-  const relations = stocks.map((stock) => {
-    const sectors = sectorsForStock(stock, commentSectors);
-    return {
-      stock,
-      sectors,
-      marketHits: sectors.filter(sectorMatchesMarket),
-    };
-  }).filter((item) => item.stock || item.sectors.length);
-  const fallbackSectors = commentSectors.filter((sector) => !nonMarketSectorLabels.has(sector));
-  return {
-    relations,
-    fallbackSectors,
-    hasMarketData: marketFocusSectors.length > 0,
-  };
+const statusMeta = (status) => {
+  const normalized = normalizeStatus(status);
+  if (normalized === "已纳入") return { label: "已纳入", tone: "included", mark: "✓" };
+  if (normalized === "未纳入") return { label: "未纳入", tone: "rejected", mark: "×" };
+  if (normalized === "无效评论") return { label: "无效评论", tone: "neutral", mark: "•" };
+  if (normalized === "部分纳入") return { label: "部分纳入", tone: "partial", mark: "●" };
+  return { label: "待确认", tone: "pending", mark: "○" };
 };
-const linkStockMentions = (value) =>
-  value.replace(/([\u4e00-\u9fa5A-Za-z0-9·*]+)\((\d{6})\)/g, (match, name, code) => {
-    const label = `${name}(${code})`;
-    return `<a class="comment-inline-stock" href="https://basic.10jqka.com.cn/${code}/" target="_blank" rel="noreferrer">${label}</a>`;
-  });
+const sentimentMeta = (value) => {
+  const text = String(value || "").trim() || "中性";
+  if (text === "看多" || text === "正向") return { label: text, tone: "bullish" };
+  if (text === "看空" || text === "负向") return { label: text, tone: "bearish" };
+  if (text === "谨慎") return { label: text, tone: "cautious" };
+  return { label: text, tone: "neutral" };
+};
+const normalizeSummaryText = (value) => {
+  const text = String(value || "").trim();
+  if (!text) return "暂无摘要";
+  return text
+    .replace(/^视频评论抓取\s*\d+\s*条[；;]?\s*/g, "")
+    .replace(/^视频评论量备份[:：]?\s*\d+\s*条[。；;]?\s*/g, "")
+    .replace(/^视频标题[:：]/g, "")
+    .trim() || "暂无摘要";
+};
+const dominantSentimentMeta = (counts) => {
+  const ranked = [
+    { key: "bullish", label: "看多", count: Number(counts?.bullish ?? 0) },
+    { key: "cautious", label: "谨慎", count: Number(counts?.cautious ?? 0) },
+    { key: "neutral", label: "中性", count: Number(counts?.neutral ?? 0) },
+    { key: "bearish", label: "看空", count: Number(counts?.bearish ?? 0) },
+  ].sort((a, b) => (b.count - a.count) || a.label.localeCompare(b.label, "zh-Hans-CN"));
+  return sentimentMeta(ranked[0]?.label || "中性");
+};
+
 const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (char) => ({
     "&": "&amp;",
@@ -75,6 +87,12 @@ const escapeHtml = (value) =>
     '"': "&quot;",
     "'": "&#39;",
   }[char]));
+
+const linkStockMentions = (value) =>
+  value.replace(/([\u4e00-\u9fa5A-Za-z0-9·*]+)\((\d{6})\)/g, (_match, name, code) => {
+    const label = `${name}(${code})`;
+    return `<a class="comment-inline-stock" href="https://basic.10jqka.com.cn/${code}/" target="_blank" rel="noreferrer">${label}</a>`;
+  });
 
 const highlightKeywords = (value) => {
   const text = escapeHtml(value).replace(/\n/g, "<br />");
@@ -88,7 +106,6 @@ const highlightKeywords = (value) => {
     { token: "买入", tone: "positive" },
     { token: "加仓", tone: "positive" },
     { token: "持有", tone: "positive" },
-    { token: "跟", tone: "positive" },
     { token: "风险", tone: "risk" },
     { token: "止损", tone: "risk" },
     { token: "卖出", tone: "risk" },
@@ -96,93 +113,437 @@ const highlightKeywords = (value) => {
     { token: "高位", tone: "risk" },
     { token: "滞涨", tone: "risk" },
     { token: "出局", tone: "risk" },
-    { token: "观察取消", tone: "risk" },
   ].sort((a, b) => b.token.length - a.token.length);
-  const tokenPattern = new RegExp(keywords.map((item) => item.token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|"), "g");
+  const pattern = new RegExp(keywords.map((item) => item.token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|"), "g");
   const toneMap = new Map(keywords.map((item) => [item.token, item.tone]));
-  return linkStockMentions(text.replace(tokenPattern, (match) => `<span class="comment-keyword ${toneMap.get(match) || "positive"}">${match}</span>`));
+  return linkStockMentions(text.replace(pattern, (match) => `<span class="comment-keyword ${toneMap.get(match) || "positive"}">${match}</span>`));
 };
 
-const valueKindsForComment = (comment) => {
-  const text = `${comment.value_reason || ""} ${comment.mentioned_sectors || ""} ${comment.note || ""}`;
-  const kinds = [];
-  if (comment.include_in_logic === "是") kinds.push("valuable");
-  if (comment.include_in_logic === "否") kinds.push("rejected");
-  if (text.includes("风险") || text.includes("止损") || text.includes("退出")) kinds.push("risk");
-  if (comment.media?.length || comment.video_urls?.length) kinds.push("evidence");
-  if (!kinds.length || comment.include_in_logic === "待确认") kinds.push("watch");
-  return unique(kinds);
+const countTokens = (items = []) => {
+  const map = new Map();
+  items.filter(Boolean).forEach((item) => {
+    const key = String(item).trim();
+    if (!key) return;
+    map.set(key, (map.get(key) ?? 0) + 1);
+  });
+  return [...map.entries()]
+    .sort((a, b) => (b[1] - a[1]) || a[0].localeCompare(b[0], "zh-Hans-CN"))
+    .map(([label, count]) => ({ label, count }));
 };
 
-const statusMeta = (status) => {
-  if (status === "是") return { label: "已纳入", tone: "included", mark: "✓" };
-  if (status === "否") return { label: "未纳入", tone: "rejected", mark: "×" };
-  return { label: "待确认", tone: "pending", mark: "○" };
+const normalizeBoolean = (value) => value === true || String(value).toLowerCase() === "true" || String(value) === "1" || String(value) === "是";
+const normalizeSourceId = (value) => sourceAliasMap.get(String(value || "").trim()) || String(value || "").trim();
+const extractVideoIdFromText = (value) => String(value || "").match(/(?:video_id=|\/video\/)(\d+)/)?.[1] ?? "";
+const inferParentType = (item = {}) => {
+  const sourceId = normalizeSourceId(item.source_id || item.source || item.source_name);
+  const rawType = String(item.parent_type || "").trim();
+  const platformText = [
+    item.platform,
+    item.channel,
+    item.comment_source,
+    item.parent_url,
+    item.note,
+    ...(Array.isArray(item.video_urls) ? item.video_urls : []),
+  ].filter(Boolean).join(" ");
+  if (rawType === "video" || (videoPoolSources.has(sourceId) && /抖音|douyin|\/video\//i.test(platformText))) return "video";
+  if (rawType === "post") return "post";
+  return "post";
+};
+const resolveParentId = (item = {}, comments = []) => {
+  const direct = item.parent_id || comments.find((comment) => comment?.parent_id)?.parent_id || "";
+  if (direct) return direct;
+  const text = [
+    item.parent_url,
+    item.note,
+    ...(Array.isArray(item.video_urls) ? item.video_urls : []),
+    ...comments.flatMap((comment) => [comment?.parent_url, comment?.note, ...(Array.isArray(comment?.video_urls) ? comment.video_urls : [])]),
+  ].filter(Boolean).join(" ");
+  return extractVideoIdFromText(text);
+};
+const isVideoPoolSource = (sourceId, parentType) => videoPoolSources.has(normalizeSourceId(sourceId)) && parentType === "video";
+const buildFallbackCommentGroups = (comments = []) => {
+  const groups = new Map();
+  comments.forEach((comment, index) => {
+    const sourceId = normalizeSourceId(comment.source_id || comment.source || comment.source_name);
+    const parentType = inferParentType(comment);
+    const parentTitle = comment.parent_title || comment.comment_source || comment.mentioned_stocks || "综合主题";
+    const parentId = resolveParentId(comment);
+    const groupKey = isVideoPoolSource(sourceId, parentType)
+      ? (parentId
+        ? `${sourceId}|${parentType}|${parentId}`
+        : `${sourceId}|${parentType}|${parentTitle}|${comment.date || dashboard.date}|${comment.time || comment.comment_time || index}`)
+      : `${sourceId}|comment|${comment.comment_id || ""}|${parentId}|${comment.comment_time || comment.time || ""}|${index}`;
+
+    if (!groups.has(groupKey)) {
+      groups.set(groupKey, {
+        group_id: groupKey,
+        group_mode: isVideoPoolSource(sourceId, parentType) ? "video_pool" : "single_comment",
+        source: sourceId,
+        source_id: sourceId,
+        source_name: comment.source_name || comment.source || sourceId,
+        parent_type: parentType,
+        parent_id: parentId,
+        parent_title: parentTitle,
+        parent_url: comment.parent_url || "",
+        parent_cover: comment.parent_cover || "",
+        platform: comment.platform || comment.comment_source || (parentType === "video" ? "抖音视频" : "同花顺帖子"),
+        time: comment.time || comment.comment_time || "--:--",
+        published_at: comment.published_at || comment.time || comment.comment_time || dashboard.date,
+        summary: comment.parent_summary || comment.value_reason || comment.content || "",
+        mentioned_stocks: [],
+        mentioned_sectors: [],
+        comments: [],
+      });
+    }
+
+    const group = groups.get(groupKey);
+    group.comments.push(comment);
+    group.mentioned_stocks.push(...splitTokens(comment.mentioned_stocks));
+    group.mentioned_sectors.push(...splitTokens(comment.mentioned_sectors));
+    if (!group.parent_url && comment.parent_url) group.parent_url = comment.parent_url;
+    if (!group.parent_cover && comment.parent_cover) group.parent_cover = comment.parent_cover;
+  });
+
+  return [...groups.values()].map((group) => {
+    const comments = group.comments;
+    const selectedComments = comments.filter((comment) => normalizeBoolean(comment.is_selected) || Number(comment.value_score ?? 0) >= 8 || normalizeStatus(comment.include_status || comment.include_in_logic) === "已纳入");
+    const includeCounts = {
+      "已纳入": comments.filter((comment) => normalizeStatus(comment.include_status || comment.include_in_logic) === "已纳入").length,
+      "待确认": comments.filter((comment) => normalizeStatus(comment.include_status || comment.include_in_logic) === "待确认").length,
+      "未纳入": comments.filter((comment) => normalizeStatus(comment.include_status || comment.include_in_logic) === "未纳入").length,
+      "无效评论": comments.filter((comment) => normalizeStatus(comment.include_status || comment.include_in_logic) === "无效评论").length,
+    };
+    const sentimentCounts = {
+      "看多": comments.filter((comment) => sentimentMeta(comment.sentiment).label === "看多").length,
+      "看空": comments.filter((comment) => sentimentMeta(comment.sentiment).label === "看空").length,
+      "中性": comments.filter((comment) => sentimentMeta(comment.sentiment).label === "中性").length,
+      "谨慎": comments.filter((comment) => sentimentMeta(comment.sentiment).label === "谨慎").length,
+    };
+    const includeStatusSummary = includeCounts["已纳入"] ? (includeCounts["已纳入"] === comments.length ? "已纳入" : "部分纳入") : (includeCounts["未纳入"] && !includeCounts["待确认"] ? "未纳入" : "待确认");
+    return {
+      ...group,
+      mentioned_stocks: unique(group.mentioned_stocks),
+      mentioned_sectors: unique(group.mentioned_sectors),
+      comment_count: comments.length,
+      valuable_comment_count: selectedComments.length,
+      include_status_summary: includeStatusSummary,
+      include_counts: includeCounts,
+      sentiment_counts: sentimentCounts,
+      selected_comments: selectedComments,
+      support_direction: includeCounts["已纳入"] ? "增强观察" : "仅作参考",
+    };
+  }).sort((a, b) => String(b.time || "").localeCompare(String(a.time || ""), "zh-Hans-CN"));
 };
 
-const groupStatusMeta = (group) => {
-  const statuses = unique(group.comments.map((item) => item.include_in_logic || "待确认"));
-  if (statuses.length === 1) return statusMeta(statuses[0]);
-  if (statuses.includes("是")) return { label: "部分纳入", tone: "partial", mark: "●" };
-  return { label: "待确认", tone: "pending", mark: "○" };
-};
+const commentGroupsRaw = commentGroupsFromDashboard.length ? commentGroupsFromDashboard : buildFallbackCommentGroups(flatCommentsRaw);
 
-const findEvidenceUrl = (sourceId, stocks, commentsInGroup) => {
-  const directVideo = commentsInGroup.flatMap((comment) => comment.video_urls ?? [])[0];
-  if (directVideo) return directVideo;
+const normalizeMixedCommentGroups = (groups = []) => {
+  const mixedGroups = new Map();
+  groups.forEach((group, groupIndex) => {
+    const rawComments = group.comments?.length ? group.comments : [];
+    const sourceId = normalizeSourceId(group.source_id || group.source || group.source_name || rawComments[0]?.source_id || rawComments[0]?.source || rawComments[0]?.source_name);
+    const parentType = inferParentType({ ...group, source_id: sourceId });
+    if (isVideoPoolSource(sourceId, parentType)) {
+      const parentId = resolveParentId(group, rawComments);
+      const parentKey = parentId
+        ? `${sourceId}|${parentType}|${parentId}`
+        : `${sourceId}|${parentType}|${group.parent_title || rawComments[0]?.parent_title || ""}|${group.published_at || group.time || rawComments[0]?.comment_time || ""}`;
+      if (!mixedGroups.has(parentKey)) {
+        mixedGroups.set(parentKey, {
+          ...group,
+          group_id: parentKey,
+          group_mode: "video_pool",
+          source: sourceId,
+          source_id: sourceId,
+          parent_type: "video",
+          parent_id: parentId,
+          parent_title: group.parent_title || rawComments[0]?.parent_title || group.summary || "未命名视频",
+          parent_url: group.parent_url || rawComments.find((comment) => comment?.parent_url)?.parent_url || "",
+          parent_cover: group.parent_cover || rawComments.find((comment) => comment?.parent_cover)?.parent_cover || "",
+          platform: "抖音视频",
+          comments: [],
+          mentioned_stocks: [],
+          mentioned_sectors: [],
+        });
+      }
+      const target = mixedGroups.get(parentKey);
+      const nextComments = rawComments.length ? rawComments : [{
+        ...group,
+        source_id: sourceId,
+        source: group.source || sourceId,
+        parent_type: "video",
+        parent_id: parentId,
+        parent_title: group.parent_title,
+        parent_url: group.parent_url,
+        parent_cover: group.parent_cover,
+      }];
+      target.comments.push(...nextComments.map((comment) => ({
+        ...comment,
+        source_id: sourceId,
+        parent_type: "video",
+        parent_id: comment.parent_id || parentId,
+        parent_title: comment.parent_title || target.parent_title,
+        parent_url: comment.parent_url || target.parent_url,
+        parent_cover: comment.parent_cover || target.parent_cover,
+        platform: "抖音视频",
+      })));
+      target.mentioned_stocks.push(...(Array.isArray(group.mentioned_stocks) ? group.mentioned_stocks : splitTokens(group.mentioned_stocks)));
+      target.mentioned_sectors.push(...(Array.isArray(group.mentioned_sectors) ? group.mentioned_sectors : splitTokens(group.mentioned_sectors)));
+      return;
+    }
 
-  const posts = evidence[sourceId]?.posts ?? [];
-  const matched = posts.find((post) => {
-    const postStocks = splitTokens(post.mentioned_stocks);
-    return postStocks.some((stock) => stocks.includes(stock));
-  }) ?? posts[0];
-
-  return matched?.url && !String(matched.url).startsWith("douyin://") ? matched.url : "";
-};
-
-const groupsByKey = new Map();
-comments.forEach((comment, index) => {
-  const stocks = splitTokens(comment.mentioned_stocks);
-  const sectors = splitTokens(comment.mentioned_sectors);
-  const primary = stocks[0] || sectors[0] || "综合";
-  const time = extractTime(comment.comment_source);
-  const channel = cleanChannel(comment.comment_source);
-  const sourceId = comment.source_id || "";
-  const key = [sourceId, time, channel, primary].join("|");
-
-  if (!groupsByKey.has(key)) {
-    groupsByKey.set(key, {
-      id: `comment-thread-${groupsByKey.size + 1}`,
-      source_id: sourceId,
-      source_name: comment.source_name ?? comment.source ?? sourceId,
-      time,
-      channel,
-      primary,
-      comments: [],
-      stocks,
-      sectors,
+    (group.comments?.length ? group.comments : [null]).forEach((comment, commentIndex) => {
+      const commentId = comment?.comment_id || `${group.group_id || groupIndex}-${commentIndex}`;
+      const key = `${sourceId}|comment|${commentId}|${groupIndex}|${commentIndex}`;
+      mixedGroups.set(key, {
+        ...group,
+        group_id: key,
+        group_mode: "single_comment",
+        source: sourceId,
+        source_id: sourceId,
+        parent_type: parentType,
+        parent_id: comment?.parent_id || group.parent_id || "",
+        parent_title: comment?.parent_title || group.parent_title || "",
+        parent_url: comment?.parent_url || group.parent_url || "",
+        parent_cover: comment?.parent_cover || group.parent_cover || "",
+        time: comment?.comment_time || group.time || "--:--",
+        published_at: comment?.comment_time || group.published_at || group.time || dashboard.date,
+        summary: comment?.content || group.summary || "",
+        mentioned_stocks: splitTokens(comment?.mentioned_stocks || "").length ? splitTokens(comment?.mentioned_stocks || "") : (Array.isArray(group.mentioned_stocks) ? group.mentioned_stocks : splitTokens(group.mentioned_stocks)),
+        mentioned_sectors: splitTokens(comment?.mentioned_sectors || "").length ? splitTokens(comment?.mentioned_sectors || "") : (Array.isArray(group.mentioned_sectors) ? group.mentioned_sectors : splitTokens(group.mentioned_sectors)),
+        comments: comment ? [comment] : [],
+        selected_comments: comment && (normalizeBoolean(comment.is_selected) || Number(comment.value_score ?? 0) >= 8 || normalizeStatus(comment.include_status || comment.include_in_logic) === "已纳入") ? [comment] : [],
+      });
     });
-  }
+  });
 
-  const group = groupsByKey.get(key);
-  group.comments.push({
-    ...comment,
-    index: index + 1,
+  return [...mixedGroups.values()].map((group) => {
+    const comments = group.comments ?? [];
+    const selectedComments = comments.filter((comment) => normalizeBoolean(comment.is_selected) || Number(comment.value_score ?? 0) >= 8 || normalizeStatus(comment.include_status || comment.include_in_logic) === "已纳入");
+    const includeCounts = {
+      "已纳入": comments.filter((comment) => normalizeStatus(comment.include_status || comment.include_in_logic) === "已纳入").length,
+      "待确认": comments.filter((comment) => normalizeStatus(comment.include_status || comment.include_in_logic) === "待确认").length,
+      "未纳入": comments.filter((comment) => normalizeStatus(comment.include_status || comment.include_in_logic) === "未纳入").length,
+      "无效评论": comments.filter((comment) => normalizeStatus(comment.include_status || comment.include_in_logic) === "无效评论").length,
+    };
+    const sentimentCounts = {
+      "看多": comments.filter((comment) => sentimentMeta(comment.sentiment).label === "看多").length,
+      "看空": comments.filter((comment) => sentimentMeta(comment.sentiment).label === "看空").length,
+      "中性": comments.filter((comment) => sentimentMeta(comment.sentiment).label === "中性").length,
+      "谨慎": comments.filter((comment) => sentimentMeta(comment.sentiment).label === "谨慎").length,
+    };
+    const includeStatusSummary = includeCounts["已纳入"]
+      ? (includeCounts["已纳入"] === comments.length ? "已纳入" : "部分纳入")
+      : (includeCounts["未纳入"] && !includeCounts["待确认"] ? "未纳入" : "待确认");
+    return {
+      ...group,
+      mentioned_stocks: unique([
+        ...(Array.isArray(group.mentioned_stocks) ? group.mentioned_stocks : splitTokens(group.mentioned_stocks)),
+        ...comments.flatMap((comment) => splitTokens(comment.mentioned_stocks)),
+      ]),
+      mentioned_sectors: unique([
+        ...(Array.isArray(group.mentioned_sectors) ? group.mentioned_sectors : splitTokens(group.mentioned_sectors)),
+        ...comments.flatMap((comment) => splitTokens(comment.mentioned_sectors)),
+      ]),
+      comment_count: comments.length || group.comment_count || 0,
+      valuable_comment_count: selectedComments.length,
+      selected_comments: selectedComments,
+      include_counts: includeCounts,
+      sentiment_counts: sentimentCounts,
+      include_status_summary: includeStatusSummary,
+      support_direction: includeCounts["已纳入"] ? "增强观察" : (includeCounts["未纳入"] && !includeCounts["待确认"] ? "不纳入" : "仅作参考"),
+    };
+  }).sort((a, b) => String(b.time || "").localeCompare(String(a.time || ""), "zh-Hans-CN"));
+};
+
+const nonMarketSectorLabels = new Set(["风险提示", "含图片", "截图核对", "含图片/截图核对", "个股相关", "野哥同花顺逻辑", "交易动作", "减仓/退出风险"]);
+const marketFocusSectors = unique([
+  ...(dashboard.overview?.main_sectors ?? []),
+  ...(dashboard.market?.accumulation_direction ?? []),
+].flatMap((item) => splitTokens(item)).filter((item) => !["暂无数据", "需补充 market.csv"].includes(item)));
+
+const sectorsForStock = (stock, commentSectors = []) => {
+  const code = extractStockCode(stock);
+  const mapped = code ? stockSectorMap[code]?.sectors ?? [] : [];
+  const usableCommentSectors = commentSectors.filter((sector) => !nonMarketSectorLabels.has(sector));
+  return unique([...mapped, ...usableCommentSectors]);
+};
+const sectorMatchesMarket = (sector) => marketFocusSectors.some((marketSector) => sector.includes(marketSector) || marketSector.includes(sector));
+
+const videoPostMap = new Map(
+  Object.entries(evidence).flatMap(([sourceId, item]) => (item?.posts ?? []).map((post) => [post.url || `${sourceId}-${post.title}`, { sourceId, ...post }]))
+);
+
+const commentGroups = normalizeMixedCommentGroups(commentGroupsRaw).map((group, index) => {
+  const stocks = group.mentioned_stocks ?? [];
+  const sectors = group.mentioned_sectors ?? [];
+  const matchedPost = group.parent_url ? videoPostMap.get(group.parent_url) : null;
+  const comments = (group.comments ?? []).map((comment, commentIndex) => {
+    const stockList = splitTokens(comment.mentioned_stocks);
+    const sectorList = splitTokens(comment.mentioned_sectors);
+    const derivedSectors = unique([...sectorList, ...stockList.flatMap((stock) => sectorsForStock(stock, sectorList))]);
+    const sentiment = String(comment.sentiment || "").trim() || "中性";
+    const status = normalizeStatus(comment.include_status || comment.include_in_logic);
+    const supportDirection = status === "已纳入" ? "支持纳入" : (status === "未纳入" || status === "无效评论" ? "反向风险" : "仅作参考");
+    const bucket = status === "无效评论"
+      ? "invalid"
+      : ((Boolean(comment.is_selected === true || String(comment.is_selected).toLowerCase() === "true" || String(comment.is_selected) === "1") || (Number(comment.value_score ?? 0) || 0) >= 8)
+        ? "valuable"
+        : (sentiment === "中性" ? "neutral" : "normal"));
+    return {
+      ...comment,
+      index: commentIndex + 1,
+      stockList,
+      sectorList,
+      derivedSectors,
+      sentiment,
+      supportDirection,
+      include_status: status,
+      value_score: Number(comment.value_score ?? 0) || 0,
+      is_selected: Boolean(comment.is_selected === true || String(comment.is_selected).toLowerCase() === "true" || String(comment.is_selected) === "1"),
+      mediaList: comment.media ?? [],
+      bucket,
+      sentimentMeta: sentimentMeta(sentiment),
+      searchText: `${comment.commenter || ""} ${comment.content || ""}`.trim().toLowerCase(),
+    };
+  });
+
+  const rankedStocks = countTokens(comments.flatMap((comment) => comment.stockList));
+  const rankedSectors = countTokens(comments.flatMap((comment) => comment.derivedSectors));
+  const valuableComments = comments.filter((comment) => comment.bucket === "valuable");
+  const neutralComments = comments.filter((comment) => comment.bucket === "neutral");
+  const invalidComments = comments.filter((comment) => comment.bucket === "invalid");
+  const validComments = comments.filter((comment) => comment.value_score >= 6.5 || comment.stockList.length || ["已纳入", "待确认"].includes(comment.include_status));
+  const commentCount = Number(group.comment_count ?? comments.length);
+  const valuableCommentCount = Number(group.valuable_comment_count ?? valuableComments.length);
+  const includeCounts = {
+    "已纳入": Number(group.include_counts?.["已纳入"] ?? comments.filter((comment) => comment.include_status === "已纳入").length),
+    "待确认": Number(group.include_counts?.["待确认"] ?? comments.filter((comment) => comment.include_status === "待确认").length),
+    "未纳入": Number(group.include_counts?.["未纳入"] ?? comments.filter((comment) => comment.include_status === "未纳入").length),
+    "无效评论": Number(group.include_counts?.["无效评论"] ?? comments.filter((comment) => comment.include_status === "无效评论").length),
+  };
+  const sentimentCounts = {
+    bullish: Number(group.sentiment_counts?.["看多"] ?? comments.filter((comment) => comment.sentiment === "看多").length),
+    bearish: Number(group.sentiment_counts?.["看空"] ?? comments.filter((comment) => comment.sentiment === "看空").length),
+    neutral: Number(group.sentiment_counts?.["中性"] ?? comments.filter((comment) => comment.sentiment === "中性").length),
+    cautious: Number(group.sentiment_counts?.["谨慎"] ?? comments.filter((comment) => comment.sentiment === "谨慎").length),
+  };
+  const primaryStock = rankedStocks.find((item) => isFullStockLabel(item.label))?.label || stocks.find(isFullStockLabel) || rankedStocks[0]?.label || stocks[0] || "";
+  const primary = primaryStock || group.parent_title || "综合主题";
+  const publishedAt = group.published_at || group.time || dashboard.date;
+  const videoTitle = stripDatePrefix(group.parent_title || matchedPost?.title || "");
+  const topStocksText = rankedStocks.slice(0, 4).map((item) => item.label).join("、");
+  const topSectorsText = rankedSectors.slice(0, 3).map((item) => item.label).join("、");
+  const videoAnalysisText = topStocksText
+    ? `该视频评论主要围绕 ${topStocksText} 展开${topSectorsText ? `，关联板块集中在 ${topSectorsText}` : ""}。当前共抓取 ${commentCount} 条评论，其中有效评论 ${validComments.length} 条，已纳入 ${includeCounts["已纳入"]} 条，待确认 ${includeCounts["待确认"]} 条。`
+    : `该视频当前共抓取 ${commentCount} 条评论，其中有效评论 ${validComments.length} 条，建议结合原视频和高价值评论继续复核。`;
+  const displayTitle = group.parent_type === "video" ? (videoTitle || "未命名视频") : primary;
+  const headerTitle = `${displayTitle} ${group.parent_type === "video" ? "视频评论池详情" : "帖子评论池详情"}`;
+  const summaryText = normalizeSummaryText(group.summary || matchedPost?.summary || matchedPost?.raw_text || comments[0]?.content || "暂无摘要");
+  const rawDescriptionText = stripDatePrefix(matchedPost?.raw_text || "").trim();
+  const rawDescription = rawDescriptionText ? normalizeSummaryText(rawDescriptionText) : "";
+  const displayDescription = rawDescription && rawDescription !== displayTitle
+    ? rawDescription
+    : (summaryText && summaryText !== "暂无摘要" ? summaryText : videoAnalysisText);
+  const statuses = unique(comments.map((comment) => comment.include_status));
+  const groupStatus = statusMeta(group.include_status_summary || (statuses.includes("已纳入") && statuses.length > 1 ? "部分纳入" : statuses[0] || "待确认"));
+  const dominantSentiment = dominantSentimentMeta(sentimentCounts);
+  const supportDirectionLabel = group.support_direction || (groupStatus.label === "已纳入" ? "增强观察" : (groupStatus.label === "未纳入" ? "不纳入" : "仅作参考"));
+  const leadStock = primaryStock && !/^\d{6}$/.test(primaryStock) ? primaryStock : "";
+  const leadSector = rankedSectors[0]?.label || sectors[0] || "";
+  const coverPath = unique([
+    ...(matchedPost?.media ?? []),
+    ...String(group.parent_cover || "").split(";").filter(Boolean),
+    ...comments.flatMap((comment) => comment.mediaList ?? []),
+  ])[0] || "";
+  const decisionReasons = [
+    valuableCommentCount ? `当前评论池已筛出 ${valuableCommentCount} 条价值评论，可作为重点复核对象。` : "",
+    leadStock ? `${leadStock} 在该 ${group.parent_type === "video" ? "视频" : "帖子"} 评论池中被提及次数最高。` : "",
+    topSectorsText ? `高频提及板块集中在 ${topSectorsText}，便于与大盘主线联动判断。` : "",
+    includeCounts["待确认"] ? `仍有 ${includeCounts["待确认"]} 条评论待人工确认，建议结合原帖继续校对。` : "",
+  ].filter(Boolean).slice(0, 4);
+  const riskPoints = [
+    includeCounts["无效评论"] ? `存在 ${includeCounts["无效评论"]} 条无效评论，需要剔除噪音。` : "",
+    includeCounts["未纳入"] ? `有 ${includeCounts["未纳入"]} 条评论未纳入逻辑，需留意反向观点。` : "",
+    sentimentCounts.bearish ? `评论池中仍有 ${sentimentCounts.bearish} 条看空情绪，注意短线分歧。` : "",
+    !topSectorsText ? "板块标签仍不完整，建议继续补充来源描述。" : "",
+  ].filter(Boolean).slice(0, 4);
+  const nextActions = [
+    groupStatus.label === "已纳入" ? "结合次日承接与量价结构，决定是否进入推荐池。" : "",
+    groupStatus.label === "待确认" ? "继续复核原视频 / 原帖内容和截图证据，再决定是否纳入。" : "",
+    groupStatus.label === "未纳入" ? "保持风险观察，不直接进入推荐池。" : "",
+  ].filter(Boolean);
+
+  const sortedSelectedComments = ((group.selected_comments ?? []).length
+    ? (group.selected_comments ?? []).map((comment) => ({
+        ...comment,
+        stockList: splitTokens(comment.mentioned_stocks),
+        derivedSectors: unique([...splitTokens(comment.mentioned_sectors), ...splitTokens(comment.mentioned_stocks).flatMap((stock) => sectorsForStock(stock, splitTokens(comment.mentioned_sectors)))]),
+        include_status: normalizeStatus(comment.include_status || comment.include_in_logic),
+        supportDirection: normalizeStatus(comment.include_status || comment.include_in_logic) === "已纳入" ? "支持纳入" : "仅作参考",
+        value_score: Number(comment.value_score ?? 0) || 0,
+      }))
+    : comments.filter((comment) => comment.is_selected || comment.value_score >= 8))
+    .sort((a, b) => (Number(b.value_score ?? 0) - Number(a.value_score ?? 0)) || String(a.comment_time || "").localeCompare(String(b.comment_time || "")));
+
+  return {
+    ...group,
+    id: `comment-group-${index + 1}`,
+    source_id: group.source_id || group.source,
+    source_name: group.source_name,
+    kind: group.parent_type || "post",
+    platform: group.platform || (group.parent_type === "video" ? "抖音视频" : "同花顺帖子"),
+    time: group.time || comments[0]?.comment_time || "--:--",
+    publishedAt,
+    headerTitle,
+    summaryText,
+    videoAnalysisText,
+    displayTitle,
+    videoTitle,
+    primary,
     stocks,
     sectors,
-    value_kinds: valueKindsForComment(comment),
-  });
-  group.stocks = unique([...group.stocks, ...stocks]);
-  group.sectors = unique([...group.sectors, ...sectors]);
+    rankedStocks,
+    rankedSectors,
+    comments,
+    validComments,
+    valuableComments,
+    neutralComments,
+    invalidComments,
+    selectedComments: sortedSelectedComments,
+    featuredComment: sortedSelectedComments[0] ?? null,
+    commentCount,
+    valuableCommentCount,
+    neutralCommentCount: neutralComments.length,
+    invalidCommentCount: invalidComments.length,
+    includeCounts,
+    sentimentCounts,
+    dominantSentiment,
+    supportDirection: supportDirectionLabel,
+    statusMeta: groupStatus,
+    mediaList: unique([
+      coverPath,
+      ...comments.flatMap((comment) => comment.mediaList ?? []),
+    ]),
+    leadStock,
+    leadSector,
+    coverPath,
+    displayDescription,
+    decisionReasons,
+    riskPoints,
+    nextActions,
+  };
 });
 
-const threadGroups = [...groupsByKey.values()].map((group) => ({
-  ...group,
-  url: findEvidenceUrl(group.source_id, group.stocks, group.comments),
-  value_kinds: unique(group.comments.flatMap((comment) => comment.value_kinds)),
-  statuses: unique(group.comments.map((comment) => comment.include_in_logic || "待确认")),
-}));
-
+const totalCommentCount = commentGroups.reduce((sum, group) => sum + group.commentCount, 0);
+const groupedSourceCommentCounts = Object.fromEntries(commentSources.map((source) => [
+  source.id,
+  commentGroups.filter((group) => group.source_id === source.id).reduce((sum, group) => sum + group.commentCount, 0),
+]));
+const groupedSourceEventCounts = Object.fromEntries(commentSources.map((source) => [
+  source.id,
+  commentGroups.filter((group) => group.source_id === source.id).length,
+]));
 const dateOptions = unique([dashboard.date, ...reports.map((item) => item.date)])
   .filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(String(date)))
   .sort()
@@ -198,452 +559,681 @@ const currentDateParts = dateParts.find((item) => item.date === dashboard.date) 
   day: String(dashboard.date || "").slice(8, 10),
 };
 const yearOptions = unique(dateParts.map((item) => item.year)).sort((a, b) => Number(b) - Number(a));
-const monthOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year).map((item) => item.month))
-  .sort((a, b) => Number(b) - Number(a));
-const dayOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year && item.month === currentDateParts.month).map((item) => item.day))
-  .sort((a, b) => Number(b) - Number(a));
+const monthOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year).map((item) => item.month)).sort((a, b) => Number(b) - Number(a));
+const dayOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year && item.month === currentDateParts.month).map((item) => item.day)).sort((a, b) => Number(b) - Number(a));
+const sourceShortName = (sourceName = "") => String(sourceName).replace("哥闯大A", "哥").replace("王多于股之子", "王多于");
 ---
 
 <>
-    <section class="comment-workbench">
-      <header class="comment-page-head">
-        <div>
-          <h1>评论聚合 <span>/ {dashboard.date}</span></h1>
-          <p>聚合全平台有价值评论，辅助判断与决策</p>
-        </div>
-        <button class="comment-export-btn" type="button" data-export-comments>
-          <span>⇩</span>
-          导出评论数据
-        </button>
-      </header>
+  <section class="comment-workbench">
+    <header class="comment-page-head">
+      <div>
+        <h1>评论聚合 <span>/ {dashboard.date}</span></h1>
+        <p>聚合全平台有价值评论，辅助判断与决策</p>
+      </div>
+      <button class="comment-export-btn" type="button" data-export-comments>
+        <span>⇩</span>
+        导出评论数据
+      </button>
+    </header>
 
-      <section class="comment-control-grid" aria-label="评论筛选">
-        <div class="comment-source-switcher">
+    <section class="comment-control-grid" aria-label="评论筛选">
+      <div class="comment-source-switcher">
+        <div class="comment-source-tabs">
           <button class="active" type="button" data-comment-filter="all">全部来源</button>
-          {sources.map((source) => (
+          {commentSources.map((source) => (
             <button type="button" data-comment-filter={source.id}>
-              {source.name} <small>({source.count ?? 0})</small>
+              {source.name} <small>({groupedSourceEventCounts[source.id] ?? 0})</small>
             </button>
           ))}
-          <label
-            class="comment-date-picker"
-            data-date-picker
-            data-current-date={dashboard.date}
-            data-comments-base={commentsBase}
-            data-date-options={JSON.stringify(dateParts)}
-          >
-            <span aria-hidden="true">日期</span>
-            <div class="comment-date-fields">
-              <select data-date-year aria-label="选择年份">
-                {yearOptions.map((year) => (
-                  <option value={year} selected={year === currentDateParts.year}>{year}年</option>
-                ))}
-              </select>
-              <select data-date-month aria-label="选择月份">
-                {monthOptions.map((month) => (
-                  <option value={month} selected={month === currentDateParts.month}>{Number(month)}月</option>
-                ))}
-              </select>
-              <select data-date-day aria-label="选择日期">
-                {dayOptions.map((day) => (
-                  <option value={day} selected={day === currentDateParts.day}>{Number(day)}日</option>
-                ))}
-              </select>
-            </div>
-          </label>
         </div>
-      </section>
-
-      <section class="comment-workbench-layout">
-        <aside class="comment-timeline-panel">
-          <div class="comment-panel-title">
-            <h2>评论时间线</h2>
-            <span>按时间索引</span>
+        <label
+          class="comment-date-picker"
+          data-date-picker
+          data-current-date={dashboard.date}
+          data-comments-base={commentsBase}
+          data-date-options={JSON.stringify(dateParts)}
+        >
+          <span aria-hidden="true">日期</span>
+          <div class="comment-date-fields">
+            <select data-date-year aria-label="选择年份">
+              {yearOptions.map((year) => <option value={year} selected={year === currentDateParts.year}>{year}年</option>)}
+            </select>
+            <select data-date-month aria-label="选择月份">
+              {monthOptions.map((month) => <option value={month} selected={month === currentDateParts.month}>{Number(month)}月</option>)}
+            </select>
+            <select data-date-day aria-label="选择日期">
+              {dayOptions.map((day) => <option value={day} selected={day === currentDateParts.day}>{Number(day)}日</option>)}
+            </select>
           </div>
-          <p class="comment-timeline-summary">共 {comments.length} 条评论 / {threadGroups.length} 条帖子或视频</p>
-          <ol class="comment-thread-timeline">
-            {threadGroups.map((group, index) => (
-              (() => {
-                const timelineStatus = groupStatusMeta(group);
-                return (
-              <li
-                data-timeline-item
-                data-target-thread={group.id}
-                data-source={group.source_id}
-                data-statuses={group.statuses.join("|")}
-                data-values={group.value_kinds.join("|")}
-                data-stocks={group.stocks.join("|")}
-                data-sectors={group.sectors.join("|")}
-                data-time={group.time}
-              >
-                <button type="button" class={index === 0 ? "active" : ""}>
-                  <span class={`timeline-dot ${sourceColors[group.source_id] ?? ""}`}></span>
-                  <time>{group.time}</time>
-                  <strong>{group.source_name} · {group.channel}</strong>
-                  <em>{group.primary}</em>
-                  <small>价值评论 {group.comments.length} 条</small>
-                  <span class={`comment-status-badge ${timelineStatus.tone}`}>{timelineStatus.label}</span>
-                </button>
-              </li>
-                );
-              })()
-            ))}
-          </ol>
-        </aside>
-
-        <main class="comment-thread-feed" aria-live="polite">
-          <div class="comment-feed-status">
-            <strong id="comment-feed-title">全部评论区</strong>
-            <div class="comment-feed-tools">
-              <span id="comment-feed-count">显示 {threadGroups.length} 组 / {comments.length} 条评论</span>
-            </div>
-          </div>
-
-          {threadGroups.length ? (
-            threadGroups.map((group, index) => {
-              const groupStatus = groupStatusMeta(group);
-              const primaryUrl = thsStockUrl(group.primary);
-              return (
-                <section
-                  class="comment-thread-card"
-                  id={group.id}
-                  hidden={index !== 0}
-                  data-comment-thread
-                  data-source={group.source_id}
-                  data-statuses={group.statuses.join("|")}
-                  data-values={group.value_kinds.join("|")}
-                  data-stocks={group.stocks.join("|")}
-                  data-sectors={group.sectors.join("|")}
-                  data-time={group.time}
-                >
-                  <header class="comment-thread-head">
-                    <div class="comment-thread-head-main">
-                      <time>{group.time}</time>
-                      <div class="comment-thread-head-copy">
-                        <strong>{group.source_name} / {group.channel}</strong>
-                        <h2>
-                          {primaryUrl ? (
-                            <a href={primaryUrl} target="_blank" rel="noreferrer">{group.primary}</a>
-                          ) : (
-                            group.primary
-                          )} 评论区
-                        </h2>
-                      </div>
-                    </div>
-                    <div class="comment-thread-head-actions">
-                      <span class={`comment-status-badge ${groupStatus.tone}`}>{groupStatus.label}</span>
-                      <span class="comment-status-badge neutral">价值评论 {group.comments.length} 条</span>
-                      {group.url ? (
-                        <a href={group.url} target="_blank" rel="noreferrer">帖子链接 ↗</a>
-                      ) : (
-                        <span class="comment-muted-link">暂无原文链接</span>
-                      )}
-                    </div>
-                  </header>
-
-                  <div class="comment-detail-list">
-                    {group.comments.map((comment) => {
-                      const meta = statusMeta(comment.include_in_logic);
-                      const author = comment.comment_source.includes("评论备份")
-                        ? `${group.source_name}备份`
-                        : `${group.source_name}评论`;
-                      return (
-                        <article
-                          class="comment-decision-card"
-                          data-comment-card
-                          data-source={comment.source_id}
-                          data-status={comment.include_in_logic || "待确认"}
-                          data-values={comment.value_kinds.join("|")}
-                          data-stocks={comment.stocks.join("|")}
-                          data-sectors={comment.sectors.join("|")}
-                        >
-                          <div class="comment-main-card">
-                            <div class="comment-author-row">
-                              <span class={`comment-avatar ${sourceColors[group.source_id] ?? ""}`}>{group.source_name.slice(0, 1)}</span>
-                              <div class="comment-author-copy">
-                                <strong>{author}</strong>
-                                <span>#{comment.index} · {group.source_name} / {group.channel} · {group.time}</span>
-                              </div>
-                              <span class={`comment-status-badge ${meta.tone}`}>{meta.label}</span>
-                            </div>
-                            <p class="comment-main-text" set:html={highlightKeywords(comment.content || "暂无评论正文")} />
-                            <div class="comment-chip-row">
-                              {(comment.stocks.length ? comment.stocks : ["暂无股票"]).slice(0, 3).map((stock) => {
-                                const url = thsStockUrl(stock);
-                                return url ? (
-                                  <a class="comment-stock-chip" href={url} target="_blank" rel="noreferrer">{stock}</a>
-                                ) : (
-                                  <span>{stock}</span>
-                                );
-                              })}
-                              {comment.sectors.slice(0, 2).map((sector) => <span>{sector}</span>)}
-                            </div>
-                            <div class="comment-origin-row">
-                              <span>来源：{group.source_name} / {group.channel}</span>
-                              {comment.video_urls?.length ? comment.video_urls.map((url) => <a href={url} target="_blank" rel="noreferrer">查看视频</a>) : null}
-                            </div>
-                            {comment.media?.length ? (
-                              <section class="comment-screenshot-section">
-                                <h3>相关截图（{comment.media.length} 张）</h3>
-                                <div class="comment-screenshot-grid">
-                                  {comment.media.slice(0, 4).map((path, mediaIndex) => (
-                                    <a href={assetUrl(path)} target="_blank" rel="noreferrer" class="comment-screenshot-card">
-                                      <img src={assetUrl(path)} alt={`${group.primary} 评论截图 ${mediaIndex + 1}`} loading="lazy" />
-                                      <span>截图 {mediaIndex + 1}</span>
-                                      <b aria-hidden="true">⌕</b>
-                                    </a>
-                                  ))}
-                                </div>
-                              </section>
-                            ) : null}
-                          </div>
-
-                          <div class="comment-insight-list">
-                            <div class="comment-insight-row">
-                              <span class="comment-insight-label"><i aria-hidden="true">▤</i> 提到的股票</span>
-                              <strong class="comment-insight-stock-links">
-                                {comment.stocks.length ? comment.stocks.map((stock) => {
-                                  const url = thsStockUrl(stock);
-                                  return url ? (
-                                    <a href={url} target="_blank" rel="noreferrer">{stock}</a>
-                                  ) : (
-                                    <span>{stock}</span>
-                                  );
-                                }) : "暂无"}
-                              </strong>
-                            </div>
-                            <div class="comment-insight-row">
-                              <span class="comment-insight-label"><i aria-hidden="true">▱</i> 提到的板块</span>
-                              {(() => {
-                                const relation = sectorRelationForComment(comment);
-                                return (
-                                  <div class="comment-sector-linkage">
-                                    {relation.relations.length ? relation.relations.map((item) => {
-                                      const stockUrl = thsStockUrl(item.stock);
-                                      return (
-                                        <div class="comment-sector-linkage-item">
-                                          <span class="comment-sector-stock">
-                                            {stockUrl ? (
-                                              <a href={stockUrl} target="_blank" rel="noreferrer">{stockDisplayName(item.stock)}</a>
-                                            ) : (
-                                              stockDisplayName(item.stock)
-                                            )}
-                                          </span>
-                                          <span class="comment-sector-arrow">→</span>
-                                          <span class="comment-sector-tags">
-                                            {item.sectors.length ? item.sectors.map((sector) => (
-                                              <em class={sectorMatchesMarket(sector) ? "market-hit" : ""}>{sector}</em>
-                                            )) : <em>待补充板块</em>}
-                                          </span>
-                                          <small class={item.marketHits.length ? "market-hit" : ""}>
-                                            {item.marketHits.length ? `命中大盘：${item.marketHits.join("、")}` : (relation.hasMarketData ? "未命中今日主线" : "大盘板块待补充")}
-                                          </small>
-                                        </div>
-                                      );
-                                    }) : (
-                                      <div class="comment-sector-linkage-item">
-                                        <span class="comment-sector-stock">暂无明确股票</span>
-                                        <span class="comment-sector-arrow">→</span>
-                                        <span class="comment-sector-tags">
-                                          {(relation.fallbackSectors.length ? relation.fallbackSectors : ["待补充板块"]).slice(0, 4).map((sector) => <em>{sector}</em>)}
-                                        </span>
-                                      </div>
-                                    )}
-                                  </div>
-                                );
-                              })()}
-                            </div>
-                            <div class="comment-insight-row comment-insight-row--wide">
-                              <span class="comment-insight-label"><i aria-hidden="true">◇</i> 为什么有价值</span>
-                              <p set:html={highlightKeywords(comment.value_reason || "待补充价值判断")} />
-                            </div>
-                            <div class={`comment-insight-row comment-insight-row--status ${meta.tone}`}>
-                              <span class="comment-insight-label"><i aria-hidden="true">◎</i> 纳入推荐逻辑</span>
-                              <strong><i>{meta.mark}</i>{meta.label}</strong>
-                              <p>纳入理由：{comment.include_in_logic === "否" ? "作为风险或反向观察，不直接进入推荐。" : "保留为观察依据，等待盘面验证。"}</p>
-                            </div>
-                          </div>
-
-                          <div class="comment-evidence-actions">
-                            <div class="comment-action-row">
-                              <button type="button">纳入推荐逻辑</button>
-                              <button type="button">标记为待确认</button>
-                              <button type="button">标记为无效</button>
-                              {group.url ? (
-                                <a href={group.url} target="_blank" rel="noreferrer">查看原文</a>
-                              ) : (
-                                <span class="comment-action-disabled">暂无原文</span>
-                              )}
-                            </div>
-                          </div>
-                        </article>
-                      );
-                    })}
-                  </div>
-                </section>
-              );
-            })
-          ) : (
-            <article class="comment-empty-workbench">
-              <strong>暂无评论 CSV 数据</strong>
-              <p>请补充 <code>data/daily/{dashboard.date}/comments.csv</code> 后重新运行生成脚本。</p>
-            </article>
-          )}
-        </main>
-      </section>
+        </label>
+      </div>
     </section>
 
-    <script type="application/json" id="comments-export-data" set:html={JSON.stringify(comments)}></script>
-    <script>
-      const state = {
-        source: "all",
-      };
+    <section class="comment-workbench-layout">
+      <aside class="comment-timeline-panel">
+        <div class="comment-panel-title">
+          <h2>视频 / 帖子时间线</h2>
+          <span>按发布时间</span>
+        </div>
+        <p class="comment-timeline-summary">共 {totalCommentCount} 条评论 / {commentGroups.length} 条帖子或视频</p>
+        <ol class="comment-thread-timeline">
+          {commentGroups.map((group, index) => (
+            <li
+              data-timeline-item
+              data-target-thread={group.id}
+              data-source={group.source_id}
+              data-comment-count={group.commentCount}
+            >
+              <button type="button" class={index === 0 ? "active" : ""}>
+                <span class={`timeline-dot ${sourceColors[group.source_id] ?? ""}`}></span>
+                <time>{group.time}</time>
+                <strong>{group.kind === "video" ? "抖音视频" : "同花顺帖子"}</strong>
+                <em>{group.displayTitle}</em>
+                <b>{group.leadStock || "综合主题"}</b>
+                <small>{group.commentCount} 条评论 · {group.valuableCommentCount} 条价值评论</small>
+                <span class={`comment-status-badge ${group.statusMeta.tone}`}>{group.statusMeta.label}</span>
+              </button>
+            </li>
+          ))}
+        </ol>
+      </aside>
 
-      const sourceButtons = document.querySelectorAll("[data-comment-filter]");
-      const datePicker = document.querySelector("[data-date-picker]");
-      const yearSelect = document.querySelector("[data-date-year]");
-      const monthSelect = document.querySelector("[data-date-month]");
-      const daySelect = document.querySelector("[data-date-day]");
-      const threads = document.querySelectorAll("[data-comment-thread]");
-      const timelineItems = document.querySelectorAll("[data-timeline-item]");
-      const feedTitle = document.querySelector("#comment-feed-title");
-      const feedCount = document.querySelector("#comment-feed-count");
-      const exportButton = document.querySelector("[data-export-comments]");
-      let activeThreadId = threads[0]?.id || "";
+      <main class="comment-thread-feed" aria-live="polite">
+        {commentGroups.length ? (
+          commentGroups.map((group, index) => {
+            const isVideoGroup = group.kind === "video";
+            return (
+              <section
+                class="comment-thread-card"
+                id={group.id}
+                hidden={index !== 0}
+                data-comment-thread
+                data-source={group.source_id}
+                data-comment-count={group.commentCount}
+                data-thread-kind={isVideoGroup ? "视频评论池详情" : "帖子评论池详情"}
+              >
+                <header class="comment-thread-head comment-thread-head--pool">
+                  <div class="comment-thread-toolbar-copy">
+                    <strong>{isVideoGroup ? "视频评论池详情" : "帖子评论池详情"}</strong>
+                    <span class={`comment-status-badge ${group.statusMeta.tone}`}>{group.statusMeta.label}</span>
+                  </div>
+                  <div class="comment-thread-head-actions comment-thread-head-actions--metrics">
+                    <div class="comment-head-metric">
+                      <small>评论总数</small>
+                      <strong>{group.commentCount}</strong>
+                    </div>
+                    <div class="comment-head-metric">
+                      <small>价值评论</small>
+                      <strong>{group.valuableCommentCount}</strong>
+                    </div>
+                    <div class="comment-head-metric">
+                      <small>中性评论</small>
+                      <strong>{group.neutralCommentCount}</strong>
+                    </div>
+                    <div class="comment-head-metric">
+                      <small>无效评论</small>
+                      <strong>{group.invalidCommentCount}</strong>
+                    </div>
+                    {group.parent_url ? (
+                      <a href={group.parent_url} target="_blank" rel="noreferrer">{isVideoGroup ? "视频链接 ↗" : "帖子链接 ↗"}</a>
+                    ) : (
+                      <span class="comment-muted-link">暂无原文链接</span>
+                    )}
+                  </div>
+                </header>
 
-      function matchesDataset(dataset) {
-        return state.source === "all" || dataset.source === state.source;
-      }
+                <div class="comment-video-workbench">
+                  <section class="comment-video-hero">
+                    <div class="comment-video-cover">
+                      {group.coverPath ? (
+                        <img src={assetUrl(group.coverPath)} alt={`${group.displayTitle} 封面`} loading="lazy" />
+                      ) : (
+                        <div class="comment-video-cover-placeholder">
+                          <span>{isVideoGroup ? "抖音视频" : "同花顺帖子"}</span>
+                          <strong>{isVideoGroup ? "暂无视频封面" : "暂无帖子截图"}</strong>
+                        </div>
+                      )}
+                      {isVideoGroup ? <span class="comment-video-play" aria-hidden="true">▶</span> : null}
+                      <small class="comment-video-duration">{isVideoGroup ? "评论池" : "帖子"}</small>
+                    </div>
 
-      function applyFilters() {
-        let matchedThreads = 0;
-        let matchedComments = 0;
-        const matchedThreadIds = [];
+                    <div class="comment-video-main">
+                      <div class="comment-thread-head-copy comment-thread-head-copy--inside">
+                        <h2>{group.displayTitle}</h2>
+                        <p>发布：{sourceShortName(group.source_name)} · {isVideoGroup ? "抖音" : "同花顺"}　　发布时间：{group.publishedAt}</p>
+                      </div>
+                      <div class="comment-video-card-head">
+                        <span>{isVideoGroup ? "视频描述" : "帖子描述"}</span>
+                      </div>
+                      <div class="comment-video-card-body">
+                        <p class="comment-video-description">{group.displayDescription}</p>
+                        <p class="comment-video-summary-text">{isVideoGroup ? group.videoAnalysisText : (group.summaryText || "暂无摘要，先以评论池内容为准。")}</p>
+                        <div class="comment-chip-row comment-chip-row--compact">
+                          {group.rankedStocks.slice(0, 5).map((item) => {
+                            const url = thsStockUrl(item.label);
+                            return url ? (
+                              <a class="comment-stock-chip" href={url} target="_blank" rel="noreferrer">{item.label}</a>
+                            ) : (
+                              <span>{item.label}</span>
+                            );
+                          })}
+                          {group.rankedSectors.slice(0, 5).map((item) => <span>{item.label}</span>)}
+                        </div>
+                      </div>
+                    </div>
 
-        threads.forEach((thread) => {
-          const show = matchesDataset(thread.dataset);
-          if (show) {
-            matchedThreads += 1;
-            matchedComments += thread.querySelectorAll("[data-comment-card]").length;
-            matchedThreadIds.push(thread.id);
-          }
-        });
+                    <aside class="comment-video-aside">
+                      <span>{isVideoGroup ? "视频摘要" : "帖子摘要"}</span>
+                      <strong>{group.summaryText}</strong>
+                      <p>{group.commentCount} 条评论中，价值评论 {group.valuableCommentCount} 条，当前建议 {group.supportDirection}。</p>
+                      <div class="comment-video-kpis">
+                        <div>
+                          <small>观点情绪</small>
+                          <b class={`comment-sentiment-text ${group.dominantSentiment.tone}`}>{group.dominantSentiment.label}</b>
+                        </div>
+                        <div>
+                          <small>对推荐池影响</small>
+                          <b>{group.supportDirection}</b>
+                        </div>
+                        <div>
+                          <small>提到股票</small>
+                          <b>{group.leadStock || "暂无"}</b>
+                        </div>
+                        <div>
+                          <small>提到板块</small>
+                          <b>{group.leadSector || "暂无"}</b>
+                        </div>
+                      </div>
+                      <div class="comment-video-card-actions">
+                        {group.parent_url ? (
+                          <a href={group.parent_url} target="_blank" rel="noreferrer">{isVideoGroup ? "查看视频 ↗" : "查看帖子 ↗"}</a>
+                        ) : (
+                          <span class="comment-muted-link">暂无原文链接</span>
+                        )}
+                      </div>
+                    </aside>
+                  </section>
 
-        if (!matchedThreadIds.includes(activeThreadId)) {
-          activeThreadId = matchedThreadIds[0] || "";
-        }
+                  {group.mediaList.length ? (
+                    <section class="comment-screenshot-section">
+                      <h3>{isVideoGroup ? "视频封面 / 证据截图" : "帖子截图 / 证据材料"}</h3>
+                      <div class="comment-screenshot-grid">
+                        {group.mediaList.slice(0, 6).map((path, mediaIndex) => (
+                          <a href={assetUrl(path)} target="_blank" rel="noreferrer" class="comment-screenshot-card">
+                            <img src={assetUrl(path)} alt={`${group.displayTitle} 证据截图 ${mediaIndex + 1}`} loading="lazy" />
+                            <span>材料 {mediaIndex + 1}</span>
+                            <b aria-hidden="true">⌕</b>
+                          </a>
+                        ))}
+                      </div>
+                    </section>
+                  ) : null}
 
-        threads.forEach((thread) => {
-          const show = matchesDataset(thread.dataset) && thread.id === activeThreadId;
-          thread.hidden = !show;
-        });
+                  <section class="comment-table-panel">
+                    <div class="comment-table-toolbar">
+                      <div class="comment-filter-strip" data-video-filter-strip>
+                        <button type="button" class="active" data-video-filter="all">全部评论 {group.commentCount}</button>
+                        <button type="button" data-video-filter="valuable">有价值评论 {group.valuableCommentCount}</button>
+                        <button type="button" data-video-filter="neutral">中性评论 {group.neutralCommentCount}</button>
+                        <button type="button" data-video-filter="invalid">无效评论 {group.invalidCommentCount}</button>
+                      </div>
+                      <div class="comment-table-controls">
+                        <select data-comment-sentiment aria-label="情绪筛选">
+                          <option value="all">全部情绪</option>
+                          <option value="看多">看多</option>
+                          <option value="谨慎">谨慎</option>
+                          <option value="中性">中性</option>
+                          <option value="看空">看空</option>
+                        </select>
+                        <input type="search" class="comment-search-input" placeholder="搜索评论内容、用户" data-comment-search />
+                        <button type="button" class="comment-batch-btn">批量操作</button>
+                      </div>
+                    </div>
 
-        timelineItems.forEach((item) => {
-          const show = matchesDataset(item.dataset);
-          item.hidden = !show;
-          item.querySelector("button")?.classList.toggle("active", show && item.dataset.targetThread === activeThreadId);
-        });
+                    <div class="comment-table-wrap">
+                      <table class="comment-pool-table">
+                        <thead>
+                          <tr>
+                            <th><input type="checkbox" aria-label="选择全部评论" /></th>
+                            <th>序号</th>
+                            <th>评论时间</th>
+                            <th>评论用户</th>
+                            <th>评论内容</th>
+                            <th>提到股票</th>
+                            <th>提到板块</th>
+                            <th>情绪</th>
+                            <th>价值评分</th>
+                            <th>价值原因</th>
+                            <th>纳入状态</th>
+                            <th>操作</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {group.comments.map((comment) => {
+                            const meta = statusMeta(comment.include_status);
+                            return (
+                              <tr
+                                data-comment-card
+                                data-comment-content={comment.content}
+                                data-search-text={comment.searchText}
+                                data-status={comment.include_status}
+                                data-bucket={comment.bucket}
+                                data-sentiment={comment.sentiment}
+                              >
+                                <td><input type="checkbox" aria-label={`选择评论 ${comment.index}`} /></td>
+                                <td>{comment.index}</td>
+                                <td>{comment.comment_time || comment.comment_source}</td>
+                                <td>{comment.commenter || group.source_name}</td>
+                                <td class="comment-table-body">
+                                  <details class="comment-row-details">
+                                    <summary set:html={highlightKeywords(comment.content || "暂无评论正文")} />
+                                    <div class="comment-row-details__body" set:html={highlightKeywords(comment.content || "暂无评论正文")} />
+                                  </details>
+                                </td>
+                                <td>
+                                  <div class="comment-mini-tags">
+                                    {comment.stockList.length ? comment.stockList.map((stock) => <a href={thsStockUrl(stock) || "#"} target="_blank" rel="noreferrer">{stock}</a>) : <span>暂无</span>}
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="comment-mini-tags">
+                                    {comment.derivedSectors.length ? comment.derivedSectors.slice(0, 4).map((sector) => <span>{sector}</span>) : <span>暂无</span>}
+                                  </div>
+                                </td>
+                                <td><span class={`comment-score-badge ${comment.sentimentMeta.tone}`}>{comment.sentimentMeta.label}</span></td>
+                                <td><span class="comment-score-badge">{comment.value_score.toFixed(1)}</span></td>
+                                <td>{comment.value_reason || "待补充"}</td>
+                                <td><span class={`comment-status-badge ${meta.tone}`}>{meta.label}</span></td>
+                                <td>
+                                  <div class="comment-action-row comment-action-row--compact">
+                                    <button type="button">纳入</button>
+                                    <button type="button">待确认</button>
+                                    <button type="button">无效</button>
+                                    {group.parent_url ? <a href={group.parent_url} target="_blank" rel="noreferrer">查看原文</a> : <span class="comment-action-disabled">查看原文</span>}
+                                  </div>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
 
-        const activeTimeline = [...timelineItems].find((item) => item.dataset.targetThread === activeThreadId);
-        const activeButton = activeTimeline?.querySelector("button");
-        const activeTitle = activeButton?.querySelector("em")?.textContent || "评论区";
-        if (feedTitle) feedTitle.textContent = matchedThreads ? `${activeTitle} 决策详情` : "暂无匹配评论";
-        if (feedCount) feedCount.textContent = `匹配 ${matchedThreads} 组 / ${matchedComments} 条评论`;
-      }
+                  <div class="comment-pagination" data-comment-pagination>
+                    <button type="button" data-page-prev>上一页</button>
+                    <span data-page-indicator>第 1 页</span>
+                    <button type="button" data-page-next>下一页</button>
+                  </div>
 
-      sourceButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          state.source = button.dataset.commentFilter || "all";
-          sourceButtons.forEach((item) => item.classList.toggle("active", item === button));
-          applyFilters();
-        });
+                  <section class="comment-bottom-grid">
+                    <article class="comment-bottom-card">
+                      <div class="comment-panel-title">
+                        <h3>有价值评论精选</h3>
+                        <span>{group.selectedComments.length} 条</span>
+                      </div>
+                      {group.featuredComment ? (
+                        <article class="comment-featured-card">
+                          <div class="comment-featured-head">
+                            <div class={`comment-avatar ${sourceColors[group.source_id] ?? ""}`}>{(group.featuredComment.commenter || group.source_name).slice(0, 1)}</div>
+                            <div class="comment-featured-copy">
+                              <strong>{group.featuredComment.commenter || group.source_name}</strong>
+                              <span>{group.featuredComment.comment_time || "--:--"}</span>
+                            </div>
+                            <span class={`comment-status-badge ${statusMeta(group.featuredComment.include_status || "").tone}`}>{statusMeta(group.featuredComment.include_status || "").label}</span>
+                          </div>
+                          <p class="comment-featured-text" set:html={highlightKeywords(group.featuredComment.content || "暂无评论正文")} />
+                          <div class="comment-chip-row">
+                            {(group.featuredComment.stockList ?? splitTokens(group.featuredComment.mentioned_stocks)).slice(0, 4).map((stock) => <span>{stock}</span>)}
+                            {(group.featuredComment.derivedSectors ?? splitTokens(group.featuredComment.mentioned_sectors)).slice(0, 4).map((sector) => <span>{sector}</span>)}
+                          </div>
+                          <div class="comment-featured-meta">
+                            <small>价值原因：{group.featuredComment.value_reason || "待补充价值原因"}</small>
+                            <small>价值评分：{Number(group.featuredComment.value_score ?? 0).toFixed(1)} 分</small>
+                            <small>支持方向：{group.featuredComment.supportDirection || "仅作参考"}</small>
+                          </div>
+                          {group.selectedComments.length > 1 ? (
+                            <div class="comment-featured-more">
+                              {group.selectedComments.slice(1, 4).map((comment) => (
+                                <span>{comment.commenter || group.source_name} · {Number(comment.value_score ?? 0).toFixed(1)}</span>
+                              ))}
+                            </div>
+                          ) : null}
+                        </article>
+                      ) : <article class="comment-highlight-card"><p>当前评论池暂无高分或已选中的评论。</p></article>}
+                    </article>
+
+                    <article class="comment-bottom-card">
+                      <div class="comment-panel-title">
+                        <h3>纳入推荐逻辑判断</h3>
+                        <span>{group.statusMeta.label}</span>
+                      </div>
+                      <div class="comment-logic-summary">
+                        <div class="comment-logic-summary__status">
+                          <span>纳入状态</span>
+                          <strong class={group.statusMeta.tone}>{group.statusMeta.label}</strong>
+                        </div>
+                        <div>
+                          <span>纳入原因</span>
+                          <ol>
+                            {group.decisionReasons.length ? group.decisionReasons.map((reason) => <li>{reason}</li>) : <li>当前暂无足够理由，建议继续观察评论池变化。</li>}
+                          </ol>
+                        </div>
+                        <div>
+                          <span>风险点</span>
+                          <ol>
+                            {group.riskPoints.length ? group.riskPoints.map((risk) => <li>{risk}</li>) : <li>暂无明显冲突，继续结合盘面验证。</li>}
+                          </ol>
+                        </div>
+                        <div>
+                          <span>下一步动作</span>
+                          <ol>
+                            {group.nextActions.length ? group.nextActions.map((item) => <li>{item}</li>) : <li>继续补充来源描述与截图证据。</li>}
+                          </ol>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article class="comment-bottom-card">
+                      <div class="comment-panel-title">
+                        <h3>评论汇总信息</h3>
+                        <span>TOP3 高频提及</span>
+                      </div>
+                      <div class="comment-summary-metrics">
+                        <div><span>评论总数</span><strong>{group.commentCount}</strong></div>
+                        <div><span>有价值评论</span><strong>{group.valuableCommentCount}</strong></div>
+                        <div><span>已纳入</span><strong>{group.includeCounts["已纳入"]}</strong></div>
+                        <div><span>待确认</span><strong>{group.includeCounts["待确认"]}</strong></div>
+                        <div><span>未纳入</span><strong>{group.includeCounts["未纳入"]}</strong></div>
+                        <div><span>无效评论</span><strong>{group.includeCounts["无效评论"]}</strong></div>
+                      </div>
+                      <div class="comment-summary-ranks">
+                        <div>
+                          <span>高频提到股票 TOP3</span>
+                          <ol class="comment-rank-list">
+                            {group.rankedStocks.length ? group.rankedStocks.slice(0, 3).map((item) => (
+                              <li>
+                                <div class="comment-rank-copy">
+                                  <a href={thsStockUrl(item.label) || "#"} target="_blank" rel="noreferrer">{item.label}</a>
+                                  <i><span style={`width:${Math.max(18, Math.round((item.count / (group.rankedStocks[0]?.count || 1)) * 100))}%`}></span></i>
+                                </div>
+                                <b>{item.count}</b>
+                              </li>
+                            )) : <li><span>暂无股票</span><b>0</b></li>}
+                          </ol>
+                        </div>
+                        <div>
+                          <span>高频提到板块 TOP3</span>
+                          <ol class="comment-rank-list">
+                            {group.rankedSectors.length ? group.rankedSectors.slice(0, 3).map((item) => (
+                              <li>
+                                <div class="comment-rank-copy">
+                                  <span>{item.label}</span>
+                                  <i><span style={`width:${Math.max(18, Math.round((item.count / (group.rankedSectors[0]?.count || 1)) * 100))}%`}></span></i>
+                                </div>
+                                <b>{item.count}</b>
+                              </li>
+                            )) : <li><span>暂无板块</span><b>0</b></li>}
+                          </ol>
+                        </div>
+                      </div>
+                    </article>
+                  </section>
+
+                  <div class="comment-evidence-actions">
+                    <div class="comment-action-row">
+                      <button type="button">纳入推荐逻辑</button>
+                      <button type="button">标记为待确认</button>
+                      <button type="button">标记为无效</button>
+                      {group.parent_url ? (
+                        <a href={group.parent_url} target="_blank" rel="noreferrer">{isVideoGroup ? "查看原视频" : "查看原帖"}</a>
+                      ) : (
+                        <span class="comment-action-disabled">暂无原文</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </section>
+            );
+          })
+        ) : (
+          <article class="comment-empty-workbench">
+            <strong>暂无评论 CSV 数据</strong>
+            <p>请补充 <code>data/daily/{dashboard.date}/comments.csv</code> 后重新运行生成脚本。</p>
+          </article>
+        )}
+      </main>
+    </section>
+  </section>
+
+  <script type="application/json" id="comments-export-data" set:html={JSON.stringify(commentGroups)}></script>
+  <script>
+    const state = {
+      source: "all",
+    };
+
+    const sourceButtons = document.querySelectorAll("[data-comment-filter]");
+    const datePicker = document.querySelector("[data-date-picker]");
+    const yearSelect = document.querySelector("[data-date-year]");
+    const monthSelect = document.querySelector("[data-date-month]");
+    const daySelect = document.querySelector("[data-date-day]");
+    const threads = document.querySelectorAll("[data-comment-thread]");
+    const timelineItems = document.querySelectorAll("[data-timeline-item]");
+    const feedTitle = document.querySelector("#comment-feed-title");
+    const feedCount = document.querySelector("#comment-feed-count");
+    const exportButton = document.querySelector("[data-export-comments]");
+    let activeThreadId = threads[0]?.id || "";
+
+    function matchesDataset(dataset) {
+      return state.source === "all" || dataset.source === state.source;
+    }
+
+    function applyThreadList(thread) {
+      const search = thread.querySelector("[data-comment-search]")?.value?.trim().toLowerCase() || "";
+      const sentiment = thread.querySelector("[data-comment-sentiment]")?.value || "all";
+      const activeFilter = thread.querySelector("[data-video-filter-strip] button.active")?.dataset.videoFilter || "all";
+      const rows = [...thread.querySelectorAll("tbody [data-comment-card]")];
+      const visibleRows = rows.filter((row) => {
+        const rowStatus = row.dataset.status || "";
+        const rowBucket = row.dataset.bucket || "normal";
+        const rowSentiment = row.dataset.sentiment || "";
+        const rowText = (row.dataset.searchText || row.dataset.commentContent || "").toLowerCase();
+        const filterMatch = activeFilter === "all"
+          || rowBucket === activeFilter
+          || rowStatus === activeFilter;
+        const searchMatch = !search || rowText.includes(search);
+        const sentimentMatch = sentiment === "all" || rowSentiment === sentiment;
+        return filterMatch && searchMatch && sentimentMatch;
       });
 
-      function uniqueSorted(values, direction = "desc") {
-        const sorted = [...new Set(values.filter(Boolean))].sort((a, b) => Number(a) - Number(b));
-        return direction === "desc" ? sorted.reverse() : sorted;
-      }
+      const pageSize = 10;
+      const totalPages = Math.max(1, Math.ceil(visibleRows.length / pageSize));
+      let currentPage = Number(thread.dataset.currentPage || 1);
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+      thread.dataset.currentPage = String(currentPage);
 
-      function replaceSelectOptions(select, values, selectedValue, suffix) {
-        if (!select) return "";
-        select.replaceChildren();
-        values.forEach((value) => {
-          const option = document.createElement("option");
-          option.value = value;
-          option.textContent = `${Number(value)}${suffix}`;
-          option.selected = value === selectedValue;
-          select.append(option);
-        });
-        if (!values.includes(select.value)) {
-          select.value = values[0] || "";
+      rows.forEach((row) => { row.hidden = true; });
+      visibleRows.slice((currentPage - 1) * pageSize, currentPage * pageSize).forEach((row) => { row.hidden = false; });
+
+      const indicator = thread.querySelector("[data-page-indicator]");
+      const prev = thread.querySelector("[data-page-prev]");
+      const next = thread.querySelector("[data-page-next]");
+      if (indicator) indicator.textContent = `第 ${currentPage} / ${totalPages} 页`;
+      if (prev) prev.disabled = currentPage <= 1;
+      if (next) next.disabled = currentPage >= totalPages;
+    }
+
+    function applyFilters() {
+      let matchedThreads = 0;
+      let matchedComments = 0;
+      const matchedThreadIds = [];
+
+      threads.forEach((thread) => {
+        const show = matchesDataset(thread.dataset);
+        if (show) {
+          matchedThreads += 1;
+          matchedComments += Number(thread.dataset.commentCount || 0);
+          matchedThreadIds.push(thread.id);
         }
-        return select.value;
+      });
+
+      if (!matchedThreadIds.includes(activeThreadId)) {
+        activeThreadId = matchedThreadIds[0] || "";
       }
 
-      function availableDateParts() {
-        try {
-          return JSON.parse(datePicker?.dataset.dateOptions || "[]");
-        } catch {
-          return [];
-        }
-      }
-
-      function syncDateSelects(changedPart) {
-        const dates = availableDateParts();
-        if (!dates.length || !yearSelect || !monthSelect || !daySelect) return "";
-
-        const years = uniqueSorted(dates.map((item) => item.year));
-        if (!years.includes(yearSelect.value)) {
-          yearSelect.value = years[0] || "";
-        }
-
-        const months = uniqueSorted(dates.filter((item) => item.year === yearSelect.value).map((item) => item.month));
-        const nextMonth = changedPart === "year" ? months[0] : monthSelect.value;
-        replaceSelectOptions(monthSelect, months, months.includes(nextMonth) ? nextMonth : months[0], "月");
-
-        const days = uniqueSorted(
-          dates
-            .filter((item) => item.year === yearSelect.value && item.month === monthSelect.value)
-            .map((item) => item.day)
-        );
-        const nextDay = changedPart === "year" || changedPart === "month" ? days[0] : daySelect.value;
-        replaceSelectOptions(daySelect, days, days.includes(nextDay) ? nextDay : days[0], "日");
-
-        return yearSelect.value && monthSelect.value && daySelect.value
-          ? `${yearSelect.value}-${monthSelect.value}-${daySelect.value}`
-          : "";
-      }
-
-      function navigateSelectedDate(changedPart) {
-        const selectedDate = syncDateSelects(changedPart);
-        if (selectedDate && selectedDate !== datePicker?.dataset.currentDate) {
-          const commentsBase = datePicker?.dataset.commentsBase || "/comments";
-          window.location.href = `${commentsBase}/${encodeURIComponent(selectedDate)}/`;
-        }
-      }
-
-      yearSelect?.addEventListener("change", () => navigateSelectedDate("year"));
-      monthSelect?.addEventListener("change", () => navigateSelectedDate("month"));
-      daySelect?.addEventListener("change", () => navigateSelectedDate("day"));
+      threads.forEach((thread) => {
+        const show = matchesDataset(thread.dataset) && thread.id === activeThreadId;
+        thread.hidden = !show;
+        if (show) applyThreadList(thread);
+      });
 
       timelineItems.forEach((item) => {
-        item.querySelector("button")?.addEventListener("click", () => {
-          activeThreadId = item.dataset.targetThread || "";
-          applyFilters();
+        const show = matchesDataset(item.dataset);
+        item.hidden = !show;
+        item.querySelector("button")?.classList.toggle("active", show && item.dataset.targetThread === activeThreadId);
+      });
+
+      const activeThread = activeThreadId ? document.getElementById(activeThreadId) : null;
+      if (feedTitle) feedTitle.textContent = matchedThreads ? (activeThread?.dataset.threadKind || "评论池详情") : "暂无匹配评论";
+      if (feedCount) feedCount.textContent = `聚合显示 ${matchedThreads} 个事件 / ${matchedComments} 条评论`;
+    }
+
+    sourceButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        state.source = button.dataset.commentFilter || "all";
+        sourceButtons.forEach((item) => item.classList.toggle("active", item === button));
+        applyFilters();
+      });
+    });
+
+    function uniqueSorted(values, direction = "desc") {
+      const sorted = [...new Set(values.filter(Boolean))].sort((a, b) => Number(a) - Number(b));
+      return direction === "desc" ? sorted.reverse() : sorted;
+    }
+
+    function replaceSelectOptions(select, values, selectedValue, suffix) {
+      if (!select) return "";
+      select.replaceChildren();
+      values.forEach((value) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = `${Number(value)}${suffix}`;
+        option.selected = value === selectedValue;
+        select.append(option);
+      });
+      if (!values.includes(select.value)) {
+        select.value = values[0] || "";
+      }
+      return select.value;
+    }
+
+    function availableDateParts() {
+      try {
+        return JSON.parse(datePicker?.dataset.dateOptions || "[]");
+      } catch {
+        return [];
+      }
+    }
+
+    function syncDateSelects(changedPart) {
+      const dates = availableDateParts();
+      if (!dates.length || !yearSelect || !monthSelect || !daySelect) return "";
+
+      const years = uniqueSorted(dates.map((item) => item.year));
+      if (!years.includes(yearSelect.value)) yearSelect.value = years[0] || "";
+
+      const months = uniqueSorted(dates.filter((item) => item.year === yearSelect.value).map((item) => item.month));
+      const nextMonth = changedPart === "year" ? months[0] : monthSelect.value;
+      replaceSelectOptions(monthSelect, months, months.includes(nextMonth) ? nextMonth : months[0], "月");
+
+      const days = uniqueSorted(dates.filter((item) => item.year === yearSelect.value && item.month === monthSelect.value).map((item) => item.day));
+      const nextDay = changedPart === "year" || changedPart === "month" ? days[0] : daySelect.value;
+      replaceSelectOptions(daySelect, days, days.includes(nextDay) ? nextDay : days[0], "日");
+
+      return yearSelect.value && monthSelect.value && daySelect.value
+        ? `${yearSelect.value}-${monthSelect.value}-${daySelect.value}`
+        : "";
+    }
+
+    function navigateSelectedDate(changedPart) {
+      const selectedDate = syncDateSelects(changedPart);
+      if (selectedDate && selectedDate !== datePicker?.dataset.currentDate) {
+        const basePath = datePicker?.dataset.commentsBase || "/comments";
+        window.location.href = `${basePath}/${encodeURIComponent(selectedDate)}/`;
+      }
+    }
+
+    yearSelect?.addEventListener("change", () => navigateSelectedDate("year"));
+    monthSelect?.addEventListener("change", () => navigateSelectedDate("month"));
+    daySelect?.addEventListener("change", () => navigateSelectedDate("day"));
+
+    timelineItems.forEach((item) => {
+      item.querySelector("button")?.addEventListener("click", () => {
+        activeThreadId = item.dataset.targetThread || "";
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll("[data-video-filter-strip]").forEach((strip) => {
+      const thread = strip.closest("[data-comment-thread]");
+      const buttons = strip.querySelectorAll("button[data-video-filter]");
+      const searchInput = thread?.querySelector("[data-comment-search]");
+      const sentimentSelect = thread?.querySelector("[data-comment-sentiment]");
+      const prev = thread?.querySelector("[data-page-prev]");
+      const next = thread?.querySelector("[data-page-next]");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          buttons.forEach((item) => item.classList.toggle("active", item === button));
+          if (thread) {
+            thread.dataset.currentPage = "1";
+            applyThreadList(thread);
+          }
         });
       });
 
-      exportButton?.addEventListener("click", () => {
-        const raw = document.querySelector("#comments-export-data")?.textContent || "[]";
-        const blob = new Blob([raw], { type: "application/json;charset=utf-8" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = `comments-${new Date().toISOString().slice(0, 10)}.json`;
-        link.click();
-        URL.revokeObjectURL(url);
+      searchInput?.addEventListener("input", () => {
+        if (thread) {
+          thread.dataset.currentPage = "1";
+          applyThreadList(thread);
+        }
       });
 
-      applyFilters();
-    </script>
+      sentimentSelect?.addEventListener("change", () => {
+        if (thread) {
+          thread.dataset.currentPage = "1";
+          applyThreadList(thread);
+        }
+      });
+
+      prev?.addEventListener("click", () => {
+        if (thread) {
+          thread.dataset.currentPage = String(Math.max(1, Number(thread.dataset.currentPage || 1) - 1));
+          applyThreadList(thread);
+        }
+      });
+
+      next?.addEventListener("click", () => {
+        if (thread) {
+          thread.dataset.currentPage = String(Number(thread.dataset.currentPage || 1) + 1);
+          applyThreadList(thread);
+        }
+      });
+    });
+
+    exportButton?.addEventListener("click", () => {
+      const raw = document.querySelector("#comments-export-data")?.textContent || "[]";
+      const blob = new Blob([raw], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `comment-groups-${new Date().toISOString().slice(0, 10)}.json`;
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+
+    applyFilters();
+  </script>
 </>

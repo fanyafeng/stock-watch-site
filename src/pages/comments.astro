@@ -1,12 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import DashboardLayout from "../components/DashboardLayout.astro";
 import CommentsWorkbench from "../components/CommentsWorkbench.astro";
 import dashboard from "../data/dashboard.json";
 ---
 
 <BaseLayout title="评论聚合｜复盘工作台">
-  <DashboardLayout active="评论聚合">
-    <CommentsWorkbench dashboard={dashboard} />
-  </DashboardLayout>
+  <CommentsWorkbench dashboard={dashboard} />
 </BaseLayout>
