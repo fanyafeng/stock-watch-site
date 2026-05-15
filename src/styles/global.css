@@ -13134,17 +13134,18 @@ body:has(.comment-workbench) .comment-evidence-actions {
 
 /* Compact timeline refinements */
 body:has(.comment-workbench) .comment-workbench-layout {
-  grid-template-columns: 328px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 286px minmax(0, 1fr);
+  gap: 10px;
 }
 
 body:has(.comment-workbench) .comment-timeline-panel {
-  padding: 14px 12px;
+  padding: 10px 9px;
+  border-radius: 10px;
 }
 
 body:has(.comment-workbench) .comment-panel-title h2,
 body:has(.comment-workbench) .comment-panel-title h3 {
-  font-size: 17px;
+  font-size: 15px;
 }
 
 body:has(.comment-workbench) .comment-panel-title span,
@@ -13153,33 +13154,33 @@ body:has(.comment-workbench) .comment-timeline-summary {
 }
 
 body:has(.comment-workbench) .comment-timeline-summary {
-  margin: 4px 0 10px;
+  margin: 3px 0 8px;
 }
 
 body:has(.comment-workbench) .comment-thread-timeline {
-  gap: 7px;
-  padding: 0 3px 0 19px;
+  gap: 5px;
+  padding: 0 2px 0 14px;
 }
 
 body:has(.comment-workbench) .comment-thread-timeline::before {
-  left: 7px;
+  left: 5px;
   background: #dbe8f6;
 }
 
 body:has(.comment-workbench) .comment-thread-timeline li::before {
-  top: 14px;
-  left: -16px;
-  width: 9px;
-  height: 9px;
+  top: 12px;
+  left: -13px;
+  width: 8px;
+  height: 8px;
   border-width: 2px;
 }
 
 body:has(.comment-workbench) .comment-thread-timeline button {
-  grid-template-columns: 48px minmax(0, 1fr) auto;
-  gap: 3px 7px;
+  grid-template-columns: 43px minmax(0, 1fr) auto;
+  gap: 2px 6px;
   align-items: start;
-  padding: 8px 9px 8px 11px;
-  border-radius: 7px;
+  padding: 7px 8px 7px 9px;
+  border-radius: 6px;
 }
 
 body:has(.comment-workbench) .comment-thread-timeline button::before {
@@ -13190,47 +13191,105 @@ body:has(.comment-workbench) .comment-thread-timeline button::before {
 body:has(.comment-workbench) .comment-thread-timeline time {
   grid-column: 1;
   grid-row: 1 / span 3;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 body:has(.comment-workbench) .comment-thread-timeline strong {
   grid-column: 2;
   grid-row: 1;
-  min-height: 19px;
-  padding: 0 6px;
+  min-height: 17px;
+  padding: 0 5px;
   border-radius: 5px;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 body:has(.comment-workbench) .comment-thread-timeline em {
   grid-column: 2 / 4;
   grid-row: 2;
-  font-size: 13px;
-  line-height: 1.3;
+  font-size: 12px;
+  line-height: 1.25;
   -webkit-line-clamp: 1;
 }
 
 body:has(.comment-workbench) .comment-thread-timeline b {
   grid-column: 2;
   grid-row: 3;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 body:has(.comment-workbench) .comment-thread-timeline small {
   grid-column: 3;
   grid-row: 3;
-  font-size: 11px;
+  font-size: 10px;
+  text-align: right;
 }
 
 body:has(.comment-workbench) .comment-thread-timeline .comment-status-badge {
   grid-column: 3;
   grid-row: 1;
   align-self: start;
-  min-height: 21px;
+  min-height: 18px;
   margin-top: 0;
-  padding: 0 7px;
-  border-radius: 6px;
-  font-size: 11px;
+  padding: 0 6px;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+body:has(.comment-workbench) .comment-thread-feed {
+  padding: 10px 14px 14px;
+  border-radius: 10px;
+}
+
+body:has(.comment-workbench) .comment-thread-card,
+body:has(.comment-workbench) .comment-video-workbench {
+  gap: 10px;
+}
+
+body:has(.comment-workbench) .comment-thread-head--pool {
+  gap: 10px;
+  padding-bottom: 8px;
+}
+
+body:has(.comment-workbench) .comment-thread-toolbar-copy {
+  gap: 8px;
+}
+
+body:has(.comment-workbench) .comment-thread-toolbar-copy strong {
+  font-size: 19px;
+}
+
+body:has(.comment-workbench) .comment-thread-head-actions--metrics {
+  gap: 7px 12px;
+}
+
+body:has(.comment-workbench) .comment-head-metric small {
+  font-size: 12px;
+}
+
+body:has(.comment-workbench) .comment-head-metric strong {
+  font-size: 14px;
+}
+
+body:has(.comment-workbench) .comment-thread-head-actions--metrics > a,
+body:has(.comment-workbench) .comment-video-card-actions a {
+  min-height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+body:has(.comment-workbench) .comment-video-hero {
+  grid-template-columns: 220px minmax(0, 1fr) 270px;
+  gap: 12px;
+}
+
+body:has(.comment-workbench) .comment-video-cover,
+body:has(.comment-workbench) .comment-video-cover-placeholder {
+  min-height: 170px;
+}
+
+body:has(.comment-workbench) .comment-video-aside {
+  gap: 9px;
+  padding: 12px;
 }
 
 body:has(.comment-workbench) .comment-video-cover-link {
@@ -13246,7 +13305,7 @@ body:has(.comment-workbench) .comment-video-cover-link:hover .comment-video-play
 
 @media (max-width: 1220px) {
   body:has(.comment-workbench) .comment-workbench-layout {
-    grid-template-columns: 306px minmax(0, 1fr);
+    grid-template-columns: 270px minmax(0, 1fr);
   }
 }
 

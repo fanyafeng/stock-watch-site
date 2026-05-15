@@ -634,7 +634,7 @@ const sourceShortName = (sourceName = "") => String(sourceName).replace("哥闯�
                 <strong>{group.kind === "video" ? "抖音视频" : "同花顺帖子"}</strong>
                 <em>{group.displayTitle}</em>
                 <b>{group.leadStock || "综合主题"}</b>
-                <small>{group.commentCount} 条评论 · {group.valuableCommentCount} 条价值评论</small>
+                <small>{group.commentCount}评 · {group.valuableCommentCount}价值</small>
                 <span class={`comment-status-badge ${group.statusMeta.tone}`}>{group.statusMeta.label}</span>
               </button>
             </li>
