@@ -319,6 +319,22 @@ python scripts/fetch_market_flow.py --mode loose
 2. 选择 `Daily encrypted stock watch site`。
 3. 点击 `Run workflow`。
 
+## 邮件发送前同步
+
+邮件任务发送网站链接前，先运行数据同步脚本，确保当天 CSV、加密 payload、报告索引和 Astro 数据已经提交并推送到远程：
+
+```bash
+python scripts/sync_email_publish.py --date 2026-05-15
+```
+
+该脚本会依次执行：补充指数主力净流、生成综合复盘、加密复盘文章、以 loose 模式加密我的持仓、同步 `src/data/`、运行 `npm run build` 验证，然后只提交允许同步的数据、媒体截图与密文文件并 `git push origin 当前分支`。它不会提交 `build/tmp/`、`dist/` 或明文报告。
+
+如果只想本地提交不推送：
+
+```bash
+python scripts/sync_email_publish.py --date 2026-05-15 --no-push
+```
+
 ## 后续真实数据接入
 
 当前 MVP 只读取 CSV。后续可以替换或扩展：
