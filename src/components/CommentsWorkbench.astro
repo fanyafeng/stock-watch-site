@@ -1061,7 +1061,7 @@ const sourceShortName = (sourceName = "") => String(sourceName).replace("哥闯�
         return filterMatch && searchMatch && sentimentMatch;
       });
 
-      const pageSize = 10;
+      const pageSize = 20;
       const totalPages = Math.max(1, Math.ceil(visibleRows.length / pageSize));
       let currentPage = Number(thread.dataset.currentPage || 1);
       if (currentPage > totalPages) currentPage = totalPages;
