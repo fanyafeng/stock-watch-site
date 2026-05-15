@@ -13324,3 +13324,134 @@ body:has(.comment-workbench) .comment-video-cover-link:hover .comment-video-play
     min-height: 92px;
   }
 }
+
+/* Extra-tight comments workbench spacing */
+.dashboard-main:has(.comment-workbench) {
+  padding: 10px 12px 18px;
+}
+
+body:has(.comment-workbench) .comment-workbench {
+  padding: 8px 0 16px;
+}
+
+body:has(.comment-workbench) .comment-page-head {
+  margin-bottom: 8px;
+}
+
+body:has(.comment-workbench) .comment-control-grid {
+  margin-bottom: 8px;
+}
+
+body:has(.comment-workbench) .comment-workbench-layout {
+  grid-template-columns: 276px minmax(0, 1fr);
+  gap: 8px;
+}
+
+body:has(.comment-workbench) .comment-timeline-panel {
+  padding: 8px 7px;
+}
+
+body:has(.comment-workbench) .comment-thread-timeline {
+  gap: 4px;
+  padding-left: 12px;
+}
+
+body:has(.comment-workbench) .comment-thread-timeline::before {
+  left: 4px;
+}
+
+body:has(.comment-workbench) .comment-thread-timeline li::before {
+  left: -12px;
+}
+
+body:has(.comment-workbench) .comment-thread-timeline button {
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  gap: 2px 5px;
+  padding: 6px 7px 6px 8px;
+}
+
+body:has(.comment-workbench) .comment-thread-timeline .comment-status-badge {
+  padding: 0 5px;
+}
+
+body:has(.comment-workbench) .comment-thread-feed {
+  padding: 8px 10px 12px;
+}
+
+body:has(.comment-workbench) .comment-thread-card,
+body:has(.comment-workbench) .comment-video-workbench,
+body:has(.comment-workbench) .comment-table-panel {
+  gap: 8px;
+}
+
+body:has(.comment-workbench) .comment-thread-head--pool {
+  gap: 8px;
+  padding-bottom: 6px;
+}
+
+body:has(.comment-workbench) .comment-thread-toolbar-copy {
+  gap: 6px;
+}
+
+body:has(.comment-workbench) .comment-thread-head-actions--metrics {
+  gap: 5px 9px;
+}
+
+body:has(.comment-workbench) .comment-thread-head-actions--metrics > a,
+body:has(.comment-workbench) .comment-video-card-actions a {
+  min-height: 28px;
+  padding: 0 8px;
+}
+
+body:has(.comment-workbench) .comment-video-hero {
+  grid-template-columns: 212px minmax(0, 1fr) 250px;
+  gap: 10px;
+}
+
+body:has(.comment-workbench) .comment-video-aside {
+  gap: 7px;
+  padding: 10px;
+}
+
+body:has(.comment-workbench) .comment-table-toolbar {
+  gap: 8px;
+}
+
+body:has(.comment-workbench) .comment-table-controls {
+  gap: 6px;
+}
+
+body:has(.comment-workbench) .comment-table-controls select,
+body:has(.comment-workbench) .comment-search-input,
+body:has(.comment-workbench) .comment-batch-btn {
+  height: 32px;
+}
+
+body:has(.comment-workbench) .comment-pool-table th {
+  padding: 8px;
+}
+
+body:has(.comment-workbench) .comment-pool-table td {
+  padding: 7px 8px;
+}
+
+@media (max-width: 1220px) {
+  body:has(.comment-workbench) .comment-workbench-layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1120px) {
+  .dashboard-main:has(.comment-workbench) {
+    padding: 8px 10px 16px;
+  }
+
+  body:has(.comment-workbench) .comment-workbench-layout {
+    grid-template-columns: 1fr;
+  }
+
+  body:has(.comment-workbench) .comment-thread-timeline {
+    grid-auto-columns: 230px;
+    padding-left: 0;
+  }
+}
