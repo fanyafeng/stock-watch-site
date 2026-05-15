@@ -11881,10 +11881,11 @@ body:has(.comment-workbench) {
 }
 
 body:has(.comment-workbench) .comment-workbench {
-  width: min(1860px, calc(100vw - 48px));
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 24px 0 28px;
+  width: 100%;
+  max-width: 1680px;
+  min-height: 100%;
+  margin: 0;
+  padding: 18px 0 28px;
   color: #172033;
 }
 
@@ -13000,7 +13001,7 @@ body:has(.comment-workbench) .comment-evidence-actions {
 
 @media (max-width: 1220px) {
   body:has(.comment-workbench) .comment-workbench {
-    width: min(100%, calc(100vw - 32px));
+    width: 100%;
   }
 
   body:has(.comment-workbench) .comment-workbench-layout {
@@ -13064,8 +13065,8 @@ body:has(.comment-workbench) .comment-evidence-actions {
 
 @media (max-width: 760px) {
   body:has(.comment-workbench) .comment-workbench {
-    width: min(100%, calc(100vw - 20px));
-    padding: 16px 0 22px;
+    width: 100%;
+    padding: 12px 0 22px;
   }
 
   body:has(.comment-workbench) .comment-page-head {
