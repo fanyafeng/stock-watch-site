@@ -1,0 +1,189 @@
+{
+  "date": "2026-05-16",
+  "updated_at": "2026-05-16 00:15:28",
+  "report": {
+    "date": "2026-05-16",
+    "source": "daily",
+    "source_name": "综合复盘",
+    "report_type": "daily_workbench",
+    "title": "2026-05-16 A股综合复盘工作台",
+    "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
+    "tags": [
+      "综合复盘",
+      "今日总览",
+      "时间线",
+      "大盘信息",
+      "来源聚合",
+      "技术形态"
+    ],
+    "slug": "daily_2026-05-16",
+    "url": "/articles/daily_2026-05-16/"
+  },
+  "overview": {
+    "market_status": "需补充 market.csv",
+    "main_sectors": [
+      "暂无数据"
+    ],
+    "risk_level": "中",
+    "operation_tone": "控制仓位，只等买点",
+    "sentiment": "暂无数据",
+    "risk_signal": "暂无数据",
+    "tomorrow_watch": "暂无数据"
+  },
+  "market": {
+    "index_status": "暂无指数状态",
+    "volume_change": "暂无成交量数据",
+    "index_money_flow_series": "",
+    "sector_rotation": "暂无板块轮动数据",
+    "accumulation_direction": [
+      "暂无数据"
+    ],
+    "sector_first_limit_up": {},
+    "capital_preference": "暂无资金偏好数据"
+  },
+  "stats": {
+    "source_count": 4,
+    "candidate_count": 0,
+    "accepted_count": 0,
+    "rejected_count": 0,
+    "comment_count": 0,
+    "top_patterns": []
+  },
+  "timeline": [
+    {
+      "time": "15:05",
+      "category": "after_close",
+      "source": "",
+      "title": "盘后总结",
+      "content": "以真实备份数据生成当日复盘，缺失模块保持暂无数据，不自动编造。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "yege",
+      "name": "全能的野人",
+      "channel": "同花顺帖子",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [],
+      "holdings": [],
+      "comment_count": 0,
+      "posts": [],
+      "comments": []
+    },
+    {
+      "id": "lihongjuan",
+      "name": "李红娟",
+      "channel": "图文/帖子",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [],
+      "holdings": [],
+      "comment_count": 0,
+      "posts": [],
+      "comments": []
+    },
+    {
+      "id": "wangduoyu",
+      "name": "王多于",
+      "channel": "抖音视频列表",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [],
+      "holdings": [],
+      "comment_count": 0,
+      "posts": [],
+      "comments": []
+    },
+    {
+      "id": "longge",
+      "name": "龙哥",
+      "channel": "抖音视频列表",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [],
+      "holdings": [],
+      "comment_count": 0,
+      "posts": [],
+      "comments": []
+    }
+  ],
+  "selection": {
+    "short": [],
+    "mid": []
+  },
+  "stock_pool": {
+    "sources": [
+      {
+        "id": "yege",
+        "name": "全能的野人",
+        "short": [],
+        "mid": []
+      },
+      {
+        "id": "lihongjuan",
+        "name": "李红娟",
+        "short": [],
+        "mid": []
+      },
+      {
+        "id": "wangduoyu",
+        "name": "王多于",
+        "short": [],
+        "mid": []
+      },
+      {
+        "id": "longge",
+        "name": "龙哥",
+        "short": [],
+        "mid": []
+      }
+    ]
+  },
+  "comments": [],
+  "comment_groups": [],
+  "comment_sources": [
+    {
+      "id": "yege",
+      "name": "全能的野人",
+      "count": 0,
+      "post_count": 0
+    },
+    {
+      "id": "lihongjuan",
+      "name": "李红娟",
+      "count": 0,
+      "post_count": 0
+    },
+    {
+      "id": "wangduoyu",
+      "name": "王多于",
+      "count": 0,
+      "post_count": 0
+    },
+    {
+      "id": "longge",
+      "name": "龙哥",
+      "count": 0,
+      "post_count": 0
+    }
+  ],
+  "evidence": {
+    "yege": {
+      "name": "全能的野人",
+      "posts": []
+    },
+    "lihongjuan": {
+      "name": "李红娟",
+      "posts": []
+    },
+    "wangduoyu": {
+      "name": "王多于",
+      "posts": []
+    },
+    "longge": {
+      "name": "龙哥",
+      "posts": []
+    }
+  }
+}

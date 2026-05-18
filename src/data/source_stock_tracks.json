@@ -1,19 +1,1113 @@
 {
-  "generated_at": "2026-05-15T18:44:04",
-  "date": "2026-05-15",
+  "generated_at": "2026-05-18T16:14:54",
+  "date": "2026-05-18",
   "price_note": "收益为脚本根据公开日K估算；买卖截图与帖子原文仍需人工核对。",
   "sources": {
     "yege": {
       "source": "yege",
-      "generated_date": "2026-05-15",
+      "generated_date": "2026-05-18",
       "stats": {
-        "track_count": 11,
-        "active_count": 5,
+        "track_count": 20,
+        "active_count": 10,
         "sold_count": 6,
         "screenshot_count": 145,
         "avg_return_pct": null
       },
       "tracks": [
+        {
+          "code": "002706",
+          "name": "良信股份",
+          "stock_url": "https://basic.10jqka.com.cn/002706/",
+          "first_seen_date": "2026-05-12",
+          "first_selected_date": "2026-05-12",
+          "buy_date": "2026-05-12",
+          "buy_action": "选股入池",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-18",
+          "latest_action": "提及",
+          "latest_summary": "良信股份(002706) 好好好。好……好……好……真棒。",
+          "status": "观察中",
+          "return_pct": null,
+          "buy_price": 11.9,
+          "buy_price_date": "2026-05-12",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "按选股入场区间中位估算，待行情复核",
+          "event_count": 16,
+          "post_count": 12,
+          "screenshot_count": 28,
+          "buy_evidence": [
+            {
+              "date": "2026-05-12",
+              "time": "09:26",
+              "action": "提及",
+              "image": "/media/2026-05-12/yege/alert_01_0926_2342443133.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfofaz4cy5bli5bf27405"
+            },
+            {
+              "date": "2026-05-12",
+              "time": "09:26",
+              "action": "提及",
+              "image": "/media/2026-05-12/yege/daily_07_0926_2342443133.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfofaz4cy5bli5bf27405"
+            },
+            {
+              "date": "2026-05-12",
+              "time": "09:26",
+              "action": "提及",
+              "image": "/media/2026-05-12/yege/daily_10_0926_2342443133.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfofaz4cy5bli5bf27405"
+            },
+            {
+              "date": "2026-05-12",
+              "time": "09:52",
+              "action": "提及",
+              "image": "/media/2026-05-12/yege/alert_01_0952_2342516184.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfqf8f0yy1zhyc966a418"
+            },
+            {
+              "date": "2026-05-12",
+              "time": "09:52",
+              "action": "提及",
+              "image": "/media/2026-05-12/yege/daily_06_0952_2342516184.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfqf8f0yy1zhyc966a418"
+            },
+            {
+              "date": "2026-05-12",
+              "time": "09:52",
+              "action": "提及",
+              "image": "/media/2026-05-12/yege/daily_09_0952_2342516184.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfqf8f0yy1zhyc966a418"
+            }
+          ],
+          "sell_evidence": [],
+          "latest_evidence": [
+            {
+              "date": "2026-05-15",
+              "time": "09:40",
+              "action": "提及",
+              "image": "/media/2026-05-15/yege/alert_05_0940_2344881561.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhj4a1887mewm19cc117e"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:40",
+              "action": "提及",
+              "image": "/media/2026-05-15/yege/daily_05_0940_2344881561.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhj4a1887mewm19cc117e"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:40",
+              "action": "提及",
+              "image": "/media/2026-05-15/yege/daily_06_0940_2344881561.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhj4a1887mewm19cc117e"
+            },
+            {
+              "date": "2026-05-13",
+              "time": "13:06",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/daily_03_1306_2343525166.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgi0pue5jqbjq9f214e0d"
+            },
+            {
+              "date": "2026-05-13",
+              "time": "09:34",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/daily_02_0934_2343175931.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg8guhvqls35iac6e9502"
+            },
+            {
+              "date": "2026-05-13",
+              "time": "09:34",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/daily_05_0934_2343175931.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg8guhvqls35iac6e9502"
+            }
+          ],
+          "events": [
+            {
+              "code": "002706",
+              "name": "良信股份",
+              "date": "2026-05-13",
+              "time": "09:26",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "良信股份(002706) 我只认资金。别跟我扯那些没用的。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg83mv9bu12ba5f308dae",
+              "images": [
+                "/media/2026-05-13/yege/daily_03_0926_2343162513.jpg",
+                "/media/2026-05-13/yege/daily_06_0926_2343162513.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-13.csv"
+            },
+            {
+              "code": "002706",
+              "name": "良信股份",
+              "date": "2026-05-13",
+              "time": "09:34",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "良信股份(002706) 合力泰(002217) 天华新能(300390) 一手？？？？",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg8guhvqls35iac6e9502",
+              "images": [
+                "/media/2026-05-13/yege/daily_02_0934_2343175931.jpg",
+                "/media/2026-05-13/yege/daily_05_0934_2343175931.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-13.csv"
+            },
+            {
+              "code": "002706",
+              "name": "良信股份",
+              "date": "2026-05-13",
+              "time": "13:06",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "润泽科技(300442) 良信股份(002706) 啊呀我的粉丝真牛，16000白亿也是我粉丝抬轿子拉的。哈哈哈。菜就多练，别废口舌。aidc快点起飞。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgi0pue5jqbjq9f214e0d",
+              "images": [
+                "/media/2026-05-13/yege/daily_03_1306_2343525166.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-13.csv"
+            },
+            {
+              "code": "002706",
+              "name": "良信股份",
+              "date": "2026-05-15",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "回踩观察，按小仓试错思路验证",
+              "pattern": "回踩观察",
+              "status": "等待买点",
+              "entry_mid": 12.12,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-15.csv"
+            },
+            {
+              "code": "002706",
+              "name": "良信股份",
+              "date": "2026-05-15",
+              "time": "09:40",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "良信股份(002706)",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhj4a1887mewm19cc117e",
+              "images": [
+                "/media/2026-05-15/yege/alert_05_0940_2344881561.jpg",
+                "/media/2026-05-15/yege/daily_05_0940_2344881561.jpg",
+                "/media/2026-05-15/yege/daily_06_0940_2344881561.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-15.csv"
+            },
+            {
+              "code": "002706",
+              "name": "良信股份",
+              "date": "2026-05-15",
+              "time": "11:03",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "良信股份(002706) 合力泰(002217) 完了大盘红了，不会把我洗出去了吧！",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhq90kecfq8dy36974837",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-15.csv"
+            },
+            {
+              "code": "002706",
+              "name": "良信股份",
+              "date": "2026-05-18",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "只作观察，等待右侧确认。",
+              "pattern": "技术形态观察",
+              "status": "等待买点",
+              "entry_mid": null,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-18.csv"
+            },
+            {
+              "code": "002706",
+              "name": "良信股份",
+              "date": "2026-05-18",
+              "time": "14:24",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "良信股份(002706) 好好好。好……好……好……真棒。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dikysg0oloph2f39311cb",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-18.csv"
+            }
+          ]
+        },
+        {
+          "code": "603629",
+          "name": "利通电子",
+          "stock_url": "https://basic.10jqka.com.cn/603629/",
+          "first_seen_date": "2026-05-13",
+          "first_selected_date": "2026-05-13",
+          "buy_date": "2026-05-13",
+          "buy_action": "选股入池",
+          "sell_date": "2026-05-13",
+          "sell_action": "卖出/减仓线索",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "利通电子(603629) 调整差不多了。算力租赁老大差不多要发力了。",
+          "status": "已卖出/减仓",
+          "return_pct": null,
+          "buy_price": 160.395,
+          "buy_price_date": "2026-05-13",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "按选股入场区间中位估算，待行情复核",
+          "event_count": 4,
+          "post_count": 2,
+          "screenshot_count": 1,
+          "buy_evidence": [],
+          "sell_evidence": [
+            {
+              "date": "2026-05-13",
+              "time": "14:59",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-13/yege/daily_01_1459_2343791794.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgpb90ndmmvp25cdfa42e"
+            }
+          ],
+          "latest_evidence": [
+            {
+              "date": "2026-05-13",
+              "time": "14:59",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-13/yege/daily_01_1459_2343791794.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgpb90ndmmvp25cdfa42e"
+            }
+          ],
+          "events": [
+            {
+              "code": "603629",
+              "name": "利通电子",
+              "date": "2026-05-13",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "无先手不追高，只看回踩",
+              "pattern": "追高风险",
+              "status": "观察取消",
+              "entry_mid": 160.395,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-13.csv"
+            },
+            {
+              "code": "603629",
+              "name": "利通电子",
+              "date": "2026-05-13",
+              "time": "14:59",
+              "kind": "sell",
+              "action": "卖出/减仓线索",
+              "summary": "圣阳股份(002580) 利通电子(603629) 浙江世宝(002703) 不符合我预期的我都减一点。没有做t昂。突然觉得没意思了。今天心情不好。就这样吧！emmm了",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgpb90ndmmvp25cdfa42e",
+              "images": [
+                "/media/2026-05-13/yege/daily_01_1459_2343791794.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-13.csv"
+            },
+            {
+              "code": "603629",
+              "name": "利通电子",
+              "date": "2026-05-17",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "只作观察，等待右侧确认。",
+              "pattern": "技术形态观察",
+              "status": "等待买点",
+              "entry_mid": null,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-17.csv"
+            },
+            {
+              "code": "603629",
+              "name": "利通电子",
+              "date": "2026-05-17",
+              "time": "18:38",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "利通电子(603629) 调整差不多了。算力租赁老大差不多要发力了。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di5yvg6s312463545c0c7",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
+        {
+          "code": "300442",
+          "name": "润泽科技",
+          "stock_url": "https://basic.10jqka.com.cn/300442/",
+          "first_seen_date": "2026-05-13",
+          "first_selected_date": "2026-05-13",
+          "buy_date": "2026-05-14",
+          "buy_action": "加仓线索",
+          "sell_date": "2026-05-15",
+          "sell_action": "卖出/减仓线索",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "润泽科技(300442) XD宝信软(600845) 光环新网(300383) 人气怎么突然又高了。又出啥利好消息啦！我只认资金。这几天资金进了跟就行了。我不认消息。不过算力租赁和ai...",
+          "status": "已卖出/减仓",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 15,
+          "post_count": 11,
+          "screenshot_count": 20,
+          "buy_evidence": [
+            {
+              "date": "2026-05-14",
+              "time": "09:27",
+              "action": "加仓线索",
+              "image": "/media/2026-05-14/yege/daily_01_0927_2343975983.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dguclz184qak62478d21a"
+            },
+            {
+              "date": "2026-05-14",
+              "time": "09:27",
+              "action": "加仓线索",
+              "image": "/media/2026-05-14/yege/daily_02_0927_2343975983.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dguclz184qak62478d21a"
+            }
+          ],
+          "sell_evidence": [
+            {
+              "date": "2026-05-15",
+              "time": "09:42",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/alert_04_0942_2344892901.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhjfg04mwlywm663e645e"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:42",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/daily_04_0942_2344892901.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhjfg04mwlywm663e645e"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:42",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/daily_05_0942_2344892901.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhjfg04mwlywm663e645e"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:58",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/alert_01_0958_2344955247.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:58",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/daily_01_0958_2344955247.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:58",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/daily_02_0958_2344955247.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
+            }
+          ],
+          "latest_evidence": [
+            {
+              "date": "2026-05-15",
+              "time": "14:59",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/alert_01_1459_2345513390.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di0eei3s5hjw6c1ad33fc"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "14:59",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/daily_01_1459_2345513390.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di0eei3s5hjw6c1ad33fc"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:58",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/alert_01_0958_2344955247.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:58",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/daily_01_0958_2344955247.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:58",
+              "action": "卖出/减仓线索",
+              "image": "/media/2026-05-15/yege/daily_02_0958_2344955247.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
+            },
+            {
+              "date": "2026-05-15",
+              "time": "09:49",
+              "action": "提及",
+              "image": "/media/2026-05-15/yege/alert_02_0949_2344919853.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhk5zdef8lwjad6a4916b"
+            }
+          ],
+          "events": [
+            {
+              "code": "300442",
+              "name": "润泽科技",
+              "date": "2026-05-15",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "先核对减仓/退出风险",
+              "pattern": "回踩观察",
+              "status": "等待买点",
+              "entry_mid": 97.34,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-15.csv"
+            },
+            {
+              "code": "300442",
+              "name": "润泽科技",
+              "date": "2026-05-15",
+              "time": "09:26",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "润泽科技(300442) 好运来，那个好运来。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhi0gb2p6ojqu519901d3",
+              "images": [
+                "/media/2026-05-15/yege/alert_06_0926_2344841114.jpg",
+                "/media/2026-05-15/yege/daily_06_0926_2344841114.jpg",
+                "/media/2026-05-15/yege/daily_07_0926_2344841114.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-15.csv"
+            },
+            {
+              "code": "300442",
+              "name": "润泽科技",
+              "date": "2026-05-15",
+              "time": "09:42",
+              "kind": "sell",
+              "action": "卖出/减仓线索",
+              "summary": "润泽科技(300442) 去弱留强。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhjfg04mwlywm663e645e",
+              "images": [
+                "/media/2026-05-15/yege/alert_04_0942_2344892901.jpg",
+                "/media/2026-05-15/yege/daily_04_0942_2344892901.jpg",
+                "/media/2026-05-15/yege/daily_05_0942_2344892901.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-15.csv"
+            },
+            {
+              "code": "300442",
+              "name": "润泽科技",
+              "date": "2026-05-15",
+              "time": "09:49",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "合力泰(002217) 润泽科技(300442) 天华新能(300390) 早上红9个",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhk5zdef8lwjad6a4916b",
+              "images": [
+                "/media/2026-05-15/yege/alert_02_0949_2344919853.jpg",
+                "/media/2026-05-15/yege/daily_02_0949_2344919853.jpg",
+                "/media/2026-05-15/yege/daily_03_0949_2344919853.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-15.csv"
+            },
+            {
+              "code": "300442",
+              "name": "润泽科技",
+              "date": "2026-05-15",
+              "time": "09:58",
+              "kind": "sell",
+              "action": "卖出/减仓线索",
+              "summary": "润泽科技(300442) 弱了就是弱了。我也没有卖在最高点。合力泰早上最高点我也没卖到，但是我有去弱留强的概念。弱的不割去强的，就是死扛，你要想到底是谁在做交易。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1",
+              "images": [
+                "/media/2026-05-15/yege/alert_01_0958_2344955247.jpg",
+                "/media/2026-05-15/yege/daily_01_0958_2344955247.jpg",
+                "/media/2026-05-15/yege/daily_02_0958_2344955247.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-15.csv"
+            },
+            {
+              "code": "300442",
+              "name": "润泽科技",
+              "date": "2026-05-15",
+              "time": "14:59",
+              "kind": "sell",
+              "action": "卖出/减仓线索",
+              "summary": "润泽科技(300442) 天华新能(300390) 合力泰(002217) 黄毛走了，带走了我的账户余额。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di0eei3s5hjw6c1ad33fc",
+              "images": [
+                "/media/2026-05-15/yege/alert_01_1459_2345513390.jpg",
+                "/media/2026-05-15/yege/daily_01_1459_2345513390.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-15.csv"
+            },
+            {
+              "code": "300442",
+              "name": "普丽盛",
+              "date": "2026-05-17",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "只作观察，等待右侧确认。",
+              "pattern": "技术形态观察",
+              "status": "等待买点",
+              "entry_mid": null,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-17.csv"
+            },
+            {
+              "code": "300442",
+              "name": "普丽盛",
+              "date": "2026-05-17",
+              "time": "11:26",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "润泽科技(300442) XD宝信软(600845) 光环新网(300383) 人气怎么突然又高了。又出啥利好消息啦！我只认资金。这几天资金进了跟就行了。我不认消息。不过算力租赁和ai...",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di5e5n6iup6nqf8c38cb2",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
+        {
+          "code": "002208",
+          "name": "合肥城建",
+          "stock_url": "https://basic.10jqka.com.cn/002208/",
+          "first_seen_date": "2026-05-17",
+          "first_selected_date": "2026-05-17",
+          "buy_date": "2026-05-17",
+          "buy_action": "选股入池",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "合肥城建(002208) 这个我三月中旬说的波段。几个星期漫长的震仓阶段我估计很多人拿不住。我说过散户震仓的时候99%都拿不住。现在因为长鑫存储又上热门第一了。明天的预期就是要不你买不...",
+          "status": "观察中",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 2,
+          "post_count": 1,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "002208",
+              "name": "合肥城建",
+              "date": "2026-05-17",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "只作观察，等待右侧确认。",
+              "pattern": "技术形态观察",
+              "status": "等待买点",
+              "entry_mid": null,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-17.csv"
+            },
+            {
+              "code": "002208",
+              "name": "合肥城建",
+              "date": "2026-05-17",
+              "time": "20:56",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "合肥城建(002208) 这个我三月中旬说的波段。几个星期漫长的震仓阶段我估计很多人拿不住。我说过散户震仓的时候99%都拿不住。现在因为长鑫存储又上热门第一了。明天的预期就是要不你买不...",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di6994rkoe41if6bdf18a",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
+        {
+          "code": "002536",
+          "name": "飞龙股份",
+          "stock_url": "https://basic.10jqka.com.cn/002536/",
+          "first_seen_date": "2026-05-17",
+          "first_selected_date": "2026-05-17",
+          "buy_date": "2026-05-17",
+          "buy_action": "选股入池",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "飞龙股份(002536) 等等 20日线或者十日线，调整差不多了。",
+          "status": "观察中",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 2,
+          "post_count": 1,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "002536",
+              "name": "飞龙股份",
+              "date": "2026-05-17",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "只作观察，等待右侧确认。",
+              "pattern": "技术形态观察",
+              "status": "等待买点",
+              "entry_mid": null,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-17.csv"
+            },
+            {
+              "code": "002536",
+              "name": "飞龙股份",
+              "date": "2026-05-17",
+              "time": "18:52",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "飞龙股份(002536) 等等 20日线或者十日线，调整差不多了。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di5zv6hnsg7w6e8843e39",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
+        {
+          "code": "002837",
+          "name": "英维克",
+          "stock_url": "https://basic.10jqka.com.cn/002837/",
+          "first_seen_date": "2026-05-17",
+          "first_selected_date": "2026-05-17",
+          "buy_date": "2026-05-17",
+          "buy_action": "选股入池",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "英维克(002837) 调整也差不多了。最近最好别玩小市值的。短线已经慢慢被市场淘汰了。都在转趋势了。以前的情绪周期已经失效了。我也跟着市场进步在进步。",
+          "status": "观察中",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 2,
+          "post_count": 1,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "002837",
+              "name": "英维克",
+              "date": "2026-05-17",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "只作观察，等待右侧确认。",
+              "pattern": "技术形态观察",
+              "status": "等待买点",
+              "entry_mid": null,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-17.csv"
+            },
+            {
+              "code": "002837",
+              "name": "英维克",
+              "date": "2026-05-17",
+              "time": "18:51",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "英维克(002837) 调整也差不多了。最近最好别玩小市值的。短线已经慢慢被市场淘汰了。都在转趋势了。以前的情绪周期已经失效了。我也跟着市场进步在进步。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di5zsceif05py6f99158b",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
+        {
+          "code": "603019",
+          "name": "中科曙光",
+          "stock_url": "https://basic.10jqka.com.cn/603019/",
+          "first_seen_date": "2026-05-17",
+          "first_selected_date": "2026-05-17",
+          "buy_date": "2026-05-17",
+          "buy_action": "选股入池",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "中科曙光(603019) 这个也是算力的核心。还是那句话，缺口做防守。补缺就是弱，不补就是强。",
+          "status": "观察中",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 2,
+          "post_count": 1,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "603019",
+              "name": "中科曙光",
+              "date": "2026-05-17",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "只作观察，等待右侧确认。",
+              "pattern": "技术形态观察",
+              "status": "等待买点",
+              "entry_mid": null,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-17.csv"
+            },
+            {
+              "code": "603019",
+              "name": "中科曙光",
+              "date": "2026-05-17",
+              "time": "18:31",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "中科曙光(603019) 这个也是算力的核心。还是那句话，缺口做防守。补缺就是弱，不补就是强。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di5yheushgyk6faad0131",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
+        {
+          "code": "002207",
+          "name": "准油股份",
+          "stock_url": "https://basic.10jqka.com.cn/002207/",
+          "first_seen_date": "2026-05-17",
+          "first_selected_date": "2026-05-17",
+          "buy_date": "2026-05-17",
+          "buy_action": "选股入池",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "ST洲际(600759) *ST准油(002207) *ST闻泰(600745) 这种情况散户很难避免，但是一个在天上一个在地下。很难理解。呼吁监管部门应该加强赔付机制。保护投资者的合...",
+          "status": "观察中",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 2,
+          "post_count": 1,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "002207",
+              "name": "准油股份",
+              "date": "2026-05-17",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "只作观察，等待右侧确认。",
+              "pattern": "技术形态观察",
+              "status": "等待买点",
+              "entry_mid": null,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-17.csv"
+            },
+            {
+              "code": "002207",
+              "name": "准油股份",
+              "date": "2026-05-17",
+              "time": "13:32",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "ST洲际(600759) *ST准油(002207) *ST闻泰(600745) 这种情况散户很难避免，但是一个在天上一个在地下。很难理解。呼吁监管部门应该加强赔付机制。保护投资者的合...",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di5jq8le7lek6b7b3f0c0",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
+        {
+          "code": "600759",
+          "name": "ST洲际",
+          "stock_url": "https://basic.10jqka.com.cn/600759/",
+          "first_seen_date": "2026-05-17",
+          "first_selected_date": "",
+          "buy_date": "2026-05-17",
+          "buy_action": "提及",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "ST洲际(600759) *ST准油(002207) *ST闻泰(600745) 这种情况散户很难避免，但是一个在天上一个在地下。很难理解。呼吁监管部门应该加强赔付机制。保护投资者的合...",
+          "status": "仅提及",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 1,
+          "post_count": 1,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "600759",
+              "name": "ST洲际",
+              "date": "2026-05-17",
+              "time": "13:32",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "ST洲际(600759) *ST准油(002207) *ST闻泰(600745) 这种情况散户很难避免，但是一个在天上一个在地下。很难理解。呼吁监管部门应该加强赔付机制。保护投资者的合...",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di5jq8le7lek6b7b3f0c0",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
+        {
+          "code": "600745",
+          "name": "ST闻泰",
+          "stock_url": "https://basic.10jqka.com.cn/600745/",
+          "first_seen_date": "2026-05-17",
+          "first_selected_date": "",
+          "buy_date": "2026-05-17",
+          "buy_action": "提及",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "ST洲际(600759) *ST准油(002207) *ST闻泰(600745) 这种情况散户很难避免，但是一个在天上一个在地下。很难理解。呼吁监管部门应该加强赔付机制。保护投资者的合...",
+          "status": "仅提及",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 1,
+          "post_count": 1,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "600745",
+              "name": "ST闻泰",
+              "date": "2026-05-17",
+              "time": "13:32",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "ST洲际(600759) *ST准油(002207) *ST闻泰(600745) 这种情况散户很难避免，但是一个在天上一个在地下。很难理解。呼吁监管部门应该加强赔付机制。保护投资者的合...",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di5jq8le7lek6b7b3f0c0",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
+        {
+          "code": "600845",
+          "name": "XD宝信软",
+          "stock_url": "https://basic.10jqka.com.cn/600845/",
+          "first_seen_date": "2026-05-17",
+          "first_selected_date": "",
+          "buy_date": "2026-05-17",
+          "buy_action": "提及",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "润泽科技(300442) XD宝信软(600845) 光环新网(300383) 人气怎么突然又高了。又出啥利好消息啦！我只认资金。这几天资金进了跟就行了。我不认消息。不过算力租赁和ai...",
+          "status": "仅提及",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 1,
+          "post_count": 1,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "600845",
+              "name": "XD宝信软",
+              "date": "2026-05-17",
+              "time": "11:26",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "润泽科技(300442) XD宝信软(600845) 光环新网(300383) 人气怎么突然又高了。又出啥利好消息啦！我只认资金。这几天资金进了跟就行了。我不认消息。不过算力租赁和ai...",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di5e5n6iup6nqf8c38cb2",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
+        {
+          "code": "300383",
+          "name": "光环新网",
+          "stock_url": "https://basic.10jqka.com.cn/300383/",
+          "first_seen_date": "2026-05-17",
+          "first_selected_date": "",
+          "buy_date": "2026-05-17",
+          "buy_action": "提及",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-17",
+          "latest_action": "提及",
+          "latest_summary": "润泽科技(300442) XD宝信软(600845) 光环新网(300383) 人气怎么突然又高了。又出啥利好消息啦！我只认资金。这几天资金进了跟就行了。我不认消息。不过算力租赁和ai...",
+          "status": "仅提及",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 1,
+          "post_count": 1,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "300383",
+              "name": "光环新网",
+              "date": "2026-05-17",
+              "time": "11:26",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "润泽科技(300442) XD宝信软(600845) 光环新网(300383) 人气怎么突然又高了。又出啥利好消息啦！我只认资金。这几天资金进了跟就行了。我不认消息。不过算力租赁和ai...",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di5e5n6iup6nqf8c38cb2",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-17.csv"
+            }
+          ]
+        },
         {
           "code": "002217",
           "name": "合力泰",
@@ -526,528 +1620,6 @@
             {
               "code": "300390",
               "name": "天华新能",
-              "date": "2026-05-15",
-              "time": "14:59",
-              "kind": "sell",
-              "action": "卖出/减仓线索",
-              "summary": "润泽科技(300442) 天华新能(300390) 合力泰(002217) 黄毛走了，带走了我的账户余额。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di0eei3s5hjw6c1ad33fc",
-              "images": [
-                "/media/2026-05-15/yege/alert_01_1459_2345513390.jpg",
-                "/media/2026-05-15/yege/daily_01_1459_2345513390.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-15.csv"
-            }
-          ]
-        },
-        {
-          "code": "002706",
-          "name": "良信股份",
-          "stock_url": "https://basic.10jqka.com.cn/002706/",
-          "first_seen_date": "2026-05-12",
-          "first_selected_date": "2026-05-12",
-          "buy_date": "2026-05-12",
-          "buy_action": "选股入池",
-          "sell_date": "",
-          "sell_action": "",
-          "latest_date": "2026-05-15",
-          "latest_action": "提及",
-          "latest_summary": "良信股份(002706) 合力泰(002217) 完了大盘红了，不会把我洗出去了吧！",
-          "status": "观察中",
-          "return_pct": null,
-          "buy_price": 11.9,
-          "buy_price_date": "2026-05-12",
-          "end_price": null,
-          "end_price_date": "",
-          "price_basis": "按选股入场区间中位估算，待行情复核",
-          "event_count": 14,
-          "post_count": 11,
-          "screenshot_count": 28,
-          "buy_evidence": [
-            {
-              "date": "2026-05-12",
-              "time": "09:26",
-              "action": "提及",
-              "image": "/media/2026-05-12/yege/alert_01_0926_2342443133.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfofaz4cy5bli5bf27405"
-            },
-            {
-              "date": "2026-05-12",
-              "time": "09:26",
-              "action": "提及",
-              "image": "/media/2026-05-12/yege/daily_07_0926_2342443133.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfofaz4cy5bli5bf27405"
-            },
-            {
-              "date": "2026-05-12",
-              "time": "09:26",
-              "action": "提及",
-              "image": "/media/2026-05-12/yege/daily_10_0926_2342443133.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfofaz4cy5bli5bf27405"
-            },
-            {
-              "date": "2026-05-12",
-              "time": "09:52",
-              "action": "提及",
-              "image": "/media/2026-05-12/yege/alert_01_0952_2342516184.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfqf8f0yy1zhyc966a418"
-            },
-            {
-              "date": "2026-05-12",
-              "time": "09:52",
-              "action": "提及",
-              "image": "/media/2026-05-12/yege/daily_06_0952_2342516184.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfqf8f0yy1zhyc966a418"
-            },
-            {
-              "date": "2026-05-12",
-              "time": "09:52",
-              "action": "提及",
-              "image": "/media/2026-05-12/yege/daily_09_0952_2342516184.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfqf8f0yy1zhyc966a418"
-            }
-          ],
-          "sell_evidence": [],
-          "latest_evidence": [
-            {
-              "date": "2026-05-15",
-              "time": "09:40",
-              "action": "提及",
-              "image": "/media/2026-05-15/yege/alert_05_0940_2344881561.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhj4a1887mewm19cc117e"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:40",
-              "action": "提及",
-              "image": "/media/2026-05-15/yege/daily_05_0940_2344881561.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhj4a1887mewm19cc117e"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:40",
-              "action": "提及",
-              "image": "/media/2026-05-15/yege/daily_06_0940_2344881561.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhj4a1887mewm19cc117e"
-            },
-            {
-              "date": "2026-05-13",
-              "time": "13:06",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/daily_03_1306_2343525166.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgi0pue5jqbjq9f214e0d"
-            },
-            {
-              "date": "2026-05-13",
-              "time": "09:34",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/daily_02_0934_2343175931.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg8guhvqls35iac6e9502"
-            },
-            {
-              "date": "2026-05-13",
-              "time": "09:34",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/daily_05_0934_2343175931.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg8guhvqls35iac6e9502"
-            }
-          ],
-          "events": [
-            {
-              "code": "002706",
-              "name": "良信股份",
-              "date": "2026-05-12",
-              "time": "14:53",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "良信股份(002706) 股吧历史都是惊人的相似，以前的圣阳第一次地板的时候，合力泰第一个炸板的时候。我在想，这样人到底怎么在股市存活的。你不回家种地对国家都是损失。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg39cqpkyhiwm6f7472cd",
-              "images": [
-                "/media/2026-05-12/yege/alert_01_1453_2342985513.jpg",
-                "/media/2026-05-12/yege/daily_02_1453_2342985513.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-12.csv"
-            },
-            {
-              "code": "002706",
-              "name": "良信股份",
-              "date": "2026-05-13",
-              "time": "",
-              "kind": "pick",
-              "action": "选股入池",
-              "summary": "强提醒，仍需结合位置和仓位控制",
-              "pattern": "强势延续",
-              "status": "等待买点",
-              "entry_mid": 12.235,
-              "url": "",
-              "images": [],
-              "source_file": "data/sources/yege/picks/2026-05-13.csv"
-            },
-            {
-              "code": "002706",
-              "name": "良信股份",
-              "date": "2026-05-13",
-              "time": "09:26",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "良信股份(002706) 我只认资金。别跟我扯那些没用的。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg83mv9bu12ba5f308dae",
-              "images": [
-                "/media/2026-05-13/yege/daily_03_0926_2343162513.jpg",
-                "/media/2026-05-13/yege/daily_06_0926_2343162513.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-13.csv"
-            },
-            {
-              "code": "002706",
-              "name": "良信股份",
-              "date": "2026-05-13",
-              "time": "09:34",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "良信股份(002706) 合力泰(002217) 天华新能(300390) 一手？？？？",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg8guhvqls35iac6e9502",
-              "images": [
-                "/media/2026-05-13/yege/daily_02_0934_2343175931.jpg",
-                "/media/2026-05-13/yege/daily_05_0934_2343175931.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-13.csv"
-            },
-            {
-              "code": "002706",
-              "name": "良信股份",
-              "date": "2026-05-13",
-              "time": "13:06",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "润泽科技(300442) 良信股份(002706) 啊呀我的粉丝真牛，16000白亿也是我粉丝抬轿子拉的。哈哈哈。菜就多练，别废口舌。aidc快点起飞。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgi0pue5jqbjq9f214e0d",
-              "images": [
-                "/media/2026-05-13/yege/daily_03_1306_2343525166.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-13.csv"
-            },
-            {
-              "code": "002706",
-              "name": "良信股份",
-              "date": "2026-05-15",
-              "time": "",
-              "kind": "pick",
-              "action": "选股入池",
-              "summary": "回踩观察，按小仓试错思路验证",
-              "pattern": "回踩观察",
-              "status": "等待买点",
-              "entry_mid": 12.12,
-              "url": "",
-              "images": [],
-              "source_file": "data/sources/yege/picks/2026-05-15.csv"
-            },
-            {
-              "code": "002706",
-              "name": "良信股份",
-              "date": "2026-05-15",
-              "time": "09:40",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "良信股份(002706)",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhj4a1887mewm19cc117e",
-              "images": [
-                "/media/2026-05-15/yege/alert_05_0940_2344881561.jpg",
-                "/media/2026-05-15/yege/daily_05_0940_2344881561.jpg",
-                "/media/2026-05-15/yege/daily_06_0940_2344881561.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-15.csv"
-            },
-            {
-              "code": "002706",
-              "name": "良信股份",
-              "date": "2026-05-15",
-              "time": "11:03",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "良信股份(002706) 合力泰(002217) 完了大盘红了，不会把我洗出去了吧！",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhq90kecfq8dy36974837",
-              "images": [],
-              "source_file": "data/sources/yege/posts/2026-05-15.csv"
-            }
-          ]
-        },
-        {
-          "code": "300442",
-          "name": "润泽科技",
-          "stock_url": "https://basic.10jqka.com.cn/300442/",
-          "first_seen_date": "2026-05-13",
-          "first_selected_date": "2026-05-13",
-          "buy_date": "2026-05-14",
-          "buy_action": "加仓线索",
-          "sell_date": "2026-05-15",
-          "sell_action": "卖出/减仓线索",
-          "latest_date": "2026-05-15",
-          "latest_action": "卖出/减仓线索",
-          "latest_summary": "润泽科技(300442) 天华新能(300390) 合力泰(002217) 黄毛走了，带走了我的账户余额。",
-          "status": "已卖出/减仓",
-          "return_pct": null,
-          "buy_price": null,
-          "buy_price_date": "",
-          "end_price": null,
-          "end_price_date": "",
-          "price_basis": "待行情：Remote end closed connection without response",
-          "event_count": 13,
-          "post_count": 10,
-          "screenshot_count": 20,
-          "buy_evidence": [
-            {
-              "date": "2026-05-14",
-              "time": "09:27",
-              "action": "加仓线索",
-              "image": "/media/2026-05-14/yege/daily_01_0927_2343975983.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dguclz184qak62478d21a"
-            },
-            {
-              "date": "2026-05-14",
-              "time": "09:27",
-              "action": "加仓线索",
-              "image": "/media/2026-05-14/yege/daily_02_0927_2343975983.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dguclz184qak62478d21a"
-            }
-          ],
-          "sell_evidence": [
-            {
-              "date": "2026-05-15",
-              "time": "09:42",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/alert_04_0942_2344892901.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhjfg04mwlywm663e645e"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:42",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/daily_04_0942_2344892901.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhjfg04mwlywm663e645e"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:42",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/daily_05_0942_2344892901.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhjfg04mwlywm663e645e"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:58",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/alert_01_0958_2344955247.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:58",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/daily_01_0958_2344955247.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:58",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/daily_02_0958_2344955247.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
-            }
-          ],
-          "latest_evidence": [
-            {
-              "date": "2026-05-15",
-              "time": "14:59",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/alert_01_1459_2345513390.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di0eei3s5hjw6c1ad33fc"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "14:59",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/daily_01_1459_2345513390.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1di0eei3s5hjw6c1ad33fc"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:58",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/alert_01_0958_2344955247.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:58",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/daily_01_0958_2344955247.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:58",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-15/yege/daily_02_0958_2344955247.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1"
-            },
-            {
-              "date": "2026-05-15",
-              "time": "09:49",
-              "action": "提及",
-              "image": "/media/2026-05-15/yege/alert_02_0949_2344919853.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhk5zdef8lwjad6a4916b"
-            }
-          ],
-          "events": [
-            {
-              "code": "300442",
-              "name": "润泽科技",
-              "date": "2026-05-14",
-              "time": "09:27",
-              "kind": "buy",
-              "action": "加仓线索",
-              "summary": "润泽科技(300442) 试错，加仓。我错了也认。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dguclz184qak62478d21a",
-              "images": [
-                "/media/2026-05-14/yege/daily_01_0927_2343975983.jpg",
-                "/media/2026-05-14/yege/daily_02_0927_2343975983.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-14.csv"
-            },
-            {
-              "code": "300442",
-              "name": "润泽科技",
-              "date": "2026-05-14",
-              "time": "14:19",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "润泽科技(300442) ？？？不许v 你v回来了，黑粉又不高兴了。他今晚又要气的吃不下饭了。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dh9ylspj0x0c6cda7dadf",
-              "images": [],
-              "source_file": "data/sources/yege/posts/2026-05-14.csv"
-            },
-            {
-              "code": "300442",
-              "name": "润泽科技",
-              "date": "2026-05-15",
-              "time": "",
-              "kind": "pick",
-              "action": "选股入池",
-              "summary": "先核对减仓/退出风险",
-              "pattern": "回踩观察",
-              "status": "等待买点",
-              "entry_mid": 97.34,
-              "url": "",
-              "images": [],
-              "source_file": "data/sources/yege/picks/2026-05-15.csv"
-            },
-            {
-              "code": "300442",
-              "name": "润泽科技",
-              "date": "2026-05-15",
-              "time": "09:26",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "润泽科技(300442) 好运来，那个好运来。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhi0gb2p6ojqu519901d3",
-              "images": [
-                "/media/2026-05-15/yege/alert_06_0926_2344841114.jpg",
-                "/media/2026-05-15/yege/daily_06_0926_2344841114.jpg",
-                "/media/2026-05-15/yege/daily_07_0926_2344841114.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-15.csv"
-            },
-            {
-              "code": "300442",
-              "name": "润泽科技",
-              "date": "2026-05-15",
-              "time": "09:42",
-              "kind": "sell",
-              "action": "卖出/减仓线索",
-              "summary": "润泽科技(300442) 去弱留强。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhjfg04mwlywm663e645e",
-              "images": [
-                "/media/2026-05-15/yege/alert_04_0942_2344892901.jpg",
-                "/media/2026-05-15/yege/daily_04_0942_2344892901.jpg",
-                "/media/2026-05-15/yege/daily_05_0942_2344892901.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-15.csv"
-            },
-            {
-              "code": "300442",
-              "name": "润泽科技",
-              "date": "2026-05-15",
-              "time": "09:49",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "合力泰(002217) 润泽科技(300442) 天华新能(300390) 早上红9个",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhk5zdef8lwjad6a4916b",
-              "images": [
-                "/media/2026-05-15/yege/alert_02_0949_2344919853.jpg",
-                "/media/2026-05-15/yege/daily_02_0949_2344919853.jpg",
-                "/media/2026-05-15/yege/daily_03_0949_2344919853.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-15.csv"
-            },
-            {
-              "code": "300442",
-              "name": "润泽科技",
-              "date": "2026-05-15",
-              "time": "09:58",
-              "kind": "sell",
-              "action": "卖出/减仓线索",
-              "summary": "润泽科技(300442) 弱了就是弱了。我也没有卖在最高点。合力泰早上最高点我也没卖到，但是我有去弱留强的概念。弱的不割去强的，就是死扛，你要想到底是谁在做交易。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dhl4tzgc40b1y984659e1",
-              "images": [
-                "/media/2026-05-15/yege/alert_01_0958_2344955247.jpg",
-                "/media/2026-05-15/yege/daily_01_0958_2344955247.jpg",
-                "/media/2026-05-15/yege/daily_02_0958_2344955247.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-15.csv"
-            },
-            {
-              "code": "300442",
-              "name": "润泽科技",
               "date": "2026-05-15",
               "time": "14:59",
               "kind": "sell",
@@ -1593,83 +2165,6 @@
                 "/media/2026-05-13/yege/daily_01_0824_2343133276.jpg",
                 "/media/2026-05-13/yege/daily_04_0824_2343133276.jpg",
                 "/media/2026-05-13/yege/daily_07_0824_2343133276.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-13.csv"
-            }
-          ]
-        },
-        {
-          "code": "603629",
-          "name": "利通电子",
-          "stock_url": "https://basic.10jqka.com.cn/603629/",
-          "first_seen_date": "2026-05-13",
-          "first_selected_date": "2026-05-13",
-          "buy_date": "2026-05-13",
-          "buy_action": "选股入池",
-          "sell_date": "2026-05-13",
-          "sell_action": "卖出/减仓线索",
-          "latest_date": "2026-05-13",
-          "latest_action": "卖出/减仓线索",
-          "latest_summary": "圣阳股份(002580) 利通电子(603629) 浙江世宝(002703) 不符合我预期的我都减一点。没有做t昂。突然觉得没意思了。今天心情不好。就这样吧！emmm了",
-          "status": "已卖出/减仓",
-          "return_pct": null,
-          "buy_price": 160.395,
-          "buy_price_date": "2026-05-13",
-          "end_price": null,
-          "end_price_date": "",
-          "price_basis": "按选股入场区间中位估算，待行情复核",
-          "event_count": 2,
-          "post_count": 1,
-          "screenshot_count": 1,
-          "buy_evidence": [],
-          "sell_evidence": [
-            {
-              "date": "2026-05-13",
-              "time": "14:59",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-13/yege/daily_01_1459_2343791794.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgpb90ndmmvp25cdfa42e"
-            }
-          ],
-          "latest_evidence": [
-            {
-              "date": "2026-05-13",
-              "time": "14:59",
-              "action": "卖出/减仓线索",
-              "image": "/media/2026-05-13/yege/daily_01_1459_2343791794.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgpb90ndmmvp25cdfa42e"
-            }
-          ],
-          "events": [
-            {
-              "code": "603629",
-              "name": "利通电子",
-              "date": "2026-05-13",
-              "time": "",
-              "kind": "pick",
-              "action": "选股入池",
-              "summary": "无先手不追高，只看回踩",
-              "pattern": "追高风险",
-              "status": "观察取消",
-              "entry_mid": 160.395,
-              "url": "",
-              "images": [],
-              "source_file": "data/sources/yege/picks/2026-05-13.csv"
-            },
-            {
-              "code": "603629",
-              "name": "利通电子",
-              "date": "2026-05-13",
-              "time": "14:59",
-              "kind": "sell",
-              "action": "卖出/减仓线索",
-              "summary": "圣阳股份(002580) 利通电子(603629) 浙江世宝(002703) 不符合我预期的我都减一点。没有做t昂。突然觉得没意思了。今天心情不好。就这样吧！emmm了",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dgpb90ndmmvp25cdfa42e",
-              "images": [
-                "/media/2026-05-13/yege/daily_01_1459_2343791794.jpg"
               ],
               "source_file": "data/sources/yege/posts/2026-05-13.csv"
             }
