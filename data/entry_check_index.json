@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T16:14:54",
+  "generated_at": "2026-05-18T11:58:04",
   "default_date": "2026-05-18",
   "modes": [
     {
@@ -1057,9 +1057,9 @@
           "mode_name": "李红娟模式",
           "source": "lihongjuan",
           "source_name": "李红娟",
-          "type": "短期",
-          "pattern": "中继回踩",
-          "logic": "通用设备方向有评论关注；当前 2026-05-15 收盘 33.1，涨跌幅 3.18%，MA5/10/20=32.94/31.12/28.2，量比近5日均量 1.08，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 规则命中：MKT-01(+4)、MKT-02(+3)、MKT-04(-5)、SEL-01(+4)、SEL-03(+3)、TRD-03(+3)、LHJ-01(+5)、LHJ-01(+3)。",
+          "type": "仅观察",
+          "pattern": "来源提及",
+          "logic": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
           "sectors": [
             "芯片设备",
             "通用设备",
@@ -1069,95 +1069,62 @@
             "光通信",
             "军工电子"
           ],
-          "status": "仅观察",
+          "status": "数据不足",
           "suggest_entry": false,
-          "risk": "高",
-          "summary": "汉钟精机当前证据不足，已命中9项、缺失2项，需要补充价格、止损或大盘支持数据。",
-          "current_price": 33.1,
-          "entry_low": 33.1,
-          "entry_high": 33.1,
-          "entry_range": "33.1",
-          "stop_loss": 31.12,
-          "take_profit_1": 36.07,
-          "take_profit_2": 37.46,
-          "risk_reward": "1:1.50",
+          "risk": "中",
+          "summary": "汉钟精机当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
+          "current_price": null,
+          "entry_low": null,
+          "entry_high": null,
+          "entry_range": "待补充",
+          "stop_loss": null,
+          "take_profit_1": null,
+          "take_profit_2": null,
+          "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
           "trend_snapshot": {
-            "as_of": "2026-05-15",
-            "current_price": 33.1,
-            "pct_change": 3.18,
-            "ma5": 32.94,
-            "ma10": 31.12,
-            "ma20": 28.2,
-            "volume_ratio": 1.08,
-            "technical_state": "回踩观察",
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
             "source": "picks_logic"
           },
-          "price_position": "价格进入入场区间",
-          "volume_signal": "量能平稳，量比 1.08",
-          "ma_structure": "多头排列，趋势偏强",
-          "technical_state": "回踩观察",
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
-            "来源命中",
-            "技术形态可观察",
-            "入场区间明确",
-            "止损位明确",
-            "盈亏比合格",
-            "当前价进入入场区间",
-            "走势状态：回踩观察",
-            "多头排列，趋势偏强",
-            "趋势延续得到走势确认"
+            "来源命中"
           ],
           "missed_rules": [
+            "技术形态仍需补充确认",
+            "缺少明确入场区间",
+            "缺少止损位",
+            "盈亏比不足或待复核",
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充",
-            "风险等级为高",
-            "股票池状态为观察取消"
+            "一个月维度逻辑仍需补充"
           ],
-          "risk_points": [
-            "风险等级为高",
-            "股票池状态为观察取消"
-          ],
+          "risk_points": [],
           "action": {
             "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 33.1 区间。",
-            "invalid_condition": "跌破风险位 31.12 或板块资金持续流出。",
+            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
+            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
             "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
           },
           "evidence": {
-            "stock_pool": [
-              {
-                "date": "2026-05-11",
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "code": "002158",
-                "name": "汉钟精机",
-                "type": "short",
-                "pattern": "中继回踩",
-                "logic": "通用设备方向有评论关注；当前 2026-05-15 收盘 33.1，涨跌幅 3.18%，MA5/10/20=32.94/31.12/28.2，量比近5日均量 1.08，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 规则命中：MKT-01(+4)、MKT-02(+3)、MKT-04(-5)、SEL-01(+4)、SEL-03(+3)、TRD-03(+3)、LHJ-01(+5)、LHJ-01(+3)。",
-                "entry_low": 33.1,
-                "entry_high": 33.1,
-                "stop_loss": 31.12,
-                "take_profit_1": 36.07,
-                "take_profit_2": 37.46,
-                "risk_reward_score": 8.0,
-                "risk_score": 7.0,
-                "risk": "高",
-                "status": "观察取消",
-                "raw_text": "李红娟群聊出现明确个股/方向计划，按群聊策略源进入候选池。",
-                "note": "来自真实评论选股报告；不是随机推荐。",
-                "trend_score": 6.0,
-                "breakout_score": 5.0,
-                "pullback_score": 8.0,
-                "volume_score": 5.0
-              }
-            ],
+            "stock_pool": [],
             "source_mentions": [
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "title": "娟姐 2026-05-11 群聊评论备份",
+                "title": "李红娟 2026-05-11 群聊评论备份",
                 "summary": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
                 "sectors": [
                   "芯片设备",
@@ -1175,7 +1142,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 14:26",
+                "comment_source": "李红娟群聊 14:26",
                 "content": "芯片hzjj也来了",
                 "sectors": [
                   "芯片设备",
@@ -1183,36 +1150,6 @@
                 ],
                 "value_reason": "群聊原话已识别股票线索：汉钟精机(002158)；情绪=bullish。",
                 "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "芯片hzjj也来了",
-                "sectors": [
-                  "芯片设备",
-                  "通用设备"
-                ],
-                "value_reason": "群聊原话已识别股票线索：汉钟精机(002158)；情绪=bullish。",
-                "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
-                "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
-                "sectors": [
-                  "芯片设备",
-                  "通用设备"
-                ],
-                "value_reason": "群聊原话已识别股票线索：汉钟精机(002158)；情绪=risk。",
-                "include_status": "否",
                 "sentiment": "",
                 "value_score": null,
                 "url": ""
@@ -1314,7 +1251,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "title": "娟姐 2026-05-11 群聊评论备份",
+                "title": "李红娟 2026-05-11 群聊评论备份",
                 "summary": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
                 "sectors": [
                   "芯片设备",
@@ -1332,38 +1269,8 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 14:26",
+                "comment_source": "李红娟群聊 14:26",
                 "content": "今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了",
-                "sectors": [
-                  "消费电子",
-                  "射频"
-                ],
-                "value_reason": "群聊原话已识别股票线索：信维通信(300136)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了",
-                "sectors": [
-                  "消费电子",
-                  "射频"
-                ],
-                "value_reason": "群聊原话已识别股票线索：信维通信(300136)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
-                "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
                 "sectors": [
                   "消费电子",
                   "射频"
@@ -1472,7 +1379,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "title": "娟姐 2026-05-11 群聊评论备份",
+                "title": "李红娟 2026-05-11 群聊评论备份",
                 "summary": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
                 "sectors": [
                   "芯片设备",
@@ -1490,7 +1397,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 13:01",
+                "comment_source": "李红娟群聊 13:01",
                 "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
                 "sectors": [
                   "商业航天",
@@ -1505,23 +1412,8 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
+                "comment_source": "李红娟群聊 13:01",
                 "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天",
-                  "光通信"
-                ],
-                "value_reason": "群聊原话已识别股票线索：天通股份(600330)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
-                "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
                 "sectors": [
                   "商业航天",
                   "光通信"
@@ -1628,7 +1520,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "title": "娟姐 2026-05-11 群聊评论备份",
+                "title": "李红娟 2026-05-11 群聊评论备份",
                 "summary": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
                 "sectors": [
                   "芯片设备",
@@ -1646,38 +1538,8 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 13:01",
+                "comment_source": "李红娟群聊 13:01",
                 "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天",
-                  "军工电子"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天发展(000547)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天",
-                  "军工电子"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天发展(000547)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
-                "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
                 "sectors": [
                   "商业航天",
                   "军工电子"
@@ -1785,7 +1647,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "title": "娟姐 2026-05-11 群聊评论备份",
+                "title": "李红娟 2026-05-11 群聊评论备份",
                 "summary": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
                 "sectors": [
                   "芯片设备",
@@ -1803,36 +1665,8 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 13:01",
+                "comment_source": "李红娟群聊 13:01",
                 "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天动力(600343)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天动力(600343)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
-                "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
                 "sectors": [
                   "商业航天"
                 ],
@@ -1938,7 +1772,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "title": "娟姐 2026-05-11 群聊评论备份",
+                "title": "李红娟 2026-05-11 群聊评论备份",
                 "summary": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
                 "sectors": [
                   "芯片设备",
@@ -1956,190 +1790,13 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 13:01",
+                "comment_source": "李红娟群聊 13:01",
                 "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
                 "sectors": [
                   "商业航天",
                   "军工电子"
                 ],
                 "value_reason": "群聊原话已识别股票线索：航天电子(600879)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天",
-                  "军工电子"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天电子(600879)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
-                "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
-                "sectors": [
-                  "商业航天",
-                  "军工电子"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天电子(600879)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "探底回升，上涨家数约3064，下跌家数约2054",
-                "main_sectors": [
-                  "稀土",
-                  "半导体设备",
-                  "半导体材料",
-                  "疫苗",
-                  "昨日打二板以上表现",
-                  "先进封装"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
-        },
-        {
-          "date": "2026-05-11",
-          "code": "603399",
-          "name": "永杉锂业",
-          "search_text": "603399 永杉锂业 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "仅观察",
-          "pattern": "来源提及",
-          "logic": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
-          "sectors": [
-            "芯片设备",
-            "通用设备",
-            "消费电子",
-            "射频",
-            "商业航天",
-            "光通信",
-            "军工电子"
-          ],
-          "status": "数据不足",
-          "suggest_entry": false,
-          "risk": "中",
-          "summary": "永杉锂业当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
-          "entry_low": null,
-          "entry_high": null,
-          "entry_range": "待补充",
-          "stop_loss": null,
-          "take_profit_1": null,
-          "take_profit_2": null,
-          "risk_reward": "待复核",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "",
-            "current_price": null,
-            "pct_change": null,
-            "ma5": null,
-            "ma10": null,
-            "ma20": null,
-            "volume_ratio": null,
-            "technical_state": "",
-            "source": "picks_logic"
-          },
-          "price_position": "当前价待补充",
-          "volume_signal": "量能待补充",
-          "ma_structure": "均线待补充",
-          "technical_state": "待补充",
-          "matched_rules": [
-            "来源命中"
-          ],
-          "missed_rules": [
-            "技术形态仍需补充确认",
-            "缺少明确入场区间",
-            "缺少止损位",
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
-            "量能数据缺失",
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
-            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-11 群聊评论备份",
-                "summary": "计划明早9点左右发。今晚姐妹局吃饭，没时间复盘 芯片hzjj也来了 今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了 刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商…",
-                "sectors": [
-                  "芯片设备",
-                  "通用设备",
-                  "消费电子",
-                  "射频",
-                  "商业航天",
-                  "光通信",
-                  "军工电子"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 13:01",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：永杉锂业(603399)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 09:32",
-                "content": "ysly不涨停就走",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：永杉锂业(603399)；情绪=bullish。",
-                "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：永杉锂业(603399)；情绪=risk。",
                 "include_status": "否",
                 "sentiment": "",
                 "value_score": null,
@@ -2323,19 +1980,6 @@
             "电力",
             "消费电子",
             "光学光电子"
-          ]
-        },
-        {
-          "code": "603399",
-          "name": "永杉锂业",
-          "sectors": [
-            "芯片设备",
-            "通用设备",
-            "消费电子",
-            "射频",
-            "商业航天",
-            "光通信",
-            "军工电子"
           ]
         }
       ]
@@ -3308,16 +2952,16 @@
         },
         {
           "date": "2026-05-12",
-          "code": "600879",
-          "name": "航天电子",
-          "search_text": "600879 航天电子 李红娟",
+          "code": "000547",
+          "name": "航天发展",
+          "search_text": "000547 航天发展 李红娟",
           "mode": "lihongjuan",
           "mode_name": "李红娟模式",
           "source": "lihongjuan",
           "source_name": "李红娟",
           "type": "短期",
           "pattern": "中继回踩",
-          "logic": "商业航天方向有评论关注；当前 2026-05-11 收盘 26.78，涨跌幅 0.49%，MA5/10/20=25.58/24.53/23.91，量比近5日均量 1.45，状态：强势延续。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、MKT-02(+3)、SEL-01(+4)、SEL-03(+3)、TRD-02(-10)、TRD-03(+3)、THS-04(+5)、THS-04(+6)。",
+          "logic": "商业航天方向有评论关注；当前 2026-05-12 收盘 27.66，涨跌幅 -3.99%，MA5/10/20=26.82/25.79/26.51，量比近5日均量 1.19，状态：观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、SEL-01(+4)、SEL-03(+3)、TRD-02(-10)、TRD-03(+3)、THS-04(+5)、THS-04(+6)。",
           "sectors": [
             "芯片设备",
             "通用设备",
@@ -3330,30 +2974,377 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "航天电子当前证据不足，已命中10项、缺失2项，需要补充价格、止损或大盘支持数据。",
-          "current_price": 26.78,
-          "entry_low": 26.78,
-          "entry_high": 26.78,
-          "entry_range": "26.78",
-          "stop_loss": 24.53,
-          "take_profit_1": 30.16,
-          "take_profit_2": 31.73,
+          "summary": "航天发展当前证据不足，已命中7项、缺失2项，需要补充价格、止损或大盘支持数据。",
+          "current_price": 27.66,
+          "entry_low": 27.66,
+          "entry_high": 27.66,
+          "entry_range": "27.66",
+          "stop_loss": 25.79,
+          "take_profit_1": 30.47,
+          "take_profit_2": 31.77,
           "risk_reward": "1:1.50",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
           "trend_snapshot": {
-            "as_of": "2026-05-11",
-            "current_price": 26.78,
-            "pct_change": 0.49,
-            "ma5": 25.58,
-            "ma10": 24.53,
-            "ma20": 23.91,
-            "volume_ratio": 1.45,
+            "as_of": "2026-05-12",
+            "current_price": 27.66,
+            "pct_change": -3.99,
+            "ma5": 26.82,
+            "ma10": 25.79,
+            "ma20": 26.51,
+            "volume_ratio": 1.19,
+            "technical_state": "观察",
+            "source": "picks_logic"
+          },
+          "price_position": "价格进入入场区间",
+          "volume_signal": "量能平稳，量比 1.19",
+          "ma_structure": "站上关键均线",
+          "technical_state": "观察",
+          "matched_rules": [
+            "来源命中",
+            "技术形态可观察",
+            "入场区间明确",
+            "止损位明确",
+            "盈亏比合格",
+            "当前价进入入场区间",
+            "站上关键均线"
+          ],
+          "missed_rules": [
+            "板块与当日主线关联待确认",
+            "一个月维度逻辑仍需补充",
+            "风险等级为高",
+            "股票池状态为观察取消"
+          ],
+          "risk_points": [
+            "风险等级为高",
+            "股票池状态为观察取消"
+          ],
+          "action": {
+            "today": "回踩确认后再判断，不追短期情绪高点。",
+            "wait_condition": "等待趋势延续、板块资金配合，并进入 27.66 区间。",
+            "invalid_condition": "跌破风险位 25.79 或板块资金持续流出。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [
+              {
+                "date": "2026-05-12",
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "code": "000547",
+                "name": "航天发展",
+                "type": "short",
+                "pattern": "中继回踩",
+                "logic": "商业航天方向有评论关注；当前 2026-05-12 收盘 27.66，涨跌幅 -3.99%，MA5/10/20=26.82/25.79/26.51，量比近5日均量 1.19，状态：观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、SEL-01(+4)、SEL-03(+3)、TRD-02(-10)、TRD-03(+3)、THS-04(+5)、THS-04(+6)。",
+                "entry_low": 27.66,
+                "entry_high": 27.66,
+                "stop_loss": 25.79,
+                "take_profit_1": 30.47,
+                "take_profit_2": 31.77,
+                "risk_reward_score": 8.0,
+                "risk_score": 7.0,
+                "risk": "高",
+                "status": "观察取消",
+                "raw_text": "评论区出现明确个股讨论，已通过无效评论过滤。",
+                "note": "来自真实评论选股报告；不是随机推荐。",
+                "trend_score": 6.0,
+                "breakout_score": 5.0,
+                "pullback_score": 8.0,
+                "volume_score": 5.0
+              }
+            ],
+            "source_mentions": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "title": "李红娟 2026-05-12 群聊评论备份",
+                "summary": "今天又是完美的一天。明天继续加油 tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天…",
+                "sectors": [
+                  "芯片设备",
+                  "通用设备",
+                  "消费电子",
+                  "射频",
+                  "商业航天",
+                  "光通信",
+                  "军工电子"
+                ],
+                "url": "douyin://im/group"
+              }
+            ],
+            "comments": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "comment_source": "李红娟群聊 13:01",
+                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+                "sectors": [
+                  "商业航天",
+                  "军工电子"
+                ],
+                "value_reason": "群聊原话已识别股票线索：航天发展(000547)；情绪=risk。",
+                "include_status": "否",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              },
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "comment_source": "李红娟群聊 01:42",
+                "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
+                "sectors": [
+                  "商业航天",
+                  "军工电子"
+                ],
+                "value_reason": "群聊原话已识别股票线索：航天发展(000547)；情绪=risk。",
+                "include_status": "否",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "窄幅震荡，上涨家数约1296，下跌家数约3897",
+                "main_sectors": [
+                  "半导体设备",
+                  "其他数字媒体",
+                  "钼",
+                  "体育Ⅲ",
+                  "昨日打二板以上表现",
+                  "昨日连板_含一字"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        },
+        {
+          "date": "2026-05-12",
+          "code": "600879",
+          "name": "航天电子",
+          "search_text": "600879 航天电子 李红娟",
+          "mode": "lihongjuan",
+          "mode_name": "李红娟模式",
+          "source": "lihongjuan",
+          "source_name": "李红娟",
+          "type": "短期",
+          "pattern": "中继回踩",
+          "logic": "商业航天方向有评论关注；当前 2026-05-12 收盘 26.02，涨跌幅 -2.84%，MA5/10/20=25.99/24.63/24.13，量比近5日均量 0.79，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、SEL-01(+4)、SEL-03(+3)、TRD-02(-10)、TRD-03(+3)、THS-04(+5)、THS-04(+6)。",
+          "sectors": [
+            "芯片设备",
+            "通用设备",
+            "消费电子",
+            "射频",
+            "商业航天",
+            "光通信",
+            "军工电子"
+          ],
+          "status": "仅观察",
+          "suggest_entry": false,
+          "risk": "高",
+          "summary": "航天电子当前证据不足，已命中9项、缺失2项，需要补充价格、止损或大盘支持数据。",
+          "current_price": 26.02,
+          "entry_low": 26.02,
+          "entry_high": 26.02,
+          "entry_range": "26.02",
+          "stop_loss": 24.63,
+          "take_profit_1": 28.11,
+          "take_profit_2": 29.08,
+          "risk_reward": "1:1.50",
+          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "2026-05-12",
+            "current_price": 26.02,
+            "pct_change": -2.84,
+            "ma5": 25.99,
+            "ma10": 24.63,
+            "ma20": 24.13,
+            "volume_ratio": 0.79,
+            "technical_state": "回踩观察",
+            "source": "picks_logic"
+          },
+          "price_position": "价格进入入场区间",
+          "volume_signal": "缩量下跌，量比 0.79",
+          "ma_structure": "多头排列，趋势偏强",
+          "technical_state": "回踩观察",
+          "matched_rules": [
+            "来源命中",
+            "技术形态可观察",
+            "入场区间明确",
+            "止损位明确",
+            "盈亏比合格",
+            "当前价进入入场区间",
+            "走势状态：回踩观察",
+            "多头排列，趋势偏强",
+            "趋势延续得到走势确认"
+          ],
+          "missed_rules": [
+            "板块与当日主线关联待确认",
+            "一个月维度逻辑仍需补充",
+            "风险等级为高",
+            "股票池状态为观察取消"
+          ],
+          "risk_points": [
+            "风险等级为高",
+            "股票池状态为观察取消"
+          ],
+          "action": {
+            "today": "回踩确认后再判断，不追短期情绪高点。",
+            "wait_condition": "等待趋势延续、板块资金配合，并进入 26.02 区间。",
+            "invalid_condition": "跌破风险位 24.63 或板块资金持续流出。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [
+              {
+                "date": "2026-05-12",
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "code": "600879",
+                "name": "航天电子",
+                "type": "short",
+                "pattern": "中继回踩",
+                "logic": "商业航天方向有评论关注；当前 2026-05-12 收盘 26.02，涨跌幅 -2.84%，MA5/10/20=25.99/24.63/24.13，量比近5日均量 0.79，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、SEL-01(+4)、SEL-03(+3)、TRD-02(-10)、TRD-03(+3)、THS-04(+5)、THS-04(+6)。",
+                "entry_low": 26.02,
+                "entry_high": 26.02,
+                "stop_loss": 24.63,
+                "take_profit_1": 28.11,
+                "take_profit_2": 29.08,
+                "risk_reward_score": 7.0,
+                "risk_score": 7.0,
+                "risk": "高",
+                "status": "观察取消",
+                "raw_text": "评论区出现明确个股讨论，已通过无效评论过滤。",
+                "note": "来自真实评论选股报告；不是随机推荐。",
+                "trend_score": 6.0,
+                "breakout_score": 5.0,
+                "pullback_score": 8.0,
+                "volume_score": 5.0
+              }
+            ],
+            "source_mentions": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "title": "李红娟 2026-05-12 群聊评论备份",
+                "summary": "今天又是完美的一天。明天继续加油 tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天…",
+                "sectors": [
+                  "芯片设备",
+                  "通用设备",
+                  "消费电子",
+                  "射频",
+                  "商业航天",
+                  "光通信",
+                  "军工电子"
+                ],
+                "url": "douyin://im/group"
+              }
+            ],
+            "comments": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "comment_source": "李红娟群聊 13:01",
+                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
+                "sectors": [
+                  "商业航天",
+                  "军工电子"
+                ],
+                "value_reason": "群聊原话已识别股票线索：航天电子(600879)；情绪=risk。",
+                "include_status": "否",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              },
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "comment_source": "李红娟群聊 01:42",
+                "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
+                "sectors": [
+                  "商业航天",
+                  "军工电子"
+                ],
+                "value_reason": "群聊原话已识别股票线索：航天电子(600879)；情绪=risk。",
+                "include_status": "否",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "窄幅震荡，上涨家数约1296，下跌家数约3897",
+                "main_sectors": [
+                  "半导体设备",
+                  "其他数字媒体",
+                  "钼",
+                  "体育Ⅲ",
+                  "昨日打二板以上表现",
+                  "昨日连板_含一字"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        },
+        {
+          "date": "2026-05-12",
+          "code": "600343",
+          "name": "航天动力",
+          "search_text": "600343 航天动力 李红娟",
+          "mode": "lihongjuan",
+          "mode_name": "李红娟模式",
+          "source": "lihongjuan",
+          "source_name": "李红娟",
+          "type": "短期",
+          "pattern": "中继回踩",
+          "logic": "商业航天方向有评论关注；当前 2026-05-12 收盘 38.5，涨跌幅 0.81%，MA5/10/20=36.99/35.48/35.36，量比近5日均量 1.34，状态：强势延续。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、MKT-02(+3)、SEL-01(+4)、SEL-03(+3)、TRD-02(-10)、TRD-03(+3)、THS-04(+5)、THS-04(+6)。",
+          "sectors": [
+            "芯片设备",
+            "通用设备",
+            "消费电子",
+            "射频",
+            "商业航天",
+            "光通信",
+            "军工电子",
+            "航天装备"
+          ],
+          "status": "仅观察",
+          "suggest_entry": false,
+          "risk": "高",
+          "summary": "航天动力当前证据不足，已命中10项、缺失2项，需要补充价格、止损或大盘支持数据。",
+          "current_price": 38.5,
+          "entry_low": 38.5,
+          "entry_high": 38.5,
+          "entry_range": "38.5",
+          "stop_loss": 35.48,
+          "take_profit_1": 43.03,
+          "take_profit_2": 45.14,
+          "risk_reward": "1:1.50",
+          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "2026-05-12",
+            "current_price": 38.5,
+            "pct_change": 0.81,
+            "ma5": 36.99,
+            "ma10": 35.48,
+            "ma20": 35.36,
+            "volume_ratio": 1.34,
             "technical_state": "强势延续",
             "source": "picks_logic"
           },
           "price_position": "价格进入入场区间",
-          "volume_signal": "量增价升，量比 1.45",
+          "volume_signal": "量增价升，量比 1.34",
           "ma_structure": "多头排列，趋势偏强",
           "technical_state": "强势延续",
           "matched_rules": [
@@ -3380,8 +3371,8 @@
           ],
           "action": {
             "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 26.78 区间。",
-            "invalid_condition": "跌破风险位 24.53 或板块资金持续流出。",
+            "wait_condition": "等待趋势延续、板块资金配合，并进入 38.5 区间。",
+            "invalid_condition": "跌破风险位 35.48 或板块资金持续流出。",
             "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
           },
           "evidence": {
@@ -3390,16 +3381,16 @@
                 "date": "2026-05-12",
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "code": "600879",
-                "name": "航天电子",
+                "code": "600343",
+                "name": "航天动力",
                 "type": "short",
                 "pattern": "中继回踩",
-                "logic": "商业航天方向有评论关注；当前 2026-05-11 收盘 26.78，涨跌幅 0.49%，MA5/10/20=25.58/24.53/23.91，量比近5日均量 1.45，状态：强势延续。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、MKT-02(+3)、SEL-01(+4)、SEL-03(+3)、TRD-02(-10)、TRD-03(+3)、THS-04(+5)、THS-04(+6)。",
-                "entry_low": 26.78,
-                "entry_high": 26.78,
-                "stop_loss": 24.53,
-                "take_profit_1": 30.16,
-                "take_profit_2": 31.73,
+                "logic": "商业航天方向有评论关注；当前 2026-05-12 收盘 38.5，涨跌幅 0.81%，MA5/10/20=36.99/35.48/35.36，量比近5日均量 1.34，状态：强势延续。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、MKT-02(+3)、SEL-01(+4)、SEL-03(+3)、TRD-02(-10)、TRD-03(+3)、THS-04(+5)、THS-04(+6)。",
+                "entry_low": 38.5,
+                "entry_high": 38.5,
+                "stop_loss": 35.48,
+                "take_profit_1": 43.03,
+                "take_profit_2": 45.14,
                 "risk_reward_score": 7.0,
                 "risk_score": 7.0,
                 "risk": "高",
@@ -3416,8 +3407,8 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "title": "娟姐 2026-05-12 群聊评论备份",
-                "summary": "tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和…",
+                "title": "李红娟 2026-05-12 群聊评论备份",
+                "summary": "今天又是完美的一天。明天继续加油 tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天…",
                 "sectors": [
                   "芯片设备",
                   "通用设备",
@@ -3434,13 +3425,12 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 13:01",
+                "comment_source": "李红娟群聊 13:01",
                 "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
                 "sectors": [
-                  "商业航天",
-                  "军工电子"
+                  "商业航天"
                 ],
-                "value_reason": "群聊原话已识别股票线索：航天电子(600879)；情绪=risk。",
+                "value_reason": "群聊原话已识别股票线索：航天动力(600343)；情绪=risk。",
                 "include_status": "否",
                 "sentiment": "",
                 "value_score": null,
@@ -3449,28 +3439,12 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
+                "comment_source": "李红娟群聊 01:42",
                 "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
                 "sectors": [
-                  "商业航天",
-                  "军工电子"
+                  "商业航天"
                 ],
-                "value_reason": "群聊原话已识别股票线索：航天电子(600879)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天",
-                  "军工电子"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天电子(600879)；情绪=risk。",
+                "value_reason": "群聊原话已识别股票线索：航天动力(600343)；情绪=risk。",
                 "include_status": "否",
                 "sentiment": "",
                 "value_score": null,
@@ -3505,9 +3479,9 @@
           "mode_name": "李红娟模式",
           "source": "lihongjuan",
           "source_name": "李红娟",
-          "type": "短期",
-          "pattern": "中继回踩",
-          "logic": "通用设备方向有评论关注；当前 2026-05-11 收盘 33.3，涨跌幅 6.08%，MA5/10/20=30.93/28.26/26.49，量比近5日均量 1.28，状态：追高风险。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、MKT-02(+3)、SEL-01(+4)、SEL-03(+3)、TRD-03(-8)。",
+          "type": "中长期",
+          "pattern": "右侧转强",
+          "logic": "通用设备方向有评论关注；当前 2026-05-12 收盘 32.69，涨跌幅 -1.83%，MA5/10/20=31.94/28.96/26.95，量比近5日均量 0.66，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、SEL-01(+4)、SEL-03(+3)、TRD-02(-10)、TRD-03(-8)。",
           "sectors": [
             "芯片设备",
             "通用设备",
@@ -3521,58 +3495,56 @@
           "suggest_entry": false,
           "risk": "高",
           "summary": "汉钟精机当前证据不足，已命中9项、缺失2项，需要补充价格、止损或大盘支持数据。",
-          "current_price": 33.3,
-          "entry_low": 33.3,
-          "entry_high": 33.3,
-          "entry_range": "33.3",
-          "stop_loss": 28.26,
-          "take_profit_1": 40.86,
-          "take_profit_2": 44.39,
-          "risk_reward": "1:1.50",
+          "current_price": 32.69,
+          "entry_low": 20.0,
+          "entry_high": 32.69,
+          "entry_range": "20 - 32.69",
+          "stop_loss": 28.96,
+          "take_profit_1": 38.28,
+          "take_profit_2": 40.9,
+          "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
           "trend_snapshot": {
-            "as_of": "2026-05-11",
-            "current_price": 33.3,
-            "pct_change": 6.08,
-            "ma5": 30.93,
-            "ma10": 28.26,
-            "ma20": 26.49,
-            "volume_ratio": 1.28,
-            "technical_state": "追高风险",
+            "as_of": "2026-05-12",
+            "current_price": 32.69,
+            "pct_change": -1.83,
+            "ma5": 31.94,
+            "ma10": 28.96,
+            "ma20": 26.95,
+            "volume_ratio": 0.66,
+            "technical_state": "回踩观察",
             "source": "picks_logic"
           },
           "price_position": "价格进入入场区间",
-          "volume_signal": "量增价升，量比 1.28",
+          "volume_signal": "缩量下跌，量比 0.66",
           "ma_structure": "多头排列，趋势偏强",
-          "technical_state": "追高风险",
+          "technical_state": "回踩观察",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
             "入场区间明确",
             "止损位明确",
-            "盈亏比合格",
             "当前价进入入场区间",
+            "走势状态：回踩观察",
             "多头排列，趋势偏强",
-            "量增价升，动能配合",
+            "符合趋势/中长期观察",
             "趋势延续得到走势确认"
           ],
           "missed_rules": [
+            "盈亏比不足或待复核",
             "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充",
-            "走势状态：追高风险",
             "风险等级为高",
             "股票池状态为观察取消"
           ],
           "risk_points": [
-            "走势状态：追高风险",
             "风险等级为高",
             "股票池状态为观察取消"
           ],
           "action": {
             "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 33.3 区间。",
-            "invalid_condition": "跌破风险位 28.26 或板块资金持续流出。",
+            "wait_condition": "等待趋势延续、板块资金配合，并进入 20 - 32.69 区间。",
+            "invalid_condition": "跌破风险位 28.96 或板块资金持续流出。",
             "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
           },
           "evidence": {
@@ -3583,23 +3555,23 @@
                 "source_name": "李红娟",
                 "code": "002158",
                 "name": "汉钟精机",
-                "type": "short",
-                "pattern": "中继回踩",
-                "logic": "通用设备方向有评论关注；当前 2026-05-11 收盘 33.3，涨跌幅 6.08%，MA5/10/20=30.93/28.26/26.49，量比近5日均量 1.28，状态：追高风险。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、MKT-02(+3)、SEL-01(+4)、SEL-03(+3)、TRD-03(-8)。",
-                "entry_low": 33.3,
-                "entry_high": 33.3,
-                "stop_loss": 28.26,
-                "take_profit_1": 40.86,
-                "take_profit_2": 44.39,
+                "type": "mid",
+                "pattern": "右侧转强",
+                "logic": "通用设备方向有评论关注；当前 2026-05-12 收盘 32.69，涨跌幅 -1.83%，MA5/10/20=31.94/28.96/26.95，量比近5日均量 0.66，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 野哥规则命中：MKT-01(+4)、SEL-01(+4)、SEL-03(+3)、TRD-02(-10)、TRD-03(-8)。",
+                "entry_low": 20.0,
+                "entry_high": 32.69,
+                "stop_loss": 28.96,
+                "take_profit_1": 38.28,
+                "take_profit_2": 40.9,
                 "risk_reward_score": 7.0,
                 "risk_score": 7.0,
                 "risk": "高",
                 "status": "观察取消",
                 "raw_text": "评论区出现明确个股讨论，已通过无效评论过滤。",
                 "note": "来自真实评论选股报告；不是随机推荐。",
-                "trend_score": 6.0,
+                "trend_score": 8.0,
                 "breakout_score": 5.0,
-                "pullback_score": 8.0,
+                "pullback_score": 6.0,
                 "volume_score": 5.0
               }
             ],
@@ -3607,8 +3579,8 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "title": "娟姐 2026-05-12 群聊评论备份",
-                "summary": "tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和…",
+                "title": "李红娟 2026-05-12 群聊评论备份",
+                "summary": "今天又是完美的一天。明天继续加油 tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天…",
                 "sectors": [
                   "芯片设备",
                   "通用设备",
@@ -3625,7 +3597,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 14:26",
+                "comment_source": "李红娟群聊 14:26",
                 "content": "芯片hzjj也来了",
                 "sectors": [
                   "芯片设备",
@@ -3640,7 +3612,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
+                "comment_source": "李红娟群聊 01:42",
                 "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
                 "sectors": [
                   "芯片设备",
@@ -3648,21 +3620,6 @@
                 ],
                 "value_reason": "群聊原话已识别股票线索：汉钟精机(002158)；情绪=risk。",
                 "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "芯片hzjj也来了",
-                "sectors": [
-                  "芯片设备",
-                  "通用设备"
-                ],
-                "value_reason": "群聊原话已识别股票线索：汉钟精机(002158)；情绪=bullish。",
-                "include_status": "是",
                 "sentiment": "",
                 "value_score": null,
                 "url": ""
@@ -3698,7 +3655,7 @@
           "source_name": "李红娟",
           "type": "仅观察",
           "pattern": "来源提及",
-          "logic": "tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和…",
+          "logic": "今天又是完美的一天。明天继续加油 tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天…",
           "sectors": [
             "芯片设备",
             "通用设备",
@@ -3764,8 +3721,8 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "title": "娟姐 2026-05-12 群聊评论备份",
-                "summary": "tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和…",
+                "title": "李红娟 2026-05-12 群聊评论备份",
+                "summary": "今天又是完美的一天。明天继续加油 tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天…",
                 "sectors": [
                   "芯片设备",
                   "通用设备",
@@ -3782,7 +3739,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 14:26",
+                "comment_source": "李红娟群聊 14:26",
                 "content": "今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了",
                 "sectors": [
                   "消费电子",
@@ -3797,23 +3754,8 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
+                "comment_source": "李红娟群聊 01:42",
                 "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
-                "sectors": [
-                  "消费电子",
-                  "射频"
-                ],
-                "value_reason": "群聊原话已识别股票线索：信维通信(300136)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "今天卖xw一方面我是想做差，还有原因是我看昨天出来消息定增，我觉得今天它可能会充高回落。后面震荡往上的。没想到直接上去了",
                 "sectors": [
                   "消费电子",
                   "射频"
@@ -3855,7 +3797,7 @@
           "source_name": "李红娟",
           "type": "仅观察",
           "pattern": "来源提及",
-          "logic": "tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和…",
+          "logic": "今天又是完美的一天。明天继续加油 tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天…",
           "sectors": [
             "芯片设备",
             "通用设备",
@@ -3922,8 +3864,8 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "title": "娟姐 2026-05-12 群聊评论备份",
-                "summary": "tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和…",
+                "title": "李红娟 2026-05-12 群聊评论备份",
+                "summary": "今天又是完美的一天。明天继续加油 tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天…",
                 "sectors": [
                   "芯片设备",
                   "通用设备",
@@ -3940,7 +3882,7 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 13:01",
+                "comment_source": "李红娟群聊 13:01",
                 "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
                 "sectors": [
                   "商业航天",
@@ -3955,353 +3897,13 @@
               {
                 "source": "lihongjuan",
                 "source_name": "李红娟",
-                "comment_source": "娟姐群聊 13:01",
+                "comment_source": "李红娟群聊 13:01",
                 "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
                 "sectors": [
                   "商业航天",
                   "光通信"
                 ],
                 "value_reason": "群聊原话已识别股票线索：天通股份(600330)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天",
-                  "光通信"
-                ],
-                "value_reason": "群聊原话已识别股票线索：天通股份(600330)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天",
-                  "光通信"
-                ],
-                "value_reason": "群聊原话已识别股票线索：天通股份(600330)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "窄幅震荡，上涨家数约1296，下跌家数约3897",
-                "main_sectors": [
-                  "半导体设备",
-                  "其他数字媒体",
-                  "钼",
-                  "体育Ⅲ",
-                  "昨日打二板以上表现",
-                  "昨日连板_含一字"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
-        },
-        {
-          "date": "2026-05-12",
-          "code": "000547",
-          "name": "航天发展",
-          "search_text": "000547 航天发展 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "仅观察",
-          "pattern": "来源提及",
-          "logic": "tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和…",
-          "sectors": [
-            "芯片设备",
-            "通用设备",
-            "消费电子",
-            "射频",
-            "商业航天",
-            "光通信",
-            "军工电子"
-          ],
-          "status": "数据不足",
-          "suggest_entry": false,
-          "risk": "中",
-          "summary": "航天发展当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
-          "entry_low": null,
-          "entry_high": null,
-          "entry_range": "待补充",
-          "stop_loss": null,
-          "take_profit_1": null,
-          "take_profit_2": null,
-          "risk_reward": "待复核",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "",
-            "current_price": null,
-            "pct_change": null,
-            "ma5": null,
-            "ma10": null,
-            "ma20": null,
-            "volume_ratio": null,
-            "technical_state": "",
-            "source": "picks_logic"
-          },
-          "price_position": "当前价待补充",
-          "volume_signal": "量能待补充",
-          "ma_structure": "均线待补充",
-          "technical_state": "待补充",
-          "matched_rules": [
-            "来源命中"
-          ],
-          "missed_rules": [
-            "技术形态仍需补充确认",
-            "缺少明确入场区间",
-            "缺少止损位",
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
-            "量能数据缺失",
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
-            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-12 群聊评论备份",
-                "summary": "tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和…",
-                "sectors": [
-                  "芯片设备",
-                  "通用设备",
-                  "消费电子",
-                  "射频",
-                  "商业航天",
-                  "光通信",
-                  "军工电子"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 13:01",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天",
-                  "军工电子"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天发展(000547)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
-                "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
-                "sectors": [
-                  "商业航天",
-                  "军工电子"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天发展(000547)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天",
-                  "军工电子"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天发展(000547)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "窄幅震荡，上涨家数约1296，下跌家数约3897",
-                "main_sectors": [
-                  "半导体设备",
-                  "其他数字媒体",
-                  "钼",
-                  "体育Ⅲ",
-                  "昨日打二板以上表现",
-                  "昨日连板_含一字"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
-        },
-        {
-          "date": "2026-05-12",
-          "code": "600343",
-          "name": "航天动力",
-          "search_text": "600343 航天动力 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "仅观察",
-          "pattern": "来源提及",
-          "logic": "tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和…",
-          "sectors": [
-            "芯片设备",
-            "通用设备",
-            "消费电子",
-            "射频",
-            "商业航天",
-            "光通信",
-            "军工电子",
-            "航天装备"
-          ],
-          "status": "数据不足",
-          "suggest_entry": false,
-          "risk": "中",
-          "summary": "航天动力当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
-          "entry_low": null,
-          "entry_high": null,
-          "entry_range": "待补充",
-          "stop_loss": null,
-          "take_profit_1": null,
-          "take_profit_2": null,
-          "risk_reward": "待复核",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "",
-            "current_price": null,
-            "pct_change": null,
-            "ma5": null,
-            "ma10": null,
-            "ma20": null,
-            "volume_ratio": null,
-            "technical_state": "",
-            "source": "picks_logic"
-          },
-          "price_position": "当前价待补充",
-          "volume_signal": "量能待补充",
-          "ma_structure": "均线待补充",
-          "technical_state": "待补充",
-          "matched_rules": [
-            "来源命中"
-          ],
-          "missed_rules": [
-            "技术形态仍需补充确认",
-            "缺少明确入场区间",
-            "缺少止损位",
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
-            "量能数据缺失",
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
-            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-12 群聊评论备份",
-                "summary": "tbtg 周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和…",
-                "sectors": [
-                  "芯片设备",
-                  "通用设备",
-                  "消费电子",
-                  "射频",
-                  "商业航天",
-                  "光通信",
-                  "军工电子"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 13:01",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天动力(600343)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 01:42",
-                "content": "gupiao zhuanqian的本质是你买了一只票过后，还有人还愿意用更高的价格买你手里的gupiao。所以大家想去买一只piao之前需要想想后手资金他会怎么做。所以不要一天想着哪个位置低哪个位置更低，更安全。zhuanqian的本质就是跟随大资金做。航天明天如果gaokai就不要追了，如果开的不高，之前持有的滚动做，我自己是3ceng在xw里面反复滚动做。最近航天bankuai都是轮着拉，xb，zs，jl，ty都轮着zhangting。周五htfz，htdl也先后zhangting，那之前的htdz有没有可能来一个？明天可以关注一下。另外ttgf是唯一一个航天gaowei的活口，可以考虑。芯片可以看看dsd和hzjj，前者前期走出辨识度，后者周五suoliang调整。",
-                "sectors": [
-                  "商业航天"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天动力(600343)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 03:08",
-                "content": "刚刚有人问为什么在商业航天里面精准找出tt的，说一下逻辑大家就明白了。周五前排商业航天全部回调，sj，jl冲高回落，而天通不仅没跳水还创了新高，后排老一批次的商业航天htfz，htdl涨停。所以我就在考虑htdz和htfz是同一批次的，我得放入今天的观察池。tt是航天的活口，加上它的逻辑很硬，是薄膜铌酸锂产业链上游的核心供应商，所以也得放入观察池。早上竞价再一观察，周五的bggf，ysly都开的OK，说明高位piao风险不大，而且开出来的价格也是我喜欢的价格，和htdz比，他的盈亏比更高。所以按纪律只能上。当然zhangting了是运气好，如果没按照自己的走势来，认kui走人就OK。但是做计划是为了防止自己乱出手。",
-                "sectors": [
-                  "商业航天"
-                ],
-                "value_reason": "群聊原话已识别股票线索：航天动力(600343)；情绪=risk。",
                 "include_status": "否",
                 "sentiment": "",
                 "value_score": null,
@@ -6002,230 +5604,6 @@
             "performance": [],
             "my_positions": []
           }
-        },
-        {
-          "date": "2026-05-13",
-          "code": "600550",
-          "name": "保变电气",
-          "search_text": "600550 保变电气 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "仅观察",
-          "pattern": "来源提及",
-          "logic": "只能盖楼了哈 张鱼烧丸子：baoguang可以拿吗 @张鱼烧丸子 看看上面我发的啥 我关了群消息，大家有说的可以盖楼哈。主要是怕消息被充刷盖住了。 外围昨晚科技大调整。昨天我们的市场也跟着弱调整了，今天会延续调整。昨天让大家不要去追科技，去防御bankuai比如电力去医药。大家要明白一个道理，主力chuhuo前都是先要让市场热起来，让你觉得再不上车就会zhang上天。昨天低位进了hdln的，duanxian做的好的明天还可以做差价，做的不好的直接chonggao止赢走人，tgtb今天会轻微调整，后面还有新高。今天…",
-          "sectors": [
-            "电力"
-          ],
-          "status": "数据不足",
-          "suggest_entry": false,
-          "risk": "中",
-          "summary": "保变电气当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
-          "entry_low": null,
-          "entry_high": null,
-          "entry_range": "待补充",
-          "stop_loss": null,
-          "take_profit_1": null,
-          "take_profit_2": null,
-          "risk_reward": "待复核",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "",
-            "current_price": null,
-            "pct_change": null,
-            "ma5": null,
-            "ma10": null,
-            "ma20": null,
-            "volume_ratio": null,
-            "technical_state": "",
-            "source": "picks_logic"
-          },
-          "price_position": "当前价待补充",
-          "volume_signal": "量能待补充",
-          "ma_structure": "均线待补充",
-          "technical_state": "待补充",
-          "matched_rules": [
-            "来源命中"
-          ],
-          "missed_rules": [
-            "技术形态仍需补充确认",
-            "缺少明确入场区间",
-            "缺少止损位",
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
-            "量能数据缺失",
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
-            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-13 群聊评论备份",
-                "summary": "只能盖楼了哈 张鱼烧丸子：baoguang可以拿吗 @张鱼烧丸子 看看上面我发的啥 我关了群消息，大家有说的可以盖楼哈。主要是怕消息被充刷盖住了。 外围昨晚科技大调整。昨天我们的市场也跟着弱调整了，今天会延续调整。昨天让大家不要去追科技，去防御bankuai比如电力去医药。大家要明白一个道理，主力chuhuo前都是先要让市场热起来，让你觉得再不上车就会zhang上天。昨天低位进了hdln的，duanxian做的好的明天还可以做差价，做的不好的直接chonggao止赢走人，tgtb今天会轻微调整，后面还有新高。今天…",
-                "sectors": [
-                  "电力"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 09:17",
-                "content": "外围昨晚科技大调整。昨天我们的市场也跟着弱调整了，今天会延续调整。昨天让大家不要去追科技，去防御bankuai比如电力去医药。大家要明白一个道理，主力chuhuo前都是先要让市场热起来，让你觉得再不上车就会zhang上天。昨天低位进了hdln的，duanxian做的好的明天还可以做差价，做的不好的直接chonggao止赢走人，tgtb今天会轻微调整，后面还有新高。今天我们暂时不着急出手，市场行情不好了持币待涨，不亏就是赚。手里的一些gaowei科技该走的走，不要傻傻硬扛。今天如果实在管不住手的，可以看看电网设备端的bbdq，位置低，最近几天zhuli资金也在慢慢流入，另外就是医药板块的lyyy。需要结合kaipan竞价情况。行情差的时候，不kui就跑赢很多人，市场mi赚不完，不要想着吃每一口肉。",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：保变电气(600550)；情绪=bullish。",
-                "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "低开修复，上涨家数约3065，下跌家数约2049",
-                "main_sectors": [
-                  "综合电力设备商",
-                  "燃料电池",
-                  "钨",
-                  "其他电源设备Ⅲ",
-                  "高带宽内存",
-                  "举牌"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
-        },
-        {
-          "date": "2026-05-13",
-          "code": "600396",
-          "name": "华电辽能",
-          "search_text": "600396 华电辽能 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "仅观察",
-          "pattern": "来源提及",
-          "logic": "只能盖楼了哈 张鱼烧丸子：baoguang可以拿吗 @张鱼烧丸子 看看上面我发的啥 我关了群消息，大家有说的可以盖楼哈。主要是怕消息被充刷盖住了。 外围昨晚科技大调整。昨天我们的市场也跟着弱调整了，今天会延续调整。昨天让大家不要去追科技，去防御bankuai比如电力去医药。大家要明白一个道理，主力chuhuo前都是先要让市场热起来，让你觉得再不上车就会zhang上天。昨天低位进了hdln的，duanxian做的好的明天还可以做差价，做的不好的直接chonggao止赢走人，tgtb今天会轻微调整，后面还有新高。今天…",
-          "sectors": [
-            "电力"
-          ],
-          "status": "数据不足",
-          "suggest_entry": false,
-          "risk": "中",
-          "summary": "华电辽能当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
-          "entry_low": null,
-          "entry_high": null,
-          "entry_range": "待补充",
-          "stop_loss": null,
-          "take_profit_1": null,
-          "take_profit_2": null,
-          "risk_reward": "待复核",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "",
-            "current_price": null,
-            "pct_change": null,
-            "ma5": null,
-            "ma10": null,
-            "ma20": null,
-            "volume_ratio": null,
-            "technical_state": "",
-            "source": "picks_logic"
-          },
-          "price_position": "当前价待补充",
-          "volume_signal": "量能待补充",
-          "ma_structure": "均线待补充",
-          "technical_state": "待补充",
-          "matched_rules": [
-            "来源命中"
-          ],
-          "missed_rules": [
-            "技术形态仍需补充确认",
-            "缺少明确入场区间",
-            "缺少止损位",
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
-            "量能数据缺失",
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
-            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-13 群聊评论备份",
-                "summary": "只能盖楼了哈 张鱼烧丸子：baoguang可以拿吗 @张鱼烧丸子 看看上面我发的啥 我关了群消息，大家有说的可以盖楼哈。主要是怕消息被充刷盖住了。 外围昨晚科技大调整。昨天我们的市场也跟着弱调整了，今天会延续调整。昨天让大家不要去追科技，去防御bankuai比如电力去医药。大家要明白一个道理，主力chuhuo前都是先要让市场热起来，让你觉得再不上车就会zhang上天。昨天低位进了hdln的，duanxian做的好的明天还可以做差价，做的不好的直接chonggao止赢走人，tgtb今天会轻微调整，后面还有新高。今天…",
-                "sectors": [
-                  "电力"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 09:17",
-                "content": "外围昨晚科技大调整。昨天我们的市场也跟着弱调整了，今天会延续调整。昨天让大家不要去追科技，去防御bankuai比如电力去医药。大家要明白一个道理，主力chuhuo前都是先要让市场热起来，让你觉得再不上车就会zhang上天。昨天低位进了hdln的，duanxian做的好的明天还可以做差价，做的不好的直接chonggao止赢走人，tgtb今天会轻微调整，后面还有新高。今天我们暂时不着急出手，市场行情不好了持币待涨，不亏就是赚。手里的一些gaowei科技该走的走，不要傻傻硬扛。今天如果实在管不住手的，可以看看电网设备端的bbdq，位置低，最近几天zhuli资金也在慢慢流入，另外就是医药板块的lyyy。需要结合kaipan竞价情况。行情差的时候，不kui就跑赢很多人，市场mi赚不完，不要想着吃每一口肉。",
-                "sectors": [
-                  "电力"
-                ],
-                "value_reason": "群聊原话已识别股票线索：华电辽能(600396)；情绪=bullish。",
-                "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "低开修复，上涨家数约3065，下跌家数约2049",
-                "main_sectors": [
-                  "综合电力设备商",
-                  "燃料电池",
-                  "钨",
-                  "其他电源设备Ⅲ",
-                  "高带宽内存",
-                  "举牌"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
         }
       ],
       "candidates": [
@@ -6313,20 +5691,6 @@
             "光学光电子",
             "锂电材料",
             "低压电器"
-          ]
-        },
-        {
-          "code": "600396",
-          "name": "华电辽能",
-          "sectors": [
-            "电力"
-          ]
-        },
-        {
-          "code": "600550",
-          "name": "保变电气",
-          "sectors": [
-            "电力"
           ]
         },
         {
@@ -6552,799 +5916,9 @@
             "performance": [],
             "my_positions": []
           }
-        },
-        {
-          "date": "2026-05-14",
-          "code": "002364",
-          "name": "中恒电气",
-          "search_text": "002364 中恒电气 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "短期",
-          "pattern": "中继回踩",
-          "logic": "其他电源设备Ⅱ方向有评论关注；当前 2026-05-15 收盘 47.85，涨跌幅 -1.83%，MA5/10/20=46.74/45.06/43.78，量比近5日均量 0.98，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 规则命中：TRD-03(+3)、REV-01(-4)。",
-          "sectors": [
-            "电力"
-          ],
-          "status": "已到买点",
-          "suggest_entry": true,
-          "risk": "中",
-          "summary": "中恒电气已进入预设入场区间，李红娟模式要求同步确认量能、板块和止损纪律。",
-          "current_price": 47.85,
-          "entry_low": 47.85,
-          "entry_high": 47.85,
-          "entry_range": "47.85",
-          "stop_loss": 45.06,
-          "take_profit_1": 52.03,
-          "take_profit_2": 53.99,
-          "risk_reward": "1:1.50",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "2026-05-15",
-            "current_price": 47.85,
-            "pct_change": -1.83,
-            "ma5": 46.74,
-            "ma10": 45.06,
-            "ma20": 43.78,
-            "volume_ratio": 0.98,
-            "technical_state": "回踩观察",
-            "source": "picks_logic"
-          },
-          "price_position": "价格进入入场区间",
-          "volume_signal": "量能平稳，量比 0.98",
-          "ma_structure": "多头排列，趋势偏强",
-          "technical_state": "回踩观察",
-          "matched_rules": [
-            "来源命中",
-            "技术形态可观察",
-            "入场区间明确",
-            "止损位明确",
-            "盈亏比合格",
-            "当前价进入入场区间",
-            "走势状态：回踩观察",
-            "多头排列，趋势偏强",
-            "趋势延续得到走势确认"
-          ],
-          "missed_rules": [
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 47.85 区间。",
-            "invalid_condition": "跌破风险位 45.06 或板块资金持续流出。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [
-              {
-                "date": "2026-05-14",
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "code": "002364",
-                "name": "中恒电气",
-                "type": "short",
-                "pattern": "中继回踩",
-                "logic": "其他电源设备Ⅱ方向有评论关注；当前 2026-05-15 收盘 47.85，涨跌幅 -1.83%，MA5/10/20=46.74/45.06/43.78，量比近5日均量 0.98，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 规则命中：TRD-03(+3)、REV-01(-4)。",
-                "entry_low": 47.85,
-                "entry_high": 47.85,
-                "stop_loss": 45.06,
-                "take_profit_1": 52.03,
-                "take_profit_2": 53.99,
-                "risk_reward_score": 7.0,
-                "risk_score": 4.0,
-                "risk": "中",
-                "status": "等待买点",
-                "raw_text": "评论区出现明确个股讨论，已通过无效评论过滤。",
-                "note": "来自真实评论选股报告；不是随机推荐。",
-                "trend_score": 6.0,
-                "breakout_score": 5.0,
-                "pullback_score": 8.0,
-                "volume_score": 5.0
-              }
-            ],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-14 群聊评论备份",
-                "summary": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-                "sectors": [
-                  "电力"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 08:52",
-                "content": "好像那天谁买了我说的zhdq，新高了。恭喜你",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：中恒电气(002364)；情绪=bullish。",
-                "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "冲高回落，上涨家数约1024，下跌家数约4174",
-                "main_sectors": [
-                  "防水材料",
-                  "肉鸡养殖",
-                  "生猪养殖",
-                  "期货",
-                  "氦气概念",
-                  "昨日打二板以上表现"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
-        },
-        {
-          "date": "2026-05-14",
-          "code": "600396",
-          "name": "华电辽能",
-          "search_text": "600396 华电辽能 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "仅观察",
-          "pattern": "来源提及",
-          "logic": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-          "sectors": [
-            "电力"
-          ],
-          "status": "数据不足",
-          "suggest_entry": false,
-          "risk": "中",
-          "summary": "华电辽能当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
-          "entry_low": null,
-          "entry_high": null,
-          "entry_range": "待补充",
-          "stop_loss": null,
-          "take_profit_1": null,
-          "take_profit_2": null,
-          "risk_reward": "待复核",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "",
-            "current_price": null,
-            "pct_change": null,
-            "ma5": null,
-            "ma10": null,
-            "ma20": null,
-            "volume_ratio": null,
-            "technical_state": "",
-            "source": "picks_logic"
-          },
-          "price_position": "当前价待补充",
-          "volume_signal": "量能待补充",
-          "ma_structure": "均线待补充",
-          "technical_state": "待补充",
-          "matched_rules": [
-            "来源命中"
-          ],
-          "missed_rules": [
-            "技术形态仍需补充确认",
-            "缺少明确入场区间",
-            "缺少止损位",
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
-            "量能数据缺失",
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
-            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-14 群聊评论备份",
-                "summary": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-                "sectors": [
-                  "电力"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 16:09",
-                "content": "另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走",
-                "sectors": [
-                  "电力"
-                ],
-                "value_reason": "群聊原话已识别股票线索：华电辽能(600396)；情绪=bullish。",
-                "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 09:01",
-                "content": "昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就及时做调整吧，我的建议我们就不去主观看空科技板块什么时候结束，顺势而为。如当真的结束的时候，肯定会兑现的很厉害，你们记得及时抽身就行。但一定要有纪律，走弱要及时抽身。明天一是看bggf(很多人会问前天不是看了么，前天是一进二失败了），看明天能不能超预期，昨天缩量zhangting，而且昨天的反包是非常漂亮的。第二个byxc，这个进的前提是科技明天分歧，商业航天走强，它可能破新高，但是目前看科技分歧的概率较小，所以可以低吸等待明天的反抽赚钱走人。另外一个只适合高手，自行掂量自己水平哈，高收益高风险。jtl开盘大深水(-5到-7），可入，开盘红或者小绿放弃，跟前天hdln一样的买点。另外给求稳的人电子布的hhkj，低吸。我自己的话今天可能会看算力，昨天算力板块中军lt涨ting，不会就这样止步的，但是今天6个多点到异动，所以可以去看看低位的，比如hlt。",
-                "sectors": [
-                  "电力"
-                ],
-                "value_reason": "群聊原话已识别股票线索：华电辽能(600396)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 08:52",
-                "content": "昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就及时做调整吧，我的建议我们就不去主观看空科技板块什么时候结束，顺势而为。如当真的结束的时候，肯定会兑现的很厉害，你们记得及时抽身就行。但一定要有纪律，走弱要及时抽身。明天一是看bggf(很多人会问前天不是看了么，前天是一进二失败了），看明天能不能超预期，昨天缩量zhangting，而且昨天的反包是非常漂亮的。第二个byxc，这个进的前提是科技明天分歧，商业航天走强，它可能破新高，但是目前看科技分歧的概率较小，所以可以低吸等待明天的反抽赚钱走人。另外一个只适合高手，自行掂量自己水平哈，高收益高风险。jtl开盘大深水(-5到-7），可入，开盘红或者小绿放弃，跟前天hdln一样的买点。另外给求稳的人电子布的hhkj，低吸。我自己的话今天可能会看算力，昨天算力板块中军lt涨ting，不会就这样止步的，但是今天6个多点到异动，所以可以去看看低位的，比如hlt。",
-                "sectors": [
-                  "电力"
-                ],
-                "value_reason": "群聊原话已识别股票线索：华电辽能(600396)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 08:52",
-                "content": "外围昨晚科技大调整。昨天我们的市场也跟着弱调整了，今天会延续调整。昨天让大家不要去追科技，去防御bankuai比如电力去医药。大家要明白一个道理，主力chuhuo前都是先要让市场热起来，让你觉得再不上车就会zhang上天。昨天低位进了hdln的，duanxian做的好的明天还可以做差价，做的不好的直接chonggao止赢走人，tgtb今天会轻微调整，后面还有新高。今天我们暂时不着急出手，市场行情不好了持币待涨，不亏就是赚。手里的一些gaowei科技该走的走，不要傻傻硬扛。今天如果实在管不住手的，可以看看电网设备端的bbdq，位置低，最近几天zhuli资金也在慢慢流入，另外就是医药板块的lyyy。需要结合kaipan竞价情况。行情差的时候，不kui就跑赢很多人，市场mi赚不完，不要想着吃每一口肉。",
-                "sectors": [
-                  "电力"
-                ],
-                "value_reason": "群聊原话已识别股票线索：华电辽能(600396)；情绪=bullish。",
-                "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 08:52",
-                "content": "周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和机器人，会做头的看hdln有没有深水dixi的机会，hzjd不错。。另外sfkj这个piao大家可以看，没有什么逻辑，仅仅是看线找出来的图，这种形态上↑概率很大的。最后tgtb我对它的预期是很高的，最近几天在绕异动，所以平台整理调整，今天最后一天，如果有好的dixi位置，我应该今天会去，如果没有就算了，因为我手里昨天的已经都是好的了。",
-                "sectors": [
-                  "电力"
-                ],
-                "value_reason": "群聊原话已识别股票线索：华电辽能(600396)；情绪=bullish。",
-                "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "冲高回落，上涨家数约1024，下跌家数约4174",
-                "main_sectors": [
-                  "防水材料",
-                  "肉鸡养殖",
-                  "生猪养殖",
-                  "期货",
-                  "氦气概念",
-                  "昨日打二板以上表现"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
-        },
-        {
-          "date": "2026-05-14",
-          "code": "002297",
-          "name": "博云新材",
-          "search_text": "002297 博云新材 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "仅观察",
-          "pattern": "来源提及",
-          "logic": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-          "sectors": [
-            "电力"
-          ],
-          "status": "数据不足",
-          "suggest_entry": false,
-          "risk": "中",
-          "summary": "博云新材当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
-          "entry_low": null,
-          "entry_high": null,
-          "entry_range": "待补充",
-          "stop_loss": null,
-          "take_profit_1": null,
-          "take_profit_2": null,
-          "risk_reward": "待复核",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "",
-            "current_price": null,
-            "pct_change": null,
-            "ma5": null,
-            "ma10": null,
-            "ma20": null,
-            "volume_ratio": null,
-            "technical_state": "",
-            "source": "picks_logic"
-          },
-          "price_position": "当前价待补充",
-          "volume_signal": "量能待补充",
-          "ma_structure": "均线待补充",
-          "technical_state": "待补充",
-          "matched_rules": [
-            "来源命中"
-          ],
-          "missed_rules": [
-            "技术形态仍需补充确认",
-            "缺少明确入场区间",
-            "缺少止损位",
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
-            "量能数据缺失",
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
-            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-14 群聊评论备份",
-                "summary": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-                "sectors": [
-                  "电力"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 09:01",
-                "content": "昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就及时做调整吧，我的建议我们就不去主观看空科技板块什么时候结束，顺势而为。如当真的结束的时候，肯定会兑现的很厉害，你们记得及时抽身就行。但一定要有纪律，走弱要及时抽身。明天一是看bggf(很多人会问前天不是看了么，前天是一进二失败了），看明天能不能超预期，昨天缩量zhangting，而且昨天的反包是非常漂亮的。第二个byxc，这个进的前提是科技明天分歧，商业航天走强，它可能破新高，但是目前看科技分歧的概率较小，所以可以低吸等待明天的反抽赚钱走人。另外一个只适合高手，自行掂量自己水平哈，高收益高风险。jtl开盘大深水(-5到-7），可入，开盘红或者小绿放弃，跟前天hdln一样的买点。另外给求稳的人电子布的hhkj，低吸。我自己的话今天可能会看算力，昨天算力板块中军lt涨ting，不会就这样止步的，但是今天6个多点到异动，所以可以去看看低位的，比如hlt。",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：博云新材(002297)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 08:52",
-                "content": "昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就及时做调整吧，我的建议我们就不去主观看空科技板块什么时候结束，顺势而为。如当真的结束的时候，肯定会兑现的很厉害，你们记得及时抽身就行。但一定要有纪律，走弱要及时抽身。明天一是看bggf(很多人会问前天不是看了么，前天是一进二失败了），看明天能不能超预期，昨天缩量zhangting，而且昨天的反包是非常漂亮的。第二个byxc，这个进的前提是科技明天分歧，商业航天走强，它可能破新高，但是目前看科技分歧的概率较小，所以可以低吸等待明天的反抽赚钱走人。另外一个只适合高手，自行掂量自己水平哈，高收益高风险。jtl开盘大深水(-5到-7），可入，开盘红或者小绿放弃，跟前天hdln一样的买点。另外给求稳的人电子布的hhkj，低吸。我自己的话今天可能会看算力，昨天算力板块中军lt涨ting，不会就这样止步的，但是今天6个多点到异动，所以可以去看看低位的，比如hlt。",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：博云新材(002297)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "冲高回落，上涨家数约1024，下跌家数约4174",
-                "main_sectors": [
-                  "防水材料",
-                  "肉鸡养殖",
-                  "生猪养殖",
-                  "期货",
-                  "氦气概念",
-                  "昨日打二板以上表现"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
-        },
-        {
-          "date": "2026-05-14",
-          "code": "603256",
-          "name": "宏和科技",
-          "search_text": "603256 宏和科技 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "仅观察",
-          "pattern": "来源提及",
-          "logic": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-          "sectors": [
-            "电力"
-          ],
-          "status": "数据不足",
-          "suggest_entry": false,
-          "risk": "中",
-          "summary": "宏和科技当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
-          "entry_low": null,
-          "entry_high": null,
-          "entry_range": "待补充",
-          "stop_loss": null,
-          "take_profit_1": null,
-          "take_profit_2": null,
-          "risk_reward": "待复核",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "",
-            "current_price": null,
-            "pct_change": null,
-            "ma5": null,
-            "ma10": null,
-            "ma20": null,
-            "volume_ratio": null,
-            "technical_state": "",
-            "source": "picks_logic"
-          },
-          "price_position": "当前价待补充",
-          "volume_signal": "量能待补充",
-          "ma_structure": "均线待补充",
-          "technical_state": "待补充",
-          "matched_rules": [
-            "来源命中"
-          ],
-          "missed_rules": [
-            "技术形态仍需补充确认",
-            "缺少明确入场区间",
-            "缺少止损位",
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
-            "量能数据缺失",
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
-            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-14 群聊评论备份",
-                "summary": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-                "sectors": [
-                  "电力"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 09:01",
-                "content": "昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就及时做调整吧，我的建议我们就不去主观看空科技板块什么时候结束，顺势而为。如当真的结束的时候，肯定会兑现的很厉害，你们记得及时抽身就行。但一定要有纪律，走弱要及时抽身。明天一是看bggf(很多人会问前天不是看了么，前天是一进二失败了），看明天能不能超预期，昨天缩量zhangting，而且昨天的反包是非常漂亮的。第二个byxc，这个进的前提是科技明天分歧，商业航天走强，它可能破新高，但是目前看科技分歧的概率较小，所以可以低吸等待明天的反抽赚钱走人。另外一个只适合高手，自行掂量自己水平哈，高收益高风险。jtl开盘大深水(-5到-7），可入，开盘红或者小绿放弃，跟前天hdln一样的买点。另外给求稳的人电子布的hhkj，低吸。我自己的话今天可能会看算力，昨天算力板块中军lt涨ting，不会就这样止步的，但是今天6个多点到异动，所以可以去看看低位的，比如hlt。",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：宏和科技(603256)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              },
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 08:52",
-                "content": "昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就及时做调整吧，我的建议我们就不去主观看空科技板块什么时候结束，顺势而为。如当真的结束的时候，肯定会兑现的很厉害，你们记得及时抽身就行。但一定要有纪律，走弱要及时抽身。明天一是看bggf(很多人会问前天不是看了么，前天是一进二失败了），看明天能不能超预期，昨天缩量zhangting，而且昨天的反包是非常漂亮的。第二个byxc，这个进的前提是科技明天分歧，商业航天走强，它可能破新高，但是目前看科技分歧的概率较小，所以可以低吸等待明天的反抽赚钱走人。另外一个只适合高手，自行掂量自己水平哈，高收益高风险。jtl开盘大深水(-5到-7），可入，开盘红或者小绿放弃，跟前天hdln一样的买点。另外给求稳的人电子布的hhkj，低吸。我自己的话今天可能会看算力，昨天算力板块中军lt涨ting，不会就这样止步的，但是今天6个多点到异动，所以可以去看看低位的，比如hlt。",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：宏和科技(603256)；情绪=risk。",
-                "include_status": "否",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "冲高回落，上涨家数约1024，下跌家数约4174",
-                "main_sectors": [
-                  "防水材料",
-                  "肉鸡养殖",
-                  "生猪养殖",
-                  "期货",
-                  "氦气概念",
-                  "昨日打二板以上表现"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
-        },
-        {
-          "date": "2026-05-14",
-          "code": "600550",
-          "name": "保变电气",
-          "search_text": "600550 保变电气 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "仅观察",
-          "pattern": "来源提及",
-          "logic": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-          "sectors": [
-            "电力"
-          ],
-          "status": "数据不足",
-          "suggest_entry": false,
-          "risk": "中",
-          "summary": "保变电气当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
-          "entry_low": null,
-          "entry_high": null,
-          "entry_range": "待补充",
-          "stop_loss": null,
-          "take_profit_1": null,
-          "take_profit_2": null,
-          "risk_reward": "待复核",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "",
-            "current_price": null,
-            "pct_change": null,
-            "ma5": null,
-            "ma10": null,
-            "ma20": null,
-            "volume_ratio": null,
-            "technical_state": "",
-            "source": "picks_logic"
-          },
-          "price_position": "当前价待补充",
-          "volume_signal": "量能待补充",
-          "ma_structure": "均线待补充",
-          "technical_state": "待补充",
-          "matched_rules": [
-            "来源命中"
-          ],
-          "missed_rules": [
-            "技术形态仍需补充确认",
-            "缺少明确入场区间",
-            "缺少止损位",
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
-            "量能数据缺失",
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
-            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-14 群聊评论备份",
-                "summary": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-                "sectors": [
-                  "电力"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 08:52",
-                "content": "外围昨晚科技大调整。昨天我们的市场也跟着弱调整了，今天会延续调整。昨天让大家不要去追科技，去防御bankuai比如电力去医药。大家要明白一个道理，主力chuhuo前都是先要让市场热起来，让你觉得再不上车就会zhang上天。昨天低位进了hdln的，duanxian做的好的明天还可以做差价，做的不好的直接chonggao止赢走人，tgtb今天会轻微调整，后面还有新高。今天我们暂时不着急出手，市场行情不好了持币待涨，不亏就是赚。手里的一些gaowei科技该走的走，不要傻傻硬扛。今天如果实在管不住手的，可以看看电网设备端的bbdq，位置低，最近几天zhuli资金也在慢慢流入，另外就是医药板块的lyyy。需要结合kaipan竞价情况。行情差的时候，不kui就跑赢很多人，市场mi赚不完，不要想着吃每一口肉。",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：保变电气(600550)；情绪=bullish。",
-                "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "冲高回落，上涨家数约1024，下跌家数约4174",
-                "main_sectors": [
-                  "防水材料",
-                  "肉鸡养殖",
-                  "生猪养殖",
-                  "期货",
-                  "氦气概念",
-                  "昨日打二板以上表现"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
-        },
-        {
-          "date": "2026-05-14",
-          "code": "603399",
-          "name": "永杉锂业",
-          "search_text": "603399 永杉锂业 李红娟",
-          "mode": "lihongjuan",
-          "mode_name": "李红娟模式",
-          "source": "lihongjuan",
-          "source_name": "李红娟",
-          "type": "仅观察",
-          "pattern": "来源提及",
-          "logic": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-          "sectors": [
-            "电力"
-          ],
-          "status": "数据不足",
-          "suggest_entry": false,
-          "risk": "中",
-          "summary": "永杉锂业当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
-          "entry_low": null,
-          "entry_high": null,
-          "entry_range": "待补充",
-          "stop_loss": null,
-          "take_profit_1": null,
-          "take_profit_2": null,
-          "risk_reward": "待复核",
-          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
-          "tracking_cycle": "短期 7 天 / 中长期 30 天",
-          "trend_snapshot": {
-            "as_of": "",
-            "current_price": null,
-            "pct_change": null,
-            "ma5": null,
-            "ma10": null,
-            "ma20": null,
-            "volume_ratio": null,
-            "technical_state": "",
-            "source": "picks_logic"
-          },
-          "price_position": "当前价待补充",
-          "volume_signal": "量能待补充",
-          "ma_structure": "均线待补充",
-          "technical_state": "待补充",
-          "matched_rules": [
-            "来源命中"
-          ],
-          "missed_rules": [
-            "技术形态仍需补充确认",
-            "缺少明确入场区间",
-            "缺少止损位",
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
-            "量能数据缺失",
-            "板块与当日主线关联待确认",
-            "一个月维度逻辑仍需补充"
-          ],
-          "risk_points": [],
-          "action": {
-            "today": "回踩确认后再判断，不追短期情绪高点。",
-            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
-            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
-            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
-          },
-          "evidence": {
-            "stock_pool": [],
-            "source_mentions": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "title": "娟姐 2026-05-14 群聊评论备份",
-                "summary": "大家都不急，没进的明天再拉。都会进的 这个时候在下面姐。数字1十个人，2十个人，接起走。没进微信群的，那边过来慢慢加进去 +1 另外昨天在tgtb的，今天不着急，进了监管池今天会调整，不要把筹码交出去了，做两天T，还会有新高。昨天hdln没走的，今天直接往上不zhangting就走，早上如果往下拿住，冲高再走，不要被吓走 昨前天本来我觉得大盘要开始调整了，所以提前两天去电力防御板块，当然主观的分析一方面是我这么多年老股民的习惯，怕利润回吐，另一方面也让我昨天在行情好的时候至少少赚了3个点，仓位没有打出去。这里那就…",
-                "sectors": [
-                  "电力"
-                ],
-                "url": "douyin://im/group"
-              }
-            ],
-            "comments": [
-              {
-                "source": "lihongjuan",
-                "source_name": "李红娟",
-                "comment_source": "娟姐群聊 08:52",
-                "content": "周五我说bggf、ysly有可能模仿jtl走2波断板反包形态，当时我更好的是ysly。但昨天bg走出来了，那就需要去重点观察它今天的走势，看有没有可能二ban，但注意买点，duanxian买点把握不好的慎入。另外特不靠谱13-15号来访，怕庄提前抢跑，昨天指数大涨而且放liang几千亿的情况下，竟然有2000+lv盘，是有问题的。所以现在千万莫看到科技dazhang感觉自己踏空还去zhui，只适合先手zijin了。我自己今天可能会看看逆zhishu的bankuai和昨天调整的bankuai，医药和电力和机器人，会做头的看hdln有没有深水dixi的机会，hzjd不错。。另外sfkj这个piao大家可以看，没有什么逻辑，仅仅是看线找出来的图，这种形态上↑概率很大的。最后tgtb我对它的预期是很高的，最近几天在绕异动，所以平台整理调整，今天最后一天，如果有好的dixi位置，我应该今天会去，如果没有就算了，因为我手里昨天的已经都是好的了。",
-                "sectors": [],
-                "value_reason": "群聊原话已识别股票线索：永杉锂业(603399)；情绪=bullish。",
-                "include_status": "是",
-                "sentiment": "",
-                "value_score": null,
-                "url": ""
-              }
-            ],
-            "market": [
-              {
-                "market_status": "冲高回落，上涨家数约1024，下跌家数约4174",
-                "main_sectors": [
-                  "防水材料",
-                  "肉鸡养殖",
-                  "生猪养殖",
-                  "期货",
-                  "氦气概念",
-                  "昨日打二板以上表现"
-                ],
-                "risk_level": "中",
-                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
-              }
-            ],
-            "performance": [],
-            "my_positions": []
-          }
         }
       ],
       "candidates": [
-        {
-          "code": "002297",
-          "name": "博云新材",
-          "sectors": [
-            "电力"
-          ]
-        },
-        {
-          "code": "002364",
-          "name": "中恒电气",
-          "sectors": [
-            "电力"
-          ]
-        },
         {
           "code": "300442",
           "name": "润泽科技",
@@ -7356,34 +5930,6 @@
             "含图片/截图核对",
             "野哥同花顺逻辑"
           ]
-        },
-        {
-          "code": "600396",
-          "name": "华电辽能",
-          "sectors": [
-            "电力"
-          ]
-        },
-        {
-          "code": "600550",
-          "name": "保变电气",
-          "sectors": [
-            "电力"
-          ]
-        },
-        {
-          "code": "603256",
-          "name": "宏和科技",
-          "sectors": [
-            "电力"
-          ]
-        },
-        {
-          "code": "603399",
-          "name": "永杉锂业",
-          "sectors": [
-            "电力"
-          ]
         }
       ]
     },
@@ -7392,12 +5938,7 @@
       "market": {
         "market_status": "窄幅震荡，上涨家数约1724，下跌家数约3437",
         "main_sectors": [
-          "其他家电Ⅱ",
-          "电机Ⅱ",
-          "体育Ⅱ",
-          "自动化设备",
-          "氟化工概念",
-          "工业母机"
+          "暂无板块轮动数据"
         ],
         "risk_level": "中",
         "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
@@ -7681,12 +6222,7 @@
               {
                 "market_status": "窄幅震荡，上涨家数约1724，下跌家数约3437",
                 "main_sectors": [
-                  "其他家电Ⅱ",
-                  "电机Ⅱ",
-                  "体育Ⅱ",
-                  "自动化设备",
-                  "氟化工概念",
-                  "工业母机"
+                  "暂无板块轮动数据"
                 ],
                 "risk_level": "中",
                 "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
@@ -7885,12 +6421,7 @@
               {
                 "market_status": "窄幅震荡，上涨家数约1724，下跌家数约3437",
                 "main_sectors": [
-                  "其他家电Ⅱ",
-                  "电机Ⅱ",
-                  "体育Ⅱ",
-                  "自动化设备",
-                  "氟化工概念",
-                  "工业母机"
+                  "暂无板块轮动数据"
                 ],
                 "risk_level": "中",
                 "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
@@ -8155,12 +6686,7 @@
               {
                 "market_status": "窄幅震荡，上涨家数约1724，下跌家数约3437",
                 "main_sectors": [
-                  "其他家电Ⅱ",
-                  "电机Ⅱ",
-                  "体育Ⅱ",
-                  "自动化设备",
-                  "氟化工概念",
-                  "工业母机"
+                  "暂无板块轮动数据"
                 ],
                 "risk_level": "中",
                 "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
@@ -8340,12 +6866,7 @@
               {
                 "market_status": "窄幅震荡，上涨家数约1724，下跌家数约3437",
                 "main_sectors": [
-                  "其他家电Ⅱ",
-                  "电机Ⅱ",
-                  "体育Ⅱ",
-                  "自动化设备",
-                  "氟化工概念",
-                  "工业母机"
+                  "暂无板块轮动数据"
                 ],
                 "risk_level": "中",
                 "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
@@ -8483,12 +7004,7 @@
               {
                 "market_status": "窄幅震荡，上涨家数约1724，下跌家数约3437",
                 "main_sectors": [
-                  "其他家电Ⅱ",
-                  "电机Ⅱ",
-                  "体育Ⅱ",
-                  "自动化设备",
-                  "氟化工概念",
-                  "工业母机"
+                  "暂无板块轮动数据"
                 ],
                 "risk_level": "中",
                 "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"

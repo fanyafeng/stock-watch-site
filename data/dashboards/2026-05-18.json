@@ -1,6 +1,6 @@
 {
   "date": "2026-05-18",
-  "updated_at": "2026-05-18 16:14:52",
+  "updated_at": "2026-05-18 11:57:48",
   "report": {
     "date": "2026-05-18",
     "source": "daily",
@@ -61,14 +61,14 @@
     {
       "time": "14:24",
       "category": "yege_post",
-      "source": "全能的野人",
+      "source": "野哥",
       "title": "2026-05-18 14:24 良信股份(002706)",
       "content": "良信股份(002706) 好好好。好……好……好……真棒。"
     },
     {
       "time": "08:58",
       "category": "yege_post",
-      "source": "全能的野人",
+      "source": "野哥",
       "title": "2026-05-18 08:58 全能的野人同花顺动态",
       "content": "怀着平淡的心情，等开盘，不要一惊一乍的。如果你是做波段的现在是机会很适合调仓换股，如果你是做短线的需要观望。等待情绪的拐点。不过我现在不建议做短线，市场风格已经不适合短线了。"
     },
@@ -96,14 +96,14 @@
     {
       "time": "14:24",
       "category": "valuable_comment",
-      "source": "全能的野人",
+      "source": "野哥",
       "title": "同花顺评论备份 14:24",
       "content": "帖子评论量备份：1029 条。帖子摘要：良信股份(002706) 好好好。好……好……好……真棒。"
     },
     {
       "time": "08:58",
       "category": "valuable_comment",
-      "source": "全能的野人",
+      "source": "野哥",
       "title": "同花顺评论备份 08:58",
       "content": "帖子评论量备份：214 条。帖子摘要：怀着平淡的心情，等开盘，不要一惊一乍的。如果你是做波段的现在是机会很适合调仓换股，如果你是做短线的需要观望。等待情绪的拐点。不过我现在不建议做短线，市场风格已经不适合短线了。"
     },
@@ -118,7 +118,7 @@
   "sources": [
     {
       "id": "yege",
-      "name": "全能的野人",
+      "name": "野哥",
       "channel": "同花顺帖子",
       "latest_title": "2026-05-18 14:24 良信股份(002706)",
       "latest_summary": "良信股份(002706) 好好好。好……好……好……真棒。",
@@ -150,8 +150,8 @@
       "comments": [
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "同花顺评论备份 14:24",
           "content": "帖子评论量备份：1029 条。帖子摘要：良信股份(002706)  好好好。好……好……好……真棒。",
           "mentioned_stocks": "良信股份(002706)",
@@ -178,8 +178,8 @@
         },
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "同花顺评论备份 08:58",
           "content": "帖子评论量备份：214 条。帖子摘要：怀着平淡的心情，等开盘，不要一惊一乍的。如果你是做波段的现在是机会很适合调仓换股，如果你是做短线的需要观望。等待情绪的拐点。不过我现在不建议做短线，市场风格已经不适合短线了。",
           "mentioned_stocks": "",
@@ -206,8 +206,8 @@
         },
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 08:33",
           "content": "野哥抖音视频｜机器人(300024)｜方向：无人驾驶、机器人｜中性观察｜波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储 AI终端包括无人驾驶、机器人、智能家居等领域，最终会普及到终端。长鑫存储业绩炸裂，属于长期波段，有逻辑支撑，适合大资金布局。野哥强调他讲的题材都是波段，不做短线。｜规则：题材方向需要用板块强度和核心股表现二次确认。；仓位跟随大盘和情绪周期调整。",
           "mentioned_stocks": "机器人(300024)",
@@ -236,8 +236,8 @@
         },
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 08:33",
           "content": "野哥抖音视频｜方向：无人驾驶｜中性观察｜波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储 AI终端包括无人驾驶、机器人、智能家居等领域，最终会普及到终端。长鑫存储业绩炸裂，属于长期波段，有逻辑支撑，适｜规则：题材方向需要用板块强度和核心股表现二次确认。；仓位跟随大盘和情绪周期调整。",
           "mentioned_stocks": "",
@@ -266,8 +266,8 @@
         },
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 08:33",
           "content": "野哥抖音视频｜方向：机器人｜中性观察｜波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储 AI终端包括无人驾驶、机器人、智能家居等领域，最终会普及到终端。长鑫存储业绩炸裂，属于长期波段，有逻辑支撑，适｜规则：题材方向需要用板块强度和核心股表现二次确认。；仓位跟随大盘和情绪周期调整。",
           "mentioned_stocks": "",
@@ -296,8 +296,8 @@
         },
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 06:27",
           "content": "野哥抖音视频｜老百姓(603883)｜方向：算力租赁、AIDC、算力基建｜中性观察｜#算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到先得，后面企业进入有门槛。查询服务将按算力计费，付费版服务质量更高。 算力网的定义 算力网｜规则：题材方向需要用板块强度和核心股表现二次确认。",
           "mentioned_stocks": "老百姓(603883)",
@@ -326,8 +326,8 @@
         },
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 06:27",
           "content": "野哥抖音视频｜方向：算力租赁｜中性观察｜5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到｜规则：题材方向需要用板块强度和核心股表现二次确认。",
           "mentioned_stocks": "",
@@ -356,8 +356,8 @@
         },
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 06:27",
           "content": "野哥抖音视频｜方向：AIDC｜中性观察｜5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到｜规则：题材方向需要用板块强度和核心股表现二次确认。",
           "mentioned_stocks": "",
@@ -1029,16 +1029,16 @@
     "sources": [
       {
         "id": "yege",
-        "name": "全能的野人",
+        "name": "野哥",
         "short": [
           {
             "source_id": "yege",
-            "source_name": "全能的野人",
+            "source_name": "野哥",
             "code": "002706",
             "name": "良信股份",
             "type": "短期",
             "pattern": "技术形态观察",
-            "source_names": "全能的野人",
+            "source_names": "野哥",
             "entry_range": "-",
             "stop_loss": "",
             "take_profit_1": "",
@@ -1313,8 +1313,8 @@
   "comments": [
     {
       "source_id": "yege",
-      "source": "全能的野人",
-      "source_name": "全能的野人",
+      "source": "野哥",
+      "source_name": "野哥",
       "comment_source": "同花顺评论备份 14:24",
       "content": "帖子评论量备份：1029 条。帖子摘要：良信股份(002706)  好好好。好……好……好……真棒。",
       "mentioned_stocks": "良信股份(002706)",
@@ -1330,7 +1330,7 @@
       "parent_cover": "",
       "comment_id": "yege-post-2346265327-14:24",
       "comment_time": "14:24",
-      "commenter": "全能的野人",
+      "commenter": "野哥",
       "sentiment": "中性",
       "value_score": 5.4,
       "is_selected": false,
@@ -1341,8 +1341,8 @@
     },
     {
       "source_id": "yege",
-      "source": "全能的野人",
-      "source_name": "全能的野人",
+      "source": "野哥",
+      "source_name": "野哥",
       "comment_source": "同花顺评论备份 08:58",
       "content": "帖子评论量备份：214 条。帖子摘要：怀着平淡的心情，等开盘，不要一惊一乍的。如果你是做波段的现在是机会很适合调仓换股，如果你是做短线的需要观望。等待情绪的拐点。不过我现在不建议做短线，市场风格已经不适合短线了。",
       "mentioned_stocks": "",
@@ -1358,7 +1358,7 @@
       "parent_cover": "",
       "comment_id": "yege-post-2345761097-08:58",
       "comment_time": "08:58",
-      "commenter": "全能的野人",
+      "commenter": "野哥",
       "sentiment": "中性",
       "value_score": 5.4,
       "is_selected": false,
@@ -27499,8 +27499,8 @@
     },
     {
       "source_id": "yege",
-      "source": "全能的野人",
-      "source_name": "全能的野人",
+      "source": "野哥",
+      "source_name": "野哥",
       "comment_source": "抖音评论 08:33",
       "content": "野哥抖音视频｜机器人(300024)｜方向：无人驾驶、机器人｜中性观察｜波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储 AI终端包括无人驾驶、机器人、智能家居等领域，最终会普及到终端。长鑫存储业绩炸裂，属于长期波段，有逻辑支撑，适合大资金布局。野哥强调他讲的题材都是波段，不做短线。｜规则：题材方向需要用板块强度和核心股表现二次确认。；仓位跟随大盘和情绪周期调整。",
       "mentioned_stocks": "机器人(300024)",
@@ -27529,8 +27529,8 @@
     },
     {
       "source_id": "yege",
-      "source": "全能的野人",
-      "source_name": "全能的野人",
+      "source": "野哥",
+      "source_name": "野哥",
       "comment_source": "抖音评论 08:33",
       "content": "野哥抖音视频｜方向：无人驾驶｜中性观察｜波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储 AI终端包括无人驾驶、机器人、智能家居等领域，最终会普及到终端。长鑫存储业绩炸裂，属于长期波段，有逻辑支撑，适｜规则：题材方向需要用板块强度和核心股表现二次确认。；仓位跟随大盘和情绪周期调整。",
       "mentioned_stocks": "",
@@ -27559,8 +27559,8 @@
     },
     {
       "source_id": "yege",
-      "source": "全能的野人",
-      "source_name": "全能的野人",
+      "source": "野哥",
+      "source_name": "野哥",
       "comment_source": "抖音评论 08:33",
       "content": "野哥抖音视频｜方向：机器人｜中性观察｜波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储 AI终端包括无人驾驶、机器人、智能家居等领域，最终会普及到终端。长鑫存储业绩炸裂，属于长期波段，有逻辑支撑，适｜规则：题材方向需要用板块强度和核心股表现二次确认。；仓位跟随大盘和情绪周期调整。",
       "mentioned_stocks": "",
@@ -27589,8 +27589,8 @@
     },
     {
       "source_id": "yege",
-      "source": "全能的野人",
-      "source_name": "全能的野人",
+      "source": "野哥",
+      "source_name": "野哥",
       "comment_source": "抖音评论 06:27",
       "content": "野哥抖音视频｜老百姓(603883)｜方向：算力租赁、AIDC、算力基建｜中性观察｜#算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到先得，后面企业进入有门槛。查询服务将按算力计费，付费版服务质量更高。 算力网的定义 算力网｜规则：题材方向需要用板块强度和核心股表现二次确认。",
       "mentioned_stocks": "老百姓(603883)",
@@ -27619,8 +27619,8 @@
     },
     {
       "source_id": "yege",
-      "source": "全能的野人",
-      "source_name": "全能的野人",
+      "source": "野哥",
+      "source_name": "野哥",
       "comment_source": "抖音评论 06:27",
       "content": "野哥抖音视频｜方向：算力租赁｜中性观察｜5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到｜规则：题材方向需要用板块强度和核心股表现二次确认。",
       "mentioned_stocks": "",
@@ -27649,8 +27649,8 @@
     },
     {
       "source_id": "yege",
-      "source": "全能的野人",
-      "source_name": "全能的野人",
+      "source": "野哥",
+      "source_name": "野哥",
       "comment_source": "抖音评论 06:27",
       "content": "野哥抖音视频｜方向：AIDC｜中性观察｜5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到｜规则：题材方向需要用板块强度和核心股表现二次确认。",
       "mentioned_stocks": "",
@@ -27679,8 +27679,8 @@
     },
     {
       "source_id": "yege",
-      "source": "全能的野人",
-      "source_name": "全能的野人",
+      "source": "野哥",
+      "source_name": "野哥",
       "comment_source": "抖音评论 06:27",
       "content": "野哥抖音视频｜方向：算力基建｜中性观察｜5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到｜规则：题材方向需要用板块强度和核心股表现二次确认。",
       "mentioned_stocks": "",
@@ -28962,7 +28962,7 @@
       "group_mode": "single_comment",
       "source": "yege",
       "source_id": "yege",
-      "source_name": "全能的野人",
+      "source_name": "野哥",
       "parent_type": "post",
       "parent_id": "2346265327",
       "parent_title": "良信股份(002706)",
@@ -28998,8 +28998,8 @@
       "comments": [
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "同花顺评论备份 14:24",
           "content": "帖子评论量备份：1029 条。帖子摘要：良信股份(002706)  好好好。好……好……好……真棒。",
           "mentioned_stocks": "良信股份(002706)",
@@ -29015,7 +29015,7 @@
           "parent_cover": "",
           "comment_id": "yege-post-2346265327-14:24",
           "comment_time": "14:24",
-          "commenter": "全能的野人",
+          "commenter": "野哥",
           "sentiment": "中性",
           "value_score": 5.4,
           "is_selected": false,
@@ -56143,7 +56143,7 @@
       "group_mode": "single_comment",
       "source": "yege",
       "source_id": "yege",
-      "source_name": "全能的野人",
+      "source_name": "野哥",
       "parent_type": "post",
       "parent_id": "2345761097",
       "parent_title": "2026-05-18 08:58 全能的野人同花顺动态",
@@ -56174,8 +56174,8 @@
       "comments": [
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "同花顺评论备份 08:58",
           "content": "帖子评论量备份：214 条。帖子摘要：怀着平淡的心情，等开盘，不要一惊一乍的。如果你是做波段的现在是机会很适合调仓换股，如果你是做短线的需要观望。等待情绪的拐点。不过我现在不建议做短线，市场风格已经不适合短线了。",
           "mentioned_stocks": "",
@@ -56191,7 +56191,7 @@
           "parent_cover": "",
           "comment_id": "yege-post-2345761097-08:58",
           "comment_time": "08:58",
-          "commenter": "全能的野人",
+          "commenter": "野哥",
           "sentiment": "中性",
           "value_score": 5.4,
           "is_selected": false,
@@ -56208,7 +56208,7 @@
       "group_mode": "single_comment",
       "source": "yege",
       "source_id": "yege",
-      "source_name": "全能的野人",
+      "source_name": "野哥",
       "parent_type": "video",
       "parent_id": "7641023353159525440",
       "parent_title": "波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储",
@@ -56244,8 +56244,8 @@
       "comments": [
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 08:33",
           "content": "野哥抖音视频｜机器人(300024)｜方向：无人驾驶、机器人｜中性观察｜波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储 AI终端包括无人驾驶、机器人、智能家居等领域，最终会普及到终端。长鑫存储业绩炸裂，属于长期波段，有逻辑支撑，适合大资金布局。野哥强调他讲的题材都是波段，不做短线。｜规则：题材方向需要用板块强度和核心股表现二次确认。；仓位跟随大盘和情绪周期调整。",
           "mentioned_stocks": "机器人(300024)",
@@ -56280,7 +56280,7 @@
       "group_mode": "single_comment",
       "source": "yege",
       "source_id": "yege",
-      "source_name": "全能的野人",
+      "source_name": "野哥",
       "parent_type": "video",
       "parent_id": "7641023353159525440",
       "parent_title": "波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储",
@@ -56313,8 +56313,8 @@
       "comments": [
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 08:33",
           "content": "野哥抖音视频｜方向：无人驾驶｜中性观察｜波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储 AI终端包括无人驾驶、机器人、智能家居等领域，最终会普及到终端。长鑫存储业绩炸裂，属于长期波段，有逻辑支撑，适｜规则：题材方向需要用板块强度和核心股表现二次确认。；仓位跟随大盘和情绪周期调整。",
           "mentioned_stocks": "",
@@ -56349,7 +56349,7 @@
       "group_mode": "single_comment",
       "source": "yege",
       "source_id": "yege",
-      "source_name": "全能的野人",
+      "source_name": "野哥",
       "parent_type": "video",
       "parent_id": "7641023353159525440",
       "parent_title": "波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储",
@@ -56382,8 +56382,8 @@
       "comments": [
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 08:33",
           "content": "野哥抖音视频｜方向：机器人｜中性观察｜波段题材的意义#金融#财经 #股票#AI终端 #长鑫存储 AI终端包括无人驾驶、机器人、智能家居等领域，最终会普及到终端。长鑫存储业绩炸裂，属于长期波段，有逻辑支撑，适｜规则：题材方向需要用板块强度和核心股表现二次确认。；仓位跟随大盘和情绪周期调整。",
           "mentioned_stocks": "",
@@ -56418,7 +56418,7 @@
       "group_mode": "single_comment",
       "source": "yege",
       "source_id": "yege",
-      "source_name": "全能的野人",
+      "source_name": "野哥",
       "parent_type": "video",
       "parent_id": "7640991068750512355",
       "parent_title": "5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融",
@@ -56455,8 +56455,8 @@
       "comments": [
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 06:27",
           "content": "野哥抖音视频｜老百姓(603883)｜方向：算力租赁、AIDC、算力基建｜中性观察｜#算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到先得，后面企业进入有门槛。查询服务将按算力计费，付费版服务质量更高。 算力网的定义 算力网｜规则：题材方向需要用板块强度和核心股表现二次确认。",
           "mentioned_stocks": "老百姓(603883)",
@@ -56491,7 +56491,7 @@
       "group_mode": "single_comment",
       "source": "yege",
       "source_id": "yege",
-      "source_name": "全能的野人",
+      "source_name": "野哥",
       "parent_type": "video",
       "parent_id": "7640991068750512355",
       "parent_title": "5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融",
@@ -56524,8 +56524,8 @@
       "comments": [
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 06:27",
           "content": "野哥抖音视频｜方向：算力租赁｜中性观察｜5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到｜规则：题材方向需要用板块强度和核心股表现二次确认。",
           "mentioned_stocks": "",
@@ -56560,7 +56560,7 @@
       "group_mode": "single_comment",
       "source": "yege",
       "source_id": "yege",
-      "source_name": "全能的野人",
+      "source_name": "野哥",
       "parent_type": "video",
       "parent_id": "7640991068750512355",
       "parent_title": "5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融",
@@ -56593,8 +56593,8 @@
       "comments": [
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 06:27",
           "content": "野哥抖音视频｜方向：AIDC｜中性观察｜5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到｜规则：题材方向需要用板块强度和核心股表现二次确认。",
           "mentioned_stocks": "",
@@ -56629,7 +56629,7 @@
       "group_mode": "single_comment",
       "source": "yege",
       "source_id": "yege",
-      "source_name": "全能的野人",
+      "source_name": "野哥",
       "parent_type": "video",
       "parent_id": "7640991068750512355",
       "parent_title": "5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融",
@@ -56662,8 +56662,8 @@
       "comments": [
         {
           "source_id": "yege",
-          "source": "全能的野人",
-          "source_name": "全能的野人",
+          "source": "野哥",
+          "source_name": "野哥",
           "comment_source": "抖音评论 06:27",
           "content": "野哥抖音视频｜方向：算力基建｜中性观察｜5月18日大白话说什么是算力网#算力 #算力网 #算力租赁 #aidc#金融 算力网是国家整合算力资源的网络，类似于电力网，将资源提供给中小微企业和老百姓。现有企业先到｜规则：题材方向需要用板块强度和核心股表现二次确认。",
           "mentioned_stocks": "",
@@ -56697,7 +56697,7 @@
   "comment_sources": [
     {
       "id": "yege",
-      "name": "全能的野人",
+      "name": "野哥",
       "count": 9,
       "post_count": 2
     },
@@ -56722,7 +56722,7 @@
   ],
   "evidence": {
     "yege": {
-      "name": "全能的野人",
+      "name": "野哥",
       "posts": [
         {
           "channel": "同花顺帖子",
