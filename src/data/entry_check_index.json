@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T15:33:04",
+  "generated_at": "2026-05-18T15:45:29",
   "default_date": "2026-05-18",
   "modes": [
     {
@@ -56,7 +56,7 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "圣阳股份当前证据不足，已命中4项、缺失3项，需要补充价格、止损或大盘支持数据。",
+          "summary": "圣阳股份当前证据不足，已命中4项、缺失4项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": 29.59,
           "entry_high": 34.27,
@@ -67,6 +67,21 @@
           "risk_reward": "1:0.98",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -76,6 +91,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "风险等级为高",
             "股票池状态为观察取消",
@@ -238,7 +254,7 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "大唐发电当前证据不足，已命中4项、缺失3项，需要补充价格、止损或大盘支持数据。",
+          "summary": "大唐发电当前证据不足，已命中4项、缺失4项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": 4.61,
           "entry_high": 6.09,
@@ -249,6 +265,21 @@
           "risk_reward": "1:1.02",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -258,6 +289,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "风险等级为高",
             "股票池状态为观察取消",
@@ -388,7 +420,7 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "合力泰当前证据不足，已命中4项、缺失3项，需要补充价格、止损或大盘支持数据。",
+          "summary": "合力泰当前证据不足，已命中4项、缺失4项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": 3.1,
           "entry_high": 3.57,
@@ -399,6 +431,21 @@
           "risk_reward": "1:0.98",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -408,6 +455,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "风险等级为高",
             "股票池状态为观察取消",
@@ -567,7 +615,7 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "锦龙股份当前证据不足，已命中5项、缺失2项，需要补充价格、止损或大盘支持数据。",
+          "summary": "锦龙股份当前证据不足，已命中5项、缺失3项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": 10.4,
           "entry_high": 11.41,
@@ -578,6 +626,21 @@
           "risk_reward": "1:2.60",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -587,6 +650,7 @@
           ],
           "missed_rules": [
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "风险等级为高",
             "股票池状态为观察取消",
@@ -719,6 +783,21 @@
           "risk_reward": "1:1.33",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -728,6 +807,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -853,6 +933,21 @@
           "risk_reward": "1:0.66",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "入场区间明确",
@@ -862,6 +957,7 @@
             "技术形态仍需补充确认",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -976,8 +1072,8 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "汉钟精机当前证据不足，已命中5项、缺失3项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
+          "summary": "汉钟精机当前证据不足，已命中9项、缺失2项，需要补充价格、止损或大盘支持数据。",
+          "current_price": 33.1,
           "entry_low": 33.1,
           "entry_high": 33.1,
           "entry_range": "33.1",
@@ -987,15 +1083,33 @@
           "risk_reward": "1:1.50",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "2026-05-15",
+            "current_price": 33.1,
+            "pct_change": 3.18,
+            "ma5": 32.94,
+            "ma10": 31.12,
+            "ma20": 28.2,
+            "volume_ratio": 1.08,
+            "technical_state": "回踩观察",
+            "source": "picks_logic"
+          },
+          "price_position": "价格进入入场区间",
+          "volume_signal": "量能平稳，量比 1.08",
+          "ma_structure": "多头排列，趋势偏强",
+          "technical_state": "回踩观察",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
             "入场区间明确",
             "止损位明确",
-            "盈亏比合格"
+            "盈亏比合格",
+            "当前价进入入场区间",
+            "走势状态：回踩观察",
+            "多头排列，趋势偏强",
+            "趋势延续得到走势确认"
           ],
           "missed_rules": [
-            "当前价缺失，需补充价格后复核",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充",
             "风险等级为高",
@@ -1148,7 +1262,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "信维通信当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "信维通信当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -1159,6 +1273,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -1168,6 +1297,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -1301,6 +1431,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "板块与当日主线相关"
@@ -1311,6 +1456,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "一个月维度逻辑仍需补充"
           ],
           "risk_points": [],
@@ -1430,7 +1576,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "航天发展当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "航天发展当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -1441,6 +1587,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -1450,6 +1611,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -1571,7 +1733,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "航天动力当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "航天动力当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -1582,6 +1744,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -1591,6 +1768,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -1708,7 +1886,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "航天电子当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "航天电子当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -1719,6 +1897,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -1728,6 +1921,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -1848,7 +2042,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "永杉锂业当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "永杉锂业当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -1859,6 +2053,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -1868,6 +2077,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -2183,6 +2393,21 @@
           "risk_reward": "1:0.90",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -2192,6 +2417,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "评论区存在反向风险线索"
           ],
@@ -2364,6 +2590,21 @@
           "risk_reward": "1:1.18",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -2373,6 +2614,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -2653,7 +2895,7 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "圣阳股份当前证据不足，已命中3项、缺失4项，需要补充价格、止损或大盘支持数据。",
+          "summary": "圣阳股份当前证据不足，已命中3项、缺失5项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": 30.31,
           "entry_high": 34.17,
@@ -2664,6 +2906,21 @@
           "risk_reward": "1:1.01",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "入场区间明确",
@@ -2673,6 +2930,7 @@
             "技术形态仍需补充确认",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "风险等级为高",
             "股票池状态为观察取消",
@@ -2890,6 +3148,21 @@
           "risk_reward": "1:0.52",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -2899,6 +3172,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "评论区存在反向风险线索"
           ],
@@ -3056,8 +3330,8 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "航天电子当前证据不足，已命中5项、缺失3项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
+          "summary": "航天电子当前证据不足，已命中10项、缺失2项，需要补充价格、止损或大盘支持数据。",
+          "current_price": 26.78,
           "entry_low": 26.78,
           "entry_high": 26.78,
           "entry_range": "26.78",
@@ -3067,15 +3341,34 @@
           "risk_reward": "1:1.50",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "2026-05-11",
+            "current_price": 26.78,
+            "pct_change": 0.49,
+            "ma5": 25.58,
+            "ma10": 24.53,
+            "ma20": 23.91,
+            "volume_ratio": 1.45,
+            "technical_state": "强势延续",
+            "source": "picks_logic"
+          },
+          "price_position": "价格进入入场区间",
+          "volume_signal": "量增价升，量比 1.45",
+          "ma_structure": "多头排列，趋势偏强",
+          "technical_state": "强势延续",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
             "入场区间明确",
             "止损位明确",
-            "盈亏比合格"
+            "盈亏比合格",
+            "当前价进入入场区间",
+            "走势状态：强势延续",
+            "多头排列，趋势偏强",
+            "量增价升，动能配合",
+            "趋势延续得到走势确认"
           ],
           "missed_rules": [
-            "当前价缺失，需补充价格后复核",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充",
             "风险等级为高",
@@ -3227,8 +3520,8 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "汉钟精机当前证据不足，已命中5项、缺失3项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
+          "summary": "汉钟精机当前证据不足，已命中9项、缺失2项，需要补充价格、止损或大盘支持数据。",
+          "current_price": 33.3,
           "entry_low": 33.3,
           "entry_high": 33.3,
           "entry_range": "33.3",
@@ -3238,21 +3531,41 @@
           "risk_reward": "1:1.50",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "2026-05-11",
+            "current_price": 33.3,
+            "pct_change": 6.08,
+            "ma5": 30.93,
+            "ma10": 28.26,
+            "ma20": 26.49,
+            "volume_ratio": 1.28,
+            "technical_state": "追高风险",
+            "source": "picks_logic"
+          },
+          "price_position": "价格进入入场区间",
+          "volume_signal": "量增价升，量比 1.28",
+          "ma_structure": "多头排列，趋势偏强",
+          "technical_state": "追高风险",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
             "入场区间明确",
             "止损位明确",
-            "盈亏比合格"
+            "盈亏比合格",
+            "当前价进入入场区间",
+            "多头排列，趋势偏强",
+            "量增价升，动能配合",
+            "趋势延续得到走势确认"
           ],
           "missed_rules": [
-            "当前价缺失，需补充价格后复核",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充",
+            "走势状态：追高风险",
             "风险等级为高",
             "股票池状态为观察取消"
           ],
           "risk_points": [
+            "走势状态：追高风险",
             "风险等级为高",
             "股票池状态为观察取消"
           ],
@@ -3399,7 +3712,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "信维通信当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "信维通信当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -3410,6 +3723,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -3419,6 +3747,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -3541,7 +3870,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "天通股份当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "天通股份当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -3552,6 +3881,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -3561,6 +3905,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -3696,7 +4041,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "航天发展当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "航天发展当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -3707,6 +4052,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -3716,6 +4076,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -3837,7 +4198,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "航天动力当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "航天动力当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -3848,6 +4209,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -3857,6 +4233,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -4151,6 +4528,21 @@
           "risk_reward": "1:1.04",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -4160,6 +4552,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -4274,7 +4667,7 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "利通电子当前证据不足，已命中4项、缺失3项，需要补充价格、止损或大盘支持数据。",
+          "summary": "利通电子当前证据不足，已命中4项、缺失4项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": 148.08,
           "entry_high": 172.71,
@@ -4285,6 +4678,21 @@
           "risk_reward": "1:0.61",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -4294,6 +4702,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "风险等级为高",
             "股票池状态为观察取消",
@@ -4415,7 +4824,7 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "浙江世宝当前证据不足，已命中4项、缺失3项，需要补充价格、止损或大盘支持数据。",
+          "summary": "浙江世宝当前证据不足，已命中4项、缺失4项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": 18.34,
           "entry_high": 20.05,
@@ -4426,6 +4835,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -4435,6 +4859,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "风险等级为高",
             "股票池状态为观察取消",
@@ -4560,7 +4985,7 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "润泽科技当前证据不足，已命中5项、缺失2项，需要补充价格、止损或大盘支持数据。",
+          "summary": "润泽科技当前证据不足，已命中5项、缺失3项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": 94.06,
           "entry_high": 101.62,
@@ -4571,6 +4996,21 @@
           "risk_reward": "1:2.25",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -4580,6 +5020,7 @@
           ],
           "missed_rules": [
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "风险等级为高",
             "股票池状态为观察取消",
@@ -4789,6 +5230,21 @@
           "risk_reward": "1:0.81",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -4798,6 +5254,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -5004,6 +5461,21 @@
           "risk_reward": "1:0.46",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "入场区间明确",
@@ -5013,6 +5485,7 @@
             "技术形态仍需补充确认",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -5185,6 +5658,21 @@
           "risk_reward": "1:1.07",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -5194,6 +5682,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -5377,7 +5866,7 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "大唐发电当前证据不足，已命中4项、缺失3项，需要补充价格、止损或大盘支持数据。",
+          "summary": "大唐发电当前证据不足，已命中4项、缺失4项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": 5.19,
           "entry_high": 7.37,
@@ -5388,6 +5877,21 @@
           "risk_reward": "1:0.91",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -5397,6 +5901,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "风险等级为高",
             "股票池状态为观察取消",
@@ -5516,7 +6021,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "保变电气当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "保变电气当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -5527,6 +6032,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -5536,6 +6056,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -5611,7 +6132,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "华电辽能当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "华电辽能当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -5622,6 +6143,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -5631,6 +6167,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -5867,6 +6404,21 @@
           "risk_reward": "1:2.46",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -5876,6 +6428,7 @@
           ],
           "missed_rules": [
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -6015,11 +6568,11 @@
           "sectors": [
             "电力"
           ],
-          "status": "等待买点",
-          "suggest_entry": false,
+          "status": "已到买点",
+          "suggest_entry": true,
           "risk": "中",
-          "summary": "中恒电气命中5项条件，关联板块：电力，当前以等待买点处理，等待价格、量能和板块继续确认。",
-          "current_price": null,
+          "summary": "中恒电气已进入预设入场区间，李红娟模式要求同步确认量能、板块和止损纪律。",
+          "current_price": 47.85,
           "entry_low": 47.85,
           "entry_high": 47.85,
           "entry_range": "47.85",
@@ -6029,15 +6582,33 @@
           "risk_reward": "1:1.50",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "2026-05-15",
+            "current_price": 47.85,
+            "pct_change": -1.83,
+            "ma5": 46.74,
+            "ma10": 45.06,
+            "ma20": 43.78,
+            "volume_ratio": 0.98,
+            "technical_state": "回踩观察",
+            "source": "picks_logic"
+          },
+          "price_position": "价格进入入场区间",
+          "volume_signal": "量能平稳，量比 0.98",
+          "ma_structure": "多头排列，趋势偏强",
+          "technical_state": "回踩观察",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
             "入场区间明确",
             "止损位明确",
-            "盈亏比合格"
+            "盈亏比合格",
+            "当前价进入入场区间",
+            "走势状态：回踩观察",
+            "多头排列，趋势偏强",
+            "趋势延续得到走势确认"
           ],
           "missed_rules": [
-            "当前价缺失，需补充价格后复核",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -6139,7 +6710,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "华电辽能当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "华电辽能当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -6150,6 +6721,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -6159,6 +6745,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -6292,7 +6879,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "博云新材当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "博云新材当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -6303,6 +6890,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -6312,6 +6914,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -6399,7 +7002,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "宏和科技当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "宏和科技当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -6410,6 +7013,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -6419,6 +7037,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -6506,7 +7125,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "保变电气当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "保变电气当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -6517,6 +7136,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -6526,6 +7160,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -6601,7 +7236,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "永杉锂业当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "summary": "永杉锂业当前证据不足，已命中1项、缺失8项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -6612,6 +7247,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -6621,6 +7271,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "一个月维度逻辑仍需补充"
           ],
@@ -6789,6 +7440,21 @@
           "risk_reward": "1:2.46",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -6798,6 +7464,7 @@
           ],
           "missed_rules": [
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "评论区存在反向风险线索"
           ],
@@ -7067,6 +7734,21 @@
           "risk_reward": "1:0.31",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "入场区间明确",
@@ -7076,6 +7758,7 @@
             "技术形态仍需补充确认",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "评论区存在反向风险线索"
           ],
@@ -7255,6 +7938,21 @@
           "risk_reward": "1:0.72",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -7264,6 +7962,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认",
             "评论区存在反向风险线索"
           ],
@@ -7507,6 +8206,21 @@
           "risk_reward": "1:1.14",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -7516,6 +8230,7 @@
           "missed_rules": [
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -7672,6 +8387,21 @@
           "risk_reward": "1:1.88",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
@@ -7681,6 +8411,7 @@
           ],
           "missed_rules": [
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -7882,7 +8613,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "合肥城建当前证据不足，已命中1项、缺失5项，需要补充价格、止损或大盘支持数据。",
+          "summary": "合肥城建当前证据不足，已命中1项、缺失6项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -7893,6 +8624,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -7901,7 +8647,8 @@
             "缺少明确入场区间",
             "缺少止损位",
             "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核"
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失"
           ],
           "risk_points": [],
           "action": {
@@ -7992,7 +8739,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "飞龙股份当前证据不足，已命中1项、缺失5项，需要补充价格、止损或大盘支持数据。",
+          "summary": "飞龙股份当前证据不足，已命中1项、缺失6项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -8003,6 +8750,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -8011,7 +8773,8 @@
             "缺少明确入场区间",
             "缺少止损位",
             "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核"
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失"
           ],
           "risk_points": [],
           "action": {
@@ -8102,7 +8865,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "英维克当前证据不足，已命中1项、缺失5项，需要补充价格、止损或大盘支持数据。",
+          "summary": "英维克当前证据不足，已命中1项、缺失6项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -8113,6 +8876,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -8121,7 +8899,8 @@
             "缺少明确入场区间",
             "缺少止损位",
             "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核"
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失"
           ],
           "risk_points": [],
           "action": {
@@ -8212,7 +8991,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "利通电子当前证据不足，已命中1项、缺失5项，需要补充价格、止损或大盘支持数据。",
+          "summary": "利通电子当前证据不足，已命中1项、缺失6项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -8223,6 +9002,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -8231,7 +9025,8 @@
             "缺少明确入场区间",
             "缺少止损位",
             "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核"
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失"
           ],
           "risk_points": [],
           "action": {
@@ -8345,7 +9140,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "中科曙光当前证据不足，已命中1项、缺失6项，需要补充价格、止损或大盘支持数据。",
+          "summary": "中科曙光当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -8356,6 +9151,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -8365,6 +9175,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -8456,7 +9267,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "准油股份当前证据不足，已命中1项、缺失5项，需要补充价格、止损或大盘支持数据。",
+          "summary": "准油股份当前证据不足，已命中1项、缺失6项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -8467,6 +9278,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -8475,7 +9301,8 @@
             "缺少明确入场区间",
             "缺少止损位",
             "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核"
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失"
           ],
           "risk_points": [],
           "action": {
@@ -8569,7 +9396,7 @@
           "status": "数据不足",
           "suggest_entry": false,
           "risk": "中",
-          "summary": "普丽盛当前证据不足，已命中1项、缺失6项，需要补充价格、止损或大盘支持数据。",
+          "summary": "普丽盛当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
           "current_price": null,
           "entry_low": null,
           "entry_high": null,
@@ -8580,6 +9407,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中"
           ],
@@ -8589,6 +9431,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "板块与当日主线关联待确认"
           ],
           "risk_points": [],
@@ -8683,11 +9526,11 @@
           "pattern": "右侧转强",
           "logic": "通用设备方向有评论关注；当前 2026-05-15 收盘 31.3，涨跌幅 5.1%，MA5/10/20=29.71/29.05/26.7，量比近5日均量 1.3，状态：强势延续。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 规则命中：MKT-02(+3)、ENT-03(+8)、TRD-03(+3)、REV-01(-4)、LHJ-01(+5)、LHJ-01(+3)、LHJ-02(+4)。",
           "sectors": [],
-          "status": "等待买点",
-          "suggest_entry": false,
+          "status": "已到买点",
+          "suggest_entry": true,
           "risk": "中",
-          "summary": "海昌新材命中5项条件，当前以等待买点处理，等待价格、量能和板块继续确认。",
-          "current_price": null,
+          "summary": "海昌新材已进入预设入场区间，李红娟模式要求同步确认量能、板块和止损纪律。",
+          "current_price": 31.3,
           "entry_low": 5.0,
           "entry_high": 31.3,
           "entry_range": "5 - 31.3",
@@ -8697,16 +9540,35 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "2026-05-15",
+            "current_price": 31.3,
+            "pct_change": 5.1,
+            "ma5": 29.71,
+            "ma10": 29.05,
+            "ma20": 26.7,
+            "volume_ratio": 1.3,
+            "technical_state": "强势延续",
+            "source": "picks_logic"
+          },
+          "price_position": "价格进入入场区间",
+          "volume_signal": "量增价升，量比 1.3",
+          "ma_structure": "多头排列，趋势偏强",
+          "technical_state": "强势延续",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
             "入场区间明确",
             "止损位明确",
-            "符合趋势/中长期观察"
+            "当前价进入入场区间",
+            "走势状态：强势延续",
+            "多头排列，趋势偏强",
+            "量增价升，动能配合",
+            "符合趋势/中长期观察",
+            "趋势延续得到走势确认"
           ],
           "missed_rules": [
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核"
+            "盈亏比不足或待复核"
           ],
           "risk_points": [],
           "action": {
@@ -8794,11 +9656,11 @@
           "pattern": "右侧转强",
           "logic": "通信设备方向有评论关注；当前 2026-05-15 收盘 188.12，涨跌幅 -1.95%，MA5/10/20=191.77/185.77/168.66，量比近5日均量 0.94，状态：回踩观察。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 规则命中：SEL-01(-7)、SEL-02(+7)、SEL-02(+5)、ENT-02(+7)、ENT-03(-8)、TRD-03(+3)、REV-01(-4)。",
           "sectors": [],
-          "status": "等待买点",
-          "suggest_entry": false,
+          "status": "已到买点",
+          "suggest_entry": true,
           "risk": "中",
-          "summary": "剑桥科技命中5项条件，当前以等待买点处理，等待价格、量能和板块继续确认。",
-          "current_price": null,
+          "summary": "剑桥科技已进入预设入场区间，李红娟模式要求同步确认量能、板块和止损纪律。",
+          "current_price": 188.12,
           "entry_low": 5.0,
           "entry_high": 188.12,
           "entry_range": "5 - 188.12",
@@ -8808,16 +9670,33 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "2026-05-15",
+            "current_price": 188.12,
+            "pct_change": -1.95,
+            "ma5": 191.77,
+            "ma10": 185.77,
+            "ma20": 168.66,
+            "volume_ratio": 0.94,
+            "technical_state": "回踩观察",
+            "source": "picks_logic"
+          },
+          "price_position": "价格进入入场区间",
+          "volume_signal": "量能平稳，量比 0.94",
+          "ma_structure": "站上关键均线",
+          "technical_state": "回踩观察",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
             "入场区间明确",
             "止损位明确",
+            "当前价进入入场区间",
+            "走势状态：回踩观察",
+            "站上关键均线",
             "符合趋势/中长期观察"
           ],
           "missed_rules": [
-            "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核"
+            "盈亏比不足或待复核"
           ],
           "risk_points": [],
           "action": {
@@ -8908,8 +9787,8 @@
           "status": "仅观察",
           "suggest_entry": false,
           "risk": "高",
-          "summary": "英唐智控当前证据不足，已命中5项、缺失2项，需要补充价格、止损或大盘支持数据。",
-          "current_price": null,
+          "summary": "英唐智控当前证据不足，已命中8项、缺失1项，需要补充价格、止损或大盘支持数据。",
+          "current_price": 21.53,
           "entry_low": 5.0,
           "entry_high": 21.53,
           "entry_range": "5 - 21.53",
@@ -8919,20 +9798,39 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "2026-05-15",
+            "current_price": 21.53,
+            "pct_change": 1.32,
+            "ma5": 20.07,
+            "ma10": 18.52,
+            "ma20": 17.54,
+            "volume_ratio": 0.97,
+            "technical_state": "追高风险",
+            "source": "picks_logic"
+          },
+          "price_position": "价格进入入场区间",
+          "volume_signal": "量能平稳，量比 0.97",
+          "ma_structure": "多头排列，趋势偏强",
+          "technical_state": "追高风险",
           "matched_rules": [
             "来源命中",
             "技术形态可观察",
             "入场区间明确",
             "止损位明确",
-            "符合趋势/中长期观察"
+            "当前价进入入场区间",
+            "多头排列，趋势偏强",
+            "符合趋势/中长期观察",
+            "趋势延续得到走势确认"
           ],
           "missed_rules": [
             "盈亏比不足或待复核",
-            "当前价缺失，需补充价格后复核",
+            "走势状态：追高风险",
             "风险等级为高",
             "股票池状态为观察取消"
           ],
           "risk_points": [
+            "走势状态：追高风险",
             "风险等级为高",
             "股票池状态为观察取消"
           ],
@@ -9035,6 +9933,21 @@
           "risk_reward": "待复核",
           "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
           "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
           "matched_rules": [
             "来源命中",
             "技术形态可观察"
@@ -9044,6 +9957,7 @@
             "缺少止损位",
             "盈亏比不足或待复核",
             "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
             "一个月维度逻辑仍需补充"
           ],
           "risk_points": [],

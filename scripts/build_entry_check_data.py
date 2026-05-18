@@ -66,6 +66,61 @@ def to_float(value: Any) -> float | None:
         return None
 
 
+def parse_technical_snapshot(text: str) -> dict[str, Any]:
+    snapshot: dict[str, Any] = {
+        "as_of": "",
+        "current_price": None,
+        "pct_change": None,
+        "ma5": None,
+        "ma10": None,
+        "ma20": None,
+        "volume_ratio": None,
+        "technical_state": "",
+        "source": "picks_logic",
+    }
+    if not text:
+        return snapshot
+
+    close_match = re.search(r"当前\s+(\d{4}-\d{2}-\d{2})\s+收盘\s*([0-9.]+)", text)
+    if close_match:
+        snapshot["as_of"] = close_match.group(1)
+        snapshot["current_price"] = to_float(close_match.group(2))
+
+    pct_match = re.search(r"涨跌幅\s*([+-]?[0-9.]+)%", text)
+    if pct_match:
+        snapshot["pct_change"] = to_float(pct_match.group(1))
+
+    ma_match = re.search(r"MA5/10/20=([0-9.]+)/([0-9.]+)/([0-9.]+)", text)
+    if ma_match:
+        snapshot["ma5"] = to_float(ma_match.group(1))
+        snapshot["ma10"] = to_float(ma_match.group(2))
+        snapshot["ma20"] = to_float(ma_match.group(3))
+
+    volume_match = re.search(r"量比近5日均量\s*([0-9.]+)", text)
+    if volume_match:
+        snapshot["volume_ratio"] = to_float(volume_match.group(1))
+
+    state_match = re.search(r"状态：([^。；，\s]+)", text)
+    if state_match:
+        snapshot["technical_state"] = state_match.group(1).strip()
+
+    return snapshot
+
+
+def merge_market_snapshot(logic: str, price_update: dict[str, Any] | None) -> dict[str, Any]:
+    snapshot = parse_technical_snapshot(logic)
+    if price_update:
+        snapshot["source"] = "price_updates"
+        for key in ["current_price", "pct_change", "ma5", "ma10", "ma20", "volume_ratio"]:
+            if price_update.get(key) is not None:
+                snapshot[key] = price_update[key]
+        if price_update.get("technical_state"):
+            snapshot["technical_state"] = price_update["technical_state"]
+        if price_update.get("as_of"):
+            snapshot["as_of"] = price_update["as_of"]
+    return snapshot
+
+
 def latest_dashboard_date() -> str:
     dashboard = DATA_DIR / "dashboard.json"
     if dashboard.exists():
@@ -232,8 +287,8 @@ def collect_my_positions(date_text: str) -> list[dict[str, Any]]:
     return out
 
 
-def collect_price_updates(date_text: str) -> dict[str, float]:
-    prices: dict[str, float] = {}
+def collect_price_updates(date_text: str) -> dict[str, dict[str, Any]]:
+    prices: dict[str, dict[str, Any]] = {}
     for path in [
         DATA_DIR / "performance" / "price_updates" / f"{date_text}.csv",
         DATA_DIR / "price_updates" / f"{date_text}.csv",
@@ -242,7 +297,16 @@ def collect_price_updates(date_text: str) -> dict[str, float]:
             code = row.get("code", "")
             price = to_float(row.get("current_price") or row.get("price") or row.get("close"))
             if code and price is not None:
-                prices[code] = price
+                prices[code] = {
+                    "as_of": row.get("date") or date_text,
+                    "current_price": price,
+                    "pct_change": to_float(row.get("pct_change") or row.get("change_pct")),
+                    "ma5": to_float(row.get("ma5")),
+                    "ma10": to_float(row.get("ma10")),
+                    "ma20": to_float(row.get("ma20")),
+                    "volume_ratio": to_float(row.get("volume_ratio") or row.get("volume_ratio_5d")),
+                    "technical_state": row.get("technical_state") or row.get("state") or "",
+                }
     return prices
 
 
@@ -350,11 +414,63 @@ def position_for(stock: dict[str, str], positions: list[dict[str, Any]]) -> list
     return [item for item in positions if item.get("code") == stock["code"] or item.get("name") == stock["name"]][:6]
 
 
-def pick_status(item: dict[str, Any], mode: str, current_price: float | None, market: dict[str, Any], stock_sectors_list: list[str], comments: list[dict[str, Any]]) -> dict[str, Any]:
+def analyze_price_position(current_price: float | None, entry_low: float | None, entry_high: float | None, stop_loss: float | None) -> str:
+    if current_price is None:
+        return "当前价待补充"
+    if stop_loss is not None and current_price < stop_loss:
+        return "跌破止损位"
+    if entry_low is not None and entry_high is not None:
+        if entry_low <= current_price <= entry_high:
+            return "价格进入入场区间"
+        if current_price > entry_high * 1.03:
+            return "明显高于入场上沿"
+        if current_price < entry_low:
+            return "低于入场区间，等待企稳"
+    return "价格位置待复核"
+
+
+def analyze_volume_signal(snapshot: dict[str, Any]) -> str:
+    volume_ratio = snapshot.get("volume_ratio")
+    pct_change = snapshot.get("pct_change")
+    if volume_ratio is None:
+        return "量能待补充"
+    if pct_change is None:
+        return f"量比 {volume_ratio:g}，方向待复核"
+    if volume_ratio >= 1.2 and pct_change > 0:
+        return f"量增价升，量比 {volume_ratio:g}"
+    if volume_ratio >= 1.2 and pct_change < 0:
+        return f"量增价跌，量比 {volume_ratio:g}"
+    if volume_ratio < 0.8 and pct_change > 0:
+        return f"量减价升，量比 {volume_ratio:g}"
+    if volume_ratio < 0.8 and pct_change < 0:
+        return f"缩量下跌，量比 {volume_ratio:g}"
+    return f"量能平稳，量比 {volume_ratio:g}"
+
+
+def analyze_ma_structure(snapshot: dict[str, Any]) -> str:
+    current = snapshot.get("current_price")
+    ma5 = snapshot.get("ma5")
+    ma10 = snapshot.get("ma10")
+    ma20 = snapshot.get("ma20")
+    if current is None or ma5 is None or ma10 is None or ma20 is None:
+        return "均线待补充"
+    if current >= ma5 >= ma10 >= ma20:
+        return "多头排列，趋势偏强"
+    if current >= ma10 and ma5 >= ma20:
+        return "站上关键均线"
+    if current < ma20:
+        return "跌破20日线"
+    if current < ma10:
+        return "跌破10日线"
+    return "均线结构中性"
+
+
+def pick_status(item: dict[str, Any], mode: str, current_price: float | None, market: dict[str, Any], stock_sectors_list: list[str], comments: list[dict[str, Any]], trend_snapshot: dict[str, Any] | None = None) -> dict[str, Any]:
     entry_low = item.get("entry_low")
     entry_high = item.get("entry_high")
     stop_loss = item.get("stop_loss")
     tp1 = item.get("take_profit_1")
+    trend_snapshot = trend_snapshot or {}
     risk_reward = risk_reward_text(entry_low, entry_high, stop_loss, tp1)
     rr_value = risk_reward_value(risk_reward)
     matched: list[str] = []
@@ -365,6 +481,10 @@ def pick_status(item: dict[str, Any], mode: str, current_price: float | None, ma
     logic = item.get("logic") or ""
     risk = item.get("risk") or "中"
     source = item.get("source")
+    technical_state = trend_snapshot.get("technical_state") or ""
+    price_position = analyze_price_position(current_price, entry_low, entry_high, stop_loss)
+    volume_signal = analyze_volume_signal(trend_snapshot)
+    ma_structure = analyze_ma_structure(trend_snapshot)
 
     if source == mode:
         matched.append("来源命中")
@@ -400,6 +520,26 @@ def pick_status(item: dict[str, Any], mode: str, current_price: float | None, ma
     elif entry_low is not None and entry_high is not None and entry_low <= current_price <= entry_high:
         matched.append("当前价进入入场区间")
 
+    if technical_state:
+        if technical_state in {"强势延续", "回踩观察"}:
+            matched.append(f"走势状态：{technical_state}")
+        elif "追高" in technical_state or "破位" in technical_state:
+            risk_points.append(f"走势状态：{technical_state}")
+
+    if "多头排列" in ma_structure or "站上关键均线" in ma_structure:
+        matched.append(ma_structure)
+    elif "跌破" in ma_structure:
+        risk_points.append(ma_structure)
+
+    if volume_signal.startswith("量增价升"):
+        matched.append("量增价升，动能配合")
+    elif volume_signal.startswith("量增价跌"):
+        risk_points.append("量增价跌，抛压需要复核")
+    elif volume_signal.startswith("量减价升"):
+        matched.append("量减价升，持有观察")
+    elif "量能待补充" in volume_signal:
+        missed.append("量能数据缺失")
+
     if risk == "高":
         risk_points.append("风险等级为高")
     if item.get("status") == "观察取消":
@@ -418,13 +558,19 @@ def pick_status(item: dict[str, Any], mode: str, current_price: float | None, ma
             matched.append("符合趋势/中长期观察")
         else:
             missed.append("一个月维度逻辑仍需补充")
+        if "强势延续" in technical_state or "多头排列" in ma_structure:
+            matched.append("趋势延续得到走势确认")
+        if trend_snapshot.get("pct_change") is not None and trend_snapshot.get("pct_change") > 5 and entry_high is not None and current_price is not None and current_price > entry_high:
+            risk_points.append("短期涨幅偏大，不追情绪高点")
     else:
         if any(word in pattern + logic for word in ["追高", "高位放量"]):
             risk_points.append("野哥模式下追高风险需降级")
+        if "回踩观察" in technical_state and current_price is not None and trend_snapshot.get("ma10") is not None and current_price >= trend_snapshot["ma10"]:
+            matched.append("回踩未破关键支撑")
 
     if "当前价低于止损位" in risk_points or "破位" in pattern or item.get("status") == "观察取消":
         status = "破位风险" if "当前价低于止损位" in risk_points or "破位" in pattern else "仅观察"
-    elif risk_points and any("追高" in text or "高于入场" in text or "风险等级为高" in text for text in risk_points):
+    elif risk_points and any("追高" in text or "高于入场" in text or "风险等级为高" in text or "量增价跌" in text for text in risk_points):
         status = "不建议追高"
     elif current_price is not None and entry_low is not None and entry_high is not None and entry_low <= current_price <= entry_high:
         status = "已到买点"
@@ -469,6 +615,11 @@ def pick_status(item: dict[str, Any], mode: str, current_price: float | None, ma
         "risk_reward": risk_reward,
         "position_advice": position,
         "tracking_cycle": cycle,
+        "trend_snapshot": trend_snapshot,
+        "price_position": price_position,
+        "volume_signal": volume_signal,
+        "ma_structure": ma_structure,
+        "technical_state": technical_state or "待补充",
         "matched_rules": matched,
         "missed_rules": [*missed, *risk_points],
         "risk_points": risk_points,
@@ -518,8 +669,9 @@ def build_entries_for_date(date_text: str, sector_map: dict[str, Any]) -> dict[s
         sectors = stock_sectors(pick["code"], list(dict.fromkeys(explicit_sectors[pick["code"]])), sector_map)
         stock_comments = comments_for(stock, comments)
         source_mentions = source_mentions_for(stock, posts)
-        current_price = prices.get(pick["code"])
-        mode_result = pick_status(pick, pick["source"], current_price, market, sectors, stock_comments)
+        trend_snapshot = merge_market_snapshot(pick.get("logic", ""), prices.get(pick["code"]))
+        current_price = trend_snapshot.get("current_price")
+        mode_result = pick_status(pick, pick["source"], current_price, market, sectors, stock_comments, trend_snapshot)
         entries.append(
             {
                 "date": date_text,
@@ -572,7 +724,8 @@ def build_entries_for_date(date_text: str, sector_map: dict[str, Any]) -> dict[s
                     "risk": "中",
                     "status": "仅观察",
                 }
-                result = pick_status(pseudo, mode, None, market, sectors, stock_comments)
+                trend_snapshot = merge_market_snapshot(post.get("summary", ""), prices.get(stock["code"]))
+                result = pick_status(pseudo, mode, trend_snapshot.get("current_price"), market, sectors, stock_comments, trend_snapshot)
                 entries.append(
                     {
                         "date": date_text,

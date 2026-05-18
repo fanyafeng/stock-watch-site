@@ -207,6 +207,10 @@ const dayOptions = unique(dateParts.filter((item) => item.year === currentDatePa
     setField("risk_reward", entry.risk_reward || "待复核");
     setField("position_advice", entry.position_advice || "轻仓观察");
     setField("tracking_cycle", entry.tracking_cycle || "待补充");
+    setField("price_position", entry.price_position || "待判断");
+    setField("volume_signal", entry.volume_signal || "量能待补充");
+    setField("ma_structure", entry.ma_structure || "均线待补充");
+    setField("technical_state", entry.technical_state || "待补充");
     setField("discipline", entry.mode === "yege" ? "不追高，只在入场区间内观察，跌破止损无条件退出。" : "重点看板块逻辑和趋势延续，风险位失守则取消观察。");
     setField("pattern", `${entry.pattern || "待补充"} · ${entry.type || "观察"}`);
     setField("logic", entry.logic || "暂无更多说明。");
