@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DashboardLayout from "../components/DashboardLayout.astro";
+import EntryCheckForm from "../components/EntryCheckForm.astro";
+import entryIndex from "../data/entry_check_index.json";
+---
+
+<BaseLayout title="入场判断｜复盘工作台">
+  <DashboardLayout active="入场判断">
+    <EntryCheckForm entryIndex={entryIndex} />
+  </DashboardLayout>
+</BaseLayout>

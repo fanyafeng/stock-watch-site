@@ -1,0 +1,328 @@
+---
+import EntryCheckResult from "./EntryCheckResult.astro";
+
+const { entryIndex } = Astro.props;
+const dateItems = entryIndex.dates ?? [];
+const defaultDate = entryIndex.default_date ?? dateItems.at(-1)?.date ?? "";
+const dateParts = dateItems.map((item) => {
+  const [year, month, day] = item.date.split("-");
+  return { date: item.date, year, month, day };
+});
+const currentDateParts = dateParts.find((item) => item.date === defaultDate) ?? dateParts.at(-1) ?? { date: defaultDate, year: "", month: "", day: "" };
+const unique = (items) => [...new Set(items.filter(Boolean))];
+const yearOptions = unique(dateParts.map((item) => item.year)).sort((a, b) => Number(b) - Number(a));
+const monthOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year).map((item) => item.month)).sort((a, b) => Number(b) - Number(a));
+const dayOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year && item.month === currentDateParts.month).map((item) => item.day)).sort((a, b) => Number(b) - Number(a));
+---
+
+<section class="entry-check-page" data-entry-check data-entry-index={JSON.stringify(entryIndex)}>
+  <header class="entry-hero">
+    <div>
+      <p>入场判断 / Entry Check</p>
+      <h1>入场判断</h1>
+      <span>输入股票名称或代码，用野哥模式或李红娟模式复核买点、止损、止盈和证据链。</span>
+    </div>
+    <strong>当前复盘日：{defaultDate || "暂无"}</strong>
+  </header>
+
+  <section class="entry-form-card">
+    <div class="entry-input-wrap">
+      <label>
+        <span>股票名称 / 代码</span>
+        <input type="search" placeholder="输入股票名称或代码，例如 合力泰 / 002217" data-entry-query />
+      </label>
+      <div class="entry-mode-control" role="radiogroup" aria-label="选择选股模式">
+        <button type="button" class="is-active" data-entry-mode="yege">野哥模式</button>
+        <button type="button" data-entry-mode="lihongjuan">李红娟模式</button>
+      </div>
+      <label class="entry-date-picker" data-entry-date-picker>
+        <span>日期</span>
+        <div>
+          <select data-entry-year aria-label="选择年份">
+            {yearOptions.map((year) => <option value={year} selected={year === currentDateParts.year}>{year}年</option>)}
+          </select>
+          <select data-entry-month aria-label="选择月份">
+            {monthOptions.map((month) => <option value={month} selected={month === currentDateParts.month}>{Number(month)}月</option>)}
+          </select>
+          <select data-entry-day aria-label="选择日期">
+            {dayOptions.map((day) => <option value={day} selected={day === currentDateParts.day}>{Number(day)}日</option>)}
+          </select>
+        </div>
+      </label>
+    </div>
+    <div class="entry-form-actions">
+      <button type="button" class="primary" data-entry-submit>开始判断</button>
+      <button type="button" data-entry-reset>重置</button>
+    </div>
+    <p class="entry-form-message" data-entry-message hidden></p>
+    <div class="entry-candidate-list" data-entry-candidates hidden></div>
+  </section>
+
+  <section class="entry-empty-state" data-entry-empty>
+    <h2>等待输入股票</h2>
+    <p>支持股票代码和股票名称模糊匹配。当前数据来自本地 CSV、复盘看板和评论聚合索引。</p>
+  </section>
+
+  <EntryCheckResult />
+</section>
+
+<script>
+  const root = document.querySelector("[data-entry-check]");
+  const data = JSON.parse(root?.getAttribute("data-entry-index") || "{}");
+  const queryInput = root?.querySelector("[data-entry-query]");
+  const modeButtons = [...(root?.querySelectorAll("[data-entry-mode]") || [])];
+  const yearSelect = root?.querySelector("[data-entry-year]");
+  const monthSelect = root?.querySelector("[data-entry-month]");
+  const daySelect = root?.querySelector("[data-entry-day]");
+  const submitButton = root?.querySelector("[data-entry-submit]");
+  const resetButton = root?.querySelector("[data-entry-reset]");
+  const message = root?.querySelector("[data-entry-message]");
+  const candidatesBox = root?.querySelector("[data-entry-candidates]");
+  const result = root?.querySelector("[data-entry-result]");
+  const empty = root?.querySelector("[data-entry-empty]");
+  let activeMode = "yege";
+
+  const dateParts = (data.dates || []).map((item) => {
+    const [year, month, day] = item.date.split("-");
+    return { date: item.date, year, month, day };
+  });
+
+  function unique(items) {
+    return [...new Set(items.filter(Boolean))];
+  }
+
+  function selectedDate() {
+    const date = `${yearSelect?.value}-${monthSelect?.value}-${daySelect?.value}`;
+    return dateParts.some((item) => item.date === date) ? date : data.default_date;
+  }
+
+  function currentPayload() {
+    const date = selectedDate();
+    return (data.dates || []).find((item) => item.date === date) || { entries: [], candidates: [], market: {} };
+  }
+
+  function updateDateSelects(changedPart) {
+    const year = yearSelect?.value;
+    const month = monthSelect?.value;
+    const months = unique(dateParts.filter((item) => item.year === year).map((item) => item.month)).sort((a, b) => Number(b) - Number(a));
+    if (changedPart === "year" && monthSelect) {
+      monthSelect.innerHTML = months.map((item) => `<option value="${item}">${Number(item)}月</option>`).join("");
+    }
+    const activeMonth = monthSelect?.value || months[0];
+    const days = unique(dateParts.filter((item) => item.year === year && item.month === activeMonth).map((item) => item.day)).sort((a, b) => Number(b) - Number(a));
+    if ((changedPart === "year" || changedPart === "month") && daySelect) {
+      daySelect.innerHTML = days.map((item) => `<option value="${item}">${Number(item)}日</option>`).join("");
+    }
+  }
+
+  function setMessage(text, tone = "warn") {
+    if (!message) return;
+    message.hidden = !text;
+    message.textContent = text || "";
+    message.dataset.tone = tone;
+  }
+
+  function formatPrice(value) {
+    return value === null || value === undefined || value === "" ? "待补充" : String(value);
+  }
+
+  function statusTone(status) {
+    if (status === "已到买点") return "green";
+    if (status === "不建议追高" || status === "等待买点") return "orange";
+    if (status === "破位风险") return "red";
+    if (status === "可关注") return "blue";
+    return "gray";
+  }
+
+  function stockUrl(code) {
+    return `https://basic.10jqka.com.cn/${code}/`;
+  }
+
+  function setField(name, value) {
+    root?.querySelectorAll(`[data-entry-field="${name}"]`).forEach((node) => {
+      node.textContent = value ?? "";
+    });
+  }
+
+  function renderTags(container, items, tone = "blue") {
+    container.innerHTML = (items || []).length
+      ? items.map((item) => `<span class="entry-chip ${tone}">${escapeHtml(item)}</span>`).join("")
+      : `<span class="entry-muted">暂无数据</span>`;
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;");
+  }
+
+  function renderRuleList(selector, items, tone) {
+    const target = root?.querySelector(selector);
+    if (!target) return;
+    target.innerHTML = (items || []).length
+      ? items.map((item) => `<span class="entry-rule ${tone}">${escapeHtml(item)}</span>`).join("")
+      : `<span class="entry-muted">暂无</span>`;
+  }
+
+  function evidenceText(kind, item) {
+    if (kind === "source_mentions") return `<b>${escapeHtml(item.source_name)}</b><span>${escapeHtml(item.summary || item.title || "来源提及")}</span>`;
+    if (kind === "comments") return `<b>${escapeHtml(item.source_name)} · ${escapeHtml(item.include_status || "待确认")}</b><span>${escapeHtml(item.content || item.value_reason || "评论证据")}</span>`;
+    if (kind === "stock_pool") return `<b>${escapeHtml(item.source_name)} · ${escapeHtml(item.pattern || "股票池")}</b><span>${escapeHtml(item.logic || item.raw_text || "股票池记录")}</span>`;
+    if (kind === "market") return `<b>${escapeHtml(item.market_status || "大盘状态")}</b><span>主线：${escapeHtml((item.main_sectors || []).join("、") || "待补充")}；风险：${escapeHtml(item.risk_level || "中")}</span>`;
+    if (kind === "my_positions") return `<b>${escapeHtml(item.status || item.kind || "持仓")}</b><span>${escapeHtml(item.plan || item.note || "个人记录")}</span>`;
+    return `<span>暂无历史收益跟踪记录</span>`;
+  }
+
+  function renderEvidence(entry) {
+    ["source_mentions", "comments", "stock_pool", "market", "my_positions", "performance"].forEach((kind) => {
+      const target = root?.querySelector(`[data-entry-evidence="${kind}"]`);
+      const items = entry.evidence?.[kind] || [];
+      if (!target) return;
+      target.innerHTML = items.length
+        ? items.slice(0, 4).map((item) => {
+            const url = item.url || (kind === "stock_pool" ? stockUrl(entry.code) : "");
+            const link = url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">查看</a>` : "";
+            return `<div class="entry-evidence-item">${evidenceText(kind, item)}${link}</div>`;
+          }).join("")
+        : `<div class="entry-evidence-item muted">暂无数据</div>`;
+    });
+  }
+
+  function renderEntry(entry) {
+    empty.hidden = true;
+    result.hidden = false;
+    setField("mode_name", entry.mode_name);
+    setField("name", entry.name);
+    setField("code", entry.code);
+    setField("summary", entry.summary);
+    setField("suggest_entry", entry.suggest_entry ? "是，需盘中确认" : "否，先按纪律观察");
+    setField("risk", entry.risk || "中");
+    setField("current_price", formatPrice(entry.current_price));
+    setField("entry_range", entry.entry_range || "待补充");
+    setField("stop_loss", formatPrice(entry.stop_loss));
+    setField("take_profit_1", formatPrice(entry.take_profit_1));
+    setField("take_profit_2", formatPrice(entry.take_profit_2));
+    setField("risk_reward", entry.risk_reward || "待复核");
+    setField("position_advice", entry.position_advice || "轻仓观察");
+    setField("tracking_cycle", entry.tracking_cycle || "待补充");
+    setField("discipline", entry.mode === "yege" ? "不追高，只在入场区间内观察，跌破止损无条件退出。" : "重点看板块逻辑和趋势延续，风险位失守则取消观察。");
+    setField("pattern", `${entry.pattern || "待补充"} · ${entry.type || "观察"}`);
+    setField("logic", entry.logic || "暂无更多说明。");
+
+    const badge = root?.querySelector("[data-entry-status]");
+    if (badge) {
+      badge.textContent = entry.status;
+      badge.dataset.tone = statusTone(entry.status);
+    }
+    renderRuleList('[data-entry-rules="matched"]', entry.matched_rules, "hit");
+    renderRuleList('[data-entry-rules="missed"]', entry.missed_rules, "miss");
+    Object.entries(entry.action || {}).forEach(([key, value]) => {
+      const target = root?.querySelector(`[data-entry-action="${key}"]`);
+      if (target) target.textContent = value;
+    });
+    renderEvidence(entry);
+
+    const riskItems = entry.risk_points || [];
+    const chase = root?.querySelector('[data-entry-risk="chase"]');
+    const breakdown = root?.querySelector('[data-entry-risk="breakdown"]');
+    const sector = root?.querySelector('[data-entry-risk="sector"]');
+    const dataRisk = root?.querySelector('[data-entry-risk="data"]');
+    if (chase) chase.textContent = riskItems.find((item) => item.includes("追高") || item.includes("高于入场")) || "高于入场区间上沿较多时，只观察不追。";
+    if (breakdown) breakdown.textContent = riskItems.find((item) => item.includes("破位") || item.includes("止损")) || "跌破止损或趋势支撑，取消观察。";
+    if (sector) sector.textContent = entry.missed_rules?.find((item) => item.includes("板块")) || "板块资金持续流出时，降低入场优先级。";
+    if (dataRisk) dataRisk.textContent = entry.missed_rules?.find((item) => item.includes("缺失") || item.includes("缺少") || item.includes("当前价")) || "缺少价格、止损或止盈数据时不做明确入场动作。";
+  }
+
+  function findEntries() {
+    const query = queryInput?.value.trim();
+    if (!query) {
+      setMessage("请输入股票名称或代码。");
+      result.hidden = true;
+      empty.hidden = false;
+      return [];
+    }
+    const payload = currentPayload();
+    const q = query.toLowerCase();
+    const matches = (items) => (items || []).filter((entry) => {
+      const exactMode = entry.mode === activeMode;
+      const text = `${entry.code} ${entry.name} ${entry.search_text}`.toLowerCase();
+      return exactMode && text.includes(q);
+    });
+    const currentMatches = matches(payload.entries);
+    if (currentMatches.length) return currentMatches;
+    return (data.dates || []).flatMap((item) => matches(item.entries));
+  }
+
+  function renderCandidates(items) {
+    if (!candidatesBox) return;
+    if (items.length <= 1) {
+      candidatesBox.hidden = true;
+      candidatesBox.innerHTML = "";
+      return;
+    }
+    candidatesBox.hidden = false;
+    candidatesBox.innerHTML = `<strong>找到多条匹配，请选择：</strong>` + items.map((entry, index) => `
+      <button type="button" data-entry-candidate="${index}">
+        <b>${escapeHtml(entry.name)} ${escapeHtml(entry.code)}</b>
+        <span>${escapeHtml(entry.mode_name)} · ${escapeHtml(entry.date)} · ${escapeHtml(entry.status)}</span>
+      </button>
+    `).join("");
+    candidatesBox.querySelectorAll("[data-entry-candidate]").forEach((button) => {
+      button.addEventListener("click", () => renderEntry(items[Number(button.getAttribute("data-entry-candidate"))]));
+    });
+  }
+
+  function submit() {
+    setMessage("");
+    const items = findEntries();
+    renderCandidates(items);
+    if (!items.length && queryInput?.value.trim()) {
+      setMessage("未找到该股票的复盘数据，请检查名称或代码。");
+      result.hidden = true;
+      empty.hidden = false;
+      empty.innerHTML = `<h2>未找到该股票的复盘数据</h2><p>请检查股票名称或代码，或者确认当天 CSV 数据中是否包含该股票。</p><button type="button" data-entry-empty-reset>清空重新输入</button>`;
+      empty.querySelector("[data-entry-empty-reset]")?.addEventListener("click", reset);
+      return;
+    }
+    if (items.length) {
+      const selected = selectedDate();
+      renderEntry(items[0]);
+      if (!items.some((item) => item.date === selected)) {
+        setMessage(`当前日期暂无匹配，已展示历史复盘候选。`, "info");
+      }
+      if (items[0].status === "数据不足") {
+        setMessage("数据不足，暂不生成明确入场建议。已展示命中的证据和缺失项。", "info");
+      }
+    }
+  }
+
+  function reset() {
+    if (queryInput) queryInput.value = "";
+    setMessage("");
+    candidatesBox.hidden = true;
+    candidatesBox.innerHTML = "";
+    result.hidden = true;
+    empty.hidden = false;
+    empty.innerHTML = `<h2>等待输入股票</h2><p>支持股票代码和股票名称模糊匹配。当前数据来自本地 CSV、复盘看板和评论聚合索引。</p>`;
+    queryInput?.focus();
+  }
+
+  modeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeMode = button.getAttribute("data-entry-mode") || "yege";
+      modeButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+      if (queryInput?.value.trim()) submit();
+    });
+  });
+
+  yearSelect?.addEventListener("change", () => updateDateSelects("year"));
+  monthSelect?.addEventListener("change", () => updateDateSelects("month"));
+  daySelect?.addEventListener("change", () => queryInput?.value.trim() && submit());
+  submitButton?.addEventListener("click", submit);
+  resetButton?.addEventListener("click", reset);
+  queryInput?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") submit();
+  });
+</script>

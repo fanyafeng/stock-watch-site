@@ -57,6 +57,9 @@ jobs:
       - name: Generate source stock tracks
         run: python scripts/generate_source_stock_tracks.py --source yege --mode loose
 
+      - name: Build entry check index
+        run: python scripts/build_entry_check_data.py
+
       - name: Sync report index
         run: python scripts/sync_reports_to_astro.py
 
@@ -65,7 +68,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/reports.json data/dashboard.json data/source_stock_tracks.json data/dashboards encrypted/articles encrypted/my src/data/reports.json src/data/dashboard.json src/data/source_stock_tracks.json src/data/dashboards src/data/my_positions_index.json
+          git add data/reports.json data/dashboard.json data/source_stock_tracks.json data/entry_check_index.json data/dashboards encrypted/articles encrypted/my src/data/reports.json src/data/dashboard.json src/data/source_stock_tracks.json src/data/entry_check_index.json src/data/dashboards src/data/my_positions_index.json
           git diff --cached --quiet || git commit -m "chore: update encrypted reports"
           git push || true
 

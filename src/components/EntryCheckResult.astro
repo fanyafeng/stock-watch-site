@@ -1,0 +1,62 @@
+---
+import EntryPlanCard from "./EntryPlanCard.astro";
+import EntryEvidencePanel from "./EntryEvidencePanel.astro";
+import EntryRiskPanel from "./EntryRiskPanel.astro";
+---
+
+<section class="entry-result" data-entry-result hidden>
+  <section class="entry-overview-card" data-entry-overview>
+    <div class="entry-overview-main">
+      <span data-entry-field="mode_name">野哥模式</span>
+      <h2><b data-entry-field="name">等待查询</b><em data-entry-field="code"></em></h2>
+      <p data-entry-field="summary">输入股票名称或代码后开始判断。</p>
+    </div>
+    <div class="entry-overview-side">
+      <span class="entry-status-badge" data-entry-status>数据不足</span>
+      <p><b>建议入场</b><strong data-entry-field="suggest_entry">待判断</strong></p>
+      <p><b>风险等级</b><strong data-entry-field="risk">待判断</strong></p>
+    </div>
+  </section>
+
+  <EntryPlanCard />
+
+  <section class="entry-card entry-logic-card">
+    <div class="entry-card-head">
+      <div>
+        <span>模式判断逻辑</span>
+        <h2>命中项与未命中项</h2>
+      </div>
+      <strong data-entry-field="pattern">技术形态待查询</strong>
+    </div>
+    <div class="entry-logic-grid">
+      <article>
+        <h3>模式命中项</h3>
+        <div class="entry-rule-list hit" data-entry-rules="matched"></div>
+      </article>
+      <article>
+        <h3>模式未命中项</h3>
+        <div class="entry-rule-list miss" data-entry-rules="missed"></div>
+      </article>
+    </div>
+    <p class="entry-logic-copy" data-entry-field="logic"></p>
+  </section>
+
+  <EntryEvidencePanel />
+
+  <section class="entry-card entry-action-card">
+    <div class="entry-card-head">
+      <div>
+        <span>结论</span>
+        <h2>今日动作与下一步观察</h2>
+      </div>
+    </div>
+    <div class="entry-action-grid">
+      <article><span>今日动作</span><strong data-entry-action="today">等待查询</strong></article>
+      <article><span>等待条件</span><strong data-entry-action="wait_condition">等待查询</strong></article>
+      <article><span>失效条件</span><strong data-entry-action="invalid_condition">等待查询</strong></article>
+      <article><span>下一步观察</span><strong data-entry-action="next_check">等待查询</strong></article>
+    </div>
+  </section>
+
+  <EntryRiskPanel />
+</section>
