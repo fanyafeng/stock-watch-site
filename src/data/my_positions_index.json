@@ -1,5 +1,10 @@
 [
   {
+    "date": "2026-05-19",
+    "payload": "2026-05-19.json",
+    "url": "/my-positions/"
+  },
+  {
     "date": "2026-05-18",
     "payload": "2026-05-18.json",
     "url": "/my-positions/"
