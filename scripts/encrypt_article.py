@@ -19,6 +19,7 @@ CONFIG_FILE = ROOT / "data" / "source_config.json"
 TMP_DIR = ROOT / "build" / "tmp"
 ENCRYPTED_DIR = ROOT / "encrypted" / "articles"
 ITERATIONS = 200000
+DAILY_REVIEW_PASSWORD = "xiaofan666888"
 
 
 class EncryptError(Exception):
@@ -26,9 +27,7 @@ class EncryptError(Exception):
 
 
 def build_password_for_date(date_obj: dt.date) -> str:
-    reverse_month = 12 - date_obj.month
-    password = f"xiaofan{reverse_month:02d}{date_obj.day:02d}"
-    return password
+    return DAILY_REVIEW_PASSWORD
 
 
 def parse_date(value: str | None) -> dt.date:
