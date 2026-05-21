@@ -1,241 +1,166 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DashboardLayout from "../components/DashboardLayout.astro";
+import PasswordDecryptor from "../components/PasswordDecryptor.astro";
+import RiskNotice from "../components/RiskNotice.astro";
 import dashboard from "../data/dashboard.json";
+import reports from "../data/reports.json";
 
-const report = dashboard.report;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const reportHref = report ? `${base}${report.url}` : "#";
-const overview = dashboard.overview ?? {};
-const market = dashboard.market ?? {};
-const stats = dashboard.stats ?? {};
-const timeline = dashboard.timeline ?? [];
-const sources = dashboard.sources ?? [];
-const shortList = dashboard.selection?.short ?? [];
-const midList = dashboard.selection?.mid ?? [];
-const comments = dashboard.comments ?? [];
-const mainSectors = overview.main_sectors?.length ? overview.main_sectors : ["消费电子", "PCB", "AI手机", "半导体"];
-const accumulation = market.accumulation_direction?.length ? market.accumulation_direction : ["消费电子", "半导体", "机器人", "AI应用", "PCB"];
-const timelineTimes = ["09:25", "09:35", "09:45", "10:12", "10:35", "11:05", "13:30", "14:10", "15:00"];
-const marketCards = [
-  {
-    title: "指数状态",
-    type: "lines",
-    rows: [
-      ["上证指数", "3386.97", "-0.15%", "green-text"],
-      ["深证成指", "10234.22", "+0.32%", "danger-text"],
-      ["创业板指", "2065.31", "+0.64%", "danger-text"],
-    ],
-  },
-  {
-    title: "成交量变化",
-    type: "bars",
-    rows: [
-      ["总成交额", "1.12万亿", ""],
-      ["较昨日", "+8.52%", "danger-text"],
-    ],
-  },
-  {
-    title: "板块轮动",
-    rows: mainSectors.slice(0, 3).map((name, index) => [`${index + 1}`, name, index === 0 ? "+3.25%" : index === 1 ? "+2.81%" : "+2.45%", "danger-text"]),
-  },
-  {
-    title: "抢筹方向",
-    chips: accumulation.slice(0, 5),
-  },
-  {
-    title: "资金偏好",
-    rows: [
-      ["主力净流入", "186.7亿", "green-text"],
-      ["北向资金", "+32.5亿", "green-text"],
-      ["两融余额", "1.85万亿", ""],
-    ],
-  },
-  {
-    title: "情绪周期",
-    dots: true,
-    rows: [
-      ["当前情绪", overview.sentiment ?? "中等偏上", ""],
-      ["涨停家数", "68", ""],
-    ],
-  },
-  {
-    title: "风险信号",
-    rows: [
-      ["接米面风险", "低", "green-text"],
-      ["资金面风险", "中", "warning-text"],
-      ["消息面风险", "低", "green-text"],
-    ],
-  },
-  {
-    title: "明日观察方向",
-    list: [overview.tomorrow_watch ?? "观察主线持续性", "量能能否维持", "外部市场影响"],
-  },
-];
+const dailyReports = reports.filter((report) => report.report_type === "daily_workbench");
+const visibleDailyReports = dailyReports.slice(0, 14);
+const latestReport = dashboard.report?.report_type === "daily_workbench" ? dashboard.report : (dailyReports[0] ?? null);
+const payloadEntries = await Promise.all(
+  visibleDailyReports.map(async (report) => {
+    const payloadModule = await import(`../../encrypted/articles/${report.slug}.json`);
+    return [report.slug, payloadModule.default];
+  })
+);
+const payloadBySlug = Object.fromEntries(payloadEntries);
+const payload = latestReport ? payloadBySlug[latestReport.slug] : null;
+const latestArticleUrl = latestReport ? `${base}${latestReport.url}` : `${base}/`;
 ---
 
-<BaseLayout title="每日复盘工作台">
+<BaseLayout title="每日复盘解锁｜复盘工作台">
   <DashboardLayout active="每日复盘">
-    <header class="topbar clean-topbar">
-      <div>
-        <h1>{dashboard.date ?? "暂无日期"} 复盘工作台</h1>
-        <span>更新时间：{dashboard.updated_at ?? "暂无数据"}</span>
-      </div>
-      <div class="topbar-actions">
-        <button type="button">切换日期</button>
-        <time datetime={dashboard.date}>{dashboard.date ?? "暂无日期"}</time>
-        <a href={reportHref}>导出当日报告</a>
-      </div>
-    </header>
+    <section class="daily-unlock-page" data-daily-review>
+      <header class="daily-unlock-hero">
+        <div>
+          <p>每日复盘 / 私密工作台</p>
+          <h1 data-daily-title>{latestReport?.title ?? "每日复盘工作台"}</h1>
+          <span data-daily-summary>{latestReport?.summary ?? "选择日期后输入密码查看完整复盘正文。"}</span>
+        </div>
+        <div class="daily-unlock-meta">
+          <span>当前日期</span>
+          <time data-daily-current-date datetime={latestReport?.date ?? dashboard.date}>{latestReport?.date ?? dashboard.date ?? "暂无日期"}</time>
+          <button type="button" data-focus-password>输入密码</button>
+          <a data-daily-article-link href={latestArticleUrl}>独立解锁页</a>
+        </div>
+      </header>
 
-    <section class="overview-panel" aria-label="今日总览">
-      <div class="panel-head">
-        <h2>今日总览</h2>
-      </div>
-      <div class="quick-overview">
-        <article class="overview-card">
-          <span>市场状态</span>
-          <strong>{overview.market_status ?? "需补充 market.csv"}</strong>
-          <small>个股强弱减少</small>
-          <div class="sparkline"></div>
-        </article>
-        <article class="overview-card">
-          <span>主线板块</span>
-          <strong>{mainSectors[0]}</strong>
-          <small>领涨：+3.25%</small>
-          <div class="chip-row">{mainSectors.slice(1, 4).map((sector) => <em>{sector}</em>)}</div>
-        </article>
-        <article class="overview-card">
-          <span>风险等级</span>
-          <strong class="warning-text">{overview.risk_level ?? "中等"}</strong>
-          <small>风险可控</small>
-        </article>
-        <article class="overview-card">
-          <span>操作基调</span>
-          <strong>{overview.operation_tone ?? "控制仓位"}</strong>
-          <small>高抛低吸，聚焦主线</small>
-        </article>
-        <article class="overview-card">
-          <span>赚钱效应</span>
-          <strong class="danger-text">{overview.sentiment ?? "中等偏上"}</strong>
-          <small>涨停家数 68</small>
-          <div class="bar-meter"><i></i><i></i><i></i><i></i><i></i></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="daily-workbench-grid" id="timeline">
-      <article class="panel timeline-panel">
-        <div class="panel-head">
-          <h2>今日时间线</h2>
-          <span>按时间顺序</span>
-        </div>
-        <ol class="public-timeline rich-timeline">
-          {timeline.map((item, index) => (
-            <li>
-              <time>{item.time === "盘中" ? timelineTimes[index] ?? item.time : item.time}</time>
-              <div>
-                <strong>{item.title}</strong>
-                <p>{item.content}</p>
-                <small>{item.source}</small>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </article>
-
-      <aside class="panel market-info-panel">
-        <div class="panel-head">
-          <h2>大盘信息</h2>
-        </div>
-        <div class="market-info-grid">
-          {marketCards.map((card) => (
-            <article class="market-info-card">
-              <h3>{card.title}</h3>
-              {card.rows && (
-                <div class="market-line-list">
-                  {card.rows.map((row) => <p><span>{row[0]}</span><strong>{row[1]}</strong><em class={row[3] ?? ""}>{row[2]}</em></p>)}
-                </div>
-              )}
-              {card.chips && <div class="chip-row">{card.chips.map((item) => <em>{item}</em>)}</div>}
-              {card.list && <ol class="mini-list">{card.list.map((item) => <li>{item}</li>)}</ol>}
-              {card.type === "lines" && <div class="mini-chart mini-chart-lines"></div>}
-              {card.type === "bars" && <div class="mini-chart mini-chart-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>}
-              {card.dots && <div class="sentiment-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>}
-            </article>
-          ))}
-        </div>
-      </aside>
-    </section>
-
-    <section class="secondary-grid">
-      <article class="panel source-board">
-        <div class="panel-head">
-          <h2>来源人今日内容</h2>
-          <a href={`${base}/sources/`}>查看来源人详情</a>
-        </div>
-        <div class="source-card-grid compact-source-grid">
-          {sources.map((source) => (
-            <article class="source-card">
-              <div class="source-card-head"><strong>{source.name}</strong><span>{source.channel}</span></div>
-              <h3>{source.latest_title}</h3>
-              <p>{source.latest_summary}</p>
-            </article>
-          ))}
-        </div>
-      </article>
-      <aside class="panel">
-        <div class="panel-head">
-          <h2>数据概览</h2>
-          <span>今日统计</span>
-        </div>
-        <div class="stat-list">
-          <p><span>候选股票</span><strong>{stats.candidate_count ?? 0}</strong></p>
-          <p><span>入池观察</span><strong>{stats.accepted_count ?? 0}</strong></p>
-          <p><span>剔除观察</span><strong>{stats.rejected_count ?? 0}</strong></p>
-          <p><span>评论线索</span><strong>{stats.comment_count ?? 0}</strong></p>
-        </div>
-      </aside>
-    </section>
-
-    <section class="selection-panel" id="selection">
-      <div class="panel-head">
-        <h2>综合筛选结果</h2>
-        <span>多来源共振 + 技术形态筛选</span>
-      </div>
-      <div class="selection-table-wrap">
-        <table class="selection-table">
-          <thead>
-            <tr><th>股票名称</th><th>代码</th><th>类型</th><th>来源</th><th>形态</th><th>入场区间</th><th>止损</th><th>止盈1</th><th>止盈2</th><th>量价纪律</th><th>风险</th><th>入选理由</th></tr>
-          </thead>
-          <tbody>
-            {[...shortList, ...midList].map((item) => (
-              <tr>
-                <td><strong>{item.name}</strong></td><td>{item.code}</td><td>{item.type}</td><td>{item.source_names}</td><td>{item.pattern}</td><td>{item.entry_range}</td><td>{item.stop_loss}</td><td>{item.take_profit_1}</td><td>{item.take_profit_2}</td><td>{item.trade_signal ?? "等待量价复核"}</td><td class={item.risk === "高" ? "danger-text" : "warning-text"}>{item.risk}</td><td>{item.reason}</td>
-              </tr>
+      {dailyReports.length > 1 && (
+        <section class="daily-date-panel" aria-labelledby="daily-date-title">
+          <div class="daily-date-panel__head">
+            <div>
+              <h2 id="daily-date-title">切换日期</h2>
+              <p>点击日期后会在当前页切换复盘密文，并重新弹出密码窗口。</p>
+            </div>
+            <span>{visibleDailyReports.length} 天</span>
+          </div>
+          <div class="daily-unlock-dates" role="list" aria-label="历史每日复盘">
+            {visibleDailyReports.map((report) => (
+              <button
+                type="button"
+                role="listitem"
+                class={report.slug === latestReport?.slug ? "active" : ""}
+                data-daily-date-button
+                data-slug={report.slug}
+                data-title={report.title}
+                data-date={report.date}
+                data-summary={report.summary}
+                data-article-url={`${base}${report.url}`}
+                data-payload={JSON.stringify(payloadBySlug[report.slug])}
+              >
+                <span>{report.date}</span>
+                <strong>{report.source_name}</strong>
+                <em>解锁查看</em>
+              </button>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </div>
+        </section>
+      )}
+
+      <RiskNotice />
+
+      {payload ? (
+        <PasswordDecryptor
+          payload={payload}
+          autoPrompt={true}
+          title={`解锁 ${latestReport?.date ?? "每日"} 复盘`}
+          description="输入每日复盘密码后查看完整复盘正文。"
+        >
+          {visibleDailyReports.length > 1 && (
+            <div class="daily-modal-dates" slot="modal-extra" aria-label="弹窗内切换日期">
+              {visibleDailyReports.slice(0, 7).map((report) => (
+                <button
+                  type="button"
+                  class={report.slug === latestReport?.slug ? "active" : ""}
+                  data-modal-date-button
+                  data-slug={report.slug}
+                >
+                  {report.date.slice(5)}
+                </button>
+              ))}
+            </div>
+          )}
+        </PasswordDecryptor>
+      ) : (
+        <section class="panel empty-comment-state">
+          <strong>暂无可解锁的每日复盘密文</strong>
+          <p>请先运行 <code>python scripts/generate_report.py --all</code> 和 <code>python scripts/encrypt_article.py --all</code> 生成每日复盘密文。</p>
+        </section>
+      )}
     </section>
 
-    <section class="bottom-grid">
-      <article class="panel comments-panel">
-        <div class="panel-head">
-          <h2>有价值评论聚合</h2>
-          <a href={`${base}/comments/`}>查看评论聚合</a>
-        </div>
-        {comments.length ? (
-          <table class="comment-table"><tbody>{comments.map((comment) => <tr><td>{comment.comment_source}</td><td>{comment.content}</td><td>{comment.mentioned_stocks}</td><td>{comment.value_reason}</td></tr>)}</tbody></table>
-        ) : (
-          <p class="public-empty">暂无评论 CSV，补充后会显示评论来源、内容、股票/板块与价值原因。</p>
-        )}
-      </article>
-      <aside class="panel risk-box">
-        <h2>操作纪律与风险提示</h2>
-        <ol><li>低位无量要等，高位无量要拿。</li><li>低位放量要跟，高位放量要跑。</li><li>量增价升看买入，量增价减看卖出。</li><li>量平价跌出局，量减价升持有。</li></ol>
-        <strong>本页面仅为复盘记录，不构成投资建议。</strong>
-      </aside>
-    </section>
+    <script>
+      const reviewRoot = document.querySelector("[data-daily-review]");
+
+      if (reviewRoot) {
+        const titleNode = reviewRoot.querySelector("[data-daily-title]");
+        const summaryNode = reviewRoot.querySelector("[data-daily-summary]");
+        const currentDateNode = reviewRoot.querySelector("[data-daily-current-date]");
+        const articleLink = reviewRoot.querySelector("[data-daily-article-link]");
+        const decryptor = reviewRoot.querySelector(".decryptor");
+
+        function setText(selector, text) {
+          decryptor?.querySelectorAll(selector).forEach((node) => {
+            node.textContent = text;
+          });
+        }
+
+        function selectReport(button) {
+          if (!button || !decryptor) return;
+          const date = button.dataset.date || "";
+          const title = button.dataset.title || "每日复盘工作台";
+          const summary = button.dataset.summary || "输入密码后查看完整复盘正文。";
+          const articleUrl = button.dataset.articleUrl || "#";
+          const payload = button.dataset.payload || "{}";
+
+          reviewRoot.querySelectorAll("[data-daily-date-button]").forEach((item) => {
+            item.classList.toggle("active", item === button);
+          });
+          reviewRoot.querySelectorAll("[data-modal-date-button]").forEach((item) => {
+            item.classList.toggle("active", item.dataset.slug === button.dataset.slug);
+          });
+
+          if (titleNode) titleNode.textContent = title;
+          if (summaryNode) summaryNode.textContent = summary;
+          if (currentDateNode) {
+            currentDateNode.textContent = date;
+            currentDateNode.setAttribute("datetime", date);
+          }
+          if (articleLink) articleLink.setAttribute("href", articleUrl);
+
+          decryptor.setAttribute("data-payload", payload);
+          setText("[data-lock-title], [data-dialog-title]", `解锁 ${date} 复盘`);
+          setText("[data-lock-description], [data-dialog-description]", "输入每日复盘密码后查看完整复盘正文。");
+          decryptor.dispatchEvent(new CustomEvent("decryptor:reset"));
+        }
+
+        reviewRoot.querySelectorAll("[data-daily-date-button]").forEach((button) => {
+          button.addEventListener("click", () => selectReport(button));
+        });
+        reviewRoot.querySelectorAll("[data-modal-date-button]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const target = reviewRoot.querySelector(`[data-daily-date-button][data-slug="${button.dataset.slug}"]`);
+            selectReport(target);
+          });
+        });
+
+        reviewRoot.querySelector("[data-focus-password]")?.addEventListener("click", () => {
+          decryptor?.dispatchEvent(new CustomEvent("decryptor:open"));
+        });
+      }
+    </script>
   </DashboardLayout>
 </BaseLayout>

@@ -14800,3 +14800,352 @@ body:has(.comment-workbench) .comment-video-kpis b {
     display: grid;
   }
 }
+
+/* Daily review unlock workspace */
+.daily-unlock-page {
+  display: grid;
+  gap: 16px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.daily-unlock-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: start;
+  border: 1px solid #d9e3ef;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  padding: 20px;
+  box-shadow: 0 10px 26px rgba(34, 49, 72, 0.05);
+}
+
+.daily-unlock-hero p,
+.daily-date-panel__head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.daily-unlock-hero h1 {
+  margin: 6px 0 8px;
+  color: #142037;
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.2;
+}
+
+.daily-unlock-hero span[data-daily-summary] {
+  display: block;
+  max-width: 760px;
+  color: #506177;
+  font-size: 14px;
+}
+
+.daily-unlock-meta {
+  display: grid;
+  min-width: 188px;
+  gap: 8px;
+  justify-items: stretch;
+}
+
+.daily-unlock-meta > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.daily-unlock-meta time,
+.daily-unlock-meta a,
+.daily-unlock-meta button {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d2deea;
+  border-radius: 8px;
+  background: #f8fbff;
+  color: #24344d;
+  padding: 7px 11px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.daily-unlock-meta button {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+}
+
+.daily-unlock-meta a {
+  color: #2563eb;
+}
+
+.daily-date-panel {
+  border: 1px solid #d9e3ef;
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 10px 26px rgba(34, 49, 72, 0.05);
+}
+
+.daily-date-panel__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.daily-date-panel__head h2 {
+  margin: 0 0 4px;
+  color: #142037;
+  font-size: 18px;
+}
+
+.daily-date-panel__head > span {
+  border-radius: 999px;
+  background: #eef5ff;
+  color: #2563eb;
+  padding: 4px 9px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.daily-unlock-dates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(138px, 1fr));
+  gap: 10px;
+  overflow: visible;
+  padding: 0;
+}
+
+.daily-unlock-dates button {
+  display: grid;
+  min-height: 82px;
+  gap: 4px;
+  justify-items: start;
+  border: 1px solid #d9e3ef;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: var(--text);
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.daily-unlock-dates button:hover,
+.daily-unlock-dates button.active {
+  border-color: #93c5fd;
+  background: #eff6ff;
+}
+
+.daily-unlock-dates button.active {
+  box-shadow: inset 0 0 0 1px #2563eb;
+}
+
+.daily-unlock-dates span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.daily-unlock-dates strong {
+  color: #172033;
+  font-size: 14px;
+}
+
+.daily-unlock-dates em {
+  align-self: end;
+  color: #2563eb;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.decryptor--prompt {
+  border: 1px solid #d9e3ef;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  padding: 0;
+  box-shadow: 0 10px 26px rgba(34, 49, 72, 0.05);
+}
+
+.decryptor-lock {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+}
+
+.decryptor-lock span,
+.decryptor-modal__panel p {
+  display: block;
+  margin: 0 0 5px;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.decryptor-lock strong {
+  display: block;
+  color: #142037;
+  font-size: 18px;
+}
+
+.decryptor-lock p,
+.decryptor-modal__panel > span {
+  display: block;
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.decryptor-lock button,
+.decryptor__controls button {
+  border: 1px solid #2563eb;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.decryptor__controls button:disabled {
+  cursor: progress;
+  opacity: 0.72;
+}
+
+.decryptor-modal[hidden],
+.decryptor-lock[hidden] {
+  display: none;
+}
+
+.decryptor-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.decryptor-modal__shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 16, 28, 0.54);
+  backdrop-filter: blur(4px);
+}
+
+.decryptor-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(460px, 100%);
+  border: 1px solid #d9e3ef;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  padding: 24px;
+  box-shadow: 0 22px 70px rgba(8, 16, 28, 0.22);
+}
+
+.decryptor-modal__panel h2 {
+  margin: 0;
+  color: #142037;
+  font-size: 24px;
+}
+
+.daily-modal-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.daily-modal-dates button {
+  min-height: 30px;
+  border: 1px solid #d9e3ef;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #475569;
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.daily-modal-dates button.active,
+.daily-modal-dates button:hover {
+  border-color: #93c5fd;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.decryptor-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #d9e3ef;
+  border-radius: 50%;
+  background: #f8fafc;
+  color: #475569;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.decryptor__controls--modal {
+  margin-top: 18px;
+}
+
+.decryptor--prompt .decryptor__controls input,
+.decryptor-modal__panel input {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #142037;
+}
+
+.decryptor--prompt .article-body {
+  margin: 0;
+  border-top: 1px solid #e2e8f0;
+  color: #172033;
+  padding: 22px;
+}
+
+@media (max-width: 760px) {
+  .daily-unlock-hero,
+  .daily-date-panel__head,
+  .decryptor-lock {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .daily-unlock-meta {
+    min-width: 0;
+  }
+
+  .daily-unlock-dates {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .decryptor-modal {
+    align-items: end;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .daily-unlock-dates {
+    grid-template-columns: 1fr;
+  }
+
+  .decryptor__controls--modal {
+    display: grid;
+  }
+}
