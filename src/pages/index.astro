@@ -14,51 +14,61 @@ const payload = payloadModule?.default ?? null;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<BaseLayout title="每日复盘｜冠捷科技与山东玻纤">
+<BaseLayout title={`每日复盘｜${selectedDate}`}>
   <DashboardLayout active="每日复盘">
-    <section class="daily-unlock-page">
-      <header class="daily-unlock-hero">
-        <div>
-          <p>每日复盘 / 两票模拟盘</p>
-          <h1>冠捷科技与山东玻纤交易账本</h1>
-          <span>默认同步本地模拟盘；你的真实买卖只在你确认一致并给截图后写入。</span>
-        </div>
-        <div class="daily-unlock-meta">
-          <span>当前日期</span>
-          <time datetime={selectedDate}>{selectedDate ?? "暂无日期"}</time>
-          <a href={`${base}/my-positions/?date=${selectedDate}`}>操作记录页</a>
-        </div>
-      </header>
+    <header class="topbar">
+      <div>
+        <p>每日复盘 / 模拟盘</p>
+        <h1>两票交易账本</h1>
+        <span>默认同步本地模拟盘；真实买卖请以实际操作截图为准。</span>
+      </div>
+      <div class="topbar-actions">
+        <time datetime={selectedDate}>{selectedDate ?? "暂无日期"}</time>
+        <a href={`${base}/my-positions/?date=${selectedDate}`}>操作记录页</a>
+      </div>
+    </header>
 
-      {dates.length > 1 && (
-        <section class="daily-date-panel" aria-labelledby="daily-date-title">
-          <div class="daily-date-panel__head">
-            <div>
-              <h2 id="daily-date-title">切换日期</h2>
-              <p>只展示已生成加密账本的日期。</p>
-            </div>
-            <span>{dates.length} 天</span>
-          </div>
-          <div class="daily-unlock-dates" role="list" aria-label="历史每日复盘">
-            {dates.slice(0, 14).map((date) => (
-              <a class={date === selectedDate ? "active" : ""} href={`${base}/?date=${date}`} role="listitem">
-                <span>{date}</span>
-                <strong>两票账本</strong>
-                <em>解锁查看</em>
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
+    {dates.length > 0 && (
+      <div style="display: flex; gap: 12px; align-items: start; margin-bottom: 10px;">
+        <nav class="page-tabs" aria-label="切换日期" style="margin-bottom: 0; flex: 1; border-bottom: 0;">
+          {dates.slice(0, 10).map((date) => (
+            <a class={date === selectedDate ? "active" : ""} href={`${base}/?date=${date}`}>
+              {date}
+            </a>
+          ))}
+        </nav>
 
-      {payload ? (
-        <MyPositionsUnlock payload={payload} selectedDate={selectedDate} availableDates={dates} />
-      ) : (
-        <section class="panel empty-comment-state">
-          <strong>暂无可解锁的每日复盘账本</strong>
-          <p>请先运行 <code>python scripts/build_my_trade_review.py --date {selectedDate}</code> 和 <code>python scripts/encrypt_my_positions.py --date {selectedDate} --mode loose</code>。</p>
-        </section>
-      )}
-    </section>
+        {dates.length > 10 && (
+          <form method="get" style="display: flex; gap: 8px;">
+            <select name="date" aria-label="更多日期" style="min-height: 44px; border: 1px solid rgba(104, 147, 196, 0.32); border-radius: 7px; background: rgba(8, 22, 37, 0.92); color: #d6e7f8; padding: 0 12px; font-size: 14px; outline: none; cursor: pointer;" onchange="this.form.submit()">
+              <option value="" disabled selected={!dates.slice(10).includes(selectedDate)}>更多历史日期...</option>
+              {dates.slice(10).map((date) => (
+                <option value={date} selected={date === selectedDate}>{date}</option>
+              ))}
+            </select>
+          </form>
+        )}
+      </div>
+    )}
+
+    {payload ? (
+      <MyPositionsUnlock payload={payload} selectedDate={selectedDate} availableDates={dates} />
+    ) : (
+      <section class="panel public-empty" style="padding: 64px 24px; text-align: center;">
+        <div class="video-empty">
+          <div class="video-icon" style="margin-bottom: 18px; border-color: rgba(105, 137, 171, 0.28); color: var(--muted); border-radius: 14px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <strong style="display: block; font-size: 18px; color: var(--text); margin-bottom: 10px;">暂无可解锁的复盘账本</strong>
+          <p style="margin: 0; font-size: 14px;">当前日期 {selectedDate} 尚未生成加密账本数据。</p>
+          <div style="margin-top: 20px;">
+            <code style="display: inline-block; padding: 10px 16px; background: rgba(0,0,0,0.25); border: 1px solid rgba(105, 137, 171, 0.18); border-radius: 8px; color: var(--blue); font-size: 13px;">python scripts/build_my_trade_review.py --date {selectedDate}</code>
+          </div>
+        </div>
+      </section>
+    )}
   </DashboardLayout>
 </BaseLayout>

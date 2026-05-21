@@ -2527,6 +2527,10 @@ input {
   grid-column: span 1;
 }
 
+.private-full {
+  grid-column: 1 / -1;
+}
+
 .private-panel-head {
   display: flex;
   justify-content: space-between;
@@ -2586,6 +2590,103 @@ input {
   background: rgba(7, 20, 33, 0.5);
   color: #a9bdd1;
   padding: 18px;
+}
+
+.private-review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.private-review-card {
+  border: 1px solid rgba(105, 137, 171, 0.18);
+  border-radius: 8px;
+  background: rgba(7, 20, 33, 0.54);
+  padding: 14px;
+}
+
+.private-review-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(105, 137, 171, 0.14);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+}
+
+.private-review-card header span,
+.private-review-metrics span,
+.private-review-lines dt,
+.private-review-note strong {
+  color: #8da8c2;
+}
+
+.private-review-card h3 {
+  margin: 4px 0 0;
+  color: #fff;
+  font-size: 18px;
+}
+
+.private-review-card header strong {
+  flex: 0 0 auto;
+  border: 1px solid rgba(44, 145, 255, 0.32);
+  border-radius: 999px;
+  background: rgba(44, 145, 255, 0.12);
+  color: #78bdff;
+  padding: 6px 10px;
+}
+
+.private-review-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.private-review-metrics p {
+  min-height: 72px;
+  margin: 0;
+  border: 1px solid rgba(105, 137, 171, 0.14);
+  border-radius: 8px;
+  background: rgba(5, 16, 28, 0.46);
+  padding: 10px;
+}
+
+.private-review-metrics strong {
+  display: block;
+  margin-top: 5px;
+  color: #e9f3ff;
+  font-size: 17px;
+}
+
+.private-review-lines {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.private-review-lines div {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 10px;
+  border-bottom: 1px solid rgba(105, 137, 171, 0.12);
+  padding-bottom: 8px;
+}
+
+.private-review-lines dt,
+.private-review-lines dd {
+  margin: 0;
+}
+
+.private-review-lines dd {
+  color: #dcecff;
+}
+
+.private-review-note {
+  display: grid;
+  gap: 5px;
+  margin: 12px 0 0;
+  color: #dcecff;
 }
 
 .private-donut {
@@ -2749,6 +2850,115 @@ input {
   color: #dcecff;
 }
 
+.daily-unlock-page {
+  display: grid;
+  gap: 18px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.daily-unlock-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid #25364d;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 12% 0, rgba(37, 99, 235, 0.18), transparent 24rem),
+    #111c2d;
+  color: #eaf2fc;
+  padding: 24px;
+}
+
+.daily-unlock-hero p {
+  margin: 0 0 8px;
+  color: #8eb7ff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.daily-unlock-hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 4vw, 42px);
+  line-height: 1.12;
+}
+
+.daily-unlock-hero span {
+  color: #9fb1c7;
+}
+
+.daily-unlock-meta {
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.daily-unlock-meta time {
+  border: 1px solid rgba(142, 183, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(142, 183, 255, 0.1);
+  color: #dce9f7;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.daily-unlock-meta a,
+.daily-unlock-dates a {
+  border: 1px solid rgba(142, 183, 255, 0.24);
+  border-radius: 10px;
+  background: rgba(142, 183, 255, 0.1);
+  color: #dce9f7;
+  padding: 8px 11px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.daily-unlock-dates {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.daily-unlock-dates a {
+  display: grid;
+  min-width: 132px;
+  gap: 2px;
+  background: #fff;
+  color: var(--text);
+  border-color: #e5eaf2;
+}
+
+.daily-unlock-dates a.active,
+.daily-unlock-dates a:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.daily-unlock-dates span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.daily-unlock-dates strong {
+  font-size: 13px;
+}
+
+@media (max-width: 720px) {
+  .daily-unlock-hero {
+    display: grid;
+    padding: 18px;
+  }
+
+  .daily-unlock-meta {
+    justify-items: start;
+  }
+}
+
 .workbench-hero,
 .section-card,
 .source-panel,
@@ -2780,7 +2990,8 @@ input {
   }
 
   .private-metric-grid,
-  .private-discipline-grid {
+  .private-discipline-grid,
+  .private-review-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2852,7 +3063,9 @@ input {
   }
 
   .private-metric-grid,
-  .private-discipline-grid {
+  .private-discipline-grid,
+  .private-review-grid,
+  .private-review-metrics {
     grid-template-columns: 1fr;
   }
 }
