@@ -1,0 +1,15 @@
+---
+import MyPositionsPage from "../../components/MyPositionsPage.astro";
+import myIndex from "../../data/my_positions_index.json";
+
+export function getStaticPaths() {
+  return myIndex.slice(1).map((item) => ({ params: { date: item.date } }));
+}
+
+const { date } = Astro.params;
+const selectedItem = myIndex.find((item) => item.date === date);
+const payloadModule = selectedItem ? await import(`../../../encrypted/my/${selectedItem.date}.json`) : null;
+const payload = payloadModule?.default ?? null;
+---
+
+<MyPositionsPage selectedDate={date} payload={payload} />

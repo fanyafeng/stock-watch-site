@@ -1,0 +1,119 @@
+---
+const {
+  dates = [],
+  selectedDate,
+  rootPath = "/",
+  datePath = rootPath,
+  latestDate = dates[0] ?? selectedDate,
+} = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const dateParts = dates.map((date) => {
+  const [year, month, day] = String(date).split("-");
+  return { date, year, month, day };
+});
+const currentDateParts = dateParts.find((item) => item.date === selectedDate) ?? dateParts[0] ?? {
+  date: selectedDate,
+  year: String(selectedDate || "").slice(0, 4),
+  month: String(selectedDate || "").slice(5, 7),
+  day: String(selectedDate || "").slice(8, 10),
+};
+const unique = (items) => [...new Set(items.filter(Boolean))];
+const yearOptions = unique(dateParts.map((item) => item.year)).sort((a, b) => Number(b) - Number(a));
+const monthOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year).map((item) => item.month)).sort((a, b) => Number(b) - Number(a));
+const dayOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year && item.month === currentDateParts.month).map((item) => item.day)).sort((a, b) => Number(b) - Number(a));
+const withLeadingSlash = (path) => String(path || "/").startsWith("/") ? String(path || "/") : `/${path}`;
+const trimTrailingSlash = (path) => path === "/" ? path : path.replace(/\/+$/, "");
+const rootUrl = `${base}${withLeadingSlash(rootPath)}`.replace(/\/?$/, "/");
+const dateBaseUrl = `${base}${trimTrailingSlash(withLeadingSlash(datePath))}`;
+---
+
+{dates.length ? (
+  <label
+    class="comment-date-picker my-review-date-picker"
+    data-my-date-picker
+    data-current-date={selectedDate}
+    data-latest-date={latestDate}
+    data-root-path={rootUrl}
+    data-date-base={dateBaseUrl}
+    data-date-options={JSON.stringify(dateParts)}
+  >
+    <span aria-hidden="true">日期</span>
+    <div class="comment-date-fields">
+      <select data-my-date-year aria-label="选择年份">
+        {yearOptions.map((year) => <option value={year} selected={year === currentDateParts.year}>{year}年</option>)}
+      </select>
+      <select data-my-date-month aria-label="选择月份">
+        {monthOptions.map((month) => <option value={month} selected={month === currentDateParts.month}>{Number(month)}月</option>)}
+      </select>
+      <select data-my-date-day aria-label="选择日期">
+        {dayOptions.map((day) => <option value={day} selected={day === currentDateParts.day}>{Number(day)}日</option>)}
+      </select>
+    </div>
+  </label>
+) : null}
+
+<script>
+  function uniqueSorted(values, direction = "desc") {
+    const sorted = [...new Set(values.filter(Boolean))].sort((a, b) => Number(a) - Number(b));
+    return direction === "desc" ? sorted.reverse() : sorted;
+  }
+
+  function replaceSelectOptions(select, values, selectedValue, suffix) {
+    if (!select) return "";
+    select.replaceChildren();
+    values.forEach((value) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = `${Number(value)}${suffix}`;
+      option.selected = value === selectedValue;
+      select.append(option);
+    });
+    if (!values.includes(select.value)) {
+      select.value = values[0] || "";
+    }
+    return select.value;
+  }
+
+  for (const picker of document.querySelectorAll("[data-my-date-picker]")) {
+    const yearSelect = picker.querySelector("[data-my-date-year]");
+    const monthSelect = picker.querySelector("[data-my-date-month]");
+    const daySelect = picker.querySelector("[data-my-date-day]");
+    const dates = JSON.parse(picker.getAttribute("data-date-options") || "[]");
+
+    const syncDateSelects = (changedPart) => {
+      if (!dates.length || !yearSelect || !monthSelect || !daySelect) return "";
+
+      const years = uniqueSorted(dates.map((item) => item.year));
+      if (!years.includes(yearSelect.value)) yearSelect.value = years[0] || "";
+
+      const months = uniqueSorted(dates.filter((item) => item.year === yearSelect.value).map((item) => item.month));
+      const nextMonth = changedPart === "year" ? months[0] : monthSelect.value;
+      replaceSelectOptions(monthSelect, months, months.includes(nextMonth) ? nextMonth : months[0], "月");
+
+      const days = uniqueSorted(dates.filter((item) => item.year === yearSelect.value && item.month === monthSelect.value).map((item) => item.day));
+      const nextDay = changedPart === "year" || changedPart === "month" ? days[0] : daySelect.value;
+      replaceSelectOptions(daySelect, days, days.includes(nextDay) ? nextDay : days[0], "日");
+
+      return yearSelect.value && monthSelect.value && daySelect.value
+        ? `${yearSelect.value}-${monthSelect.value}-${daySelect.value}`
+        : "";
+    };
+
+    const navigateSelectedDate = (changedPart) => {
+      const selectedDate = syncDateSelects(changedPart);
+      if (!selectedDate || selectedDate === picker.getAttribute("data-current-date")) return;
+      const latestDate = picker.getAttribute("data-latest-date") || "";
+      const rootPath = picker.getAttribute("data-root-path") || window.location.pathname;
+      const dateBase = picker.getAttribute("data-date-base") || rootPath;
+      const targetPath = selectedDate === latestDate
+        ? rootPath
+        : `${dateBase.replace(/\/$/, "")}/${encodeURIComponent(selectedDate)}/`;
+      const url = new URL(targetPath, window.location.origin);
+      window.location.href = url.toString();
+    };
+
+    yearSelect?.addEventListener("change", () => navigateSelectedDate("year"));
+    monthSelect?.addEventListener("change", () => navigateSelectedDate("month"));
+    daySelect?.addEventListener("change", () => navigateSelectedDate("day"));
+  }
+</script>

@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DashboardLayout from "./DashboardLayout.astro";
+import MyPositionsUnlock from "./MyPositionsUnlock.astro";
+import MyDatePicker from "./MyDatePicker.astro";
+import dashboard from "../data/dashboard.json";
+import myIndex from "../data/my_positions_index.json";
+
+const { selectedDate, payload } = Astro.props;
+const dates = myIndex.map((item) => item.date);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BaseLayout title="操作记录｜复盘工作台">
+  <DashboardLayout active="操作记录">
+    <header class="topbar dark-topbar">
+      <div>
+        <p>私密区 / 每日复盘</p>
+        <h1>我的确认操作记录</h1>
+        <span>模拟盘每天自动同步；你的真实记录等截图确认后再写入。</span>
+      </div>
+      <div class="topbar-actions">
+        <time datetime={selectedDate}>{selectedDate ?? dashboard.date}</time>
+        <a href={selectedDate === dates[0] ? `${base}/` : `${base}/review/${selectedDate}/`}>返回复盘首页</a>
+      </div>
+    </header>
+
+    <nav class="page-tabs">
+      {[
+        ["首页", "/"],
+        ["每日复盘", "/"],
+        ["大盘分析", "/market/"],
+        ["来源人", "/sources/"],
+        ["综合推荐", "/#selection"],
+        ["评论聚合", "/comments/"],
+        ["确认记录", "/my-positions/"],
+      ].map(([item, href]) => (
+        <a class={item === "确认记录" ? "active" : ""} href={`${base}${href}`}>{item}</a>
+      ))}
+    </nav>
+
+    <section class="my-review-toolbar" aria-label="操作记录日期选择">
+      <div>
+        <strong>复盘日期</strong>
+        <span>按年月日切换操作记录</span>
+      </div>
+      <MyDatePicker dates={dates} selectedDate={selectedDate} rootPath="/my-positions/" datePath="/my-positions/" />
+    </section>
+
+    {payload ? (
+      <MyPositionsUnlock payload={payload} selectedDate={selectedDate} />
+    ) : (
+      <section class="panel empty-comment-state">
+        <strong>暂无可解锁的个人持仓密文</strong>
+        <p>请先运行 <code>python scripts/encrypt_my_positions.py --date {selectedDate} --mode loose</code> 生成 <code>encrypted/my/{selectedDate}.json</code>。</p>
+      </section>
+    )}
+  </DashboardLayout>
+</BaseLayout>
