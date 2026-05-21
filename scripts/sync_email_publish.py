@@ -147,6 +147,8 @@ def sync_report_data(args: argparse.Namespace, date_text: str) -> None:
     run_python("encrypt_article.py", ["--all", "--date", date_text], dry_run=args.dry_run)
 
     if not args.skip_my_positions:
+        if not args.skip_my_trade_review:
+            run_python("build_my_trade_review.py", ["--date", date_text], dry_run=args.dry_run)
         run_python(
             "encrypt_my_positions.py",
             ["--date", date_text, "--mode", args.my_positions_mode],
@@ -201,6 +203,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--strict-extra", action="store_true", help="大盘、时间线、帖子/评论等可选 CSV 缺失时直接报错")
     parser.add_argument("--skip-market-flow", action="store_true", help="跳过指数主力净流分时拉取")
     parser.add_argument("--skip-my-positions", action="store_true", help="跳过我的持仓加密")
+    parser.add_argument("--skip-my-trade-review", action="store_true", help="跳过冠捷/山东玻纤单票复盘 CSV 自动生成")
     parser.add_argument("--my-positions-mode", choices=["strict", "loose"], default="loose", help="我的持仓数据缺失处理方式，默认 loose")
     parser.add_argument("--skip-source-tracks", action="store_true", help="跳过来源人股票跟踪汇总生成")
     parser.add_argument("--source-tracks-mode", choices=["strict", "loose"], default="loose", help="来源人股票跟踪行情缺失处理方式，默认 loose")

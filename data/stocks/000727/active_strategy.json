@@ -1,0 +1,131 @@
+{
+  "code": "000727",
+  "name": "冠捷科技",
+  "strategy_id": "guanjie_active_v1",
+  "strategy_name": "冠捷科技波段量化策略 v1",
+  "status": "active",
+  "created_at": "2026-05-19",
+  "updated_at": "2026-05-19",
+  "data_file": "data/stocks/000727/daily_qfq_2y.csv",
+  "execution_assumption": {
+    "signal_timing": "收盘后确认信号",
+    "entry_timing": "次一交易日开盘执行",
+    "exit_timing": "日线 OHLC 触发，无法判断盘中先后时按保守口径处理",
+    "price_adjustment": "前复权",
+    "no_future_data": true
+  },
+  "entry_rules": {
+    "min_turnover_rate_pct": 0.5,
+    "max_signal_day_pct_change": 9,
+    "near_20d_low_multiplier": 1.03,
+    "bullish_reclaim": {
+      "close_gt_open": true,
+      "close_gt_ma5": true
+    },
+    "trend_floor": {
+      "close_gt_ma60_multiplier": 0.92
+    },
+    "max_rsi14": 75,
+    "next_open_gap_filter": {
+      "max_gap_up_from_signal_close_pct": 4.5,
+      "action_if_exceeded": "放弃追买"
+    }
+  },
+  "position_sizing": {
+    "base_position_pct": 60,
+    "description": "出现买入信号后默认只使用账户权益的60%建立基础仓，保留40%现金用于风险缓冲和后续复核。"
+  },
+  "exit_rules": {
+    "initial_stop_loss_pct": 4,
+    "protect_trigger_profit_pct": 4,
+    "protect_stop_profit_pct": 1.5,
+    "target_take_profit_pct": 12,
+    "max_hold_trading_days": 10,
+    "protected_ma10_close_break": {
+      "enabled": true,
+      "threshold_multiplier": 0.995,
+      "action": "收盘跌破后退出"
+    },
+    "pre_protect_ma20_backstop": {
+      "enabled": true,
+      "threshold_multiplier": 0.92,
+      "action": "未触发保护前，收盘跌破 MA20 的 8% 缓冲后退出"
+    },
+    "dynamic_trailing_stop": {
+      "enabled_after_protect_trigger": true,
+      "peak_high_drawdown_pct": 7
+    }
+  },
+  "calendar_overlay": {
+    "enabled": true,
+    "purpose": "节前风险暴露控制，不作为独立盈利来源",
+    "holiday_gap_days_gt": 3,
+    "holiday_mode": "t3_to_t1",
+    "sell_timing": "长假前 T-3 收盘卖出袖子仓",
+    "buyback_timing": "长假前 T-1 收盘买回袖子仓",
+    "sleeve_position_pct": 50,
+    "weekday_overlay_enabled": false,
+    "weekday_overlay_note": "周三/周四固定减仓在样本中容易卖飞，暂不启用。",
+    "priority": "如果日历减仓后主策略触发止损/止盈，则主策略优先，不强行买回。"
+  },
+  "earnings_report_window": {
+    "enabled": false,
+    "purpose": "规避年报披露前后的财务雷和退市风险预期扰动。",
+    "clear_rule": "每年2月底最后一个交易日尾盘清仓。",
+    "annual_report_release_dates": {
+      "2024": "2025-04-24",
+      "2025": "2026-04-29"
+    },
+    "reentry_rule": {
+      "settle_trading_days_after_release": 3,
+      "close_gt_ma5": true,
+      "max_daily_drop_pct": 3,
+      "min_turnover_rate_pct": 0.5
+    },
+    "action": "已评估但不启用；该规则降低财报窗口暴露，但会显著降低当前样本收益。",
+    "backtest_result": {
+      "date_range": "2026-01-01 ~ 2026-05-19",
+      "baseline_return_pct": 18.54,
+      "with_earnings_window_return_pct": 6.01,
+      "blocked_signal_count": 2,
+      "note": "该规则显著降低财报窗口暴露，但2026样本会错过4月底至5月初强反弹。"
+    }
+  },
+  "backtest_summary": {
+    "train": {
+      "date_range": "2024-05-20 ~ 2025-12-31",
+      "trade_count": 12,
+      "win_rate_pct": 66.67,
+      "total_return_pct": 25.27,
+      "max_drawdown_pct": -10.48
+    },
+    "test": {
+      "date_range": "2026-01-01 ~ 2026-05-18",
+      "trade_count": 3,
+      "win_rate_pct": 100.0,
+      "total_return_pct": 18.54,
+      "max_drawdown_pct": -3.09
+    },
+    "full_window_reference": {
+      "date_range": "2024-05-20 ~ 2026-05-18",
+      "baseline_without_calendar_return_pct": 51.7,
+      "with_calendar_overlay_return_pct": 52.0
+    }
+  },
+  "files": {
+    "backtest_script": "scripts/backtest_guanjie_calendar_enhanced_strategy.py",
+    "backtest_report": "data/stocks/000727/backtests/guanjie_calendar_enhanced_strategy_report.md",
+    "variant_matrix": "data/stocks/000727/backtests/guanjie_calendar_enhanced_strategy_variant_matrix.csv",
+    "strategy_note": "data/stocks/000727/active_strategy.md"
+  },
+  "review_policy": {
+    "default_action": "保持当前策略，除非新增数据证明收益/回撤显著改善。",
+    "change_trigger": [
+      "新增至少 20 笔有效交易后重新评估",
+      "最大回撤超过历史预期",
+      "节前规则连续多次导致卖飞",
+      "主买点信号在新样本中显著失效"
+    ]
+  },
+  "risk_disclaimer": "本配置仅用于个人复盘、量化回测和交易纪律验证，不构成任何投资建议。"
+}

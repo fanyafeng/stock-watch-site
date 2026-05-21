@@ -1,166 +1,64 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DashboardLayout from "../components/DashboardLayout.astro";
-import PasswordDecryptor from "../components/PasswordDecryptor.astro";
-import RiskNotice from "../components/RiskNotice.astro";
+import MyPositionsUnlock from "../components/MyPositionsUnlock.astro";
 import dashboard from "../data/dashboard.json";
-import reports from "../data/reports.json";
+import myIndex from "../data/my_positions_index.json";
 
+const dates = myIndex.map((item) => item.date);
+const requestedDate = Astro.url.searchParams.get("date");
+const selectedDate = requestedDate && dates.includes(requestedDate) ? requestedDate : (dates[0] ?? dashboard.date);
+const selectedItem = myIndex.find((item) => item.date === selectedDate) ?? myIndex[0];
+const payloadModule = selectedItem ? await import(`../../encrypted/my/${selectedItem.date}.json`) : null;
+const payload = payloadModule?.default ?? null;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const dailyReports = reports.filter((report) => report.report_type === "daily_workbench");
-const visibleDailyReports = dailyReports.slice(0, 14);
-const latestReport = dashboard.report?.report_type === "daily_workbench" ? dashboard.report : (dailyReports[0] ?? null);
-const payloadEntries = await Promise.all(
-  visibleDailyReports.map(async (report) => {
-    const payloadModule = await import(`../../encrypted/articles/${report.slug}.json`);
-    return [report.slug, payloadModule.default];
-  })
-);
-const payloadBySlug = Object.fromEntries(payloadEntries);
-const payload = latestReport ? payloadBySlug[latestReport.slug] : null;
-const latestArticleUrl = latestReport ? `${base}${latestReport.url}` : `${base}/`;
 ---
 
-<BaseLayout title="每日复盘解锁｜复盘工作台">
+<BaseLayout title="每日复盘｜冠捷科技与山东玻纤">
   <DashboardLayout active="每日复盘">
-    <section class="daily-unlock-page" data-daily-review>
+    <section class="daily-unlock-page">
       <header class="daily-unlock-hero">
         <div>
-          <p>每日复盘 / 私密工作台</p>
-          <h1 data-daily-title>{latestReport?.title ?? "每日复盘工作台"}</h1>
-          <span data-daily-summary>{latestReport?.summary ?? "选择日期后输入密码查看完整复盘正文。"}</span>
+          <p>每日复盘 / 两票模拟盘</p>
+          <h1>冠捷科技与山东玻纤交易账本</h1>
+          <span>默认同步本地模拟盘；你的真实买卖只在你确认一致并给截图后写入。</span>
         </div>
         <div class="daily-unlock-meta">
           <span>当前日期</span>
-          <time data-daily-current-date datetime={latestReport?.date ?? dashboard.date}>{latestReport?.date ?? dashboard.date ?? "暂无日期"}</time>
-          <button type="button" data-focus-password>输入密码</button>
-          <a data-daily-article-link href={latestArticleUrl}>独立解锁页</a>
+          <time datetime={selectedDate}>{selectedDate ?? "暂无日期"}</time>
+          <a href={`${base}/my-positions/?date=${selectedDate}`}>操作记录页</a>
         </div>
       </header>
 
-      {dailyReports.length > 1 && (
+      {dates.length > 1 && (
         <section class="daily-date-panel" aria-labelledby="daily-date-title">
           <div class="daily-date-panel__head">
             <div>
               <h2 id="daily-date-title">切换日期</h2>
-              <p>点击日期后会在当前页切换复盘密文，并重新弹出密码窗口。</p>
+              <p>只展示已生成加密账本的日期。</p>
             </div>
-            <span>{visibleDailyReports.length} 天</span>
+            <span>{dates.length} 天</span>
           </div>
           <div class="daily-unlock-dates" role="list" aria-label="历史每日复盘">
-            {visibleDailyReports.map((report) => (
-              <button
-                type="button"
-                role="listitem"
-                class={report.slug === latestReport?.slug ? "active" : ""}
-                data-daily-date-button
-                data-slug={report.slug}
-                data-title={report.title}
-                data-date={report.date}
-                data-summary={report.summary}
-                data-article-url={`${base}${report.url}`}
-                data-payload={JSON.stringify(payloadBySlug[report.slug])}
-              >
-                <span>{report.date}</span>
-                <strong>{report.source_name}</strong>
+            {dates.slice(0, 14).map((date) => (
+              <a class={date === selectedDate ? "active" : ""} href={`${base}/?date=${date}`} role="listitem">
+                <span>{date}</span>
+                <strong>两票账本</strong>
                 <em>解锁查看</em>
-              </button>
+              </a>
             ))}
           </div>
         </section>
       )}
 
-      <RiskNotice />
-
       {payload ? (
-        <PasswordDecryptor
-          payload={payload}
-          autoPrompt={true}
-          title={`解锁 ${latestReport?.date ?? "每日"} 复盘`}
-          description="输入每日复盘密码后查看完整复盘正文。"
-        >
-          {visibleDailyReports.length > 1 && (
-            <div class="daily-modal-dates" slot="modal-extra" aria-label="弹窗内切换日期">
-              {visibleDailyReports.slice(0, 7).map((report) => (
-                <button
-                  type="button"
-                  class={report.slug === latestReport?.slug ? "active" : ""}
-                  data-modal-date-button
-                  data-slug={report.slug}
-                >
-                  {report.date.slice(5)}
-                </button>
-              ))}
-            </div>
-          )}
-        </PasswordDecryptor>
+        <MyPositionsUnlock payload={payload} selectedDate={selectedDate} availableDates={dates} />
       ) : (
         <section class="panel empty-comment-state">
-          <strong>暂无可解锁的每日复盘密文</strong>
-          <p>请先运行 <code>python scripts/generate_report.py --all</code> 和 <code>python scripts/encrypt_article.py --all</code> 生成每日复盘密文。</p>
+          <strong>暂无可解锁的每日复盘账本</strong>
+          <p>请先运行 <code>python scripts/build_my_trade_review.py --date {selectedDate}</code> 和 <code>python scripts/encrypt_my_positions.py --date {selectedDate} --mode loose</code>。</p>
         </section>
       )}
     </section>
-
-    <script>
-      const reviewRoot = document.querySelector("[data-daily-review]");
-
-      if (reviewRoot) {
-        const titleNode = reviewRoot.querySelector("[data-daily-title]");
-        const summaryNode = reviewRoot.querySelector("[data-daily-summary]");
-        const currentDateNode = reviewRoot.querySelector("[data-daily-current-date]");
-        const articleLink = reviewRoot.querySelector("[data-daily-article-link]");
-        const decryptor = reviewRoot.querySelector(".decryptor");
-
-        function setText(selector, text) {
-          decryptor?.querySelectorAll(selector).forEach((node) => {
-            node.textContent = text;
-          });
-        }
-
-        function selectReport(button) {
-          if (!button || !decryptor) return;
-          const date = button.dataset.date || "";
-          const title = button.dataset.title || "每日复盘工作台";
-          const summary = button.dataset.summary || "输入密码后查看完整复盘正文。";
-          const articleUrl = button.dataset.articleUrl || "#";
-          const payload = button.dataset.payload || "{}";
-
-          reviewRoot.querySelectorAll("[data-daily-date-button]").forEach((item) => {
-            item.classList.toggle("active", item === button);
-          });
-          reviewRoot.querySelectorAll("[data-modal-date-button]").forEach((item) => {
-            item.classList.toggle("active", item.dataset.slug === button.dataset.slug);
-          });
-
-          if (titleNode) titleNode.textContent = title;
-          if (summaryNode) summaryNode.textContent = summary;
-          if (currentDateNode) {
-            currentDateNode.textContent = date;
-            currentDateNode.setAttribute("datetime", date);
-          }
-          if (articleLink) articleLink.setAttribute("href", articleUrl);
-
-          decryptor.setAttribute("data-payload", payload);
-          setText("[data-lock-title], [data-dialog-title]", `解锁 ${date} 复盘`);
-          setText("[data-lock-description], [data-dialog-description]", "输入每日复盘密码后查看完整复盘正文。");
-          decryptor.dispatchEvent(new CustomEvent("decryptor:reset"));
-        }
-
-        reviewRoot.querySelectorAll("[data-daily-date-button]").forEach((button) => {
-          button.addEventListener("click", () => selectReport(button));
-        });
-        reviewRoot.querySelectorAll("[data-modal-date-button]").forEach((button) => {
-          button.addEventListener("click", () => {
-            const target = reviewRoot.querySelector(`[data-daily-date-button][data-slug="${button.dataset.slug}"]`);
-            selectReport(target);
-          });
-        });
-
-        reviewRoot.querySelector("[data-focus-password]")?.addEventListener("click", () => {
-          decryptor?.dispatchEvent(new CustomEvent("decryptor:open"));
-        });
-      }
-    </script>
   </DashboardLayout>
 </BaseLayout>

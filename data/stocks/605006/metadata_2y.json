@@ -1,0 +1,30 @@
+{
+  "code": "605006",
+  "name": "山东玻纤",
+  "symbol": "sh605006",
+  "exchange": "SH",
+  "adjustment": "qfq",
+  "requested_start": "2024-05-21",
+  "requested_end": "2026-05-21",
+  "first_trading_date": "2024-05-21",
+  "last_trading_date": "2026-05-21",
+  "row_count": 485,
+  "fetched_at": "2026-05-21T14:56:59",
+  "primary_source": {
+    "name": "Tencent newfqkline public endpoint",
+    "url": "https://web.ifzq.gtimg.cn/appstock/app/newfqkline/get?param=sh605006,day,,,900,qfq"
+  },
+  "quote_source": {
+    "name": "Tencent realtime quote public endpoint",
+    "url": "https://qt.gtimg.cn/q=sh605006"
+  },
+  "files": {
+    "daily_csv": "daily_qfq_2y.csv",
+    "daily_json": "daily_qfq_2y.json",
+    "daily_bfq_csv": "daily_bfq_2y.csv",
+    "weekly_qfq_csv": "weekly_qfq_2y.csv",
+    "monthly_qfq_csv": "monthly_qfq_2y.csv",
+    "latest_quote": "latest_quote.json",
+    "metadata": "metadata_2y.json"
+  }
+}

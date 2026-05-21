@@ -1,0 +1,74 @@
+{
+  "code": "605006",
+  "name": "山东玻纤",
+  "strategy_id": "shandongboxian_watch_v1",
+  "strategy_name": "山东玻纤短周期波段观察策略 v1",
+  "status": "watching",
+  "created_at": "2026-05-21",
+  "updated_at": "2026-05-21",
+  "data_file": "data/stocks/605006/daily_qfq_2y.csv",
+  "source_reason": "用户指定纳入个人每日操作复盘；先沿用冠捷科技当前非上帝视角日线纪律进行观察。",
+  "execution_assumption": {
+    "signal_timing": "收盘后确认信号",
+    "entry_timing": "次一交易日开盘执行",
+    "exit_timing": "日线 OHLC 触发，无法判断盘中先后时按保守口径处理",
+    "price_adjustment": "前复权",
+    "no_future_data": true
+  },
+  "entry_rules": {
+    "min_turnover_rate_pct": 0.5,
+    "max_signal_day_pct_change": 9,
+    "near_20d_low_multiplier": 1.03,
+    "bullish_reclaim": {
+      "close_gt_open": true,
+      "close_gt_ma5": true
+    },
+    "trend_floor": {
+      "close_gt_ma60_multiplier": 0.92
+    },
+    "max_rsi14": 75,
+    "next_open_gap_filter": {
+      "max_gap_up_from_signal_close_pct": 4.5,
+      "action_if_exceeded": "放弃追买"
+    }
+  },
+  "position_sizing": {
+    "base_position_pct": 50,
+    "description": "新纳入复盘标的先用观察仓口径，若触发买点，首轮使用账户权益的50%或更低仓位验证。"
+  },
+  "exit_rules": {
+    "initial_stop_loss_pct": 4,
+    "protect_trigger_profit_pct": 4,
+    "protect_stop_profit_pct": 1.5,
+    "target_take_profit_pct": 12,
+    "max_hold_trading_days": 10,
+    "protected_ma10_close_break": {
+      "enabled": true,
+      "threshold_multiplier": 0.995,
+      "action": "收盘跌破后退出"
+    },
+    "pre_protect_ma20_backstop": {
+      "enabled": true,
+      "threshold_multiplier": 0.92,
+      "action": "未触发保护前，收盘跌破 MA20 的 8% 缓冲后退出"
+    },
+    "dynamic_trailing_stop": {
+      "enabled_after_protect_trigger": true,
+      "peak_high_drawdown_pct": 7
+    }
+  },
+  "calendar_overlay": {
+    "enabled": false,
+    "note": "山东玻纤先作为观察标的，不启用节前袖子仓规则；等模拟样本足够后再评估。"
+  },
+  "review_policy": {
+    "default_action": "先记录每日买卖点、止损止盈和盈亏，不急于调参。",
+    "change_trigger": [
+      "新增至少 10 笔有效交易后重新评估",
+      "最大回撤超过 8%",
+      "入场信号连续失效",
+      "板块和人气数据证明需要叠加独立过滤条件"
+    ]
+  },
+  "risk_disclaimer": "本配置仅用于个人复盘、量化回测和交易纪律验证，不构成任何投资建议。"
+}

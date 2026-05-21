@@ -1,0 +1,35 @@
+{
+  "account_id": "guanjie_paper_20260519_20260529",
+  "code": "000727",
+  "name": "冠捷科技",
+  "status": "active",
+  "start_date": "2026-05-19",
+  "end_date": "2026-05-29",
+  "initial_cash": 60000.0,
+  "cash": 60000.0,
+  "shares": 0,
+  "position": null,
+  "pending_order": null,
+  "processed_dates": [
+    "2026-05-19",
+    "2026-05-20",
+    "2026-05-21"
+  ],
+  "fee_model": {
+    "commission_rate": 0.0003,
+    "commission_min": 5.0,
+    "stamp_tax_rate_sell_only": 0.0005,
+    "transfer_fee_rate": 1e-05,
+    "note": "佣金按万三、单笔最低5元；印花税卖出0.05%；过户费按成交额0.001%双向估算。"
+  },
+  "last_update": "2026-05-21T14:57:17",
+  "notes": [
+    "只模拟冠捷科技(000727)，不做其他股票。",
+    "A股T+1：买入当天不触发卖出，次一交易日起处理止损/止盈。",
+    "日线OHLC无法确定盘中先后顺序时，按保守口径优先处理止损。"
+  ],
+  "last_price": 2.84,
+  "last_equity": 60000.0,
+  "floating_pnl": 0.0,
+  "floating_return_pct": 0.0
+}

@@ -52,6 +52,7 @@ jobs:
         run: python scripts/encrypt_article.py --all
 
       - name: Encrypt my positions
+        if: ${{ hashFiles('data/my/**/*.csv') != '' }}
         run: python scripts/encrypt_my_positions.py --mode loose
 
       - name: Generate source stock tracks

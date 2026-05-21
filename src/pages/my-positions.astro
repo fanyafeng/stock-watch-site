@@ -18,9 +18,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   <DashboardLayout active="操作记录">
     <header class="topbar dark-topbar">
       <div>
-        <p>私密区 / 操作记录</p>
-        <h1>我的持仓 / 操作记录</h1>
-        <span>个人数据独立加密，和博主来源数据分开管理。</span>
+        <p>私密区 / 每日复盘</p>
+        <h1>我的确认操作记录</h1>
+        <span>模拟盘每天自动同步；你的真实记录等截图确认后再写入。</span>
       </div>
       <div class="topbar-actions">
         <time datetime={selectedDate}>{selectedDate}</time>
@@ -36,9 +36,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         ["来源人", "/sources/"],
         ["综合推荐", "/#selection"],
         ["评论聚合", "/comments/"],
-        ["操作记录", "/my-positions/"],
+        ["确认记录", "/my-positions/"],
       ].map(([item, href]) => (
-        <a class={item === "操作记录" ? "active" : ""} href={`${base}${href}`}>{item}</a>
+        <a class={item === "确认记录" ? "active" : ""} href={`${base}${href}`}>{item}</a>
       ))}
     </nav>
 

@@ -6,9 +6,9 @@ const payloadJson = JSON.stringify(payload);
 <section class="my-unlock" data-payload={payloadJson}>
   <div class="my-unlock__head">
     <div>
-      <p>我的持仓 / 操作记录</p>
+      <p>我的每日复盘 / 操作记录</p>
       <h2>密码解锁区</h2>
-      <span>刷新页面后需要重新输入密码；页面不会显示密码规则。</span>
+      <span>两票模拟盘和已确认真实记录只在本地解密后展示。</span>
     </div>
     <form class="my-date-form" method="get">
       <label for="my-position-date">选择日期</label>
@@ -22,14 +22,14 @@ const payloadJson = JSON.stringify(payload);
 
   <div class="my-unlock__box" data-lock-panel>
     <div>
-      <strong>请输入我的持仓密码</strong>
-      <span>解锁后仅在当前页面会话内展示。</span>
+      <strong>请输入我的复盘密码</strong>
+      <span>交易时机、金额、买卖点、止损止盈和盈亏记录解锁后仅在当前页面会话内展示。</span>
     </div>
     <div class="my-unlock__controls">
-      <input type="password" autocomplete="current-password" aria-label="我的持仓密码" />
+      <input type="password" autocomplete="current-password" aria-label="我的复盘密码" />
       <button type="button" data-unlock>解锁查看</button>
     </div>
-    <p class="my-unlock__error" data-error hidden>密码错误，无法查看我的持仓记录</p>
+    <p class="my-unlock__error" data-error hidden>密码错误，无法查看我的复盘记录</p>
   </div>
 
   <article class="my-private-content" data-private-content hidden></article>
