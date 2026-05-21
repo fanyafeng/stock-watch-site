@@ -16,15 +16,19 @@ const evidence = dashboard.evidence ?? {};
 const videoPoolSources = new Set(["wangduoyu", "longge"]);
 const sourceAliasMap = new Map([
   ["yege", "yege"],
+  ["全能的野人", "yege"],
   ["野哥", "yege"],
   ["lihongjuan", "lihongjuan"],
   ["李红娟", "lihongjuan"],
+  ["娟姐", "lihongjuan"],
   ["wangduoyu", "wangduoyu"],
   ["王多于", "wangduoyu"],
   ["王多于股之子", "wangduoyu"],
   ["longge", "longge"],
   ["龙哥", "longge"],
   ["龙哥闯大A", "longge"],
+  ["阿龙", "longge"],
+  ["阿龙闯大A", "longge"],
 ]);
 
 const unique = (items) => [...new Set(items.filter(Boolean))];
@@ -564,7 +568,13 @@ const currentDateParts = dateParts.find((item) => item.date === dashboard.date) 
 const yearOptions = unique(dateParts.map((item) => item.year)).sort((a, b) => Number(b) - Number(a));
 const monthOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year).map((item) => item.month)).sort((a, b) => Number(b) - Number(a));
 const dayOptions = unique(dateParts.filter((item) => item.year === currentDateParts.year && item.month === currentDateParts.month).map((item) => item.day)).sort((a, b) => Number(b) - Number(a));
-const sourceShortName = (sourceName = "") => String(sourceName).replace("哥闯大A", "哥").replace("王多于股之子", "王多于");
+const sourceShortName = (sourceName = "") => String(sourceName)
+  .replace("野哥", "全能的野人")
+  .replace("李红娟", "娟姐")
+  .replace("龙哥闯大A", "阿龙")
+  .replace("阿龙闯大A", "阿龙")
+  .replace("龙哥", "阿龙")
+  .replace("王多于股之子", "王多于");
 ---
 
 <>
@@ -586,7 +596,7 @@ const sourceShortName = (sourceName = "") => String(sourceName).replace("哥闯�
           <button class="active" type="button" data-comment-filter="all">全部来源</button>
           {commentSources.map((source) => (
             <button type="button" data-comment-filter={source.id}>
-              {source.name} <small>({groupedSourceEventCounts[source.id] ?? 0})</small>
+              {sourceShortName(source.name)} <small>({groupedSourceEventCounts[source.id] ?? 0})</small>
             </button>
           ))}
         </div>
@@ -838,7 +848,7 @@ const sourceShortName = (sourceName = "") => String(sourceName).replace("哥闯�
                                 <td><input type="checkbox" aria-label={`选择评论 ${comment.index}`} /></td>
                                 <td>{comment.index}</td>
                                 <td>{comment.comment_time || comment.comment_source}</td>
-                                <td>{comment.commenter || group.source_name}</td>
+                                <td>{comment.commenter || sourceShortName(group.source_name)}</td>
                                 <td class="comment-table-body">
                                   <details class="comment-row-details">
                                     <summary set:html={highlightKeywords(comment.content || "暂无评论正文")} />
@@ -890,9 +900,9 @@ const sourceShortName = (sourceName = "") => String(sourceName).replace("哥闯�
                       {group.featuredComment ? (
                         <article class="comment-featured-card">
                           <div class="comment-featured-head">
-                            <div class={`comment-avatar ${sourceColors[group.source_id] ?? ""}`}>{(group.featuredComment.commenter || group.source_name).slice(0, 1)}</div>
+                            <div class={`comment-avatar ${sourceColors[group.source_id] ?? ""}`}>{(group.featuredComment.commenter || sourceShortName(group.source_name)).slice(0, 1)}</div>
                             <div class="comment-featured-copy">
-                              <strong>{group.featuredComment.commenter || group.source_name}</strong>
+                              <strong>{group.featuredComment.commenter || sourceShortName(group.source_name)}</strong>
                               <span>{group.featuredComment.comment_time || "--:--"}</span>
                             </div>
                             <span class={`comment-status-badge ${statusMeta(group.featuredComment.include_status || "").tone}`}>{statusMeta(group.featuredComment.include_status || "").label}</span>
@@ -910,7 +920,7 @@ const sourceShortName = (sourceName = "") => String(sourceName).replace("哥闯�
                           {group.selectedComments.length > 1 ? (
                             <div class="comment-featured-more">
                               {group.selectedComments.slice(1, 4).map((comment) => (
-                                <span>{comment.commenter || group.source_name} · {Number(comment.value_score ?? 0).toFixed(1)}</span>
+                                <span>{comment.commenter || sourceShortName(group.source_name)} · {Number(comment.value_score ?? 0).toFixed(1)}</span>
                               ))}
                             </div>
                           ) : null}

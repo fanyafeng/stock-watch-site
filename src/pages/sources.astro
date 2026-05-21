@@ -16,6 +16,12 @@ const formatPct = (value) => typeof value === "number" ? `${value > 0 ? "+" : ""
 const pctClass = (value) => typeof value === "number" ? (value >= 0 ? "danger-text" : "green-text") : "muted-text";
 const formatPrice = (value) => typeof value === "number" ? value.toFixed(2) : "待行情";
 const mediaUrl = (value = "") => value.startsWith("/") ? `${base}${value}` : value;
+const displaySourceName = (value = "") => String(value)
+  .replace("野哥", "全能的野人")
+  .replace("李红娟", "娟姐")
+  .replace("龙哥闯大A", "阿龙")
+  .replace("阿龙闯大A", "阿龙")
+  .replace("龙哥", "阿龙");
 const actionClass = (status = "") => {
   if (status.includes("卖出") || status.includes("减仓")) return "is-sold";
   if (status.includes("持有")) return "is-hold";
@@ -59,8 +65,8 @@ const primaryEvidence = (track) => {
     <section class="source-tabs">
       {sources.map((source, index) => (
         <a class={index === 0 ? "active" : ""} href={`#source-${source.id}`}>
-          <span class={`avatar ${sourceColors[source.id] ?? ""}`}>{source.name.slice(0, 1)}</span>
-          <strong>{source.name}</strong>
+          <span class={`avatar ${sourceColors[source.id] ?? ""}`}>{displaySourceName(source.name).slice(0, 1)}</span>
+          <strong>{displaySourceName(source.name)}</strong>
           <small>({source.id})</small>
         </a>
       ))}
@@ -69,11 +75,11 @@ const primaryEvidence = (track) => {
     <section class="source-track-workbench" id="yege-stock-tracks">
       <article class="source-track-hero">
         <div>
-          <p>野哥股票跟踪汇总</p>
+          <p>全能的野人股票跟踪汇总</p>
           <h2>按股票聚合买入、卖出、持有与截图证据</h2>
           <span>统计截至 {sourceStockTracks.date}；收益优先按公开日 K 收盘价估算，截图与买卖点仍需人工核对。</span>
         </div>
-        <a href="#source-yege">查看野哥来源</a>
+        <a href="#source-yege">查看全能的野人来源</a>
       </article>
 
       <div class="source-track-stats">
@@ -86,7 +92,7 @@ const primaryEvidence = (track) => {
 
       <article class="panel source-track-panel">
         <div class="panel-head">
-          <h2>野哥股票跟踪表</h2>
+          <h2>全能的野人股票跟踪表</h2>
           <span>{sourceStockTracks.price_note}</span>
         </div>
         <div class="source-track-table-wrap">
@@ -141,7 +147,7 @@ const primaryEvidence = (track) => {
                 )) : (
                 <tr>
                   <td colspan="7">
-                    <p class="source-track-empty">暂无野哥股票跟踪数据，请先补充 `data/sources/yege/picks/` 或 `data/sources/yege/posts/` 后重新生成。</p>
+                    <p class="source-track-empty">暂无全能的野人股票跟踪数据，请先补充 `data/sources/yege/picks/` 或 `data/sources/yege/posts/` 后重新生成。</p>
                   </td>
                 </tr>
               )}
@@ -182,9 +188,9 @@ const primaryEvidence = (track) => {
 
     <section class="source-profile-grid" id={`source-${activeSource.id}`}>
       <article class="panel profile-card">
-        <div class={`big-avatar ${sourceColors[activeSource.id] ?? ""}`}>{activeSource.name?.slice(0, 1)}</div>
+        <div class={`big-avatar ${sourceColors[activeSource.id] ?? ""}`}>{displaySourceName(activeSource.name).slice(0, 1)}</div>
         <div>
-          <h2>{activeSource.name} ({activeSource.id})</h2>
+          <h2>{displaySourceName(activeSource.name)} ({activeSource.id})</h2>
           <p>专注短线技术形态，擅长右侧趋势交易。</p>
           <div class="profile-stats"><span>关注 <b>12.8万</b></span><span>帖子总数 <b>1862</b></span><span>今日发帖 <b>{activeSource.top_picks?.length ?? 0}</b></span><span>评论 <b>{activeSource.comment_count ?? 0}</b></span></div>
         </div>
@@ -210,10 +216,10 @@ const primaryEvidence = (track) => {
     <section class="all-source-panels">
       {sources.slice(1).map((source) => (
         <article class="panel source-anchor-card" id={`source-${source.id}`}>
-          <div class={`avatar big-avatar ${sourceColors[source.id] ?? ""}`}>{source.name.slice(0, 1)}</div>
+          <div class={`avatar big-avatar ${sourceColors[source.id] ?? ""}`}>{displaySourceName(source.name).slice(0, 1)}</div>
           <div>
             <div class="panel-head">
-              <h2>{source.name} ({source.id})</h2>
+              <h2>{displaySourceName(source.name)} ({source.id})</h2>
               <span>{source.channel}</span>
             </div>
             <p class="analysis-copy">{source.latest_summary}</p>

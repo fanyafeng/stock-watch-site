@@ -20,7 +20,7 @@ const dayOptions = unique(dateParts.filter((item) => item.year === currentDatePa
     <div>
       <p>入场判断 / Entry Check</p>
       <h1>入场判断</h1>
-      <span>输入股票名称或代码，用野哥模式或李红娟模式复核买点、止损、止盈和证据链。</span>
+      <span>输入股票名称或代码，用全能的野人模式或娟姐模式复核买点、止损、止盈和证据链。</span>
     </div>
     <strong>当前复盘日：{defaultDate || "暂无"}</strong>
   </header>
@@ -32,8 +32,8 @@ const dayOptions = unique(dateParts.filter((item) => item.year === currentDatePa
         <input type="search" placeholder="输入股票名称或代码，例如 合力泰 / 002217" data-entry-query />
       </label>
       <div class="entry-mode-control" role="radiogroup" aria-label="选择选股模式">
-        <button type="button" class="is-active" data-entry-mode="yege">野哥模式</button>
-        <button type="button" data-entry-mode="lihongjuan">李红娟模式</button>
+        <button type="button" class="is-active" data-entry-mode="yege">全能的野人模式</button>
+        <button type="button" data-entry-mode="lihongjuan">娟姐模式</button>
       </div>
       <label class="entry-date-picker" data-entry-date-picker>
         <span>日期</span>
@@ -122,6 +122,13 @@ const dayOptions = unique(dateParts.filter((item) => item.year === currentDatePa
     message.dataset.tone = tone;
   }
 
+  function displayModeName(value) {
+    return String(value || "")
+      .replace("野哥", "全能的野人")
+      .replace("李红娟", "娟姐")
+      .replace("龙哥", "阿龙");
+  }
+
   function formatPrice(value) {
     return value === null || value === undefined || value === "" ? "待补充" : String(value);
   }
@@ -193,7 +200,7 @@ const dayOptions = unique(dateParts.filter((item) => item.year === currentDatePa
   function renderEntry(entry) {
     empty.hidden = true;
     result.hidden = false;
-    setField("mode_name", entry.mode_name);
+    setField("mode_name", displayModeName(entry.mode_name));
     setField("name", entry.name);
     setField("code", entry.code);
     setField("summary", entry.summary);
@@ -270,7 +277,7 @@ const dayOptions = unique(dateParts.filter((item) => item.year === currentDatePa
     candidatesBox.innerHTML = `<strong>找到多条匹配，请选择：</strong>` + items.map((entry, index) => `
       <button type="button" data-entry-candidate="${index}">
         <b>${escapeHtml(entry.name)} ${escapeHtml(entry.code)}</b>
-        <span>${escapeHtml(entry.mode_name)} · ${escapeHtml(entry.date)} · ${escapeHtml(entry.status)}</span>
+        <span>${escapeHtml(displayModeName(entry.mode_name))} · ${escapeHtml(entry.date)} · ${escapeHtml(entry.status)}</span>
       </button>
     `).join("");
     candidatesBox.querySelectorAll("[data-entry-candidate]").forEach((button) => {

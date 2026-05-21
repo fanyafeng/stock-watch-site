@@ -7,10 +7,10 @@ const { dashboard } = Astro.props;
 const SOURCE_ORDER = ["all", "yege", "lihongjuan", "wangduoyu", "longge"];
 const SOURCE_NAMES = {
   all: "全部来源",
-  yege: "野哥",
-  lihongjuan: "李红娟",
+  yege: "全能的野人",
+  lihongjuan: "娟姐",
   wangduoyu: "王多于",
-  longge: "龙哥",
+  longge: "阿龙",
 };
 
 const dashboardSources = dashboard.stock_pool?.sources?.length ? dashboard.stock_pool.sources : (dashboard.sources ?? []).map((source) => ({
@@ -37,6 +37,12 @@ const riskTone = (risk) => risk === "高" ? "high" : risk === "低" ? "low" : "m
 const statusForItem = (item) => item.status || (item.accepted === false ? "观察取消" : "等待买点");
 const sourceTone = (sourceId) => ({ yege: "blue", lihongjuan: "purple", wangduoyu: "green", longge: "orange" }[sourceId] ?? "slate");
 const sourceName = (sourceId) => SOURCE_NAMES[sourceId] ?? sourceId;
+const displaySourceName = (value = "") => String(value)
+  .replace("野哥", "全能的野人")
+  .replace("李红娟", "娟姐")
+  .replace("龙哥闯大A", "阿龙")
+  .replace("阿龙闯大A", "阿龙")
+  .replace("龙哥", "阿龙");
 const stockPoolsBySource = Object.fromEntries(dashboardSources.map((source) => [source.id, source]));
 const allSourcePool = {
   id: "all",
@@ -64,7 +70,7 @@ const evidenceForItem = (item) => {
   return [...new Set(matched)].slice(0, 2);
 };
 const buildReasons = (item, type) => {
-  const sources = item.source_names || item.source_name || sourceName(item.source_id) || "来源数据";
+  const sources = displaySourceName(item.source_names || item.source_name || sourceName(item.source_id) || "来源数据");
   const rejectText = item.accepted === false && item.excluded_reason ? `当前未进入最终推荐：${item.excluded_reason}。` : "当前保留观察，仍需盘中验证。";
   if (type === "短期") {
     return [
@@ -150,7 +156,7 @@ const tableSections = [
   <nav class="stock-source-tabs" aria-label="来源人筛选" data-stock-source-tabs>
     {activeSources.map((source) => (
       <button type="button" class={source.id === "all" ? "is-active" : ""} data-source-filter={source.id}>
-        <span class={sourceTone(source.id)}>{source.name}</span>
+        <span class={sourceTone(source.id)}>{displaySourceName(source.name)}</span>
         <b>{sourceCounts[source.id] ?? 0}</b>
       </button>
     ))}
@@ -187,7 +193,7 @@ const tableSections = [
         <div class="stock-source-panel-head">
           <div>
             <small class={sourceTone(source.id)}>{source.id === "all" ? "综合视图" : "来源人"}</small>
-            <h2>{source.name}</h2>
+            <h2>{displaySourceName(source.name)}</h2>
           </div>
           <p>短期 {sourceShort.length} 只 · 中长期 {sourceMid.length} 只</p>
         </div>
@@ -228,7 +234,7 @@ const tableSections = [
                       <tr class={item.accepted === false ? "is-rejected" : ""}>
                         <td><a class="stock-name-link" href={thsStockUrl(item.code)} target="_blank" rel="noreferrer"><strong>{item.name}</strong></a></td>
                         <td>{item.code}</td>
-                        {source.id === "all" ? <td><span class={`stock-source-pill ${sourceTone(item.source_id)}`}>{item.source_names || item.source_name || sourceName(item.source_id)}</span></td> : null}
+                        {source.id === "all" ? <td><span class={`stock-source-pill ${sourceTone(item.source_id)}`}>{displaySourceName(item.source_names || item.source_name || sourceName(item.source_id))}</span></td> : null}
                         <td>{item.sector}</td>
                         <td>{item.pattern}</td>
                         <td>{normalizeRange(item.entry_range)}</td>
@@ -242,7 +248,7 @@ const tableSections = [
                         <td><a class="stock-expand-link" href={`#${source.id}-${section.type}-${item.code}`}>展开</a></td>
                       </tr>
                     ))}
-                    {!items.length ? <tr><td colspan={source.id === "all" ? 14 : 13} class="stock-empty-cell">暂无 {source.name} {section.title} 数据。</td></tr> : null}
+                    {!items.length ? <tr><td colspan={source.id === "all" ? 14 : 13} class="stock-empty-cell">暂无 {displaySourceName(source.name)} {section.title} 数据。</td></tr> : null}
                   </tbody>
                 </table>
               </div>
@@ -254,7 +260,7 @@ const tableSections = [
                     <div class="stock-reason-grid">
                       {items.map((item) => (
                         <section id={`${source.id}-${section.type}-${item.code}`}>
-                          <h4>{item.name} <small>{item.code} · {item.source_names || item.source_name || source.name}</small></h4>
+                          <h4>{item.name} <small>{item.code} · {displaySourceName(item.source_names || item.source_name || source.name)}</small></h4>
                           <ul>
                             {item.reasons.map(([label, text]) => (
                               <li><i aria-hidden="true">⊙</i><b>{label}：</b><span>{text}</span></li>
@@ -264,7 +270,7 @@ const tableSections = [
                       ))}
                     </div>
                   ) : (
-                    <p class="stock-empty">暂无 {source.name} {section.title} 数据。</p>
+                    <p class="stock-empty">暂无 {displaySourceName(source.name)} {section.title} 数据。</p>
                   )}
                 </div>
 
