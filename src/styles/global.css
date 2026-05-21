@@ -15363,3 +15363,149 @@ body:has(.comment-workbench) .comment-video-kpis b {
     display: grid;
   }
 }
+
+/* Daily review ledger readability pass */
+.my-private-content .private-workbench {
+  color: #172033;
+}
+
+.my-private-content .private-hero {
+  border-color: #cbd9ea;
+  background:
+    linear-gradient(135deg, rgba(239, 246, 255, 0.96), rgba(255, 255, 255, 0.98)),
+    radial-gradient(circle at 88% 0%, rgba(37, 99, 235, 0.12), transparent 18rem);
+  box-shadow: 0 14px 32px rgba(33, 53, 84, 0.08);
+}
+
+.my-private-content .private-hero p,
+.my-private-content .private-hero span {
+  color: #52637a;
+}
+
+.my-private-content .private-hero h1 {
+  color: #10213c;
+}
+
+.my-private-content .private-hero strong,
+.my-private-content .private-review-card header strong {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.my-private-content .private-metric-grid article,
+.my-private-content .private-panel,
+.my-private-content .private-review-card {
+  border-color: #d8e3f0;
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(34, 49, 72, 0.06);
+}
+
+.my-private-content .private-panel {
+  padding: 18px;
+}
+
+.my-private-content .private-panel-head {
+  border-bottom-color: #d8e3f0;
+}
+
+.my-private-content .private-panel-head h2,
+.my-private-content .private-review-card h3,
+.my-private-content .private-metric-grid strong,
+.my-private-content .private-review-metrics strong,
+.my-private-content .private-review-lines dd,
+.my-private-content .private-review-note {
+  color: #172033;
+}
+
+.my-private-content .private-panel-head span,
+.my-private-content .private-metric-grid span,
+.my-private-content .private-metric-grid small,
+.my-private-content .private-review-card header span,
+.my-private-content .private-review-metrics span,
+.my-private-content .private-review-lines dt,
+.my-private-content .private-review-note strong {
+  color: #5f7289;
+}
+
+.my-private-content .private-metric-grid article {
+  min-height: 104px;
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+}
+
+.my-private-content .private-metric-grid strong {
+  font-size: 24px;
+  letter-spacing: 0;
+}
+
+.my-private-content .private-review-grid {
+  gap: 14px;
+}
+
+.my-private-content .private-review-card {
+  padding: 16px;
+}
+
+.my-private-content .private-review-card header {
+  border-bottom-color: #d8e3f0;
+}
+
+.my-private-content .private-review-metrics {
+  gap: 10px;
+}
+
+.my-private-content .private-review-metrics p {
+  min-height: 70px;
+  border-color: #dbe5f1;
+  background: #f6f9fd;
+  box-shadow: inset 3px 0 0 #93c5fd;
+}
+
+.my-private-content .private-review-lines div {
+  grid-template-columns: 72px minmax(0, 1fr);
+  border-bottom-color: #e2e8f0;
+}
+
+.my-private-content .private-review-lines dd {
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.my-private-content .private-review-note {
+  border: 1px solid #d8e3f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 12px;
+}
+
+.my-private-content .private-empty {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  color: #64748b;
+}
+
+.my-private-content .private-table th {
+  border-color: #d8e3f0;
+  background: #eef4fb;
+  color: #42526a;
+}
+
+.my-private-content .private-table td {
+  border-color: #e2e8f0;
+  color: #172033;
+}
+
+.my-private-content .private-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+@media (max-width: 760px) {
+  .my-private-content .private-panel {
+    padding: 14px;
+  }
+
+  .my-private-content .private-review-lines div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
