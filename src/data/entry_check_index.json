@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-22T11:23:31",
-  "default_date": "2026-05-22",
+  "generated_at": "2026-05-25T12:03:21",
+  "default_date": "2026-05-25",
   "modes": [
     {
       "id": "yege",
@@ -8796,6 +8796,168 @@
     },
     {
       "date": "2026-05-22",
+      "market": {
+        "market_status": "需补充 market.csv",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "控制仓位，只等买点"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-05-24",
+      "market": {
+        "market_status": "需补充 market.csv",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "控制仓位，只等买点"
+      },
+      "entries": [
+        {
+          "date": "2026-05-24",
+          "code": "301361",
+          "name": "众智科技",
+          "search_text": "301361 众智科技 李红娟",
+          "mode": "lihongjuan",
+          "mode_name": "李红娟模式",
+          "source": "lihongjuan",
+          "source_name": "李红娟",
+          "type": "短期",
+          "pattern": "右侧转强",
+          "logic": "电网设备方向有评论关注；当前 2026-05-22 收盘 46.04，涨跌幅 2.65%，MA5/10/20=44.39/42.32/39.53，量比近5日均量 0.98，状态：强势延续。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 规则命中：TRD-03(+3)、REV-01(-4)、LHJ-03(+6)、LHJ-05(+4)。",
+          "sectors": [],
+          "status": "已到买点",
+          "suggest_entry": true,
+          "risk": "中",
+          "summary": "众智科技已进入预设入场区间，李红娟模式要求同步确认量能、板块和止损纪律。",
+          "current_price": 46.04,
+          "entry_low": 5.0,
+          "entry_high": 46.04,
+          "entry_range": "5 - 46.04",
+          "stop_loss": 42.32,
+          "take_profit_1": 51.62,
+          "take_profit_2": 54.22,
+          "risk_reward": "待复核",
+          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "2026-05-22",
+            "current_price": 46.04,
+            "pct_change": 2.65,
+            "ma5": 44.39,
+            "ma10": 42.32,
+            "ma20": 39.53,
+            "volume_ratio": 0.98,
+            "technical_state": "强势延续",
+            "source": "picks_logic"
+          },
+          "price_position": "价格进入入场区间",
+          "volume_signal": "量能平稳，量比 0.98",
+          "ma_structure": "多头排列，趋势偏强",
+          "technical_state": "强势延续",
+          "matched_rules": [
+            "来源命中",
+            "技术形态可观察",
+            "入场区间明确",
+            "止损位明确",
+            "当前价进入入场区间",
+            "走势状态：强势延续",
+            "多头排列，趋势偏强",
+            "符合趋势/中长期观察",
+            "趋势延续得到走势确认"
+          ],
+          "missed_rules": [
+            "盈亏比不足或待复核"
+          ],
+          "risk_points": [],
+          "action": {
+            "today": "回踩确认后再判断，不追短期情绪高点。",
+            "wait_condition": "等待趋势延续、板块资金配合，并进入 5 - 46.04 区间。",
+            "invalid_condition": "跌破风险位 42.32 或板块资金持续流出。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [
+              {
+                "date": "2026-05-24",
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "code": "301361",
+                "name": "众智科技",
+                "type": "short",
+                "pattern": "右侧转强",
+                "logic": "电网设备方向有评论关注；当前 2026-05-22 收盘 46.04，涨跌幅 2.65%，MA5/10/20=44.39/42.32/39.53，量比近5日均量 0.98，状态：强势延续。 评论只作为候选来源，买点以右侧转强、资金合力和回踩承接验证。 规则命中：TRD-03(+3)、REV-01(-4)、LHJ-03(+6)、LHJ-05(+4)。",
+                "entry_low": 5.0,
+                "entry_high": 46.04,
+                "stop_loss": 42.32,
+                "take_profit_1": 51.62,
+                "take_profit_2": 54.22,
+                "risk_reward_score": 8.0,
+                "risk_score": 4.0,
+                "risk": "中",
+                "status": "等待买点",
+                "raw_text": "李红娟群聊出现明确个股/方向计划，按群聊策略源进入候选池。",
+                "note": "来自真实评论选股报告；不是随机推荐。",
+                "trend_score": 8.0,
+                "breakout_score": 5.0,
+                "pullback_score": 6.0,
+                "volume_score": 5.0
+              }
+            ],
+            "source_mentions": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "title": "李红娟 2026-05-24 群聊评论备份",
+                "summary": "很多时候我们心里要有数，极端的行情，任何模式都会失效。所以这个时候不要怪自己。今天其实也不好说，到底是下跌继续支撑止跌，目前看也只能暂时观察，好的剧本就是开盘低开一部分逐步拉回最好。昨天很多明明k线走的很好的也通杀局破位了，今天可能部分昨天没跌的品种会补跌。所以暂时不忙随意出手，也不要补仓，昨天放量下跌，出货的钱不会一下就回来了，暂时好好处理一下自己手里的票做做高抛低吸吧。众智科技走势还不错，看看吧。",
+                "sectors": [],
+                "url": "douyin://im/group"
+              }
+            ],
+            "comments": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "comment_source": "李红娟群聊 未标注时间",
+                "content": "很多时候我们心里要有数，极端的行情，任何模式都会失效。所以这个时候不要怪自己。今天其实也不好说，到底是下跌继续支撑止跌，目前看也只能暂时观察，好的剧本就是开盘低开一部分逐步拉回最好。昨天很多明明k线走的很好的也通杀局破位了，今天可能部分昨天没跌的品种会补跌。所以暂时不忙随意出手，也不要补仓，昨天放量下跌，出货的钱不会一下就回来了，暂时好好处理一下自己手里的票做做高抛低吸吧。众智科技走势还不错，看看吧。",
+                "sectors": [],
+                "value_reason": "群聊原话已识别股票线索：众智科技(301361)；情绪=bullish。",
+                "include_status": "是",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "需补充 market.csv",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "控制仓位，只等买点"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        }
+      ],
+      "candidates": [
+        {
+          "code": "301361",
+          "name": "众智科技",
+          "sectors": []
+        }
+      ]
+    },
+    {
+      "date": "2026-05-25",
       "market": {
         "market_status": "需补充 market.csv",
         "main_sectors": [
