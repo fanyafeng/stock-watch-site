@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-25T12:03:21",
-  "default_date": "2026-05-25",
+  "generated_at": "2026-05-27T11:53:55",
+  "default_date": "2026-05-27",
   "modes": [
     {
       "id": "yege",
@@ -8958,6 +8958,902 @@
     },
     {
       "date": "2026-05-25",
+      "market": {
+        "market_status": "需补充 market.csv",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "控制仓位，只等买点"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-05-26",
+      "market": {
+        "market_status": "窄幅震荡，上涨家数约1328，下跌家数约3865",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [
+        {
+          "date": "2026-05-26",
+          "code": "002733",
+          "name": "雄韬股份",
+          "search_text": "002733 雄韬股份 全能的野人",
+          "mode": "yege",
+          "mode_name": "野哥模式",
+          "source": "yege",
+          "source_name": "全能的野人",
+          "type": "短期",
+          "pattern": "技术形态观察",
+          "logic": "强提醒，仍需结合位置和仓位控制",
+          "sectors": [
+            "交易动作",
+            "个股相关"
+          ],
+          "status": "数据不足",
+          "suggest_entry": false,
+          "risk": "中",
+          "summary": "雄韬股份当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "current_price": null,
+          "entry_low": null,
+          "entry_high": null,
+          "entry_range": "待补充",
+          "stop_loss": null,
+          "take_profit_1": null,
+          "take_profit_2": null,
+          "risk_reward": "待复核",
+          "position_advice": "轻仓观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
+          "matched_rules": [
+            "来源命中"
+          ],
+          "missed_rules": [
+            "技术形态仍需补充确认",
+            "缺少明确入场区间",
+            "缺少止损位",
+            "盈亏比不足或待复核",
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
+            "板块与当日主线关联待确认"
+          ],
+          "risk_points": [],
+          "action": {
+            "today": "不追高，只等买点。",
+            "wait_condition": "只在 待补充 区间内观察，并确认量能承接。",
+            "invalid_condition": "缺少止损位时不做明确入场判断。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [
+              {
+                "date": "2026-05-26",
+                "source": "yege",
+                "source_name": "全能的野人",
+                "code": "002733",
+                "name": "雄韬股份",
+                "type": "short",
+                "pattern": "技术形态观察",
+                "logic": "强提醒，仍需结合位置和仓位控制",
+                "entry_low": null,
+                "entry_high": null,
+                "stop_loss": null,
+                "take_profit_1": null,
+                "take_profit_2": null,
+                "risk_reward_score": 7.0,
+                "risk_score": 4.0,
+                "risk": "中",
+                "status": "等待买点",
+                "raw_text": "雄韬股份(002733)  昨天早信的人，今天可以赚钱回家买床单了。迟信的人今天就是抬轿子的。",
+                "note": "由真实备份信号转换，买点需人工复核。",
+                "trend_score": 6.0,
+                "breakout_score": 5.0,
+                "pullback_score": 6.0,
+                "volume_score": 5.0
+              }
+            ],
+            "source_mentions": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "title": "2026-05-26 13:40 雄韬股份(002733)",
+                "summary": "雄韬股份(002733) 昨天早信的人，今天可以赚钱回家买床单了。迟信的人今天就是抬轿子的。",
+                "sectors": [
+                  "交易动作",
+                  "个股相关"
+                ],
+                "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dma8szilcu6eu7c4b6104"
+              }
+            ],
+            "comments": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "comment_source": "同花顺评论备份 13:40",
+                "content": "帖子评论量备份：319 条。帖子摘要：雄韬股份(002733)  昨天早信的人，今天可以赚钱回家买床单了。迟信的人今天就是抬轿子的。",
+                "sectors": [
+                  "交易动作",
+                  "个股相关"
+                ],
+                "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。",
+                "include_status": "待确认",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "窄幅震荡，上涨家数约1328，下跌家数约3865",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        },
+        {
+          "date": "2026-05-26",
+          "code": "002920",
+          "name": "德赛西威",
+          "search_text": "002920 德赛西威 全能的野人",
+          "mode": "yege",
+          "mode_name": "野哥模式",
+          "source": "yege",
+          "source_name": "全能的野人",
+          "type": "短期",
+          "pattern": "技术形态观察",
+          "logic": "观察",
+          "sectors": [
+            "个股相关",
+            "野哥同花顺逻辑"
+          ],
+          "status": "数据不足",
+          "suggest_entry": false,
+          "risk": "中",
+          "summary": "德赛西威当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "current_price": null,
+          "entry_low": null,
+          "entry_high": null,
+          "entry_range": "待补充",
+          "stop_loss": null,
+          "take_profit_1": null,
+          "take_profit_2": null,
+          "risk_reward": "待复核",
+          "position_advice": "轻仓观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
+          "matched_rules": [
+            "来源命中"
+          ],
+          "missed_rules": [
+            "技术形态仍需补充确认",
+            "缺少明确入场区间",
+            "缺少止损位",
+            "盈亏比不足或待复核",
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
+            "板块与当日主线关联待确认"
+          ],
+          "risk_points": [],
+          "action": {
+            "today": "不追高，只等买点。",
+            "wait_condition": "只在 待补充 区间内观察，并确认量能承接。",
+            "invalid_condition": "缺少止损位时不做明确入场判断。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [
+              {
+                "date": "2026-05-26",
+                "source": "yege",
+                "source_name": "全能的野人",
+                "code": "002920",
+                "name": "德赛西威",
+                "type": "short",
+                "pattern": "技术形态观察",
+                "logic": "观察",
+                "entry_low": null,
+                "entry_high": null,
+                "stop_loss": null,
+                "take_profit_1": null,
+                "take_profit_2": null,
+                "risk_reward_score": 7.0,
+                "risk_score": 4.0,
+                "risk": "中",
+                "status": "等待买点",
+                "raw_text": "德赛西威(002920)  明天五日线就上穿所有均线了。",
+                "note": "由真实备份信号转换，买点需人工复核。",
+                "trend_score": 6.0,
+                "breakout_score": 5.0,
+                "pullback_score": 6.0,
+                "volume_score": 5.0
+              }
+            ],
+            "source_mentions": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "title": "2026-05-26 13:25 德赛西威(002920)",
+                "summary": "德赛西威(002920) 明天五日线就上穿所有均线了。",
+                "sectors": [
+                  "个股相关",
+                  "野哥同花顺逻辑"
+                ],
+                "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dm9dxxn40nbw684f639d8"
+              }
+            ],
+            "comments": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "comment_source": "同花顺评论备份 13:25",
+                "content": "帖子评论量备份：133 条。帖子摘要：德赛西威(002920)  明天五日线就上穿所有均线了。",
+                "sectors": [
+                  "个股相关",
+                  "野哥同花顺逻辑"
+                ],
+                "value_reason": "同花顺选股逻辑命中：THS-03 波段逻辑未破才持有。",
+                "include_status": "待确认",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "窄幅震荡，上涨家数约1328，下跌家数约3865",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        },
+        {
+          "date": "2026-05-26",
+          "code": "688027",
+          "name": "国盾量子",
+          "search_text": "688027 国盾量子 全能的野人",
+          "mode": "yege",
+          "mode_name": "野哥模式",
+          "source": "yege",
+          "source_name": "全能的野人",
+          "type": "短期",
+          "pattern": "技术形态观察",
+          "logic": "观察",
+          "sectors": [
+            "个股相关",
+            "野哥同花顺逻辑"
+          ],
+          "status": "数据不足",
+          "suggest_entry": false,
+          "risk": "中",
+          "summary": "国盾量子当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "current_price": null,
+          "entry_low": null,
+          "entry_high": null,
+          "entry_range": "待补充",
+          "stop_loss": null,
+          "take_profit_1": null,
+          "take_profit_2": null,
+          "risk_reward": "待复核",
+          "position_advice": "轻仓观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
+          "matched_rules": [
+            "来源命中"
+          ],
+          "missed_rules": [
+            "技术形态仍需补充确认",
+            "缺少明确入场区间",
+            "缺少止损位",
+            "盈亏比不足或待复核",
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
+            "板块与当日主线关联待确认"
+          ],
+          "risk_points": [],
+          "action": {
+            "today": "不追高，只等买点。",
+            "wait_condition": "只在 待补充 区间内观察，并确认量能承接。",
+            "invalid_condition": "缺少止损位时不做明确入场判断。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [
+              {
+                "date": "2026-05-26",
+                "source": "yege",
+                "source_name": "全能的野人",
+                "code": "688027",
+                "name": "国盾量子",
+                "type": "short",
+                "pattern": "技术形态观察",
+                "logic": "观察",
+                "entry_low": null,
+                "entry_high": null,
+                "stop_loss": null,
+                "take_profit_1": null,
+                "take_profit_2": null,
+                "risk_reward_score": 7.0,
+                "risk_score": 4.0,
+                "risk": "中",
+                "status": "等待买点",
+                "raw_text": "国盾量子(688027)  量子科技的，龙头。半年不看k线那种。",
+                "note": "由真实备份信号转换，买点需人工复核。",
+                "trend_score": 6.0,
+                "breakout_score": 5.0,
+                "pullback_score": 6.0,
+                "volume_score": 5.0
+              }
+            ],
+            "source_mentions": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "title": "2026-05-26 13:24 国盾量子(688027)",
+                "summary": "国盾量子(688027) 量子科技的，龙头。半年不看k线那种。",
+                "sectors": [
+                  "个股相关",
+                  "野哥同花顺逻辑"
+                ],
+                "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dm9b15icgtat25462dcdf"
+              }
+            ],
+            "comments": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "comment_source": "同花顺评论备份 13:24",
+                "content": "帖子评论量备份：55 条。帖子摘要：国盾量子(688027)  量子科技的，龙头。半年不看k线那种。",
+                "sectors": [
+                  "个股相关",
+                  "野哥同花顺逻辑"
+                ],
+                "value_reason": "同花顺选股逻辑命中：THS-04 主线趋势优先，日周月共振加分。",
+                "include_status": "待确认",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "窄幅震荡，上涨家数约1328，下跌家数约3865",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        },
+        {
+          "date": "2026-05-26",
+          "code": "603629",
+          "name": "利通电子",
+          "search_text": "603629 利通电子 李红娟",
+          "mode": "lihongjuan",
+          "mode_name": "李红娟模式",
+          "source": "lihongjuan",
+          "source_name": "李红娟",
+          "type": "仅观察",
+          "pattern": "来源提及",
+          "logic": "昨天看见群里很多人跟了利通还有人今天打算去，没去的今天建议不要去了，这周它的涨幅不能超过9个点，明天前都还会控异动，主力为了把散户洗出去，后面的振幅肯定会很大的，我自己周四尾盘重仓，周五尾盘卖了接近1半，昨天做T后，成本已经非常低了，所以后面怎么走，我自己都能扛，但是你如果今天进去，当天不能接受7.8个点的振幅，就不要进来否则是非常影响心态的。京东方肯定是没有走完的，今天好的位置可以考虑入。红板昨天冲高回落，今天看有没有合适的位置，没有就不去。",
+          "sectors": [],
+          "status": "数据不足",
+          "suggest_entry": false,
+          "risk": "中",
+          "summary": "利通电子当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "current_price": null,
+          "entry_low": null,
+          "entry_high": null,
+          "entry_range": "待补充",
+          "stop_loss": null,
+          "take_profit_1": null,
+          "take_profit_2": null,
+          "risk_reward": "待复核",
+          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
+          "matched_rules": [
+            "来源命中"
+          ],
+          "missed_rules": [
+            "技术形态仍需补充确认",
+            "缺少明确入场区间",
+            "缺少止损位",
+            "盈亏比不足或待复核",
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
+            "一个月维度逻辑仍需补充"
+          ],
+          "risk_points": [],
+          "action": {
+            "today": "回踩确认后再判断，不追短期情绪高点。",
+            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
+            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [],
+            "source_mentions": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "title": "李红娟 2026-05-26 群聊评论备份",
+                "summary": "昨天看见群里很多人跟了利通还有人今天打算去，没去的今天建议不要去了，这周它的涨幅不能超过9个点，明天前都还会控异动，主力为了把散户洗出去，后面的振幅肯定会很大的，我自己周四尾盘重仓，周五尾盘卖了接近1半，昨天做T后，成本已经非常低了，所以后面怎么走，我自己都能扛，但是你如果今天进去，当天不能接受7.8个点的振幅，就不要进来否则是非常影响心态的。京东方肯定是没有走完的，今天好的位置可以考虑入。红板昨天冲高回落，今天看有没有合适的位置，没有就不去。",
+                "sectors": [],
+                "url": "douyin://im/group"
+              }
+            ],
+            "comments": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "comment_source": "李红娟群聊 未标注时间",
+                "content": "昨天看见群里很多人跟了利通还有人今天打算去，没去的今天建议不要去了，这周它的涨幅不能超过9个点，明天前都还会控异动，主力为了把散户洗出去，后面的振幅肯定会很大的，我自己周四尾盘重仓，周五尾盘卖了接近1半，昨天做T后，成本已经非常低了，所以后面怎么走，我自己都能扛，但是你如果今天进去，当天不能接受7.8个点的振幅，就不要进来否则是非常影响心态的。京东方肯定是没有走完的，今天好的位置可以考虑入。红板昨天冲高回落，今天看有没有合适的位置，没有就不去。",
+                "sectors": [],
+                "value_reason": "群聊原话已识别股票线索：利通电子(603629)；情绪=risk。",
+                "include_status": "否",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              },
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "comment_source": "李红娟群聊 09:00",
+                "content": "因为今天美股和港股都是休息的，所以最受影响的科技线开盘肯定是能够延续周五的强势表现的，手里有科技的今天早盘开盘理论溢价无忧！但周五的盘面是缩量修复，缩量修复日的次日，早盘延续一致的方向和周六周末大吹的方向(pcb.mlcc）都不能接，很容易被先手资金砸盘，只对有先手的人有利。但高潮过后的分歧机会，就必须往绝对核心上靠，比如胜宏。周四早上说让把资金留出来尾盘利通控住异动买利通，有人照做了，有人怕高不敢去，我只能说买入确定性，卖出不确定性，你能看懂多少做多少，知足常乐。今天选择格局就要想到后面可能会回撤，选择卖出就要想到可能会卖飞，根据自己性格来，我只是说我自己的想法，除非异动压不住，否则我不会轻易下车。商业航天方向经历充分调整后，周五一些品种站稳均线，本来今天想让大家看看西部和信维，但是周末航天的消息吹的比较多，今天可能不会给到低吸的机会，就暂时只能观察。最后就是机器人，周六周末没什么人吹，今天可能反而有预期差，之前12号说的昊志机电说走势很好，即将突破前高，可以看，目前几个交易日确实走的很OK，昨晚复盘找到个斯菱智驱，也是距前高一步之遥，可以看看，追高。利仁看有没有-7到-8的机会，弘信可以低吸。",
+                "sectors": [],
+                "value_reason": "群聊原话已识别股票线索：利通电子(603629)；情绪=risk。",
+                "include_status": "否",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "窄幅震荡，上涨家数约1328，下跌家数约3865",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        },
+        {
+          "date": "2026-05-26",
+          "code": "300503",
+          "name": "昊志机电",
+          "search_text": "300503 昊志机电 李红娟",
+          "mode": "lihongjuan",
+          "mode_name": "李红娟模式",
+          "source": "lihongjuan",
+          "source_name": "李红娟",
+          "type": "仅观察",
+          "pattern": "来源提及",
+          "logic": "昨天看见群里很多人跟了利通还有人今天打算去，没去的今天建议不要去了，这周它的涨幅不能超过9个点，明天前都还会控异动，主力为了把散户洗出去，后面的振幅肯定会很大的，我自己周四尾盘重仓，周五尾盘卖了接近1半，昨天做T后，成本已经非常低了，所以后面怎么走，我自己都能扛，但是你如果今天进去，当天不能接受7.8个点的振幅，就不要进来否则是非常影响心态的。京东方肯定是没有走完的，今天好的位置可以考虑入。红板昨天冲高回落，今天看有没有合适的位置，没有就不去。",
+          "sectors": [],
+          "status": "数据不足",
+          "suggest_entry": false,
+          "risk": "中",
+          "summary": "昊志机电当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "current_price": null,
+          "entry_low": null,
+          "entry_high": null,
+          "entry_range": "待补充",
+          "stop_loss": null,
+          "take_profit_1": null,
+          "take_profit_2": null,
+          "risk_reward": "待复核",
+          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
+          "matched_rules": [
+            "来源命中"
+          ],
+          "missed_rules": [
+            "技术形态仍需补充确认",
+            "缺少明确入场区间",
+            "缺少止损位",
+            "盈亏比不足或待复核",
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
+            "一个月维度逻辑仍需补充"
+          ],
+          "risk_points": [],
+          "action": {
+            "today": "回踩确认后再判断，不追短期情绪高点。",
+            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
+            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [],
+            "source_mentions": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "title": "李红娟 2026-05-26 群聊评论备份",
+                "summary": "昨天看见群里很多人跟了利通还有人今天打算去，没去的今天建议不要去了，这周它的涨幅不能超过9个点，明天前都还会控异动，主力为了把散户洗出去，后面的振幅肯定会很大的，我自己周四尾盘重仓，周五尾盘卖了接近1半，昨天做T后，成本已经非常低了，所以后面怎么走，我自己都能扛，但是你如果今天进去，当天不能接受7.8个点的振幅，就不要进来否则是非常影响心态的。京东方肯定是没有走完的，今天好的位置可以考虑入。红板昨天冲高回落，今天看有没有合适的位置，没有就不去。",
+                "sectors": [],
+                "url": "douyin://im/group"
+              }
+            ],
+            "comments": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "comment_source": "李红娟群聊 09:00",
+                "content": "因为今天美股和港股都是休息的，所以最受影响的科技线开盘肯定是能够延续周五的强势表现的，手里有科技的今天早盘开盘理论溢价无忧！但周五的盘面是缩量修复，缩量修复日的次日，早盘延续一致的方向和周六周末大吹的方向(pcb.mlcc）都不能接，很容易被先手资金砸盘，只对有先手的人有利。但高潮过后的分歧机会，就必须往绝对核心上靠，比如胜宏。周四早上说让把资金留出来尾盘利通控住异动买利通，有人照做了，有人怕高不敢去，我只能说买入确定性，卖出不确定性，你能看懂多少做多少，知足常乐。今天选择格局就要想到后面可能会回撤，选择卖出就要想到可能会卖飞，根据自己性格来，我只是说我自己的想法，除非异动压不住，否则我不会轻易下车。商业航天方向经历充分调整后，周五一些品种站稳均线，本来今天想让大家看看西部和信维，但是周末航天的消息吹的比较多，今天可能不会给到低吸的机会，就暂时只能观察。最后就是机器人，周六周末没什么人吹，今天可能反而有预期差，之前12号说的昊志机电说走势很好，即将突破前高，可以看，目前几个交易日确实走的很OK，昨晚复盘找到个斯菱智驱，也是距前高一步之遥，可以看看，追高。利仁看有没有-7到-8的机会，弘信可以低吸。",
+                "sectors": [],
+                "value_reason": "群聊原话已识别股票线索：昊志机电(300503)；情绪=risk。",
+                "include_status": "否",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "窄幅震荡，上涨家数约1328，下跌家数约3865",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        },
+        {
+          "date": "2026-05-26",
+          "code": "301550",
+          "name": "斯菱智驱",
+          "search_text": "301550 斯菱智驱 李红娟",
+          "mode": "lihongjuan",
+          "mode_name": "李红娟模式",
+          "source": "lihongjuan",
+          "source_name": "李红娟",
+          "type": "仅观察",
+          "pattern": "来源提及",
+          "logic": "昨天看见群里很多人跟了利通还有人今天打算去，没去的今天建议不要去了，这周它的涨幅不能超过9个点，明天前都还会控异动，主力为了把散户洗出去，后面的振幅肯定会很大的，我自己周四尾盘重仓，周五尾盘卖了接近1半，昨天做T后，成本已经非常低了，所以后面怎么走，我自己都能扛，但是你如果今天进去，当天不能接受7.8个点的振幅，就不要进来否则是非常影响心态的。京东方肯定是没有走完的，今天好的位置可以考虑入。红板昨天冲高回落，今天看有没有合适的位置，没有就不去。",
+          "sectors": [],
+          "status": "数据不足",
+          "suggest_entry": false,
+          "risk": "中",
+          "summary": "斯菱智驱当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "current_price": null,
+          "entry_low": null,
+          "entry_high": null,
+          "entry_range": "待补充",
+          "stop_loss": null,
+          "take_profit_1": null,
+          "take_profit_2": null,
+          "risk_reward": "待复核",
+          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
+          "matched_rules": [
+            "来源命中"
+          ],
+          "missed_rules": [
+            "技术形态仍需补充确认",
+            "缺少明确入场区间",
+            "缺少止损位",
+            "盈亏比不足或待复核",
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
+            "一个月维度逻辑仍需补充"
+          ],
+          "risk_points": [],
+          "action": {
+            "today": "回踩确认后再判断，不追短期情绪高点。",
+            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
+            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [],
+            "source_mentions": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "title": "李红娟 2026-05-26 群聊评论备份",
+                "summary": "昨天看见群里很多人跟了利通还有人今天打算去，没去的今天建议不要去了，这周它的涨幅不能超过9个点，明天前都还会控异动，主力为了把散户洗出去，后面的振幅肯定会很大的，我自己周四尾盘重仓，周五尾盘卖了接近1半，昨天做T后，成本已经非常低了，所以后面怎么走，我自己都能扛，但是你如果今天进去，当天不能接受7.8个点的振幅，就不要进来否则是非常影响心态的。京东方肯定是没有走完的，今天好的位置可以考虑入。红板昨天冲高回落，今天看有没有合适的位置，没有就不去。",
+                "sectors": [],
+                "url": "douyin://im/group"
+              }
+            ],
+            "comments": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "comment_source": "李红娟群聊 09:00",
+                "content": "因为今天美股和港股都是休息的，所以最受影响的科技线开盘肯定是能够延续周五的强势表现的，手里有科技的今天早盘开盘理论溢价无忧！但周五的盘面是缩量修复，缩量修复日的次日，早盘延续一致的方向和周六周末大吹的方向(pcb.mlcc）都不能接，很容易被先手资金砸盘，只对有先手的人有利。但高潮过后的分歧机会，就必须往绝对核心上靠，比如胜宏。周四早上说让把资金留出来尾盘利通控住异动买利通，有人照做了，有人怕高不敢去，我只能说买入确定性，卖出不确定性，你能看懂多少做多少，知足常乐。今天选择格局就要想到后面可能会回撤，选择卖出就要想到可能会卖飞，根据自己性格来，我只是说我自己的想法，除非异动压不住，否则我不会轻易下车。商业航天方向经历充分调整后，周五一些品种站稳均线，本来今天想让大家看看西部和信维，但是周末航天的消息吹的比较多，今天可能不会给到低吸的机会，就暂时只能观察。最后就是机器人，周六周末没什么人吹，今天可能反而有预期差，之前12号说的昊志机电说走势很好，即将突破前高，可以看，目前几个交易日确实走的很OK，昨晚复盘找到个斯菱智驱，也是距前高一步之遥，可以看看，追高。利仁看有没有-7到-8的机会，弘信可以低吸。",
+                "sectors": [],
+                "value_reason": "群聊原话已识别股票线索：斯菱智驱(301550)；情绪=risk。",
+                "include_status": "否",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "窄幅震荡，上涨家数约1328，下跌家数约3865",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        },
+        {
+          "date": "2026-05-26",
+          "code": "301361",
+          "name": "众智科技",
+          "search_text": "301361 众智科技 李红娟",
+          "mode": "lihongjuan",
+          "mode_name": "李红娟模式",
+          "source": "lihongjuan",
+          "source_name": "李红娟",
+          "type": "仅观察",
+          "pattern": "来源提及",
+          "logic": "昨天看见群里很多人跟了利通还有人今天打算去，没去的今天建议不要去了，这周它的涨幅不能超过9个点，明天前都还会控异动，主力为了把散户洗出去，后面的振幅肯定会很大的，我自己周四尾盘重仓，周五尾盘卖了接近1半，昨天做T后，成本已经非常低了，所以后面怎么走，我自己都能扛，但是你如果今天进去，当天不能接受7.8个点的振幅，就不要进来否则是非常影响心态的。京东方肯定是没有走完的，今天好的位置可以考虑入。红板昨天冲高回落，今天看有没有合适的位置，没有就不去。",
+          "sectors": [],
+          "status": "数据不足",
+          "suggest_entry": false,
+          "risk": "中",
+          "summary": "众智科技当前证据不足，已命中1项、缺失7项，需要补充价格、止损或大盘支持数据。",
+          "current_price": null,
+          "entry_low": null,
+          "entry_high": null,
+          "entry_range": "待补充",
+          "stop_loss": null,
+          "take_profit_1": null,
+          "take_profit_2": null,
+          "risk_reward": "待复核",
+          "position_advice": "轻仓趋势观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 中长期 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
+          "matched_rules": [
+            "来源命中"
+          ],
+          "missed_rules": [
+            "技术形态仍需补充确认",
+            "缺少明确入场区间",
+            "缺少止损位",
+            "盈亏比不足或待复核",
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
+            "一个月维度逻辑仍需补充"
+          ],
+          "risk_points": [],
+          "action": {
+            "today": "回踩确认后再判断，不追短期情绪高点。",
+            "wait_condition": "等待趋势延续、板块资金配合，并进入 待补充 区间。",
+            "invalid_condition": "跌破趋势支撑或原推荐逻辑失效。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [],
+            "source_mentions": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "title": "李红娟 2026-05-26 群聊评论备份",
+                "summary": "昨天看见群里很多人跟了利通还有人今天打算去，没去的今天建议不要去了，这周它的涨幅不能超过9个点，明天前都还会控异动，主力为了把散户洗出去，后面的振幅肯定会很大的，我自己周四尾盘重仓，周五尾盘卖了接近1半，昨天做T后，成本已经非常低了，所以后面怎么走，我自己都能扛，但是你如果今天进去，当天不能接受7.8个点的振幅，就不要进来否则是非常影响心态的。京东方肯定是没有走完的，今天好的位置可以考虑入。红板昨天冲高回落，今天看有没有合适的位置，没有就不去。",
+                "sectors": [],
+                "url": "douyin://im/group"
+              }
+            ],
+            "comments": [
+              {
+                "source": "lihongjuan",
+                "source_name": "李红娟",
+                "comment_source": "李红娟群聊 09:00",
+                "content": "很多时候我们心里要有数，极端的行情，任何模式都会失效。所以这个时候不要怪自己。今天其实也不好说，到底是下跌继续支撑止跌，目前看也只能暂时观察，好的剧本就是开盘低开一部分逐步拉回最好。昨天很多明明k线走的很好的也通杀局破位了，今天可能部分昨天没跌的品种会补跌。所以暂时不忙随意出手，也不要补仓，昨天放量下跌，出货的钱不会一下就回来了，暂时好好处理一下自己手里的票做做高抛低吸吧。众智科技走势还不错，看看吧。",
+                "sectors": [],
+                "value_reason": "群聊原话已识别股票线索：众智科技(301361)；情绪=bullish。",
+                "include_status": "是",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "窄幅震荡，上涨家数约1328，下跌家数约3865",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        }
+      ],
+      "candidates": [
+        {
+          "code": "002733",
+          "name": "雄韬股份",
+          "sectors": [
+            "交易动作",
+            "个股相关"
+          ]
+        },
+        {
+          "code": "002920",
+          "name": "德赛西威",
+          "sectors": [
+            "个股相关",
+            "野哥同花顺逻辑"
+          ]
+        },
+        {
+          "code": "300503",
+          "name": "昊志机电",
+          "sectors": []
+        },
+        {
+          "code": "301361",
+          "name": "众智科技",
+          "sectors": []
+        },
+        {
+          "code": "301550",
+          "name": "斯菱智驱",
+          "sectors": []
+        },
+        {
+          "code": "603629",
+          "name": "利通电子",
+          "sectors": []
+        },
+        {
+          "code": "688027",
+          "name": "国盾量子",
+          "sectors": [
+            "个股相关",
+            "野哥同花顺逻辑"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-05-27",
       "market": {
         "market_status": "需补充 market.csv",
         "main_sectors": [
