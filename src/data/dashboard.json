@@ -1,13 +1,13 @@
 {
-  "date": "2026-05-27",
-  "updated_at": "2026-05-27 11:52:39",
+  "date": "2026-05-28",
+  "updated_at": "2026-05-28 17:00:25",
   "report": {
-    "date": "2026-05-27",
+    "date": "2026-05-28",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-05-27 A股综合复盘工作台",
-    "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
+    "title": "2026-05-28 A股综合复盘工作台",
+    "summary": "按日期聚合四个来源，短期观察 1 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
       "今日总览",
@@ -16,46 +16,97 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-05-27",
-    "url": "/articles/daily_2026-05-27/"
+    "slug": "daily_2026-05-28",
+    "url": "/articles/daily_2026-05-28/"
   },
   "overview": {
-    "market_status": "需补充 market.csv",
+    "market_status": "探底回升，上涨家数约2788，下跌家数约2349",
     "main_sectors": [
       "暂无数据"
     ],
     "risk_level": "中",
-    "operation_tone": "控制仓位，只等买点",
-    "sentiment": "暂无数据",
-    "risk_signal": "暂无数据",
-    "tomorrow_watch": "暂无数据"
+    "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
+    "sentiment": "上涨/下跌约 2788/2349，情绪按结构性修复处理。",
+    "risk_signal": "高位放量、偏离均线过大的方向只做风险观察。",
+    "tomorrow_watch": "观察主线板块延续性、回踩承接和量能是否继续放大。"
   },
   "market": {
-    "index_status": "暂无指数状态",
-    "volume_change": "暂无成交量数据",
-    "index_money_flow_series": "09:31=25.14;09:36=23.00;09:41=-49.66;09:46=-92.03;09:51=-96.68;09:56=-136.41;10:01=-163.42;10:06=-164.73;10:11=-178.81;10:16=-208.05;10:21=-213.79;10:26=-208.06;10:31=-208.55;10:36=-207.19;10:41=-245.37;10:46=-257.98;10:51=-294.66;10:56=-322.63;11:01=-339.53;11:06=-363.02;11:11=-383.11;11:16=-401.35;11:21=-460.24;11:26=-551.44;13:01=-632.30;13:06=-659.65;13:11=-668.13;13:16=-706.46;13:21=-751.13;13:26=-761.74;13:31=-771.32;13:36=-823.45;13:41=-871.53;13:46=-982.98;13:51=-1019.76;13:56=-1069.91;14:01=-1087.77;14:06=-1134.60;14:11=-1155.14;14:16=-1159.41;14:21=-1157.73;14:26=-1144.88;14:31=-1126.25;14:36=-1136.29;14:41=-1125.01;14:46=-1134.43;14:51=-1203.69;14:56=-1232.75;15:00=-1236.23",
+    "index_status": "上证指数收4098.64，涨跌幅0.12%，形态探底回升；深证成指收15861.89，涨跌幅0.8%，形态探底回升；创业板指收4125.07，涨跌幅1.96%，形态探底回升",
+    "volume_change": "沪深主要指数成交额合计约 29682 亿，需结合昨日继续复核。",
+    "index_money_flow_series": "",
     "sector_rotation": "暂无板块轮动数据",
     "accumulation_direction": [
       "暂无数据"
     ],
     "sector_first_limit_up": {},
-    "capital_preference": "暂无资金偏好数据"
+    "capital_preference": "主线优先看资金合力，弱分支不追高。"
   },
   "stats": {
     "source_count": 4,
-    "candidate_count": 0,
-    "accepted_count": 0,
-    "rejected_count": 0,
-    "comment_count": 0,
-    "top_patterns": []
+    "candidate_count": 2,
+    "accepted_count": 1,
+    "rejected_count": 1,
+    "comment_count": 4,
+    "top_patterns": [
+      "回踩观察"
+    ]
   },
   "timeline": [
     {
-      "time": "15:00",
-      "category": "after_close",
-      "source": "系统",
-      "title": "盘后总结",
-      "content": "大盘信息、帖子/视频和评论 CSV 缺失时，首页展示基于 picks/holdings 的公开概要。"
+      "time": "15:03",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-28 15:03 利通电子(603629)",
+      "content": "利通电子(603629) 牛……这个引导资金，简直是神一样的控盘。"
+    },
+    {
+      "time": "15:01",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-28 15:01 利通电子(603629)",
+      "content": "利通电子(603629) 牛逼，确实牛逼。。。。尾盘买就被套了。"
+    },
+    {
+      "time": "13:59",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-28 13:59 野哥同花顺动态",
+      "content": "持股天数188天了。哎，太难了，持股中的贪婪和恐惧，懊悔与自己人性的博弈，太难了。还好结果不负我。目前是高位了，盈亏自负。"
+    },
+    {
+      "time": "13:17",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-05-28 13:17 工业富联(601138)",
+      "content": "工业富联(601138) 散户不来，就涨到散户来为止，估计要破前高了。"
+    },
+    {
+      "time": "15:03",
+      "category": "valuable_comment",
+      "source": "野哥",
+      "title": "同花顺评论备份 15:03",
+      "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629) 牛……这个引导资金，简直是神一样的控盘。"
+    },
+    {
+      "time": "15:01",
+      "category": "valuable_comment",
+      "source": "野哥",
+      "title": "同花顺评论备份 15:01",
+      "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629) 牛逼，确实牛逼。。。。尾盘买就被套了。"
+    },
+    {
+      "time": "13:59",
+      "category": "valuable_comment",
+      "source": "野哥",
+      "title": "同花顺评论备份 13:59",
+      "content": "帖子评论量备份：143 条。帖子摘要：持股天数188天了。哎，太难了，持股中的贪婪和恐惧，懊悔与自己人性的博弈，太难了。还好结果不负我。目前是高位了，盈亏自负。"
+    },
+    {
+      "time": "13:17",
+      "category": "valuable_comment",
+      "source": "野哥",
+      "title": "同花顺评论备份 13:17",
+      "content": "帖子评论量备份：433 条。帖子摘要：工业富联(601138) 散户不来，就涨到散户来为止，估计要破前高了。"
     }
   ],
   "sources": [
@@ -63,13 +114,182 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "暂无公开帖子/视频数据",
-      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
-      "top_picks": [],
+      "latest_title": "2026-05-28 15:03 利通电子(603629)",
+      "latest_summary": "利通电子(603629) 牛……这个引导资金，简直是神一样的控盘。",
+      "top_picks": [
+        {
+          "code": "601138",
+          "name": "工业富联",
+          "type": "短期",
+          "pattern": "回踩观察"
+        }
+      ],
       "holdings": [],
-      "comment_count": 0,
-      "posts": [],
-      "comments": []
+      "comment_count": 4,
+      "posts": [
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-28 15:03 利通电子(603629)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrobf4latxbq0f0aa3d6",
+          "media": [],
+          "summary": "利通电子(603629) 牛……这个引导资金，简直是神一样的控盘。",
+          "mentioned_stocks": "利通电子(603629)",
+          "mentioned_sectors": "个股相关;野哥同花顺逻辑",
+          "note": "优先级 P2; 点赞 245; 评论 0; 转发 0; 本地截图 0 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-28 15:01 利通电子(603629)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrkxmgxibj7a29d1e348",
+          "media": [
+            "/media/2026-05-28/yege/daily_01_1501_2353088271.jpg"
+          ],
+          "summary": "利通电子(603629) 牛逼，确实牛逼。。。。尾盘买就被套了。",
+          "mentioned_stocks": "利通电子(603629)",
+          "mentioned_sectors": "交易动作;风险提示;含图片/截图核对;个股相关;野哥同花顺逻辑",
+          "note": "优先级 P1; 点赞 50; 评论 0; 转发 0; 本地截图 1 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-28 13:59 野哥同花顺动态",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dno09aqsftsdy76ab1406",
+          "media": [
+            "/media/2026-05-28/yege/daily_02_1359_2352957588.jpg"
+          ],
+          "summary": "持股天数188天了。哎，太难了，持股中的贪婪和恐惧，懊悔与自己人性的博弈，太难了。还好结果不负我。目前是高位了，盈亏自负。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "持仓表达;风险提示;含图片/截图核对",
+          "note": "优先级 P2; 点赞 449; 评论 143; 转发 7; 本地截图 1 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-28 13:17 工业富联(601138)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnl7qxo7hevhy8e1888ea",
+          "media": [],
+          "summary": "工业富联(601138) 散户不来，就涨到散户来为止，估计要破前高了。",
+          "mentioned_stocks": "工业富联(601138)",
+          "mentioned_sectors": "个股相关;野哥同花顺逻辑",
+          "note": "优先级 P2; 点赞 606; 评论 433; 转发 8; 本地截图 0 张"
+        }
+      ],
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 15:03",
+          "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  牛……这个引导资金，简直是神一样的控盘。",
+          "mentioned_stocks": "利通电子(603629)",
+          "mentioned_sectors": "个股相关;野哥同花顺逻辑",
+          "value_reason": "同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "",
+          "parent_type": "",
+          "parent_id": "",
+          "parent_title": "",
+          "parent_url": "",
+          "parent_cover": "",
+          "comment_id": "",
+          "comment_time": "",
+          "commenter": "",
+          "sentiment": "",
+          "value_score": "",
+          "is_selected": "",
+          "action_note": "",
+          "note": "post_id=2353091707; media=",
+          "media": [],
+          "video_urls": []
+        },
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 15:01",
+          "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  牛逼，确实牛逼。。。。尾盘买就被套了。",
+          "mentioned_stocks": "利通电子(603629)",
+          "mentioned_sectors": "交易动作;风险提示;含图片/截图核对;个股相关;野哥同花顺逻辑",
+          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；文本包含被套、解套、风险、盈亏自负等风控词。；动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "",
+          "parent_type": "",
+          "parent_id": "",
+          "parent_title": "",
+          "parent_url": "",
+          "parent_cover": "",
+          "comment_id": "",
+          "comment_time": "",
+          "commenter": "",
+          "sentiment": "",
+          "value_score": "",
+          "is_selected": "",
+          "action_note": "",
+          "note": "post_id=2353088271; media=/media/2026-05-28/yege/daily_01_1501_2353088271.jpg",
+          "media": [
+            "/media/2026-05-28/yege/daily_01_1501_2353088271.jpg"
+          ],
+          "video_urls": []
+        },
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 13:59",
+          "content": "帖子评论量备份：143 条。帖子摘要：持股天数188天了。哎，太难了，持股中的贪婪和恐惧，懊悔与自己人性的博弈，太难了。还好结果不负我。目前是高位了，盈亏自负。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "持仓表达;风险提示;含图片/截图核对",
+          "value_reason": "文本包含被套、解套、风险、盈亏自负等风控词。；动态包含图片，可能有交易截图，需人工点开核对。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "",
+          "parent_type": "",
+          "parent_id": "",
+          "parent_title": "",
+          "parent_url": "",
+          "parent_cover": "",
+          "comment_id": "",
+          "comment_time": "",
+          "commenter": "",
+          "sentiment": "",
+          "value_score": "",
+          "is_selected": "",
+          "action_note": "",
+          "note": "post_id=2352957588; media=/media/2026-05-28/yege/daily_02_1359_2352957588.jpg",
+          "media": [
+            "/media/2026-05-28/yege/daily_02_1359_2352957588.jpg"
+          ],
+          "video_urls": []
+        },
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 13:17",
+          "content": "帖子评论量备份：433 条。帖子摘要：工业富联(601138)  散户不来，就涨到散户来为止，估计要破前高了。",
+          "mentioned_stocks": "工业富联(601138)",
+          "mentioned_sectors": "个股相关;野哥同花顺逻辑",
+          "value_reason": "同花顺选股逻辑命中：THS-06 二次回踩看承接。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "",
+          "parent_type": "",
+          "parent_id": "",
+          "parent_title": "",
+          "parent_url": "",
+          "parent_cover": "",
+          "comment_id": "",
+          "comment_time": "",
+          "commenter": "",
+          "sentiment": "",
+          "value_score": "",
+          "is_selected": "",
+          "action_note": "",
+          "note": "post_id=2352855510; media=",
+          "media": [],
+          "video_urls": []
+        }
+      ]
     },
     {
       "id": "lihongjuan",
@@ -109,7 +329,27 @@
     }
   ],
   "selection": {
-    "short": [],
+    "short": [
+      {
+        "source_id": "yege",
+        "source_name": "野哥",
+        "code": "601138",
+        "name": "工业富联",
+        "type": "短期",
+        "pattern": "回踩观察",
+        "source_names": "野哥",
+        "entry_range": "68.49-70.08",
+        "stop_loss": "67.06",
+        "take_profit_1": "74.28",
+        "take_profit_2": "77.09",
+        "risk_reward": "1:7.0",
+        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+        "risk": "中",
+        "status": "等待买点",
+        "reason": "二次回踩线索，先看承接",
+        "score": 31.0
+      }
+    ],
     "mid": []
   },
   "stock_pool": {
@@ -117,7 +357,64 @@
       {
         "id": "yege",
         "name": "野哥",
-        "short": [],
+        "short": [
+          {
+            "source_id": "yege",
+            "source_name": "野哥",
+            "code": "601138",
+            "name": "工业富联",
+            "type": "短期",
+            "pattern": "回踩观察",
+            "source_names": "野哥",
+            "entry_range": "68.49-70.08",
+            "stop_loss": "67.06",
+            "take_profit_1": "74.28",
+            "take_profit_2": "77.09",
+            "risk_reward": "1:7.0",
+            "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+            "risk": "中",
+            "status": "等待买点",
+            "reason": "二次回踩线索，先看承接",
+            "score": 31.0,
+            "accepted": true,
+            "excluded_reason": "",
+            "raw_text": "工业富联(601138)  散户不来，就涨到散户来为止，估计要破前高了。",
+            "note": "由真实备份信号转换，买点需人工复核。",
+            "trend_score": 8.0,
+            "breakout_score": 5.0,
+            "pullback_score": 8.0,
+            "volume_score": 7.0,
+            "risk_score": 4.0
+          },
+          {
+            "source_id": "yege",
+            "source_name": "野哥",
+            "code": "603629",
+            "name": "利通电子",
+            "type": "短期",
+            "pattern": "追高风险",
+            "source_names": "野哥",
+            "entry_range": "187.40-214.08",
+            "stop_loss": "167.74",
+            "take_profit_1": "226.92",
+            "take_profit_2": "235.49",
+            "risk_reward": "1:5.0",
+            "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+            "risk": "高",
+            "status": "观察取消",
+            "reason": "无先手不追高，只看回踩",
+            "score": 21.0,
+            "accepted": false,
+            "excluded_reason": "盈亏比不足；风险扣分过高；状态为观察取消",
+            "raw_text": "利通电子(603629)  牛……这个引导资金，简直是神一样的控盘。",
+            "note": "由真实备份信号转换，买点需人工复核。",
+            "trend_score": 8.0,
+            "breakout_score": 5.0,
+            "pullback_score": 6.0,
+            "volume_score": 5.0,
+            "risk_score": 8.0
+          }
+        ],
         "mid": []
       },
       {
@@ -140,14 +437,420 @@
       }
     ]
   },
-  "comments": [],
-  "comment_groups": [],
+  "comments": [
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 15:03",
+      "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  牛……这个引导资金，简直是神一样的控盘。",
+      "mentioned_stocks": "利通电子(603629)",
+      "mentioned_sectors": "个股相关;野哥同花顺逻辑",
+      "value_reason": "同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+      "include_in_logic": "待确认",
+      "include_status": "待确认",
+      "platform": "同花顺帖子",
+      "parent_type": "post",
+      "parent_id": "2353091707",
+      "parent_title": "利通电子(603629)",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrobf4latxbq0f0aa3d6",
+      "parent_cover": "",
+      "comment_id": "yege-post-2353091707-15:03",
+      "comment_time": "15:03",
+      "commenter": "野哥",
+      "sentiment": "中性",
+      "value_score": 5.4,
+      "is_selected": false,
+      "action_note": "",
+      "note": "post_id=2353091707; media=",
+      "media": [],
+      "video_urls": []
+    },
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 15:01",
+      "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  牛逼，确实牛逼。。。。尾盘买就被套了。",
+      "mentioned_stocks": "利通电子(603629)",
+      "mentioned_sectors": "交易动作;风险提示;含图片/截图核对;个股相关;野哥同花顺逻辑",
+      "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；文本包含被套、解套、风险、盈亏自负等风控词。；动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+      "include_in_logic": "待确认",
+      "include_status": "待确认",
+      "platform": "同花顺帖子",
+      "parent_type": "post",
+      "parent_id": "2353088271",
+      "parent_title": "利通电子(603629)",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrkxmgxibj7a29d1e348",
+      "parent_cover": "/media/2026-05-28/yege/daily_01_1501_2353088271.jpg",
+      "comment_id": "yege-post-2353088271-15:01",
+      "comment_time": "15:01",
+      "commenter": "野哥",
+      "sentiment": "谨慎",
+      "value_score": 4.9,
+      "is_selected": false,
+      "action_note": "",
+      "note": "post_id=2353088271; media=/media/2026-05-28/yege/daily_01_1501_2353088271.jpg",
+      "media": [
+        "/media/2026-05-28/yege/daily_01_1501_2353088271.jpg"
+      ],
+      "video_urls": []
+    },
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 13:59",
+      "content": "帖子评论量备份：143 条。帖子摘要：持股天数188天了。哎，太难了，持股中的贪婪和恐惧，懊悔与自己人性的博弈，太难了。还好结果不负我。目前是高位了，盈亏自负。",
+      "mentioned_stocks": "",
+      "mentioned_sectors": "持仓表达;风险提示;含图片/截图核对",
+      "value_reason": "文本包含被套、解套、风险、盈亏自负等风控词。；动态包含图片，可能有交易截图，需人工点开核对。",
+      "include_in_logic": "待确认",
+      "include_status": "待确认",
+      "platform": "同花顺帖子",
+      "parent_type": "post",
+      "parent_id": "2352957588",
+      "parent_title": "2026-05-28 13:59 野哥同花顺动态",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dno09aqsftsdy76ab1406",
+      "parent_cover": "/media/2026-05-28/yege/daily_02_1359_2352957588.jpg",
+      "comment_id": "yege-post-2352957588-13:59",
+      "comment_time": "13:59",
+      "commenter": "野哥",
+      "sentiment": "谨慎",
+      "value_score": 4.9,
+      "is_selected": false,
+      "action_note": "",
+      "note": "post_id=2352957588; media=/media/2026-05-28/yege/daily_02_1359_2352957588.jpg",
+      "media": [
+        "/media/2026-05-28/yege/daily_02_1359_2352957588.jpg"
+      ],
+      "video_urls": []
+    },
+    {
+      "source_id": "yege",
+      "source": "野哥",
+      "source_name": "野哥",
+      "comment_source": "同花顺评论备份 13:17",
+      "content": "帖子评论量备份：433 条。帖子摘要：工业富联(601138)  散户不来，就涨到散户来为止，估计要破前高了。",
+      "mentioned_stocks": "工业富联(601138)",
+      "mentioned_sectors": "个股相关;野哥同花顺逻辑",
+      "value_reason": "同花顺选股逻辑命中：THS-06 二次回踩看承接。",
+      "include_in_logic": "待确认",
+      "include_status": "待确认",
+      "platform": "同花顺帖子",
+      "parent_type": "post",
+      "parent_id": "2352855510",
+      "parent_title": "工业富联(601138)",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnl7qxo7hevhy8e1888ea",
+      "parent_cover": "",
+      "comment_id": "yege-post-2352855510-13:17",
+      "comment_time": "13:17",
+      "commenter": "野哥",
+      "sentiment": "中性",
+      "value_score": 5.4,
+      "is_selected": false,
+      "action_note": "",
+      "note": "post_id=2352855510; media=",
+      "media": [],
+      "video_urls": []
+    }
+  ],
+  "comment_groups": [
+    {
+      "group_id": "yege|comment|yege-post-2353091707-15:03|0",
+      "group_mode": "single_comment",
+      "source": "yege",
+      "source_id": "yege",
+      "source_name": "野哥",
+      "parent_type": "post",
+      "parent_id": "2353091707",
+      "parent_title": "利通电子(603629)",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrobf4latxbq0f0aa3d6",
+      "parent_cover": "",
+      "platform": "同花顺帖子",
+      "time": "15:03",
+      "published_at": "2026-05-28 15:03",
+      "summary": "利通电子(603629) 牛……这个引导资金，简直是神一样的控盘。",
+      "mentioned_stocks": [
+        "利通电子(603629)"
+      ],
+      "mentioned_sectors": [
+        "个股相关",
+        "野哥同花顺逻辑"
+      ],
+      "comment_count": 1,
+      "valuable_comment_count": 0,
+      "include_status_summary": "待确认",
+      "include_counts": {
+        "已纳入": 0,
+        "待确认": 1,
+        "未纳入": 0,
+        "无效评论": 0
+      },
+      "sentiment_counts": {
+        "看多": 0,
+        "看空": 0,
+        "中性": 1,
+        "谨慎": 0
+      },
+      "support_direction": "仅作参考",
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 15:03",
+          "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  牛……这个引导资金，简直是神一样的控盘。",
+          "mentioned_stocks": "利通电子(603629)",
+          "mentioned_sectors": "个股相关;野哥同花顺逻辑",
+          "value_reason": "同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "同花顺帖子",
+          "parent_type": "post",
+          "parent_id": "2353091707",
+          "parent_title": "利通电子(603629)",
+          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrobf4latxbq0f0aa3d6",
+          "parent_cover": "",
+          "comment_id": "yege-post-2353091707-15:03",
+          "comment_time": "15:03",
+          "commenter": "野哥",
+          "sentiment": "中性",
+          "value_score": 5.4,
+          "is_selected": false,
+          "action_note": "",
+          "note": "post_id=2353091707; media=",
+          "media": [],
+          "video_urls": []
+        }
+      ],
+      "selected_comments": []
+    },
+    {
+      "group_id": "yege|comment|yege-post-2353088271-15:01|1",
+      "group_mode": "single_comment",
+      "source": "yege",
+      "source_id": "yege",
+      "source_name": "野哥",
+      "parent_type": "post",
+      "parent_id": "2353088271",
+      "parent_title": "利通电子(603629)",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrkxmgxibj7a29d1e348",
+      "parent_cover": "/media/2026-05-28/yege/daily_01_1501_2353088271.jpg",
+      "platform": "同花顺帖子",
+      "time": "15:01",
+      "published_at": "2026-05-28 15:01",
+      "summary": "利通电子(603629) 牛逼，确实牛逼。。。。尾盘买就被套了。",
+      "mentioned_stocks": [
+        "利通电子(603629)"
+      ],
+      "mentioned_sectors": [
+        "交易动作",
+        "风险提示",
+        "含图片",
+        "截图核对",
+        "个股相关",
+        "野哥同花顺逻辑"
+      ],
+      "comment_count": 1,
+      "valuable_comment_count": 0,
+      "include_status_summary": "待确认",
+      "include_counts": {
+        "已纳入": 0,
+        "待确认": 1,
+        "未纳入": 0,
+        "无效评论": 0
+      },
+      "sentiment_counts": {
+        "看多": 0,
+        "看空": 0,
+        "中性": 0,
+        "谨慎": 1
+      },
+      "support_direction": "仅作参考",
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 15:01",
+          "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  牛逼，确实牛逼。。。。尾盘买就被套了。",
+          "mentioned_stocks": "利通电子(603629)",
+          "mentioned_sectors": "交易动作;风险提示;含图片/截图核对;个股相关;野哥同花顺逻辑",
+          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；文本包含被套、解套、风险、盈亏自负等风控词。；动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "同花顺帖子",
+          "parent_type": "post",
+          "parent_id": "2353088271",
+          "parent_title": "利通电子(603629)",
+          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrkxmgxibj7a29d1e348",
+          "parent_cover": "/media/2026-05-28/yege/daily_01_1501_2353088271.jpg",
+          "comment_id": "yege-post-2353088271-15:01",
+          "comment_time": "15:01",
+          "commenter": "野哥",
+          "sentiment": "谨慎",
+          "value_score": 4.9,
+          "is_selected": false,
+          "action_note": "",
+          "note": "post_id=2353088271; media=/media/2026-05-28/yege/daily_01_1501_2353088271.jpg",
+          "media": [
+            "/media/2026-05-28/yege/daily_01_1501_2353088271.jpg"
+          ],
+          "video_urls": []
+        }
+      ],
+      "selected_comments": []
+    },
+    {
+      "group_id": "yege|comment|yege-post-2352957588-13:59|2",
+      "group_mode": "single_comment",
+      "source": "yege",
+      "source_id": "yege",
+      "source_name": "野哥",
+      "parent_type": "post",
+      "parent_id": "2352957588",
+      "parent_title": "2026-05-28 13:59 野哥同花顺动态",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dno09aqsftsdy76ab1406",
+      "parent_cover": "/media/2026-05-28/yege/daily_02_1359_2352957588.jpg",
+      "platform": "同花顺帖子",
+      "time": "13:59",
+      "published_at": "2026-05-28 13:59",
+      "summary": "持股天数188天了。哎，太难了，持股中的贪婪和恐惧，懊悔与自己人性的博弈，太难了。还好结果不负我。目前是高位了，盈亏自负。",
+      "mentioned_stocks": [],
+      "mentioned_sectors": [
+        "持仓表达",
+        "风险提示",
+        "含图片",
+        "截图核对"
+      ],
+      "comment_count": 1,
+      "valuable_comment_count": 0,
+      "include_status_summary": "待确认",
+      "include_counts": {
+        "已纳入": 0,
+        "待确认": 1,
+        "未纳入": 0,
+        "无效评论": 0
+      },
+      "sentiment_counts": {
+        "看多": 0,
+        "看空": 0,
+        "中性": 0,
+        "谨慎": 1
+      },
+      "support_direction": "仅作参考",
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 13:59",
+          "content": "帖子评论量备份：143 条。帖子摘要：持股天数188天了。哎，太难了，持股中的贪婪和恐惧，懊悔与自己人性的博弈，太难了。还好结果不负我。目前是高位了，盈亏自负。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "持仓表达;风险提示;含图片/截图核对",
+          "value_reason": "文本包含被套、解套、风险、盈亏自负等风控词。；动态包含图片，可能有交易截图，需人工点开核对。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "同花顺帖子",
+          "parent_type": "post",
+          "parent_id": "2352957588",
+          "parent_title": "2026-05-28 13:59 野哥同花顺动态",
+          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dno09aqsftsdy76ab1406",
+          "parent_cover": "/media/2026-05-28/yege/daily_02_1359_2352957588.jpg",
+          "comment_id": "yege-post-2352957588-13:59",
+          "comment_time": "13:59",
+          "commenter": "野哥",
+          "sentiment": "谨慎",
+          "value_score": 4.9,
+          "is_selected": false,
+          "action_note": "",
+          "note": "post_id=2352957588; media=/media/2026-05-28/yege/daily_02_1359_2352957588.jpg",
+          "media": [
+            "/media/2026-05-28/yege/daily_02_1359_2352957588.jpg"
+          ],
+          "video_urls": []
+        }
+      ],
+      "selected_comments": []
+    },
+    {
+      "group_id": "yege|comment|yege-post-2352855510-13:17|3",
+      "group_mode": "single_comment",
+      "source": "yege",
+      "source_id": "yege",
+      "source_name": "野哥",
+      "parent_type": "post",
+      "parent_id": "2352855510",
+      "parent_title": "工业富联(601138)",
+      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnl7qxo7hevhy8e1888ea",
+      "parent_cover": "",
+      "platform": "同花顺帖子",
+      "time": "13:17",
+      "published_at": "2026-05-28 13:17",
+      "summary": "工业富联(601138) 散户不来，就涨到散户来为止，估计要破前高了。",
+      "mentioned_stocks": [
+        "工业富联(601138)"
+      ],
+      "mentioned_sectors": [
+        "个股相关",
+        "野哥同花顺逻辑"
+      ],
+      "comment_count": 1,
+      "valuable_comment_count": 0,
+      "include_status_summary": "待确认",
+      "include_counts": {
+        "已纳入": 0,
+        "待确认": 1,
+        "未纳入": 0,
+        "无效评论": 0
+      },
+      "sentiment_counts": {
+        "看多": 0,
+        "看空": 0,
+        "中性": 1,
+        "谨慎": 0
+      },
+      "support_direction": "仅作参考",
+      "comments": [
+        {
+          "source_id": "yege",
+          "source": "野哥",
+          "source_name": "野哥",
+          "comment_source": "同花顺评论备份 13:17",
+          "content": "帖子评论量备份：433 条。帖子摘要：工业富联(601138)  散户不来，就涨到散户来为止，估计要破前高了。",
+          "mentioned_stocks": "工业富联(601138)",
+          "mentioned_sectors": "个股相关;野哥同花顺逻辑",
+          "value_reason": "同花顺选股逻辑命中：THS-06 二次回踩看承接。",
+          "include_in_logic": "待确认",
+          "include_status": "待确认",
+          "platform": "同花顺帖子",
+          "parent_type": "post",
+          "parent_id": "2352855510",
+          "parent_title": "工业富联(601138)",
+          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnl7qxo7hevhy8e1888ea",
+          "parent_cover": "",
+          "comment_id": "yege-post-2352855510-13:17",
+          "comment_time": "13:17",
+          "commenter": "野哥",
+          "sentiment": "中性",
+          "value_score": 5.4,
+          "is_selected": false,
+          "action_note": "",
+          "note": "post_id=2352855510; media=",
+          "media": [],
+          "video_urls": []
+        }
+      ],
+      "selected_comments": []
+    }
+  ],
   "comment_sources": [
     {
       "id": "yege",
       "name": "野哥",
-      "count": 0,
-      "post_count": 0
+      "count": 4,
+      "post_count": 4
     },
     {
       "id": "lihongjuan",
@@ -171,7 +874,52 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": []
+      "posts": [
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-28 15:03 利通电子(603629)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrobf4latxbq0f0aa3d6",
+          "media": [],
+          "summary": "利通电子(603629) 牛……这个引导资金，简直是神一样的控盘。",
+          "mentioned_stocks": "利通电子(603629)",
+          "mentioned_sectors": "个股相关;野哥同花顺逻辑",
+          "note": "优先级 P2; 点赞 245; 评论 0; 转发 0; 本地截图 0 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-28 15:01 利通电子(603629)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrkxmgxibj7a29d1e348",
+          "media": [
+            "/media/2026-05-28/yege/daily_01_1501_2353088271.jpg"
+          ],
+          "summary": "利通电子(603629) 牛逼，确实牛逼。。。。尾盘买就被套了。",
+          "mentioned_stocks": "利通电子(603629)",
+          "mentioned_sectors": "交易动作;风险提示;含图片/截图核对;个股相关;野哥同花顺逻辑",
+          "note": "优先级 P1; 点赞 50; 评论 0; 转发 0; 本地截图 1 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-28 13:59 野哥同花顺动态",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dno09aqsftsdy76ab1406",
+          "media": [
+            "/media/2026-05-28/yege/daily_02_1359_2352957588.jpg"
+          ],
+          "summary": "持股天数188天了。哎，太难了，持股中的贪婪和恐惧，懊悔与自己人性的博弈，太难了。还好结果不负我。目前是高位了，盈亏自负。",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "持仓表达;风险提示;含图片/截图核对",
+          "note": "优先级 P2; 点赞 449; 评论 143; 转发 7; 本地截图 1 张"
+        },
+        {
+          "channel": "同花顺帖子",
+          "title": "2026-05-28 13:17 工业富联(601138)",
+          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnl7qxo7hevhy8e1888ea",
+          "media": [],
+          "summary": "工业富联(601138) 散户不来，就涨到散户来为止，估计要破前高了。",
+          "mentioned_stocks": "工业富联(601138)",
+          "mentioned_sectors": "个股相关;野哥同花顺逻辑",
+          "note": "优先级 P2; 点赞 606; 评论 433; 转发 8; 本地截图 0 张"
+        }
+      ]
     },
     "lihongjuan": {
       "name": "李红娟",
