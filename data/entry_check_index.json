@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-27T11:53:55",
-  "default_date": "2026-05-27",
+  "generated_at": "2026-05-28T11:56:21",
+  "default_date": "2026-05-28",
   "modes": [
     {
       "id": "yege",
@@ -9864,6 +9864,360 @@
       },
       "entries": [],
       "candidates": []
+    },
+    {
+      "date": "2026-05-28",
+      "market": {
+        "market_status": "探底回升，上涨家数约2788，下跌家数约2349",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [
+        {
+          "date": "2026-05-28",
+          "code": "603629",
+          "name": "利通电子",
+          "search_text": "603629 利通电子 全能的野人",
+          "mode": "yege",
+          "mode_name": "野哥模式",
+          "source": "yege",
+          "source_name": "全能的野人",
+          "type": "短期",
+          "pattern": "追高风险",
+          "logic": "无先手不追高，只看回踩",
+          "sectors": [
+            "个股相关",
+            "野哥同花顺逻辑",
+            "交易动作",
+            "风险提示",
+            "含图片/截图核对"
+          ],
+          "status": "仅观察",
+          "suggest_entry": false,
+          "risk": "高",
+          "summary": "利通电子当前证据不足，已命中4项、缺失4项，需要补充价格、止损或大盘支持数据。",
+          "current_price": null,
+          "entry_low": 187.4,
+          "entry_high": 214.08,
+          "entry_range": "187.4 - 214.08",
+          "stop_loss": 167.74,
+          "take_profit_1": 226.92,
+          "take_profit_2": 235.49,
+          "risk_reward": "1:0.79",
+          "position_advice": "轻仓观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
+          "matched_rules": [
+            "来源命中",
+            "技术形态可观察",
+            "入场区间明确",
+            "止损位明确"
+          ],
+          "missed_rules": [
+            "盈亏比不足或待复核",
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
+            "板块与当日主线关联待确认",
+            "风险等级为高",
+            "股票池状态为观察取消",
+            "评论区存在反向风险线索",
+            "野哥模式下追高风险需降级"
+          ],
+          "risk_points": [
+            "风险等级为高",
+            "股票池状态为观察取消",
+            "评论区存在反向风险线索",
+            "野哥模式下追高风险需降级"
+          ],
+          "action": {
+            "today": "不追高，只等买点。",
+            "wait_condition": "只在 187.4 - 214.08 区间内观察，并确认量能承接。",
+            "invalid_condition": "跌破 167.74 无条件退出观察。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [
+              {
+                "date": "2026-05-28",
+                "source": "yege",
+                "source_name": "全能的野人",
+                "code": "603629",
+                "name": "利通电子",
+                "type": "short",
+                "pattern": "追高风险",
+                "logic": "无先手不追高，只看回踩",
+                "entry_low": 187.4,
+                "entry_high": 214.08,
+                "stop_loss": 167.74,
+                "take_profit_1": 226.92,
+                "take_profit_2": 235.49,
+                "risk_reward_score": 5.0,
+                "risk_score": 8.0,
+                "risk": "高",
+                "status": "观察取消",
+                "raw_text": "利通电子(603629)  牛……这个引导资金，简直是神一样的控盘。",
+                "note": "由真实备份信号转换，买点需人工复核。",
+                "trend_score": 8.0,
+                "breakout_score": 5.0,
+                "pullback_score": 6.0,
+                "volume_score": 5.0
+              }
+            ],
+            "source_mentions": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "title": "2026-05-28 15:03 利通电子(603629)",
+                "summary": "利通电子(603629) 牛……这个引导资金，简直是神一样的控盘。",
+                "sectors": [
+                  "个股相关",
+                  "野哥同花顺逻辑"
+                ],
+                "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrobf4latxbq0f0aa3d6"
+              },
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "title": "2026-05-28 15:01 利通电子(603629)",
+                "summary": "利通电子(603629) 牛逼，确实牛逼。。。。尾盘买就被套了。",
+                "sectors": [
+                  "交易动作",
+                  "风险提示",
+                  "含图片/截图核对",
+                  "个股相关",
+                  "野哥同花顺逻辑"
+                ],
+                "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnrkxmgxibj7a29d1e348"
+              }
+            ],
+            "comments": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "comment_source": "同花顺评论备份 15:03",
+                "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  牛……这个引导资金，简直是神一样的控盘。",
+                "sectors": [
+                  "个股相关",
+                  "野哥同花顺逻辑"
+                ],
+                "value_reason": "同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+                "include_status": "待确认",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              },
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "comment_source": "同花顺评论备份 15:01",
+                "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  牛逼，确实牛逼。。。。尾盘买就被套了。",
+                "sectors": [
+                  "交易动作",
+                  "风险提示",
+                  "含图片/截图核对",
+                  "个股相关",
+                  "野哥同花顺逻辑"
+                ],
+                "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。；文本包含被套、解套、风险、盈亏自负等风控词。；动态包含图片，可能有交易截图，需人工点开核对。；同花顺选股逻辑命中：THS-01 要信早信，无先手不追高。",
+                "include_status": "待确认",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "探底回升，上涨家数约2788，下跌家数约2349",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        },
+        {
+          "date": "2026-05-28",
+          "code": "601138",
+          "name": "工业富联",
+          "search_text": "601138 工业富联 全能的野人",
+          "mode": "yege",
+          "mode_name": "野哥模式",
+          "source": "yege",
+          "source_name": "全能的野人",
+          "type": "短期",
+          "pattern": "回踩观察",
+          "logic": "二次回踩线索，先看承接",
+          "sectors": [
+            "个股相关",
+            "野哥同花顺逻辑",
+            "算力",
+            "服务器"
+          ],
+          "status": "等待买点",
+          "suggest_entry": false,
+          "risk": "中",
+          "summary": "工业富联命中5项条件，关联板块：个股相关、野哥同花顺逻辑、算力，当前以等待买点处理，等待价格、量能和板块继续确认。",
+          "current_price": null,
+          "entry_low": 68.49,
+          "entry_high": 70.08,
+          "entry_range": "68.49 - 70.08",
+          "stop_loss": 67.06,
+          "take_profit_1": 74.28,
+          "take_profit_2": 77.09,
+          "risk_reward": "1:2.24",
+          "position_advice": "轻仓观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
+          "matched_rules": [
+            "来源命中",
+            "技术形态可观察",
+            "入场区间明确",
+            "止损位明确",
+            "盈亏比合格"
+          ],
+          "missed_rules": [
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
+            "板块与当日主线关联待确认"
+          ],
+          "risk_points": [],
+          "action": {
+            "today": "不追高，只等买点。",
+            "wait_condition": "只在 68.49 - 70.08 区间内观察，并确认量能承接。",
+            "invalid_condition": "跌破 67.06 无条件退出观察。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [
+              {
+                "date": "2026-05-28",
+                "source": "yege",
+                "source_name": "全能的野人",
+                "code": "601138",
+                "name": "工业富联",
+                "type": "short",
+                "pattern": "回踩观察",
+                "logic": "二次回踩线索，先看承接",
+                "entry_low": 68.49,
+                "entry_high": 70.08,
+                "stop_loss": 67.06,
+                "take_profit_1": 74.28,
+                "take_profit_2": 77.09,
+                "risk_reward_score": 7.0,
+                "risk_score": 4.0,
+                "risk": "中",
+                "status": "等待买点",
+                "raw_text": "工业富联(601138)  散户不来，就涨到散户来为止，估计要破前高了。",
+                "note": "由真实备份信号转换，买点需人工复核。",
+                "trend_score": 8.0,
+                "breakout_score": 5.0,
+                "pullback_score": 8.0,
+                "volume_score": 7.0
+              }
+            ],
+            "source_mentions": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "title": "2026-05-28 13:17 工业富联(601138)",
+                "summary": "工业富联(601138) 散户不来，就涨到散户来为止，估计要破前高了。",
+                "sectors": [
+                  "个股相关",
+                  "野哥同花顺逻辑"
+                ],
+                "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnl7qxo7hevhy8e1888ea"
+              }
+            ],
+            "comments": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "comment_source": "同花顺评论备份 13:17",
+                "content": "帖子评论量备份：433 条。帖子摘要：工业富联(601138)  散户不来，就涨到散户来为止，估计要破前高了。",
+                "sectors": [
+                  "个股相关",
+                  "野哥同花顺逻辑"
+                ],
+                "value_reason": "同花顺选股逻辑命中：THS-06 二次回踩看承接。",
+                "include_status": "待确认",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "探底回升，上涨家数约2788，下跌家数约2349",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        }
+      ],
+      "candidates": [
+        {
+          "code": "601138",
+          "name": "工业富联",
+          "sectors": [
+            "个股相关",
+            "野哥同花顺逻辑",
+            "算力",
+            "服务器"
+          ]
+        },
+        {
+          "code": "603629",
+          "name": "利通电子",
+          "sectors": [
+            "个股相关",
+            "野哥同花顺逻辑",
+            "交易动作",
+            "风险提示",
+            "含图片/截图核对"
+          ]
+        }
+      ]
     }
   ]
 }
