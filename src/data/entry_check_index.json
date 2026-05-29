@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-28T11:56:21",
-  "default_date": "2026-05-28",
+  "generated_at": "2026-05-29T11:45:00",
+  "default_date": "2026-05-29",
   "modes": [
     {
       "id": "yege",
@@ -10215,6 +10215,189 @@
             "交易动作",
             "风险提示",
             "含图片/截图核对"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-05-29",
+      "market": {
+        "market_status": "窄幅震荡，上涨家数约1474，下跌家数约3711",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [
+        {
+          "date": "2026-05-29",
+          "code": "603629",
+          "name": "利通电子",
+          "search_text": "603629 利通电子 全能的野人",
+          "mode": "yege",
+          "mode_name": "野哥模式",
+          "source": "yege",
+          "source_name": "全能的野人",
+          "type": "短期",
+          "pattern": "强势延续",
+          "logic": "强提醒，仍需结合位置和仓位控制",
+          "sectors": [
+            "交易动作",
+            "个股相关"
+          ],
+          "status": "等待买点",
+          "suggest_entry": false,
+          "risk": "中",
+          "summary": "利通电子命中4项条件，关联板块：交易动作、个股相关，当前以等待买点处理，等待价格、量能和板块继续确认。",
+          "current_price": null,
+          "entry_low": 192.36,
+          "entry_high": 220.03,
+          "entry_range": "192.36 - 220.03",
+          "stop_loss": 173.32,
+          "take_profit_1": 233.23,
+          "take_profit_2": 242.03,
+          "risk_reward": "1:0.82",
+          "position_advice": "轻仓观察，不超过计划仓位 20%",
+          "tracking_cycle": "短期 7 天 / 波段 30 天",
+          "trend_snapshot": {
+            "as_of": "",
+            "current_price": null,
+            "pct_change": null,
+            "ma5": null,
+            "ma10": null,
+            "ma20": null,
+            "volume_ratio": null,
+            "technical_state": "",
+            "source": "picks_logic"
+          },
+          "price_position": "当前价待补充",
+          "volume_signal": "量能待补充",
+          "ma_structure": "均线待补充",
+          "technical_state": "待补充",
+          "matched_rules": [
+            "来源命中",
+            "技术形态可观察",
+            "入场区间明确",
+            "止损位明确"
+          ],
+          "missed_rules": [
+            "盈亏比不足或待复核",
+            "当前价缺失，需补充价格后复核",
+            "量能数据缺失",
+            "板块与当日主线关联待确认"
+          ],
+          "risk_points": [],
+          "action": {
+            "today": "不追高，只等买点。",
+            "wait_condition": "只在 192.36 - 220.03 区间内观察，并确认量能承接。",
+            "invalid_condition": "跌破 173.32 无条件退出观察。",
+            "next_check": "次日继续观察量能、板块资金和来源人是否继续确认。"
+          },
+          "evidence": {
+            "stock_pool": [
+              {
+                "date": "2026-05-29",
+                "source": "yege",
+                "source_name": "全能的野人",
+                "code": "603629",
+                "name": "利通电子",
+                "type": "short",
+                "pattern": "强势延续",
+                "logic": "强提醒，仍需结合位置和仓位控制",
+                "entry_low": 192.36,
+                "entry_high": 220.03,
+                "stop_loss": 173.32,
+                "take_profit_1": 233.23,
+                "take_profit_2": 242.03,
+                "risk_reward_score": 7.0,
+                "risk_score": 4.0,
+                "risk": "中",
+                "status": "等待买点",
+                "raw_text": "利通电子(603629)  今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
+                "note": "由真实备份信号转换，买点需人工复核。",
+                "trend_score": 8.0,
+                "breakout_score": 7.0,
+                "pullback_score": 6.0,
+                "volume_score": 5.0
+              }
+            ],
+            "source_mentions": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "title": "2026-05-29 14:54 利通电子(603629)",
+                "summary": "利通电子(603629) 今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
+                "sectors": [
+                  "交易动作",
+                  "个股相关"
+                ],
+                "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dofe1lm0ezbp298633bce"
+              },
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "title": "2026-05-29 11:11 利通电子(603629)",
+                "summary": "利通电子(603629) 这个不会走成十倍妖股吧！",
+                "sectors": [
+                  "个股相关"
+                ],
+                "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1do55sc3bnj20m6da09fb6"
+              }
+            ],
+            "comments": [
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "comment_source": "同花顺评论备份 14:54",
+                "content": "帖子评论量备份：323 条。帖子摘要：利通电子(603629)  今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
+                "sectors": [
+                  "交易动作",
+                  "个股相关"
+                ],
+                "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。",
+                "include_status": "待确认",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              },
+              {
+                "source": "yege",
+                "source_name": "全能的野人",
+                "comment_source": "同花顺评论备份 11:11",
+                "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  这个不会走成十倍妖股吧！",
+                "sectors": [
+                  "个股相关"
+                ],
+                "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
+                "include_status": "待确认",
+                "sentiment": "",
+                "value_score": null,
+                "url": ""
+              }
+            ],
+            "market": [
+              {
+                "market_status": "窄幅震荡，上涨家数约1474，下跌家数约3711",
+                "main_sectors": [
+                  "暂无板块轮动数据"
+                ],
+                "risk_level": "中",
+                "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+              }
+            ],
+            "performance": [],
+            "my_positions": []
+          }
+        }
+      ],
+      "candidates": [
+        {
+          "code": "603629",
+          "name": "利通电子",
+          "sectors": [
+            "交易动作",
+            "个股相关"
           ]
         }
       ]
