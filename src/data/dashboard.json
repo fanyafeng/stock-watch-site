@@ -1,13 +1,13 @@
 {
-  "date": "2026-05-29",
-  "updated_at": "2026-05-29 11:44:43",
+  "date": "2026-06-01",
+  "updated_at": "2026-06-01 17:00:17",
   "report": {
-    "date": "2026-05-29",
+    "date": "2026-06-01",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-05-29 A股综合复盘工作台",
-    "summary": "按日期聚合四个来源，短期观察 1 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
+    "title": "2026-06-01 A股综合复盘工作台",
+    "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
       "今日总览",
@@ -16,24 +16,24 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-05-29",
-    "url": "/articles/daily_2026-05-29/"
+    "slug": "daily_2026-06-01",
+    "url": "/articles/daily_2026-06-01/"
   },
   "overview": {
-    "market_status": "窄幅震荡，上涨家数约1474，下跌家数约3711",
+    "market_status": "冲高回落，上涨家数约3561，下跌家数约1652",
     "main_sectors": [
       "暂无数据"
     ],
     "risk_level": "中",
     "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
-    "sentiment": "上涨/下跌约 1474/3711，情绪按结构性修复处理。",
+    "sentiment": "上涨/下跌约 3561/1652，情绪按结构性修复处理。",
     "risk_signal": "高位放量、偏离均线过大的方向只做风险观察。",
     "tomorrow_watch": "观察主线板块延续性、回踩承接和量能是否继续放大。"
   },
   "market": {
-    "index_status": "上证指数收4068.57，涨跌幅-0.73%，形态窄幅震荡；深证成指收15575.13，涨跌幅-1.81%，形态高开低走；创业板指收4037.95，涨跌幅-2.11%，形态冲高回落",
-    "volume_change": "沪深主要指数成交额合计约 33190 亿，需结合昨日继续复核。",
-    "index_money_flow_series": "09:31=26.01;09:36=-9.37;09:41=-67.62;09:46=-122.88;09:51=-225.71;09:56=-286.83;10:01=-320.23;10:06=-401.74;10:11=-498.36;10:16=-571.86;10:21=-620.14;10:26=-613.79;10:31=-619.35;10:36=-643.89;10:41=-620.28;10:46=-603.84;10:51=-609.95;10:56=-607.88;11:01=-640.31;11:06=-686.53;11:11=-739.70;11:16=-763.51;11:21=-792.49;11:26=-785.05;13:01=-805.54;13:06=-823.21;13:11=-826.27;13:16=-817.59;13:21=-796.33;13:26=-770.63;13:31=-770.69;13:36=-791.55;13:41=-822.12;13:46=-858.45;13:51=-862.04;13:56=-941.81;14:01=-1026.07;14:06=-1113.00;14:11=-1193.98;14:16=-1224.93;14:21=-1325.70;14:26=-1374.25;14:31=-1414.35;14:36=-1435.01;14:41=-1454.62;14:46=-1515.22;14:51=-1600.08;14:56=-1618.22;15:00=-1617.67",
+    "index_status": "上证指数收4057.74，涨跌幅-0.27%，形态冲高回落；深证成指收15340.36，涨跌幅-1.51%，形态冲高回落；创业板指收3950.94，涨跌幅-2.15%，形态高开低走",
+    "volume_change": "沪深主要指数成交额合计约 28775 亿，需结合昨日继续复核。",
+    "index_money_flow_series": "",
     "sector_rotation": "暂无板块轮动数据",
     "accumulation_direction": [
       "暂无数据"
@@ -43,57 +43,13 @@
   },
   "stats": {
     "source_count": 4,
-    "candidate_count": 1,
-    "accepted_count": 1,
+    "candidate_count": 0,
+    "accepted_count": 0,
     "rejected_count": 0,
-    "comment_count": 3,
-    "top_patterns": [
-      "强势延续"
-    ]
+    "comment_count": 0,
+    "top_patterns": []
   },
   "timeline": [
-    {
-      "time": "14:54",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-05-29 14:54 利通电子(603629)",
-      "content": "利通电子(603629) 今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。"
-    },
-    {
-      "time": "11:11",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-05-29 11:11 利通电子(603629)",
-      "content": "利通电子(603629) 这个不会走成十倍妖股吧！"
-    },
-    {
-      "time": "09:51",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-05-29 09:51 野哥同花顺动态",
-      "content": "赶紧收盘，放假吧！我不想开盘了。我只想睡觉。"
-    },
-    {
-      "time": "14:54",
-      "category": "valuable_comment",
-      "source": "野哥",
-      "title": "同花顺评论备份 14:54",
-      "content": "帖子评论量备份：323 条。帖子摘要：利通电子(603629) 今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。"
-    },
-    {
-      "time": "11:11",
-      "category": "valuable_comment",
-      "source": "野哥",
-      "title": "同花顺评论备份 11:11",
-      "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629) 这个不会走成十倍妖股吧！"
-    },
-    {
-      "time": "09:51",
-      "category": "valuable_comment",
-      "source": "野哥",
-      "title": "同花顺评论备份 09:51",
-      "content": "帖子评论量备份：629 条。帖子摘要：赶紧收盘，放假吧！我不想开盘了。我只想睡觉。"
-    },
     {
       "time": "15:05",
       "category": "after_close",
@@ -107,136 +63,13 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "2026-05-29 14:54 利通电子(603629)",
-      "latest_summary": "利通电子(603629) 今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
-      "top_picks": [
-        {
-          "code": "603629",
-          "name": "利通电子",
-          "type": "短期",
-          "pattern": "强势延续"
-        }
-      ],
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [],
       "holdings": [],
-      "comment_count": 3,
-      "posts": [
-        {
-          "channel": "同花顺帖子",
-          "title": "2026-05-29 14:54 利通电子(603629)",
-          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dofe1lm0ezbp298633bce",
-          "media": [],
-          "summary": "利通电子(603629) 今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
-          "mentioned_stocks": "利通电子(603629)",
-          "mentioned_sectors": "交易动作;个股相关",
-          "note": "优先级 P1; 点赞 275; 评论 323; 转发 4; 本地截图 0 张"
-        },
-        {
-          "channel": "同花顺帖子",
-          "title": "2026-05-29 11:11 利通电子(603629)",
-          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1do55sc3bnj20m6da09fb6",
-          "media": [],
-          "summary": "利通电子(603629) 这个不会走成十倍妖股吧！",
-          "mentioned_stocks": "利通电子(603629)",
-          "mentioned_sectors": "个股相关",
-          "note": "优先级 P2; 点赞 70; 评论 0; 转发 0; 本地截图 0 张"
-        },
-        {
-          "channel": "同花顺帖子",
-          "title": "2026-05-29 09:51 野哥同花顺动态",
-          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnydyh8cozks6c9216472",
-          "media": [],
-          "summary": "赶紧收盘，放假吧！我不想开盘了。我只想睡觉。",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "优先级 P3; 点赞 1131; 评论 629; 转发 12; 本地截图 0 张"
-        }
-      ],
-      "comments": [
-        {
-          "source_id": "yege",
-          "source": "野哥",
-          "source_name": "野哥",
-          "comment_source": "同花顺评论备份 14:54",
-          "content": "帖子评论量备份：323 条。帖子摘要：利通电子(603629)  今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
-          "mentioned_stocks": "利通电子(603629)",
-          "mentioned_sectors": "交易动作;个股相关",
-          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。",
-          "include_in_logic": "待确认",
-          "include_status": "待确认",
-          "platform": "",
-          "parent_type": "",
-          "parent_id": "",
-          "parent_title": "",
-          "parent_url": "",
-          "parent_cover": "",
-          "comment_id": "",
-          "comment_time": "",
-          "commenter": "",
-          "sentiment": "",
-          "value_score": "",
-          "is_selected": "",
-          "action_note": "",
-          "note": "post_id=2353958752; media=",
-          "media": [],
-          "video_urls": []
-        },
-        {
-          "source_id": "yege",
-          "source": "野哥",
-          "source_name": "野哥",
-          "comment_source": "同花顺评论备份 11:11",
-          "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  这个不会走成十倍妖股吧！",
-          "mentioned_stocks": "利通电子(603629)",
-          "mentioned_sectors": "个股相关",
-          "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
-          "include_in_logic": "待确认",
-          "include_status": "待确认",
-          "platform": "",
-          "parent_type": "",
-          "parent_id": "",
-          "parent_title": "",
-          "parent_url": "",
-          "parent_cover": "",
-          "comment_id": "",
-          "comment_time": "",
-          "commenter": "",
-          "sentiment": "",
-          "value_score": "",
-          "is_selected": "",
-          "action_note": "",
-          "note": "post_id=2353584750; media=",
-          "media": [],
-          "video_urls": []
-        },
-        {
-          "source_id": "yege",
-          "source": "野哥",
-          "source_name": "野哥",
-          "comment_source": "同花顺评论备份 09:51",
-          "content": "帖子评论量备份：629 条。帖子摘要：赶紧收盘，放假吧！我不想开盘了。我只想睡觉。",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
-          "include_in_logic": "待确认",
-          "include_status": "待确认",
-          "platform": "",
-          "parent_type": "",
-          "parent_id": "",
-          "parent_title": "",
-          "parent_url": "",
-          "parent_cover": "",
-          "comment_id": "",
-          "comment_time": "",
-          "commenter": "",
-          "sentiment": "",
-          "value_score": "",
-          "is_selected": "",
-          "action_note": "",
-          "note": "post_id=2353337117; media=",
-          "media": [],
-          "video_urls": []
-        }
-      ]
+      "comment_count": 0,
+      "posts": [],
+      "comments": []
     },
     {
       "id": "lihongjuan",
@@ -276,27 +109,7 @@
     }
   ],
   "selection": {
-    "short": [
-      {
-        "source_id": "yege",
-        "source_name": "野哥",
-        "code": "603629",
-        "name": "利通电子",
-        "type": "短期",
-        "pattern": "强势延续",
-        "source_names": "野哥",
-        "entry_range": "192.36-220.03",
-        "stop_loss": "173.32",
-        "take_profit_1": "233.23",
-        "take_profit_2": "242.03",
-        "risk_reward": "1:7.0",
-        "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
-        "risk": "中",
-        "status": "等待买点",
-        "reason": "强提醒，仍需结合位置和仓位控制",
-        "score": 29.0
-      }
-    ],
+    "short": [],
     "mid": []
   },
   "stock_pool": {
@@ -304,36 +117,7 @@
       {
         "id": "yege",
         "name": "野哥",
-        "short": [
-          {
-            "source_id": "yege",
-            "source_name": "野哥",
-            "code": "603629",
-            "name": "利通电子",
-            "type": "短期",
-            "pattern": "强势延续",
-            "source_names": "野哥",
-            "entry_range": "192.36-220.03",
-            "stop_loss": "173.32",
-            "take_profit_1": "233.23",
-            "take_profit_2": "242.03",
-            "risk_reward": "1:7.0",
-            "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
-            "risk": "中",
-            "status": "等待买点",
-            "reason": "强提醒，仍需结合位置和仓位控制",
-            "score": 29.0,
-            "accepted": true,
-            "excluded_reason": "",
-            "raw_text": "利通电子(603629)  今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
-            "note": "由真实备份信号转换，买点需人工复核。",
-            "trend_score": 8.0,
-            "breakout_score": 7.0,
-            "pullback_score": 6.0,
-            "volume_score": 5.0,
-            "risk_score": 4.0
-          }
-        ],
+        "short": [],
         "mid": []
       },
       {
@@ -356,304 +140,14 @@
       }
     ]
   },
-  "comments": [
-    {
-      "source_id": "yege",
-      "source": "野哥",
-      "source_name": "野哥",
-      "comment_source": "同花顺评论备份 14:54",
-      "content": "帖子评论量备份：323 条。帖子摘要：利通电子(603629)  今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
-      "mentioned_stocks": "利通电子(603629)",
-      "mentioned_sectors": "交易动作;个股相关",
-      "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。",
-      "include_in_logic": "待确认",
-      "include_status": "待确认",
-      "platform": "同花顺帖子",
-      "parent_type": "post",
-      "parent_id": "2353958752",
-      "parent_title": "利通电子(603629)",
-      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dofe1lm0ezbp298633bce",
-      "parent_cover": "",
-      "comment_id": "yege-post-2353958752-14:54",
-      "comment_time": "14:54",
-      "commenter": "野哥",
-      "sentiment": "看多",
-      "value_score": 5.4,
-      "is_selected": false,
-      "action_note": "",
-      "note": "post_id=2353958752; media=",
-      "media": [],
-      "video_urls": []
-    },
-    {
-      "source_id": "yege",
-      "source": "野哥",
-      "source_name": "野哥",
-      "comment_source": "同花顺评论备份 11:11",
-      "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  这个不会走成十倍妖股吧！",
-      "mentioned_stocks": "利通电子(603629)",
-      "mentioned_sectors": "个股相关",
-      "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
-      "include_in_logic": "待确认",
-      "include_status": "待确认",
-      "platform": "同花顺帖子",
-      "parent_type": "post",
-      "parent_id": "2353584750",
-      "parent_title": "利通电子(603629)",
-      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1do55sc3bnj20m6da09fb6",
-      "parent_cover": "",
-      "comment_id": "yege-post-2353584750-11:11",
-      "comment_time": "11:11",
-      "commenter": "野哥",
-      "sentiment": "中性",
-      "value_score": 5.4,
-      "is_selected": false,
-      "action_note": "",
-      "note": "post_id=2353584750; media=",
-      "media": [],
-      "video_urls": []
-    },
-    {
-      "source_id": "yege",
-      "source": "野哥",
-      "source_name": "野哥",
-      "comment_source": "同花顺评论备份 09:51",
-      "content": "帖子评论量备份：629 条。帖子摘要：赶紧收盘，放假吧！我不想开盘了。我只想睡觉。",
-      "mentioned_stocks": "",
-      "mentioned_sectors": "",
-      "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
-      "include_in_logic": "待确认",
-      "include_status": "待确认",
-      "platform": "同花顺帖子",
-      "parent_type": "post",
-      "parent_id": "2353337117",
-      "parent_title": "2026-05-29 09:51 野哥同花顺动态",
-      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnydyh8cozks6c9216472",
-      "parent_cover": "",
-      "comment_id": "yege-post-2353337117-09:51",
-      "comment_time": "09:51",
-      "commenter": "野哥",
-      "sentiment": "中性",
-      "value_score": 5.4,
-      "is_selected": false,
-      "action_note": "",
-      "note": "post_id=2353337117; media=",
-      "media": [],
-      "video_urls": []
-    }
-  ],
-  "comment_groups": [
-    {
-      "group_id": "yege|comment|yege-post-2353958752-14:54|0",
-      "group_mode": "single_comment",
-      "source": "yege",
-      "source_id": "yege",
-      "source_name": "野哥",
-      "parent_type": "post",
-      "parent_id": "2353958752",
-      "parent_title": "利通电子(603629)",
-      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dofe1lm0ezbp298633bce",
-      "parent_cover": "",
-      "platform": "同花顺帖子",
-      "time": "14:54",
-      "published_at": "2026-05-29 14:54",
-      "summary": "利通电子(603629) 今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
-      "mentioned_stocks": [
-        "利通电子(603629)"
-      ],
-      "mentioned_sectors": [
-        "交易动作",
-        "个股相关"
-      ],
-      "comment_count": 1,
-      "valuable_comment_count": 0,
-      "include_status_summary": "待确认",
-      "include_counts": {
-        "已纳入": 0,
-        "待确认": 1,
-        "未纳入": 0,
-        "无效评论": 0
-      },
-      "sentiment_counts": {
-        "看多": 1,
-        "看空": 0,
-        "中性": 0,
-        "谨慎": 0
-      },
-      "support_direction": "仅作参考",
-      "comments": [
-        {
-          "source_id": "yege",
-          "source": "野哥",
-          "source_name": "野哥",
-          "comment_source": "同花顺评论备份 14:54",
-          "content": "帖子评论量备份：323 条。帖子摘要：利通电子(603629)  今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
-          "mentioned_stocks": "利通电子(603629)",
-          "mentioned_sectors": "交易动作;个股相关",
-          "value_reason": "文本包含买入、进场、加仓、低吸、锁仓或试错等动作词。",
-          "include_in_logic": "待确认",
-          "include_status": "待确认",
-          "platform": "同花顺帖子",
-          "parent_type": "post",
-          "parent_id": "2353958752",
-          "parent_title": "利通电子(603629)",
-          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dofe1lm0ezbp298633bce",
-          "parent_cover": "",
-          "comment_id": "yege-post-2353958752-14:54",
-          "comment_time": "14:54",
-          "commenter": "野哥",
-          "sentiment": "看多",
-          "value_score": 5.4,
-          "is_selected": false,
-          "action_note": "",
-          "note": "post_id=2353958752; media=",
-          "media": [],
-          "video_urls": []
-        }
-      ],
-      "selected_comments": []
-    },
-    {
-      "group_id": "yege|comment|yege-post-2353584750-11:11|1",
-      "group_mode": "single_comment",
-      "source": "yege",
-      "source_id": "yege",
-      "source_name": "野哥",
-      "parent_type": "post",
-      "parent_id": "2353584750",
-      "parent_title": "利通电子(603629)",
-      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1do55sc3bnj20m6da09fb6",
-      "parent_cover": "",
-      "platform": "同花顺帖子",
-      "time": "11:11",
-      "published_at": "2026-05-29 11:11",
-      "summary": "利通电子(603629) 这个不会走成十倍妖股吧！",
-      "mentioned_stocks": [
-        "利通电子(603629)"
-      ],
-      "mentioned_sectors": [
-        "个股相关"
-      ],
-      "comment_count": 1,
-      "valuable_comment_count": 0,
-      "include_status_summary": "待确认",
-      "include_counts": {
-        "已纳入": 0,
-        "待确认": 1,
-        "未纳入": 0,
-        "无效评论": 0
-      },
-      "sentiment_counts": {
-        "看多": 0,
-        "看空": 0,
-        "中性": 1,
-        "谨慎": 0
-      },
-      "support_direction": "仅作参考",
-      "comments": [
-        {
-          "source_id": "yege",
-          "source": "野哥",
-          "source_name": "野哥",
-          "comment_source": "同花顺评论备份 11:11",
-          "content": "帖子评论量备份：0 条。帖子摘要：利通电子(603629)  这个不会走成十倍妖股吧！",
-          "mentioned_stocks": "利通电子(603629)",
-          "mentioned_sectors": "个股相关",
-          "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
-          "include_in_logic": "待确认",
-          "include_status": "待确认",
-          "platform": "同花顺帖子",
-          "parent_type": "post",
-          "parent_id": "2353584750",
-          "parent_title": "利通电子(603629)",
-          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1do55sc3bnj20m6da09fb6",
-          "parent_cover": "",
-          "comment_id": "yege-post-2353584750-11:11",
-          "comment_time": "11:11",
-          "commenter": "野哥",
-          "sentiment": "中性",
-          "value_score": 5.4,
-          "is_selected": false,
-          "action_note": "",
-          "note": "post_id=2353584750; media=",
-          "media": [],
-          "video_urls": []
-        }
-      ],
-      "selected_comments": []
-    },
-    {
-      "group_id": "yege|comment|yege-post-2353337117-09:51|2",
-      "group_mode": "single_comment",
-      "source": "yege",
-      "source_id": "yege",
-      "source_name": "野哥",
-      "parent_type": "post",
-      "parent_id": "2353337117",
-      "parent_title": "2026-05-29 09:51 野哥同花顺动态",
-      "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnydyh8cozks6c9216472",
-      "parent_cover": "",
-      "platform": "同花顺帖子",
-      "time": "09:51",
-      "published_at": "2026-05-29 09:51",
-      "summary": "赶紧收盘，放假吧！我不想开盘了。我只想睡觉。",
-      "mentioned_stocks": [],
-      "mentioned_sectors": [],
-      "comment_count": 1,
-      "valuable_comment_count": 0,
-      "include_status_summary": "待确认",
-      "include_counts": {
-        "已纳入": 0,
-        "待确认": 1,
-        "未纳入": 0,
-        "无效评论": 0
-      },
-      "sentiment_counts": {
-        "看多": 0,
-        "看空": 0,
-        "中性": 1,
-        "谨慎": 0
-      },
-      "support_direction": "仅作参考",
-      "comments": [
-        {
-          "source_id": "yege",
-          "source": "野哥",
-          "source_name": "野哥",
-          "comment_source": "同花顺评论备份 09:51",
-          "content": "帖子评论量备份：629 条。帖子摘要：赶紧收盘，放假吧！我不想开盘了。我只想睡觉。",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "value_reason": "同花顺帖子备份，需结合截图和评论热度人工复核。",
-          "include_in_logic": "待确认",
-          "include_status": "待确认",
-          "platform": "同花顺帖子",
-          "parent_type": "post",
-          "parent_id": "2353337117",
-          "parent_title": "2026-05-29 09:51 野哥同花顺动态",
-          "parent_url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnydyh8cozks6c9216472",
-          "parent_cover": "",
-          "comment_id": "yege-post-2353337117-09:51",
-          "comment_time": "09:51",
-          "commenter": "野哥",
-          "sentiment": "中性",
-          "value_score": 5.4,
-          "is_selected": false,
-          "action_note": "",
-          "note": "post_id=2353337117; media=",
-          "media": [],
-          "video_urls": []
-        }
-      ],
-      "selected_comments": []
-    }
-  ],
+  "comments": [],
+  "comment_groups": [],
   "comment_sources": [
     {
       "id": "yege",
       "name": "野哥",
-      "count": 3,
-      "post_count": 3
+      "count": 0,
+      "post_count": 0
     },
     {
       "id": "lihongjuan",
@@ -677,38 +171,7 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": [
-        {
-          "channel": "同花顺帖子",
-          "title": "2026-05-29 14:54 利通电子(603629)",
-          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dofe1lm0ezbp298633bce",
-          "media": [],
-          "summary": "利通电子(603629) 今天感觉卡不住了，整个市场就你红。其他资金也会眼红你的。肯定把你买进去，这就是人性。引导资金今天看看能不能再创辉煌。",
-          "mentioned_stocks": "利通电子(603629)",
-          "mentioned_sectors": "交易动作;个股相关",
-          "note": "优先级 P1; 点赞 275; 评论 323; 转发 4; 本地截图 0 张"
-        },
-        {
-          "channel": "同花顺帖子",
-          "title": "2026-05-29 11:11 利通电子(603629)",
-          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1do55sc3bnj20m6da09fb6",
-          "media": [],
-          "summary": "利通电子(603629) 这个不会走成十倍妖股吧！",
-          "mentioned_stocks": "利通电子(603629)",
-          "mentioned_sectors": "个股相关",
-          "note": "优先级 P2; 点赞 70; 评论 0; 转发 0; 本地截图 0 张"
-        },
-        {
-          "channel": "同花顺帖子",
-          "title": "2026-05-29 09:51 野哥同花顺动态",
-          "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dnydyh8cozks6c9216472",
-          "media": [],
-          "summary": "赶紧收盘，放假吧！我不想开盘了。我只想睡觉。",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "优先级 P3; 点赞 1131; 评论 629; 转发 12; 本地截图 0 张"
-        }
-      ]
+      "posts": []
     },
     "lihongjuan": {
       "name": "李红娟",
