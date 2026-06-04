@@ -629,7 +629,7 @@ def import_douyin(backup_root: Path, date_text: str) -> tuple[dict[str, list[dic
     compact = date_text_to_compact(date_text)
     report = latest_pick_report(backup_root, compact, "douyin_comment_picks")
     if not report:
-        return {source: [] for source in ("wangduoyu", "longge")}, []
+        return {source: [] for source in ("yege", "wangduoyu", "longge")}, []
 
     raw_snapshot = load_douyin_raw_snapshot(backup_root, compact, report) or {}
     annotations = build_douyin_comment_annotations(report)
@@ -718,6 +718,8 @@ def import_douyin(backup_root: Path, date_text: str) -> tuple[dict[str, list[dic
 
     posts_by_source = {source: [] for source in ("yege", "wangduoyu", "longge")}
     raw_videos = raw_snapshot.get("videos", []) or report.get("data_source", {}).get("videos", []) or []
+    yeren_payload = report.get("data_source", {}).get("yeren_douyin_video_signals") or {}
+    raw_videos = [*raw_videos, *(yeren_payload.get("videos") or [])]
     videos_by_key = {}
     for video in raw_videos:
         if str(video.get("publish_date", "")).strip() != date_text:
@@ -784,6 +786,63 @@ def import_douyin(backup_root: Path, date_text: str) -> tuple[dict[str, list[dic
         )
 
     return posts_by_source, comments
+
+
+def pick_from_yeren_signal(date_text: str, signal: dict[str, Any]) -> dict[str, Any] | None:
+    code = str(signal.get("stock_code", "")).strip()
+    name = str(signal.get("stock_name", "")).strip()
+    if not code:
+        return None
+    direction = str(signal.get("direction", "")).strip()
+    sentiment = str(signal.get("sentiment_label") or signal.get("sentiment") or "").strip()
+    notes = "；".join(str(item) for item in signal.get("strategy_notes", []) or [] if item)
+    context = str(signal.get("context", "")).strip()
+    confidence = float(signal.get("confidence") or 6.8)
+    risk_score = 6 if "谨慎" in sentiment or str(signal.get("sentiment", "")).lower() == "cautious" else 4
+    risk_reward = 8 if confidence >= 8 else 7
+    logic = "；".join(unique([
+        str(signal.get("reason", "")).strip(),
+        f"方向：{direction}" if direction else "",
+        f"观点：{sentiment}" if sentiment else "",
+        notes,
+    ])) or "全能的野人抖音视频出现个股线索，等待盘面确认。"
+    technicals = {"labels": [direction] if direction else []}
+    row = make_pick_row(
+        "yege",
+        date_text,
+        code,
+        name,
+        "short",
+        direction or "全能的野人抖音个股线索",
+        logic,
+        technicals,
+        risk_score,
+        risk_reward,
+        context,
+    )
+    row["status"] = "等待买点"
+    row["note"] = f"全能的野人抖音视频信号；video_id={signal.get('video_id', '')}; url={signal.get('video_url', '')}"
+    return row
+
+
+def import_yege_picks_from_douyin_report(backup_root: Path, date_text: str) -> list[dict[str, Any]]:
+    compact = date_text_to_compact(date_text)
+    report = latest_pick_report(backup_root, compact, "douyin_comment_picks")
+    if not report:
+        return []
+    yeren = report.get("data_source", {}).get("yeren_douyin_video_signals") or {}
+    rows: list[dict[str, Any]] = []
+    seen_codes: set[str] = set()
+    for signal in yeren.get("signals", []) or []:
+        row = pick_from_yeren_signal(date_text, signal)
+        if not row:
+            continue
+        code = str(row.get("code", "")).strip()
+        if code in seen_codes:
+            continue
+        seen_codes.add(code)
+        rows.append(row)
+    return rows[:8]
 
 
 def pick_from_report_item(source: str, date_text: str, item: dict[str, Any], pick_type: str) -> dict[str, Any]:
@@ -1008,13 +1067,13 @@ def import_date(backup_root: Path, date_text: str) -> None:
 
     posts_by_source: dict[str, list[dict[str, Any]]] = {source: [] for source in SOURCE_IDS}
     comments = [*yege_comments, *lihongjuan_comments, *douyin_comments]
-    posts_by_source["yege"] = yege_posts
+    posts_by_source["yege"] = [*yege_posts, *douyin_posts_by_source.get("yege", [])]
     posts_by_source["lihongjuan"] = lihongjuan_posts
     posts_by_source["wangduoyu"] = douyin_posts_by_source.get("wangduoyu", [])
     posts_by_source["longge"] = douyin_posts_by_source.get("longge", [])
 
     picks_by_source: dict[str, list[dict[str, Any]]] = {source: [] for source in SOURCE_IDS}
-    picks_by_source["yege"] = yege_picks
+    picks_by_source["yege"] = [*yege_picks, *import_yege_picks_from_douyin_report(backup_root, date_text)]
     for source in ("lihongjuan", "wangduoyu", "longge"):
         picks_by_source[source] = import_picks_from_reports(backup_root, date_text, source)
 
