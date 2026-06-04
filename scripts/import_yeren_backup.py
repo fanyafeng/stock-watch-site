@@ -406,9 +406,32 @@ def make_pick_row(
     }
 
 
+def report_score(payload: dict[str, Any]) -> tuple[int, int, int, int, str]:
+    yeren = payload.get("data_source", {}).get("yeren_douyin_video_signals") or {}
+    return (
+        len(payload.get("valid_comments") or []),
+        len(payload.get("messages") or []),
+        len(payload.get("short_term_picks") or []) + len(payload.get("long_term_picks") or []),
+        len(yeren.get("videos") or []) + len(yeren.get("signals") or []),
+        str(payload.get("generated_at") or ""),
+    )
+
+
 def latest_pick_report(backup_root: Path, compact: str, name: str) -> dict[str, Any] | None:
+    date_text = compact_to_date_text(compact)
+    candidates: list[tuple[tuple[int, int, int, int, str], dict[str, Any]]] = []
+    for path in sorted((backup_root / "daily_reports").glob(f"*_{name}.json")):
+        payload = load_json(path)
+        if str(payload.get("date", "")).strip() != date_text:
+            continue
+        candidates.append((report_score(payload), payload))
+    if candidates:
+        return max(candidates, key=lambda item: item[0])[1]
     path = latest_file(backup_root / "daily_reports", f"{compact}_*_{name}.json")
-    return load_json(path) if path else None
+    if not path:
+        return None
+    payload = load_json(path)
+    return payload if str(payload.get("date", date_text)).strip() == date_text else None
 
 
 def source_from_creator(creator_name: str = "", creator_id: str = "") -> str:
@@ -625,9 +648,41 @@ def load_douyin_raw_snapshot(backup_root: Path, compact: str, report: dict[str, 
     return None
 
 
+def latest_yeren_video_signals(backup_root: Path, date_text: str) -> dict[str, Any] | None:
+    candidates: list[tuple[tuple[int, int, str], dict[str, Any]]] = []
+    for path in sorted((backup_root / "outbox").glob("*_yeren_douyin_video_signals.json")):
+        payload = load_json(path)
+        if str(payload.get("date", "")).strip() != date_text:
+            continue
+        score = (
+            len(payload.get("videos") or []),
+            len(payload.get("signals") or []),
+            str(payload.get("generated_at") or ""),
+        )
+        candidates.append((score, payload))
+    return max(candidates, key=lambda item: item[0])[1] if candidates else None
+
+
+def yeren_only_report(backup_root: Path, date_text: str) -> dict[str, Any] | None:
+    yeren = latest_yeren_video_signals(backup_root, date_text)
+    if not yeren:
+        return None
+    return {
+        "date": date_text,
+        "data_source": {
+            "creators": [],
+            "videos": [],
+            "yeren_douyin_video_signals": yeren,
+        },
+        "comment_aggregates": [],
+        "short_term_picks": [],
+        "long_term_picks": [],
+    }
+
+
 def import_douyin(backup_root: Path, date_text: str) -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, Any]]]:
     compact = date_text_to_compact(date_text)
-    report = latest_pick_report(backup_root, compact, "douyin_comment_picks")
+    report = latest_pick_report(backup_root, compact, "douyin_comment_picks") or yeren_only_report(backup_root, date_text)
     if not report:
         return {source: [] for source in ("yege", "wangduoyu", "longge")}, []
 
@@ -827,7 +882,7 @@ def pick_from_yeren_signal(date_text: str, signal: dict[str, Any]) -> dict[str, 
 
 def import_yege_picks_from_douyin_report(backup_root: Path, date_text: str) -> list[dict[str, Any]]:
     compact = date_text_to_compact(date_text)
-    report = latest_pick_report(backup_root, compact, "douyin_comment_picks")
+    report = latest_pick_report(backup_root, compact, "douyin_comment_picks") or yeren_only_report(backup_root, date_text)
     if not report:
         return []
     yeren = report.get("data_source", {}).get("yeren_douyin_video_signals") or {}
