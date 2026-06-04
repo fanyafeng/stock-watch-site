@@ -1,6 +1,6 @@
 {
   "date": "2026-06-04",
-  "updated_at": "2026-06-04 22:00:30",
+  "updated_at": "2026-06-05 00:00:32",
   "report": {
     "date": "2026-06-04",
     "source": "daily",
@@ -51,6 +51,20 @@
   },
   "timeline": [
     {
+      "time": "19:09",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-04 19:09:22 一个扎心的真相#金融#财经#股市#股票#CPO光模块",
+      "content": "野哥抖音视频信号 2057 条"
+    },
+    {
+      "time": "15:53",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-04 15:53:54 干货 关于情绪好与不好的干货总结#金融#财经知识 #股票知识 #股市 #情绪周期",
+      "content": "野哥抖音视频信号 1466 条"
+    },
+    {
       "time": "15:05",
       "category": "after_close",
       "source": "",
@@ -63,12 +77,33 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "暂无公开帖子/视频数据",
-      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "latest_title": "2026-06-04 19:09:22 一个扎心的真相#金融#财经#股市#股票#CPO光模块",
+      "latest_summary": "野哥抖音视频信号 2057 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [],
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-04 19:09:22 一个扎心的真相#金融#财经#股市#股票#CPO光模块",
+          "url": "https://www.douyin.com/video/7647495766517338228",
+          "media": [],
+          "summary": "野哥抖音视频信号 2057 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7647495766517338228; creator=全能的野人; comment_count=2057; digg=11953; share=3657; 来源备份 20260604_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-04 15:53:54 干货 关于情绪好与不好的干货总结#金融#财经知识 #股票知识 #股市 #情绪周期",
+          "url": "https://www.douyin.com/video/7647445389893913039",
+          "media": [],
+          "summary": "野哥抖音视频信号 1466 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7647445389893913039; creator=全能的野人; comment_count=1466; digg=21414; share=2361; 来源备份 20260604_*_douyin_comment_picks.json"
+        }
+      ],
       "comments": []
     },
     {
@@ -147,7 +182,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 0
+      "post_count": 2
     },
     {
       "id": "lihongjuan",
@@ -171,7 +206,28 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": []
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-04 19:09:22 一个扎心的真相#金融#财经#股市#股票#CPO光模块",
+          "url": "https://www.douyin.com/video/7647495766517338228",
+          "media": [],
+          "summary": "野哥抖音视频信号 2057 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7647495766517338228; creator=全能的野人; comment_count=2057; digg=11953; share=3657; 来源备份 20260604_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-04 15:53:54 干货 关于情绪好与不好的干货总结#金融#财经知识 #股票知识 #股市 #情绪周期",
+          "url": "https://www.douyin.com/video/7647445389893913039",
+          "media": [],
+          "summary": "野哥抖音视频信号 1466 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7647445389893913039; creator=全能的野人; comment_count=1466; digg=21414; share=2361; 来源备份 20260604_*_douyin_comment_picks.json"
+        }
+      ]
     },
     "lihongjuan": {
       "name": "李红娟",
