@@ -1,6 +1,6 @@
 {
   "date": "2026-06-05",
-  "updated_at": "2026-06-05 22:00:34",
+  "updated_at": "2026-06-06 00:00:32",
   "report": {
     "date": "2026-06-05",
     "source": "daily",
@@ -49,13 +49,34 @@
   },
   "stats": {
     "source_count": 4,
-    "candidate_count": 0,
+    "candidate_count": 1,
     "accepted_count": 0,
-    "rejected_count": 0,
+    "rejected_count": 1,
     "comment_count": 0,
     "top_patterns": []
   },
   "timeline": [
+    {
+      "time": "15:20",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-05 15:20:48 6月5日下午闲聊#金融#财经#股市#股票#股民",
+      "content": "野哥抖音视频信号 2318 条"
+    },
+    {
+      "time": "13:52",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-05 13:52:49 6月5日下午2点 #金融 #财经#股票#股市#股民",
+      "content": "野哥抖音视频信号 4523 条"
+    },
+    {
+      "time": "11:49",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-05 11:49:05 6月5日中午 12点下午要开始猎杀了 不得劲#金融#财经#股市#股票#空仓",
+      "content": "野哥抖音视频信号 1683 条"
+    },
     {
       "time": "15:05",
       "category": "after_close",
@@ -69,12 +90,43 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "暂无公开帖子/视频数据",
-      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "latest_title": "2026-06-05 15:20:48 6月5日下午闲聊#金融#财经#股市#股票#股民",
+      "latest_summary": "野哥抖音视频信号 2318 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [],
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-05 15:20:48 6月5日下午闲聊#金融#财经#股市#股票#股民",
+          "url": "https://www.douyin.com/video/7647807949499444943",
+          "media": [],
+          "summary": "野哥抖音视频信号 2318 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7647807949499444943; creator=全能的野人; comment_count=2318; digg=16554; share=1203; 来源备份 20260605_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-05 13:52:49 6月5日下午2点 #金融 #财经#股票#股市#股民",
+          "url": "https://www.douyin.com/video/7647785276999257832",
+          "media": [],
+          "summary": "野哥抖音视频信号 4523 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7647785276999257832; creator=全能的野人; comment_count=4523; digg=15748; share=787; 来源备份 20260605_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-05 11:49:05 6月5日中午 12点下午要开始猎杀了 不得劲#金融#财经#股市#股票#空仓",
+          "url": "https://www.douyin.com/video/7647753389664799586",
+          "media": [],
+          "summary": "野哥抖音视频信号 1683 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7647753389664799586; creator=全能的野人; comment_count=1683; digg=9140; share=705; 来源备份 20260605_*_douyin_comment_picks.json"
+        }
+      ],
       "comments": []
     },
     {
@@ -123,7 +175,36 @@
       {
         "id": "yege",
         "name": "野哥",
-        "short": [],
+        "short": [
+          {
+            "source_id": "yege",
+            "source_name": "野哥",
+            "code": "300024",
+            "name": "机器人",
+            "type": "短期",
+            "pattern": "商业航天、机器人",
+            "source_names": "野哥",
+            "entry_range": "-",
+            "stop_loss": "",
+            "take_profit_1": "",
+            "take_profit_2": "",
+            "risk_reward": "1:8.0",
+            "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
+            "risk": "中",
+            "status": "等待买点",
+            "reason": "机器人 出现在野哥当日视频摘要/章节中，需结合原视频和盘面确认。；方向：商业航天、机器人；观点：看多/关注；题材方向需要用板块强度和核心股表现二次确认。；先写清仓位、失效位和止盈止损。；仓位跟随大盘和情绪周期调整。",
+            "score": 26.0,
+            "accepted": false,
+            "excluded_reason": "缺少明确入场区间；缺少止损位；缺少第一止盈位",
+            "raw_text": "6月5日下午闲聊#金融#财经#股市#股票#股民 大盘冲高回落是诱多行为，体彩板块中商业航天和机器人表现较好。交易系统和交易模式同质化可能失效，保住本金和控制回撤至关重要。周末关注消息面，高位资金关注中高回落。 大盘分析",
+            "note": "全能的野人抖音视频信号；video_id=7647807949499444943; url=https://www.douyin.com/video/7647807949499444943",
+            "trend_score": 6.0,
+            "breakout_score": 5.0,
+            "pullback_score": 6.0,
+            "volume_score": 5.0,
+            "risk_score": 4.0
+          }
+        ],
         "mid": []
       },
       {
@@ -153,7 +234,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 0
+      "post_count": 3
     },
     {
       "id": "lihongjuan",
@@ -177,7 +258,38 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": []
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-05 15:20:48 6月5日下午闲聊#金融#财经#股市#股票#股民",
+          "url": "https://www.douyin.com/video/7647807949499444943",
+          "media": [],
+          "summary": "野哥抖音视频信号 2318 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7647807949499444943; creator=全能的野人; comment_count=2318; digg=16554; share=1203; 来源备份 20260605_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-05 13:52:49 6月5日下午2点 #金融 #财经#股票#股市#股民",
+          "url": "https://www.douyin.com/video/7647785276999257832",
+          "media": [],
+          "summary": "野哥抖音视频信号 4523 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7647785276999257832; creator=全能的野人; comment_count=4523; digg=15748; share=787; 来源备份 20260605_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-05 11:49:05 6月5日中午 12点下午要开始猎杀了 不得劲#金融#财经#股市#股票#空仓",
+          "url": "https://www.douyin.com/video/7647753389664799586",
+          "media": [],
+          "summary": "野哥抖音视频信号 1683 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7647753389664799586; creator=全能的野人; comment_count=1683; digg=9140; share=705; 来源备份 20260605_*_douyin_comment_picks.json"
+        }
+      ]
     },
     "lihongjuan": {
       "name": "李红娟",
