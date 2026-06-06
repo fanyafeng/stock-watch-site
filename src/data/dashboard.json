@@ -1,12 +1,12 @@
 {
-  "date": "2026-06-05",
-  "updated_at": "2026-06-06 00:00:32",
+  "date": "2026-06-06",
+  "updated_at": "2026-06-07 00:00:36",
   "report": {
-    "date": "2026-06-05",
+    "date": "2026-06-06",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-06-05 A股综合复盘工作台",
+    "title": "2026-06-06 A股综合复盘工作台",
     "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
@@ -16,16 +16,13 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-06-05",
-    "url": "/articles/daily_2026-06-05/"
+    "slug": "daily_2026-06-06",
+    "url": "/articles/daily_2026-06-06/"
   },
   "overview": {
     "market_status": "冲高回落，上涨家数约3026，下跌家数约2115",
     "main_sectors": [
-      "其他数字媒体",
-      "玻璃制造",
-      "机器人",
-      "航天装备Ⅲ"
+      "暂无数据"
     ],
     "risk_level": "中",
     "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
@@ -37,45 +34,35 @@
     "index_status": "上证指数收4027.74，涨跌幅-0.74%，形态冲高回落；深证成指收15314.7，涨跌幅-2.21%，形态窄幅震荡；创业板指收3957.94，涨跌幅-3.2%，形态冲高回落",
     "volume_change": "沪深主要指数成交额合计约 30692 亿，需结合昨日继续复核。",
     "index_money_flow_series": "",
-    "sector_rotation": "其他数字媒体、玻璃制造、机器人、航天装备Ⅲ、减速器、机器人执行器",
+    "sector_rotation": "暂无板块轮动数据",
     "accumulation_direction": [
-      "其他数字媒体",
-      "玻璃制造",
-      "机器人",
-      "航天装备Ⅲ"
+      "暂无数据"
     ],
     "sector_first_limit_up": {},
     "capital_preference": "主线优先看资金合力，弱分支不追高。"
   },
   "stats": {
     "source_count": 4,
-    "candidate_count": 1,
+    "candidate_count": 0,
     "accepted_count": 0,
-    "rejected_count": 1,
+    "rejected_count": 0,
     "comment_count": 0,
     "top_patterns": []
   },
   "timeline": [
     {
-      "time": "15:20",
+      "time": "13:10",
       "category": "yege_post",
       "source": "野哥",
-      "title": "2026-06-05 15:20:48 6月5日下午闲聊#金融#财经#股市#股票#股民",
-      "content": "野哥抖音视频信号 2318 条"
+      "title": "2026-06-06 13:10:49 6月6日三分钟解读老美暴跌的前因后果#金融#财经#股票#美股半导体暴跌 #美股三大指数集体收跌",
+      "content": "野哥抖音视频信号 4373 条"
     },
     {
-      "time": "13:52",
+      "time": "09:26",
       "category": "yege_post",
       "source": "野哥",
-      "title": "2026-06-05 13:52:49 6月5日下午2点 #金融 #财经#股票#股市#股民",
-      "content": "野哥抖音视频信号 4523 条"
-    },
-    {
-      "time": "11:49",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-05 11:49:05 6月5日中午 12点下午要开始猎杀了 不得劲#金融#财经#股市#股票#空仓",
-      "content": "野哥抖音视频信号 1683 条"
+      "title": "2026-06-06 09:26:05 6月6日老美股市咋啦？#金融#财经#股市#股票#美股",
+      "content": "野哥抖音视频信号 3829 条"
     },
     {
       "time": "15:05",
@@ -90,41 +77,31 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "2026-06-05 15:20:48 6月5日下午闲聊#金融#财经#股市#股票#股民",
-      "latest_summary": "野哥抖音视频信号 2318 条",
+      "latest_title": "2026-06-06 13:10:49 6月6日三分钟解读老美暴跌的前因后果#金融#财经#股票#美股半导体暴跌 #美股三大指数集体收跌",
+      "latest_summary": "野哥抖音视频信号 4373 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
       "posts": [
         {
           "channel": "抖音视频",
-          "title": "2026-06-05 15:20:48 6月5日下午闲聊#金融#财经#股市#股票#股民",
-          "url": "https://www.douyin.com/video/7647807949499444943",
+          "title": "2026-06-06 13:10:49 6月6日三分钟解读老美暴跌的前因后果#金融#财经#股票#美股半导体暴跌 #美股三大指数集体收跌",
+          "url": "https://www.douyin.com/video/7648145537669679459",
           "media": [],
-          "summary": "野哥抖音视频信号 2318 条",
+          "summary": "野哥抖音视频信号 4373 条",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "video_id=7647807949499444943; creator=全能的野人; comment_count=2318; digg=16554; share=1203; 来源备份 20260605_*_douyin_comment_picks.json"
+          "note": "video_id=7648145537669679459; creator=全能的野人; comment_count=4373; digg=30261; share=6013; 来源备份 20260606_*_douyin_comment_picks.json"
         },
         {
           "channel": "抖音视频",
-          "title": "2026-06-05 13:52:49 6月5日下午2点 #金融 #财经#股票#股市#股民",
-          "url": "https://www.douyin.com/video/7647785276999257832",
+          "title": "2026-06-06 09:26:05 6月6日老美股市咋啦？#金融#财经#股市#股票#美股",
+          "url": "https://www.douyin.com/video/7648087627573271656",
           "media": [],
-          "summary": "野哥抖音视频信号 4523 条",
+          "summary": "野哥抖音视频信号 3829 条",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "video_id=7647785276999257832; creator=全能的野人; comment_count=4523; digg=15748; share=787; 来源备份 20260605_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-05 11:49:05 6月5日中午 12点下午要开始猎杀了 不得劲#金融#财经#股市#股票#空仓",
-          "url": "https://www.douyin.com/video/7647753389664799586",
-          "media": [],
-          "summary": "野哥抖音视频信号 1683 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7647753389664799586; creator=全能的野人; comment_count=1683; digg=9140; share=705; 来源备份 20260605_*_douyin_comment_picks.json"
+          "note": "video_id=7648087627573271656; creator=全能的野人; comment_count=3829; digg=17498; share=2507; 来源备份 20260606_*_douyin_comment_picks.json"
         }
       ],
       "comments": []
@@ -175,36 +152,7 @@
       {
         "id": "yege",
         "name": "野哥",
-        "short": [
-          {
-            "source_id": "yege",
-            "source_name": "野哥",
-            "code": "300024",
-            "name": "机器人",
-            "type": "短期",
-            "pattern": "商业航天、机器人",
-            "source_names": "野哥",
-            "entry_range": "-",
-            "stop_loss": "",
-            "take_profit_1": "",
-            "take_profit_2": "",
-            "risk_reward": "1:8.0",
-            "trade_signal": "未标注明确量价组合，需盘中复核量能与价格方向后再执行。",
-            "risk": "中",
-            "status": "等待买点",
-            "reason": "机器人 出现在野哥当日视频摘要/章节中，需结合原视频和盘面确认。；方向：商业航天、机器人；观点：看多/关注；题材方向需要用板块强度和核心股表现二次确认。；先写清仓位、失效位和止盈止损。；仓位跟随大盘和情绪周期调整。",
-            "score": 26.0,
-            "accepted": false,
-            "excluded_reason": "缺少明确入场区间；缺少止损位；缺少第一止盈位",
-            "raw_text": "6月5日下午闲聊#金融#财经#股市#股票#股民 大盘冲高回落是诱多行为，体彩板块中商业航天和机器人表现较好。交易系统和交易模式同质化可能失效，保住本金和控制回撤至关重要。周末关注消息面，高位资金关注中高回落。 大盘分析",
-            "note": "全能的野人抖音视频信号；video_id=7647807949499444943; url=https://www.douyin.com/video/7647807949499444943",
-            "trend_score": 6.0,
-            "breakout_score": 5.0,
-            "pullback_score": 6.0,
-            "volume_score": 5.0,
-            "risk_score": 4.0
-          }
-        ],
+        "short": [],
         "mid": []
       },
       {
@@ -234,7 +182,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 3
+      "post_count": 2
     },
     {
       "id": "lihongjuan",
@@ -261,33 +209,23 @@
       "posts": [
         {
           "channel": "抖音视频",
-          "title": "2026-06-05 15:20:48 6月5日下午闲聊#金融#财经#股市#股票#股民",
-          "url": "https://www.douyin.com/video/7647807949499444943",
+          "title": "2026-06-06 13:10:49 6月6日三分钟解读老美暴跌的前因后果#金融#财经#股票#美股半导体暴跌 #美股三大指数集体收跌",
+          "url": "https://www.douyin.com/video/7648145537669679459",
           "media": [],
-          "summary": "野哥抖音视频信号 2318 条",
+          "summary": "野哥抖音视频信号 4373 条",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "video_id=7647807949499444943; creator=全能的野人; comment_count=2318; digg=16554; share=1203; 来源备份 20260605_*_douyin_comment_picks.json"
+          "note": "video_id=7648145537669679459; creator=全能的野人; comment_count=4373; digg=30261; share=6013; 来源备份 20260606_*_douyin_comment_picks.json"
         },
         {
           "channel": "抖音视频",
-          "title": "2026-06-05 13:52:49 6月5日下午2点 #金融 #财经#股票#股市#股民",
-          "url": "https://www.douyin.com/video/7647785276999257832",
+          "title": "2026-06-06 09:26:05 6月6日老美股市咋啦？#金融#财经#股市#股票#美股",
+          "url": "https://www.douyin.com/video/7648087627573271656",
           "media": [],
-          "summary": "野哥抖音视频信号 4523 条",
+          "summary": "野哥抖音视频信号 3829 条",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "video_id=7647785276999257832; creator=全能的野人; comment_count=4523; digg=15748; share=787; 来源备份 20260605_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-05 11:49:05 6月5日中午 12点下午要开始猎杀了 不得劲#金融#财经#股市#股票#空仓",
-          "url": "https://www.douyin.com/video/7647753389664799586",
-          "media": [],
-          "summary": "野哥抖音视频信号 1683 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7647753389664799586; creator=全能的野人; comment_count=1683; digg=9140; share=705; 来源备份 20260605_*_douyin_comment_picks.json"
+          "note": "video_id=7648087627573271656; creator=全能的野人; comment_count=3829; digg=17498; share=2507; 来源备份 20260606_*_douyin_comment_picks.json"
         }
       ]
     },
