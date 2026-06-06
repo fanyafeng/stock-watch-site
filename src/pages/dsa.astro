@@ -1,0 +1,364 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DashboardLayout from "../components/DashboardLayout.astro";
+
+const repoUrl = "https://github.com/ZhuLinsen/daily_stock_analysis";
+const localUrl = "http://127.0.0.1:8000";
+const dsaRoutes = [
+  { label: "分析首页", path: "/", note: "查看 DSA 日常分析报告和任务状态" },
+  { label: "AI 问股", path: "/chat", note: "围绕策略、题材、个股进行多轮追问" },
+  { label: "智能选股", path: "/screening", note: "多因子筛选和候选股扫描入口" },
+  { label: "回测验证", path: "/backtest", note: "把策略假设放回历史数据中验证" },
+  { label: "持仓管理", path: "/portfolio", note: "维护组合、观察仓位和交易计划" },
+  { label: "告警设置", path: "/alerts", note: "维护价格、技术条件和事件提醒" },
+];
+const integrationSteps = [
+  "先保持本项目静态构建，不接 DSA 后端服务。",
+  "本地或 Action 定时跑 DSA 脚本，把问股、选股、回测结果输出成 JSON/CSV。",
+  "把输出文件导入现有股票池、评论聚合、大盘分析和每日复盘。",
+  "等结果稳定后，再考虑做 API 桥接或嵌入式工作台。"
+];
+---
+
+<BaseLayout title="DSA 静态接入｜复盘工作台">
+  <DashboardLayout active="DSA 工作台">
+    <section class="dsa-integration-page">
+      <header class="topbar dsa-topbar">
+        <div>
+          <p>Daily Stock Analysis / 静态接入</p>
+          <h1>DSA 能力入口</h1>
+          <span>先接入口和数据导入路径，不接 FastAPI 后端，不影响当前 GitHub Action 静态站点。</span>
+        </div>
+        <div class="topbar-actions">
+          <a href={repoUrl} target="_blank" rel="noreferrer">GitHub 仓库</a>
+          <a href={localUrl} target="_blank" rel="noreferrer">本地 WebUI</a>
+        </div>
+      </header>
+
+      <section class="dsa-status-grid" aria-label="接入状态">
+        <article class="dsa-status-card dsa-status-card--ready">
+          <span>当前模式</span>
+          <strong>静态入口</strong>
+          <p>页面和左侧 tab 已接入；不启动、不依赖、不代理 DSA 后端。</p>
+        </article>
+        <article class="dsa-status-card">
+          <span>适合场景</span>
+          <strong>Action 展示</strong>
+          <p>后续把 DSA 产物落成文件，本项目继续读取静态 JSON/CSV。</p>
+        </article>
+        <article class="dsa-status-card">
+          <span>下一步</span>
+          <strong>数据导入</strong>
+          <p>先导入候选股、策略摘要和回测结论，再决定是否做 API 深接入。</p>
+        </article>
+      </section>
+
+      <section class="dsa-layout">
+        <article class="panel dsa-panel" id="workbench">
+          <div class="panel-head">
+            <div>
+              <span>LOCAL WEBUI</span>
+              <h2>本地 DSA 工作台</h2>
+            </div>
+          </div>
+          <p class="analysis-copy">
+            `daily_stock_analysis` 是完整应用，包含 Python/FastAPI 后端、React/Vite 前端、Agent 问股、选股、持仓、回测和告警。
+            当前项目先保留静态展示能力，需要交互时可以在本机单独启动 DSA。
+          </p>
+          <pre class="dsa-command"><code>git clone https://github.com/ZhuLinsen/daily_stock_analysis.git
+cd daily_stock_analysis
+pip install -r requirements.txt
+cp .env.example .env
+python main.py --webui-only</code></pre>
+        </article>
+
+        <article class="panel dsa-panel">
+          <div class="panel-head">
+            <div>
+              <span>STATIC BRIDGE</span>
+              <h2>推荐接入方式</h2>
+            </div>
+          </div>
+          <ol class="dsa-step-list">
+            {integrationSteps.map((step) => <li>{step}</li>)}
+          </ol>
+        </article>
+      </section>
+
+      <section class="dsa-feature-grid" aria-label="DSA 功能入口">
+        <article class="panel dsa-feature-card" id="chat">
+          <span>AGENT</span>
+          <h2>AI 问股</h2>
+          <p>适合把你的交易规则、来源人观点、个股走势放在一起追问。静态接入阶段先记录输出摘要，后续可导入评论聚合。</p>
+          <a href={`${localUrl}/chat`} target="_blank" rel="noreferrer">打开本地问股</a>
+        </article>
+
+        <article class="panel dsa-feature-card" id="screening">
+          <span>SCREENING</span>
+          <h2>智能选股</h2>
+          <p>适合补充当前股票池的候选来源。建议优先导入代码、名称、行业、因子得分、入选原因和风险标签。</p>
+          <a href={`${localUrl}/screening`} target="_blank" rel="noreferrer">打开本地选股</a>
+        </article>
+
+        <article class="panel dsa-feature-card" id="backtest">
+          <span>BACKTEST</span>
+          <h2>回测验证</h2>
+          <p>适合验证你的入场、止损、止盈、板块人气和前一日数据规则。后续可把结论接入每日复盘。</p>
+          <a href={`${localUrl}/backtest`} target="_blank" rel="noreferrer">打开本地回测</a>
+        </article>
+      </section>
+
+      <section class="panel dsa-panel">
+        <div class="panel-head">
+          <div>
+            <span>ROUTES</span>
+            <h2>DSA 原始页面</h2>
+          </div>
+        </div>
+        <div class="dsa-route-list">
+          {dsaRoutes.map((route) => (
+            <a href={`${localUrl}${route.path}`} target="_blank" rel="noreferrer">
+              <strong>{route.label}</strong>
+              <code>{route.path}</code>
+              <span>{route.note}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    </section>
+  </DashboardLayout>
+</BaseLayout>
+
+<style is:global>
+  .dsa-integration-page {
+    display: grid;
+    gap: 16px;
+    color: var(--text);
+  }
+
+  .dsa-topbar {
+    align-items: flex-start;
+  }
+
+  .dsa-status-grid,
+  .dsa-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .dsa-status-card {
+    min-height: 138px;
+    border: 1px solid rgba(105, 137, 171, 0.22);
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba(33, 71, 105, 0.86), rgba(13, 30, 49, 0.92));
+    padding: 16px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+  }
+
+  .dsa-status-card--ready {
+    background:
+      linear-gradient(135deg, rgba(30, 93, 74, 0.92), rgba(13, 33, 46, 0.94));
+  }
+
+  .dsa-status-card span,
+  .dsa-feature-card span,
+  .dsa-panel .panel-head span {
+    color: #7dd3fc;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0;
+  }
+
+  .dsa-status-card strong {
+    display: block;
+    margin: 8px 0;
+    color: #fff;
+    font-size: 24px;
+  }
+
+  .dsa-status-card p,
+  .dsa-feature-card p {
+    margin: 0;
+    color: #b7c8d8;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .dsa-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+    gap: 12px;
+  }
+
+  .dsa-panel,
+  .dsa-feature-card {
+    border-radius: 8px;
+    background:
+      linear-gradient(180deg, rgba(13, 29, 47, 0.96), rgba(9, 23, 38, 0.96));
+  }
+
+  .dsa-panel .analysis-copy {
+    color: #c5d6e8;
+  }
+
+  .dsa-command {
+    margin: 16px 0 0;
+    overflow: auto;
+    border: 1px solid rgba(125, 211, 252, 0.18);
+    border-radius: 8px;
+    background: rgba(2, 9, 19, 0.76);
+    color: #dbeafe;
+    padding: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .dsa-command code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  }
+
+  .dsa-step-list {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: dsa-step;
+  }
+
+  .dsa-step-list li {
+    position: relative;
+    min-height: 44px;
+    border: 1px solid rgba(105, 137, 171, 0.18);
+    border-radius: 8px;
+    background: rgba(12, 31, 49, 0.72);
+    color: #d7e7f7;
+    padding: 12px 12px 12px 46px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .dsa-step-list li::before {
+    counter-increment: dsa-step;
+    content: counter(dsa-step);
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    display: grid;
+    width: 24px;
+    height: 24px;
+    place-items: center;
+    border-radius: 7px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .dsa-feature-card {
+    display: grid;
+    min-height: 210px;
+    align-content: start;
+    gap: 10px;
+    padding: 18px;
+  }
+
+  .dsa-feature-card h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 21px;
+  }
+
+  .dsa-feature-card a,
+  .dsa-route-list a {
+    transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+  }
+
+  .dsa-feature-card a {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 36px;
+    align-items: center;
+    margin-top: 4px;
+    border: 1px solid rgba(125, 211, 252, 0.28);
+    border-radius: 8px;
+    background: rgba(37, 99, 235, 0.18);
+    color: #dbeafe;
+    padding: 0 12px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .dsa-feature-card a:hover,
+  .dsa-route-list a:hover {
+    border-color: rgba(125, 211, 252, 0.56);
+    background: rgba(37, 99, 235, 0.22);
+  }
+
+  .dsa-route-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .dsa-route-list a {
+    display: grid;
+    gap: 7px;
+    min-height: 112px;
+    border: 1px solid rgba(105, 137, 171, 0.18);
+    border-radius: 8px;
+    background: rgba(12, 31, 49, 0.72);
+    padding: 14px;
+  }
+
+  .dsa-route-list strong {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .dsa-route-list code {
+    width: fit-content;
+    border-radius: 6px;
+    background: rgba(2, 9, 19, 0.66);
+    color: #93c5fd;
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .dsa-route-list span {
+    color: #a9bacb;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 1180px) {
+    .dsa-status-grid,
+    .dsa-feature-grid,
+    .dsa-route-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dsa-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .dsa-status-grid,
+    .dsa-feature-grid,
+    .dsa-route-list {
+      grid-template-columns: 1fr;
+    }
+
+    .dsa-topbar .topbar-actions {
+      width: 100%;
+    }
+
+    .dsa-topbar .topbar-actions a {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+</style>

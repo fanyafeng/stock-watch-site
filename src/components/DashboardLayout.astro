@@ -11,6 +11,10 @@ const icons = {
   record: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l2 3v15H6V6l2-3Z"/><path d="M9 11h6M9 15h4"/><path d="M10 3v4h4V3"/></svg>',
   comment: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v10H8l-3 4V5Z"/><path d="M8 9h8M8 12h5"/></svg>',
   entry: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16"/><path d="M6 16l4-5 3 3 5-8"/><path d="M17 6h3v3"/><path d="M9 19v-5M15 19v-7"/></svg>',
+  dsa: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h4M8 13h8"/><path d="M16 5v14"/></svg>',
+  chat: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H8l-4 4V5Z"/><path d="M8 9h8M8 12h5"/></svg>',
+  screening: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16"/><path d="M7 12h10"/><path d="M10 18h4"/><path d="M6 6l5 6v5l2 1v-6l5-6"/></svg>',
+  backtest: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16"/><path d="M7 15V9"/><path d="M12 15V6"/><path d="M17 15v-4"/><path d="M6 6l3-3 3 3"/><path d="M18 18l-3 3-3-3"/></svg>',
   about: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"/><path d="M12 10v6"/><path d="M12 7h.01"/></svg>',
 };
 const navItems = [
@@ -21,6 +25,10 @@ const navItems = [
   { label: "操作记录", href: "/my-positions/", icon: icons.record },
   { label: "评论聚合", href: "/comments/", icon: icons.comment },
   { label: "入场判断", href: "/entry-check/", icon: icons.entry },
+  { label: "DSA 工作台", href: "/dsa/", icon: icons.dsa },
+  { label: "AI 问股", href: "/dsa/#chat", icon: icons.chat },
+  { label: "智能选股", href: "/dsa/#screening", icon: icons.screening },
+  { label: "回测验证", href: "/dsa/#backtest", icon: icons.backtest },
   { label: "关于我们", href: "/about/", icon: icons.about },
 ];
 
@@ -28,7 +36,7 @@ const linkFor = (href) => `${base}${href}`;
 ---
 
 <main class="dashboard-shell" data-dashboard-shell>
-  <aside class="dashboard-sidebar">
+  <aside class="dashboard-sidebar" style="overflow-y: auto;">
     <button
       class="sidebar-toggle"
       type="button"
@@ -118,4 +126,26 @@ const linkFor = (href) => `${base}${href}`;
     setSidebarCollapsed(nextCollapsed);
     saveState(nextCollapsed);
   });
+
+  function setDsaHashActiveLink() {
+    if (!window.location.pathname.endsWith("/dsa/")) return;
+
+    const hash = window.location.hash;
+    const knownHashes = new Set(["#chat", "#screening", "#backtest"]);
+    const activeHash = knownHashes.has(hash) ? hash : "";
+    const navLinks = document.querySelectorAll(".side-nav a, .collapsed-icon-nav a");
+
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href") ?? "";
+      const url = new URL(href, window.location.origin);
+      if (!url.pathname.endsWith("/dsa/")) {
+        link.classList.remove("active");
+        return;
+      }
+      link.classList.toggle("active", url.hash === activeHash);
+    });
+  }
+
+  setDsaHashActiveLink();
+  window.addEventListener("hashchange", setDsaHashActiveLink);
 </script>
