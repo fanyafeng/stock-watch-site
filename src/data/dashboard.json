@@ -1,12 +1,12 @@
 {
-  "date": "2026-06-06",
-  "updated_at": "2026-06-07 00:00:36",
+  "date": "2026-06-07",
+  "updated_at": "2026-06-08 00:00:43",
   "report": {
-    "date": "2026-06-06",
+    "date": "2026-06-07",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-06-06 A股综合复盘工作台",
+    "title": "2026-06-07 A股综合复盘工作台",
     "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
@@ -16,8 +16,8 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-06-06",
-    "url": "/articles/daily_2026-06-06/"
+    "slug": "daily_2026-06-07",
+    "url": "/articles/daily_2026-06-07/"
   },
   "overview": {
     "market_status": "冲高回落，上涨家数约3026，下跌家数约2115",
@@ -51,18 +51,25 @@
   },
   "timeline": [
     {
-      "time": "13:10",
+      "time": "21:14",
       "category": "yege_post",
       "source": "野哥",
-      "title": "2026-06-06 13:10:49 6月6日三分钟解读老美暴跌的前因后果#金融#财经#股票#美股半导体暴跌 #美股三大指数集体收跌",
-      "content": "野哥抖音视频信号 4373 条"
+      "title": "2026-06-07 21:14:15 A股算力出新分支了算力预制算力中心底座#算力中心底座 #算力#金融#股票#全能的野人",
+      "content": "野哥抖音视频信号 1132 条"
     },
     {
-      "time": "09:26",
+      "time": "18:28",
       "category": "yege_post",
       "source": "野哥",
-      "title": "2026-06-06 09:26:05 6月6日老美股市咋啦？#金融#财经#股市#股票#美股",
-      "content": "野哥抖音视频信号 3829 条"
+      "title": "2026-06-07 18:28:00 6月7日普及什么是物理AI和AIpc#物理AI#AIpc #AI应用#财经#股市",
+      "content": "野哥抖音视频信号 1223 条"
+    },
+    {
+      "time": "10:51",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-07 10:51:27 6月7号复盘周末消息和预期#金融#财经#股票#股市#吴清最新发声",
+      "content": "野哥抖音视频信号 1925 条"
     },
     {
       "time": "15:05",
@@ -77,31 +84,41 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "2026-06-06 13:10:49 6月6日三分钟解读老美暴跌的前因后果#金融#财经#股票#美股半导体暴跌 #美股三大指数集体收跌",
-      "latest_summary": "野哥抖音视频信号 4373 条",
+      "latest_title": "2026-06-07 21:14:15 A股算力出新分支了算力预制算力中心底座#算力中心底座 #算力#金融#股票#全能的野人",
+      "latest_summary": "野哥抖音视频信号 1132 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
       "posts": [
         {
           "channel": "抖音视频",
-          "title": "2026-06-06 13:10:49 6月6日三分钟解读老美暴跌的前因后果#金融#财经#股票#美股半导体暴跌 #美股三大指数集体收跌",
-          "url": "https://www.douyin.com/video/7648145537669679459",
+          "title": "2026-06-07 21:14:15 A股算力出新分支了算力预制算力中心底座#算力中心底座 #算力#金融#股票#全能的野人",
+          "url": "https://www.douyin.com/video/7648641201634045888",
           "media": [],
-          "summary": "野哥抖音视频信号 4373 条",
+          "summary": "野哥抖音视频信号 1132 条",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "video_id=7648145537669679459; creator=全能的野人; comment_count=4373; digg=30261; share=6013; 来源备份 20260606_*_douyin_comment_picks.json"
+          "note": "video_id=7648641201634045888; creator=全能的野人; comment_count=1132; digg=7705; share=1062; 来源备份 20260607_*_douyin_comment_picks.json"
         },
         {
           "channel": "抖音视频",
-          "title": "2026-06-06 09:26:05 6月6日老美股市咋啦？#金融#财经#股市#股票#美股",
-          "url": "https://www.douyin.com/video/7648087627573271656",
+          "title": "2026-06-07 18:28:00 6月7日普及什么是物理AI和AIpc#物理AI#AIpc #AI应用#财经#股市",
+          "url": "https://www.douyin.com/video/7648511069313672948",
           "media": [],
-          "summary": "野哥抖音视频信号 3829 条",
+          "summary": "野哥抖音视频信号 1223 条",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "video_id=7648087627573271656; creator=全能的野人; comment_count=3829; digg=17498; share=2507; 来源备份 20260606_*_douyin_comment_picks.json"
+          "note": "video_id=7648511069313672948; creator=全能的野人; comment_count=1223; digg=9014; share=702; 来源备份 20260607_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-07 10:51:27 6月7号复盘周末消息和预期#金融#财经#股票#股市#吴清最新发声",
+          "url": "https://www.douyin.com/video/7648480711213768163",
+          "media": [],
+          "summary": "野哥抖音视频信号 1925 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7648480711213768163; creator=全能的野人; comment_count=1925; digg=19055; share=1971; 来源备份 20260607_*_douyin_comment_picks.json"
         }
       ],
       "comments": []
@@ -182,7 +199,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 2
+      "post_count": 3
     },
     {
       "id": "lihongjuan",
@@ -209,23 +226,33 @@
       "posts": [
         {
           "channel": "抖音视频",
-          "title": "2026-06-06 13:10:49 6月6日三分钟解读老美暴跌的前因后果#金融#财经#股票#美股半导体暴跌 #美股三大指数集体收跌",
-          "url": "https://www.douyin.com/video/7648145537669679459",
+          "title": "2026-06-07 21:14:15 A股算力出新分支了算力预制算力中心底座#算力中心底座 #算力#金融#股票#全能的野人",
+          "url": "https://www.douyin.com/video/7648641201634045888",
           "media": [],
-          "summary": "野哥抖音视频信号 4373 条",
+          "summary": "野哥抖音视频信号 1132 条",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "video_id=7648145537669679459; creator=全能的野人; comment_count=4373; digg=30261; share=6013; 来源备份 20260606_*_douyin_comment_picks.json"
+          "note": "video_id=7648641201634045888; creator=全能的野人; comment_count=1132; digg=7705; share=1062; 来源备份 20260607_*_douyin_comment_picks.json"
         },
         {
           "channel": "抖音视频",
-          "title": "2026-06-06 09:26:05 6月6日老美股市咋啦？#金融#财经#股市#股票#美股",
-          "url": "https://www.douyin.com/video/7648087627573271656",
+          "title": "2026-06-07 18:28:00 6月7日普及什么是物理AI和AIpc#物理AI#AIpc #AI应用#财经#股市",
+          "url": "https://www.douyin.com/video/7648511069313672948",
           "media": [],
-          "summary": "野哥抖音视频信号 3829 条",
+          "summary": "野哥抖音视频信号 1223 条",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "video_id=7648087627573271656; creator=全能的野人; comment_count=3829; digg=17498; share=2507; 来源备份 20260606_*_douyin_comment_picks.json"
+          "note": "video_id=7648511069313672948; creator=全能的野人; comment_count=1223; digg=9014; share=702; 来源备份 20260607_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-07 10:51:27 6月7号复盘周末消息和预期#金融#财经#股票#股市#吴清最新发声",
+          "url": "https://www.douyin.com/video/7648480711213768163",
+          "media": [],
+          "summary": "野哥抖音视频信号 1925 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7648480711213768163; creator=全能的野人; comment_count=1925; digg=19055; share=1971; 来源备份 20260607_*_douyin_comment_picks.json"
         }
       ]
     },
