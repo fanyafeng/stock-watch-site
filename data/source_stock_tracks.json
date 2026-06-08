@@ -1,19 +1,63 @@
 {
-  "generated_at": "2026-06-05T11:41:19",
-  "date": "2026-06-05",
+  "generated_at": "2026-06-08T12:45:08",
+  "date": "2026-06-08",
   "price_note": "收益为脚本根据公开日K估算；买卖截图与帖子原文仍需人工核对。",
   "sources": {
     "yege": {
       "source": "yege",
-      "generated_date": "2026-06-05",
+      "generated_date": "2026-06-08",
       "stats": {
-        "track_count": 23,
-        "active_count": 13,
+        "track_count": 24,
+        "active_count": 14,
         "sold_count": 6,
         "screenshot_count": 146,
         "avg_return_pct": null
       },
       "tracks": [
+        {
+          "code": "300024",
+          "name": "机器人",
+          "stock_url": "https://basic.10jqka.com.cn/300024/",
+          "first_seen_date": "2026-06-05",
+          "first_selected_date": "2026-06-05",
+          "buy_date": "2026-06-05",
+          "buy_action": "选股入池",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-06-05",
+          "latest_action": "选股入池",
+          "latest_summary": "机器人 出现在野哥当日视频摘要/章节中，需结合原视频和盘面确认。；方向：商业航天、机器人；观点：看多/关注；题材方向需要用板块强度和核心股表现二次确认。；先写清仓位、失效位和止盈止损。...",
+          "status": "观察中",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 1,
+          "post_count": 0,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "300024",
+              "name": "机器人",
+              "date": "2026-06-05",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "机器人 出现在野哥当日视频摘要/章节中，需结合原视频和盘面确认。；方向：商业航天、机器人；观点：看多/关注；题材方向需要用板块强度和核心股表现二次确认。；先写清仓位、失效位和止盈止损。...",
+              "pattern": "商业航天、机器人",
+              "status": "等待买点",
+              "entry_mid": null,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-06-05.csv"
+            }
+          ]
+        },
         {
           "code": "603629",
           "name": "利通电子",
