@@ -1,6 +1,6 @@
 {
   "date": "2026-06-09",
-  "updated_at": "2026-06-09 22:00:32",
+  "updated_at": "2026-06-10 00:01:33",
   "report": {
     "date": "2026-06-09",
     "source": "daily",
@@ -57,6 +57,41 @@
   },
   "timeline": [
     {
+      "time": "22:10",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-09 22:10:06 建议收藏反复观看。 #学习股票知识 #股票交易系统 #股票投资技巧 #股票知识交流 #财经",
+      "content": "野哥抖音视频信号 444 条"
+    },
+    {
+      "time": "21:41",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-09 21:41:43 6月9号晚上8点半#金融#财经#股票#股市#股民",
+      "content": "野哥抖音视频信号 991 条"
+    },
+    {
+      "time": "19:28",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-09 19:28:00 6月9日加更一条视频说预期#金融#财经#股市#股票#野人哥",
+      "content": "野哥抖音视频信号 1595 条"
+    },
+    {
+      "time": "17:02",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-09 17:02:25 6月9日晚上闲聊预期#金融#财经#股市#股票#股民",
+      "content": "野哥抖音视频信号 1408 条"
+    },
+    {
+      "time": "14:20",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-09 14:20:40 6月9日，下午二点真不是我没有格局，我确实被打怕了#金融#财经#股票#股市#股民",
+      "content": "野哥抖音视频信号 1982 条"
+    },
+    {
       "time": "15:05",
       "category": "after_close",
       "source": "",
@@ -69,12 +104,63 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "暂无公开帖子/视频数据",
-      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "latest_title": "2026-06-09 22:10:06 建议收藏反复观看。 #学习股票知识 #股票交易系统 #股票投资技巧 #股票知识交流 #财经",
+      "latest_summary": "野哥抖音视频信号 444 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [],
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-09 22:10:06 建议收藏反复观看。 #学习股票知识 #股票交易系统 #股票投资技巧 #股票知识交流 #财经",
+          "url": "https://www.douyin.com/video/7649397769141202280",
+          "media": [],
+          "summary": "野哥抖音视频信号 444 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7649397769141202280; creator=全能的野人; comment_count=444; digg=7030; share=1344; 来源备份 20260609_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-09 21:41:43 6月9号晚上8点半#金融#财经#股票#股市#股民",
+          "url": "https://www.douyin.com/video/7649390453816668096",
+          "media": [],
+          "summary": "野哥抖音视频信号 991 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7649390453816668096; creator=全能的野人; comment_count=991; digg=8152; share=204; 来源备份 20260609_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-09 19:28:00 6月9日加更一条视频说预期#金融#财经#股市#股票#野人哥",
+          "url": "https://www.douyin.com/video/7649322484198106275",
+          "media": [],
+          "summary": "野哥抖音视频信号 1595 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7649322484198106275; creator=全能的野人; comment_count=1595; digg=10620; share=1148; 来源备份 20260609_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-09 17:02:25 6月9日晚上闲聊预期#金融#财经#股市#股票#股民",
+          "url": "https://www.douyin.com/video/7649318477241549730",
+          "media": [],
+          "summary": "野哥抖音视频信号 1408 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7649318477241549730; creator=全能的野人; comment_count=1408; digg=12542; share=1217; 来源备份 20260609_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-09 14:20:40 6月9日，下午二点真不是我没有格局，我确实被打怕了#金融#财经#股票#股市#股民",
+          "url": "https://www.douyin.com/video/7649276795682660963",
+          "media": [],
+          "summary": "野哥抖音视频信号 1982 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7649276795682660963; creator=全能的野人; comment_count=1982; digg=12691; share=1747; 来源备份 20260609_*_douyin_comment_picks.json"
+        }
+      ],
       "comments": []
     },
     {
@@ -153,7 +239,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 0
+      "post_count": 5
     },
     {
       "id": "lihongjuan",
@@ -177,7 +263,58 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": []
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-09 22:10:06 建议收藏反复观看。 #学习股票知识 #股票交易系统 #股票投资技巧 #股票知识交流 #财经",
+          "url": "https://www.douyin.com/video/7649397769141202280",
+          "media": [],
+          "summary": "野哥抖音视频信号 444 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7649397769141202280; creator=全能的野人; comment_count=444; digg=7030; share=1344; 来源备份 20260609_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-09 21:41:43 6月9号晚上8点半#金融#财经#股票#股市#股民",
+          "url": "https://www.douyin.com/video/7649390453816668096",
+          "media": [],
+          "summary": "野哥抖音视频信号 991 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7649390453816668096; creator=全能的野人; comment_count=991; digg=8152; share=204; 来源备份 20260609_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-09 19:28:00 6月9日加更一条视频说预期#金融#财经#股市#股票#野人哥",
+          "url": "https://www.douyin.com/video/7649322484198106275",
+          "media": [],
+          "summary": "野哥抖音视频信号 1595 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7649322484198106275; creator=全能的野人; comment_count=1595; digg=10620; share=1148; 来源备份 20260609_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-09 17:02:25 6月9日晚上闲聊预期#金融#财经#股市#股票#股民",
+          "url": "https://www.douyin.com/video/7649318477241549730",
+          "media": [],
+          "summary": "野哥抖音视频信号 1408 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7649318477241549730; creator=全能的野人; comment_count=1408; digg=12542; share=1217; 来源备份 20260609_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-09 14:20:40 6月9日，下午二点真不是我没有格局，我确实被打怕了#金融#财经#股票#股市#股民",
+          "url": "https://www.douyin.com/video/7649276795682660963",
+          "media": [],
+          "summary": "野哥抖音视频信号 1982 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7649276795682660963; creator=全能的野人; comment_count=1982; digg=12691; share=1747; 来源备份 20260609_*_douyin_comment_picks.json"
+        }
+      ]
     },
     "lihongjuan": {
       "name": "李红娟",
