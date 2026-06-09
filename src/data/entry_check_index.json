@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-08T12:45:08",
-  "default_date": "2026-06-08",
+  "generated_at": "2026-06-09T11:37:41",
+  "default_date": "2026-06-09",
   "modes": [
     {
       "id": "yege",
@@ -10625,6 +10625,24 @@
         "market_status": "低开修复，上涨家数约680，下跌家数约4570",
         "main_sectors": [
           "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-09",
+      "market": {
+        "market_status": "探底回升，上涨家数约3264，下跌家数约1861",
+        "main_sectors": [
+          "图片媒体",
+          "玻纤制造",
+          "半导体材料",
+          "半导体设备",
+          "MLCC",
+          "蓝宝石"
         ],
         "risk_level": "中",
         "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
