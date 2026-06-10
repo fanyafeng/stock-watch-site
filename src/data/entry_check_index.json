@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-09T11:37:41",
-  "default_date": "2026-06-09",
+  "generated_at": "2026-06-10T11:52:06",
+  "default_date": "2026-06-10",
   "modes": [
     {
       "id": "yege",
@@ -10643,6 +10643,19 @@
           "半导体设备",
           "MLCC",
           "蓝宝石"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-10",
+      "market": {
+        "market_status": "窄幅震荡，上涨家数约1539，下跌家数约3649",
+        "main_sectors": [
+          "暂无板块轮动数据"
         ],
         "risk_level": "中",
         "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
