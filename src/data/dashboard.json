@@ -1,6 +1,6 @@
 {
   "date": "2026-06-11",
-  "updated_at": "2026-06-11 22:00:33",
+  "updated_at": "2026-06-12 00:00:34",
   "report": {
     "date": "2026-06-11",
     "source": "daily",
@@ -51,6 +51,20 @@
   },
   "timeline": [
     {
+      "time": "23:16",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-11 23:16:09 如果卖了起飞了，那也是我得错。看球#世界杯#金融#财经#股市#股民",
+      "content": "野哥抖音视频信号 436 条"
+    },
+    {
+      "time": "21:32",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-11 21:32:03 6月11日我又火了。金融#财经#交易#短线交易 #股票 #股民",
+      "content": "野哥抖音视频信号 702 条"
+    },
+    {
       "time": "15:05",
       "category": "after_close",
       "source": "",
@@ -63,12 +77,33 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "暂无公开帖子/视频数据",
-      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "latest_title": "2026-06-11 23:16:09 如果卖了起飞了，那也是我得错。看球#世界杯#金融#财经#股市#股民",
+      "latest_summary": "野哥抖音视频信号 436 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [],
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-11 23:16:09 如果卖了起飞了，那也是我得错。看球#世界杯#金融#财经#股市#股民",
+          "url": "https://www.douyin.com/video/7650156951682215139",
+          "media": [],
+          "summary": "野哥抖音视频信号 436 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7650156951682215139; creator=全能的野人; comment_count=436; digg=1537; share=34; 来源备份 20260611_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-11 21:32:03 6月11日我又火了。金融#财经#交易#短线交易 #股票 #股民",
+          "url": "https://www.douyin.com/video/7650130131151184500",
+          "media": [],
+          "summary": "野哥抖音视频信号 702 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7650130131151184500; creator=全能的野人; comment_count=702; digg=3722; share=197; 来源备份 20260611_*_douyin_comment_picks.json"
+        }
+      ],
       "comments": []
     },
     {
@@ -147,7 +182,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 0
+      "post_count": 2
     },
     {
       "id": "lihongjuan",
@@ -171,7 +206,28 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": []
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-11 23:16:09 如果卖了起飞了，那也是我得错。看球#世界杯#金融#财经#股市#股民",
+          "url": "https://www.douyin.com/video/7650156951682215139",
+          "media": [],
+          "summary": "野哥抖音视频信号 436 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7650156951682215139; creator=全能的野人; comment_count=436; digg=1537; share=34; 来源备份 20260611_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-11 21:32:03 6月11日我又火了。金融#财经#交易#短线交易 #股票 #股民",
+          "url": "https://www.douyin.com/video/7650130131151184500",
+          "media": [],
+          "summary": "野哥抖音视频信号 702 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7650130131151184500; creator=全能的野人; comment_count=702; digg=3722; share=197; 来源备份 20260611_*_douyin_comment_picks.json"
+        }
+      ]
     },
     "lihongjuan": {
       "name": "李红娟",
