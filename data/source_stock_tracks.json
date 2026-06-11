@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-10T11:52:06",
-  "date": "2026-06-10",
+  "generated_at": "2026-06-11T12:27:14",
+  "date": "2026-06-11",
   "price_note": "收益为脚本根据公开日K估算；买卖截图与帖子原文仍需人工核对。",
   "sources": {
     "yege": {
       "source": "yege",
-      "generated_date": "2026-06-10",
+      "generated_date": "2026-06-11",
       "stats": {
         "track_count": 24,
         "active_count": 14,
         "sold_count": 6,
         "screenshot_count": 146,
-        "avg_return_pct": 1.55
+        "avg_return_pct": null
       },
       "tracks": [
         {
@@ -2036,12 +2036,12 @@
           "latest_action": "卖出/减仓线索",
           "latest_summary": "圣阳股份(002580) 利通电子(603629) 浙江世宝(002703) 不符合我预期的我都减一点。没有做t昂。突然觉得没意思了。今天心情不好。就这样吧！emmm了",
           "status": "已卖出/减仓",
-          "return_pct": 1.55,
-          "buy_price": 34.27,
+          "return_pct": null,
+          "buy_price": 31.93,
           "buy_price_date": "2026-05-11",
-          "end_price": 34.8,
-          "end_price_date": "2026-05-13",
-          "price_basis": "东方财富前复权日K收盘价估算",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "按选股入场区间中位估算，待行情复核",
           "event_count": 9,
           "post_count": 6,
           "screenshot_count": 28,
