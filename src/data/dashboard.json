@@ -1,12 +1,12 @@
 {
-  "date": "2026-06-11",
-  "updated_at": "2026-06-12 00:00:34",
+  "date": "2026-06-12",
+  "updated_at": "2026-06-12 17:01:32",
   "report": {
-    "date": "2026-06-11",
+    "date": "2026-06-12",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-06-11 A股综合复盘工作台",
+    "title": "2026-06-12 A股综合复盘工作台",
     "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
@@ -16,27 +16,33 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-06-11",
-    "url": "/articles/daily_2026-06-11/"
+    "slug": "daily_2026-06-12",
+    "url": "/articles/daily_2026-06-12/"
   },
   "overview": {
-    "market_status": "窄幅震荡，上涨家数约1368，下跌家数约3817",
+    "market_status": "冲高回落，上涨家数约3767，下跌家数约1423",
     "main_sectors": [
-      "暂无数据"
+      "钼",
+      "铅锌",
+      "铜",
+      "诊断服务"
     ],
     "risk_level": "中",
     "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
-    "sentiment": "上涨/下跌约 1368/3817，情绪按结构性修复处理。",
+    "sentiment": "上涨/下跌约 3767/1423，情绪按结构性修复处理。",
     "risk_signal": "高位放量、偏离均线过大的方向只做风险观察。",
     "tomorrow_watch": "观察主线板块延续性、回踩承接和量能是否继续放大。"
   },
   "market": {
-    "index_status": "上证指数收3987.01，涨跌幅-0.16%，形态窄幅震荡；深证成指收14851.98，涨跌幅-0.68%，形态冲高回落；创业板指收3811.25，涨跌幅-1.13%，形态冲高回落",
-    "volume_change": "沪深主要指数成交额合计约 25520 亿，需结合昨日继续复核。",
+    "index_status": "上证指数收4031.51，涨跌幅1.12%，形态冲高回落；深证成指收14963.41，涨跌幅0.75%，形态高开低走；创业板指收3830.35，涨跌幅0.5%，形态高开低走",
+    "volume_change": "沪深主要指数成交额合计约 32149 亿，需结合昨日继续复核。",
     "index_money_flow_series": "",
-    "sector_rotation": "暂无板块轮动数据",
+    "sector_rotation": "钼、铅锌、铜、诊断服务、昨日打二板以上表现、黄金概念",
     "accumulation_direction": [
-      "暂无数据"
+      "钼",
+      "铅锌",
+      "铜",
+      "诊断服务"
     ],
     "sector_first_limit_up": {},
     "capital_preference": "主线优先看资金合力，弱分支不追高。"
@@ -51,20 +57,6 @@
   },
   "timeline": [
     {
-      "time": "23:16",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-11 23:16:09 如果卖了起飞了，那也是我得错。看球#世界杯#金融#财经#股市#股民",
-      "content": "野哥抖音视频信号 436 条"
-    },
-    {
-      "time": "21:32",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-11 21:32:03 6月11日我又火了。金融#财经#交易#短线交易 #股票 #股民",
-      "content": "野哥抖音视频信号 702 条"
-    },
-    {
       "time": "15:05",
       "category": "after_close",
       "source": "",
@@ -77,33 +69,12 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "2026-06-11 23:16:09 如果卖了起飞了，那也是我得错。看球#世界杯#金融#财经#股市#股民",
-      "latest_summary": "野哥抖音视频信号 436 条",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-11 23:16:09 如果卖了起飞了，那也是我得错。看球#世界杯#金融#财经#股市#股民",
-          "url": "https://www.douyin.com/video/7650156951682215139",
-          "media": [],
-          "summary": "野哥抖音视频信号 436 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7650156951682215139; creator=全能的野人; comment_count=436; digg=1537; share=34; 来源备份 20260611_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-11 21:32:03 6月11日我又火了。金融#财经#交易#短线交易 #股票 #股民",
-          "url": "https://www.douyin.com/video/7650130131151184500",
-          "media": [],
-          "summary": "野哥抖音视频信号 702 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7650130131151184500; creator=全能的野人; comment_count=702; digg=3722; share=197; 来源备份 20260611_*_douyin_comment_picks.json"
-        }
-      ],
+      "posts": [],
       "comments": []
     },
     {
@@ -182,7 +153,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 2
+      "post_count": 0
     },
     {
       "id": "lihongjuan",
@@ -206,28 +177,7 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": [
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-11 23:16:09 如果卖了起飞了，那也是我得错。看球#世界杯#金融#财经#股市#股民",
-          "url": "https://www.douyin.com/video/7650156951682215139",
-          "media": [],
-          "summary": "野哥抖音视频信号 436 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7650156951682215139; creator=全能的野人; comment_count=436; digg=1537; share=34; 来源备份 20260611_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-11 21:32:03 6月11日我又火了。金融#财经#交易#短线交易 #股票 #股民",
-          "url": "https://www.douyin.com/video/7650130131151184500",
-          "media": [],
-          "summary": "野哥抖音视频信号 702 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7650130131151184500; creator=全能的野人; comment_count=702; digg=3722; share=197; 来源备份 20260611_*_douyin_comment_picks.json"
-        }
-      ]
+      "posts": []
     },
     "lihongjuan": {
       "name": "李红娟",
