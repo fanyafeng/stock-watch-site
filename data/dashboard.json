@@ -1,6 +1,6 @@
 {
   "date": "2026-06-12",
-  "updated_at": "2026-06-12 22:00:26",
+  "updated_at": "2026-06-13 00:12:28",
   "report": {
     "date": "2026-06-12",
     "source": "daily",
@@ -51,6 +51,20 @@
   },
   "timeline": [
     {
+      "time": "11:50",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-12 11:50:36 6月12日中午 今天比较空闲，带你们撸一下盘面#金融#财经#股票#股市#a股三大指数全线高开",
+      "content": "野哥抖音视频信号 2564 条"
+    },
+    {
+      "time": "10:58",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-12 10:58:46 6月12日上午踏空了#金融#财经#股市#股票#a股三大指数全线高开",
+      "content": "野哥抖音视频信号 2724 条"
+    },
+    {
       "time": "15:05",
       "category": "after_close",
       "source": "",
@@ -63,12 +77,33 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "暂无公开帖子/视频数据",
-      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "latest_title": "2026-06-12 11:50:36 6月12日中午 今天比较空闲，带你们撸一下盘面#金融#财经#股票#股市#a股三大指数全线高开",
+      "latest_summary": "野哥抖音视频信号 2564 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [],
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-12 11:50:36 6月12日中午 今天比较空闲，带你们撸一下盘面#金融#财经#股票#股市#a股三大指数全线高开",
+          "url": "https://www.douyin.com/video/7650351378351613288",
+          "media": [],
+          "summary": "野哥抖音视频信号 2564 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7650351378351613288; creator=全能的野人; comment_count=2564; digg=19136; share=2180; 来源备份 20260612_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-12 10:58:46 6月12日上午踏空了#金融#财经#股市#股票#a股三大指数全线高开",
+          "url": "https://www.douyin.com/video/7650338020856261283",
+          "media": [],
+          "summary": "野哥抖音视频信号 2724 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7650338020856261283; creator=全能的野人; comment_count=2724; digg=10287; share=761; 来源备份 20260612_*_douyin_comment_picks.json"
+        }
+      ],
       "comments": []
     },
     {
@@ -147,7 +182,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 0
+      "post_count": 2
     },
     {
       "id": "lihongjuan",
@@ -171,7 +206,28 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": []
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-12 11:50:36 6月12日中午 今天比较空闲，带你们撸一下盘面#金融#财经#股票#股市#a股三大指数全线高开",
+          "url": "https://www.douyin.com/video/7650351378351613288",
+          "media": [],
+          "summary": "野哥抖音视频信号 2564 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7650351378351613288; creator=全能的野人; comment_count=2564; digg=19136; share=2180; 来源备份 20260612_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-12 10:58:46 6月12日上午踏空了#金融#财经#股市#股票#a股三大指数全线高开",
+          "url": "https://www.douyin.com/video/7650338020856261283",
+          "media": [],
+          "summary": "野哥抖音视频信号 2724 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7650338020856261283; creator=全能的野人; comment_count=2724; digg=10287; share=761; 来源备份 20260612_*_douyin_comment_picks.json"
+        }
+      ]
     },
     "lihongjuan": {
       "name": "李红娟",
