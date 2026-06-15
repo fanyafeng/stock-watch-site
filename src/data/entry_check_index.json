@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-12T11:57:54",
-  "default_date": "2026-06-12",
+  "generated_at": "2026-06-15T14:42:50",
+  "default_date": "2026-06-15",
   "modes": [
     {
       "id": "yege",
@@ -10681,12 +10681,33 @@
       "market": {
         "market_status": "冲高回落，上涨家数约3767，下跌家数约1423",
         "main_sectors": [
-          "钼",
-          "铅锌",
-          "铜",
-          "诊断服务",
-          "昨日打二板以上表现",
-          "黄金概念"
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-13",
+      "market": {
+        "market_status": "冲高回落，上涨家数约3767，下跌家数约1423",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-15",
+      "market": {
+        "market_status": "探底回升，上涨家数约3726，下跌家数约1411",
+        "main_sectors": [
+          "暂无板块轮动数据"
         ],
         "risk_level": "中",
         "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
