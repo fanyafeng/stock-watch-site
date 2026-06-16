@@ -1,12 +1,12 @@
 {
-  "date": "2026-06-15",
-  "updated_at": "2026-06-16 00:00:31",
+  "date": "2026-06-16",
+  "updated_at": "2026-06-16 17:00:33",
   "report": {
-    "date": "2026-06-15",
+    "date": "2026-06-16",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-06-15 A股综合复盘工作台",
+    "title": "2026-06-16 A股综合复盘工作台",
     "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
@@ -16,23 +16,23 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-06-15",
-    "url": "/articles/daily_2026-06-15/"
+    "slug": "daily_2026-06-16",
+    "url": "/articles/daily_2026-06-16/"
   },
   "overview": {
-    "market_status": "探底回升，上涨家数约3726，下跌家数约1411",
+    "market_status": "窄幅震荡，上涨家数约2654，下跌家数约2505",
     "main_sectors": [
       "暂无数据"
     ],
     "risk_level": "中",
     "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
-    "sentiment": "上涨/下跌约 3726/1411，情绪按结构性修复处理。",
+    "sentiment": "上涨/下跌约 2654/2505，情绪按结构性修复处理。",
     "risk_signal": "高位放量、偏离均线过大的方向只做风险观察。",
     "tomorrow_watch": "观察主线板块延续性、回踩承接和量能是否继续放大。"
   },
   "market": {
-    "index_status": "上证指数收4096.47，涨跌幅1.61%，形态探底回升；深证成指收15531.11，涨跌幅3.79%，形态探底回升；创业板指收4033.53，涨跌幅5.3%，形态探底回升",
-    "volume_change": "沪深主要指数成交额合计约 30312 亿，需结合昨日继续复核。",
+    "index_status": "上证指数收4091.89，涨跌幅-0.11%，形态窄幅震荡；深证成指收15675.25，涨跌幅0.93%，形态探底回升；创业板指收4102.94，涨跌幅1.72%，形态冲高回落",
+    "volume_change": "沪深主要指数成交额合计约 30647 亿，需结合昨日继续复核。",
     "index_money_flow_series": "",
     "sector_rotation": "暂无板块轮动数据",
     "accumulation_direction": [
@@ -51,34 +51,6 @@
   },
   "timeline": [
     {
-      "time": "22:30",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-15 22:30:05 录歌时间到#金融#唱歌#股市#股票#股民交流",
-      "content": "野哥抖音视频信号 690 条"
-    },
-    {
-      "time": "19:08",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-15 19:08:00 6月15 分享我用的几种低吸方法和用法#低吸战法 #金融#财经#股票#股票",
-      "content": "野哥抖音视频信号 1213 条"
-    },
-    {
-      "time": "15:16",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-15 15:16:26 6月15日闲聊预期#A股#金融#财经#股市#股票",
-      "content": "野哥抖音视频信号 1962 条"
-    },
-    {
-      "time": "11:33",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-15 11:33:38 我这点利润能不能坚持到下午三点#金融#财经#股票#股市#股民",
-      "content": "野哥抖音视频信号 1389 条"
-    },
-    {
       "time": "15:05",
       "category": "after_close",
       "source": "",
@@ -91,53 +63,12 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "2026-06-15 22:30:05 录歌时间到#金融#唱歌#股市#股票#股民交流",
-      "latest_summary": "野哥抖音视频信号 690 条",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-15 22:30:05 录歌时间到#金融#唱歌#股市#股票#股民交流",
-          "url": "https://www.douyin.com/video/7651629429055087976",
-          "media": [],
-          "summary": "野哥抖音视频信号 690 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7651629429055087976; creator=全能的野人; comment_count=690; digg=3416; share=364; 来源备份 20260615_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-15 19:08:00 6月15 分享我用的几种低吸方法和用法#低吸战法 #金融#财经#股票#股票",
-          "url": "https://www.douyin.com/video/7651291826666420963",
-          "media": [],
-          "summary": "野哥抖音视频信号 1213 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7651291826666420963; creator=全能的野人; comment_count=1213; digg=21276; share=3394; 来源备份 20260615_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-15 15:16:26 6月15日闲聊预期#A股#金融#财经#股市#股票",
-          "url": "https://www.douyin.com/video/7651517676472663631",
-          "media": [],
-          "summary": "野哥抖音视频信号 1962 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7651517676472663631; creator=全能的野人; comment_count=1962; digg=12128; share=1108; 来源备份 20260615_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-15 11:33:38 我这点利润能不能坚持到下午三点#金融#财经#股票#股市#股民",
-          "url": "https://www.douyin.com/video/7651460260766773903",
-          "media": [],
-          "summary": "野哥抖音视频信号 1389 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7651460260766773903; creator=全能的野人; comment_count=1389; digg=8865; share=291; 来源备份 20260615_*_douyin_comment_picks.json"
-        }
-      ],
+      "posts": [],
       "comments": []
     },
     {
@@ -216,7 +147,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 4
+      "post_count": 0
     },
     {
       "id": "lihongjuan",
@@ -240,48 +171,7 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": [
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-15 22:30:05 录歌时间到#金融#唱歌#股市#股票#股民交流",
-          "url": "https://www.douyin.com/video/7651629429055087976",
-          "media": [],
-          "summary": "野哥抖音视频信号 690 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7651629429055087976; creator=全能的野人; comment_count=690; digg=3416; share=364; 来源备份 20260615_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-15 19:08:00 6月15 分享我用的几种低吸方法和用法#低吸战法 #金融#财经#股票#股票",
-          "url": "https://www.douyin.com/video/7651291826666420963",
-          "media": [],
-          "summary": "野哥抖音视频信号 1213 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7651291826666420963; creator=全能的野人; comment_count=1213; digg=21276; share=3394; 来源备份 20260615_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-15 15:16:26 6月15日闲聊预期#A股#金融#财经#股市#股票",
-          "url": "https://www.douyin.com/video/7651517676472663631",
-          "media": [],
-          "summary": "野哥抖音视频信号 1962 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7651517676472663631; creator=全能的野人; comment_count=1962; digg=12128; share=1108; 来源备份 20260615_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-15 11:33:38 我这点利润能不能坚持到下午三点#金融#财经#股票#股市#股民",
-          "url": "https://www.douyin.com/video/7651460260766773903",
-          "media": [],
-          "summary": "野哥抖音视频信号 1389 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7651460260766773903; creator=全能的野人; comment_count=1389; digg=8865; share=291; 来源备份 20260615_*_douyin_comment_picks.json"
-        }
-      ]
+      "posts": []
     },
     "lihongjuan": {
       "name": "李红娟",
