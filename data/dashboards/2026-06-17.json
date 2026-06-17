@@ -1,6 +1,6 @@
 {
   "date": "2026-06-17",
-  "updated_at": "2026-06-17 22:00:26",
+  "updated_at": "2026-06-18 00:00:31",
   "report": {
     "date": "2026-06-17",
     "source": "daily",
@@ -51,6 +51,34 @@
   },
   "timeline": [
     {
+      "time": "21:52",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-17 21:52:59 讲一个和我35岁女粉丝宝妈的故事#金融#财经#脱口秀科普 #故事与酒 #宝妈",
+      "content": "野哥抖音视频信号 868 条"
+    },
+    {
+      "time": "19:06",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-17 19:06:29 6月17日三分钟解读今晚美联储议息 北京时间18日凌晨2点美联储会议沃什首秀发言，什么是降息什么是缩表#美联储议息会议 #沃什美联储首秀 #金融 #财经知识 #加息降息缩表",
+      "content": "野哥抖音视频信号 1068 条"
+    },
+    {
+      "time": "18:18",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-17 18:18:00 6月17日闲聊预期#金融#财经#股票#分享我的金融思维 #pcb",
+      "content": "野哥抖音视频信号 1234 条"
+    },
+    {
+      "time": "11:40",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-17 11:40:00 波段账户，AI应用有毒啊！ 6月17日中午#金融#财经#股票#股市#AI应用",
+      "content": "野哥抖音视频信号 7479 条"
+    },
+    {
       "time": "15:05",
       "category": "after_close",
       "source": "",
@@ -63,12 +91,53 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "暂无公开帖子/视频数据",
-      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "latest_title": "2026-06-17 21:52:59 讲一个和我35岁女粉丝宝妈的故事#金融#财经#脱口秀科普 #故事与酒 #宝妈",
+      "latest_summary": "野哥抖音视频信号 868 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [],
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-17 21:52:59 讲一个和我35岁女粉丝宝妈的故事#金融#财经#脱口秀科普 #故事与酒 #宝妈",
+          "url": "https://www.douyin.com/video/7652362040857756751",
+          "media": [],
+          "summary": "野哥抖音视频信号 868 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7652362040857756751; creator=全能的野人; comment_count=868; digg=2534; share=310; 来源备份 20260617_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-17 19:06:29 6月17日三分钟解读今晚美联储议息 北京时间18日凌晨2点美联储会议沃什首秀发言，什么是降息什么是缩表#美联储议息会议 #沃什美联储首秀 #金融 #财经知识 #加息降息缩表",
+          "url": "https://www.douyin.com/video/7652319126699313728",
+          "media": [],
+          "summary": "野哥抖音视频信号 1068 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7652319126699313728; creator=全能的野人; comment_count=1068; digg=10087; share=1998; 来源备份 20260617_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-17 18:18:00 6月17日闲聊预期#金融#财经#股票#分享我的金融思维 #pcb",
+          "url": "https://www.douyin.com/video/7652261506797531124",
+          "media": [],
+          "summary": "野哥抖音视频信号 1234 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7652261506797531124; creator=全能的野人; comment_count=1234; digg=8933; share=503; 来源备份 20260617_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-17 11:40:00 波段账户，AI应用有毒啊！ 6月17日中午#金融#财经#股票#股市#AI应用",
+          "url": "https://www.douyin.com/video/7652204074099989731",
+          "media": [],
+          "summary": "野哥抖音视频信号 7479 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7652204074099989731; creator=全能的野人; comment_count=7479; digg=16240; share=4627; 来源备份 20260617_*_douyin_comment_picks.json"
+        }
+      ],
       "comments": []
     },
     {
@@ -147,7 +216,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 0
+      "post_count": 4
     },
     {
       "id": "lihongjuan",
@@ -171,7 +240,48 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": []
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-17 21:52:59 讲一个和我35岁女粉丝宝妈的故事#金融#财经#脱口秀科普 #故事与酒 #宝妈",
+          "url": "https://www.douyin.com/video/7652362040857756751",
+          "media": [],
+          "summary": "野哥抖音视频信号 868 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7652362040857756751; creator=全能的野人; comment_count=868; digg=2534; share=310; 来源备份 20260617_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-17 19:06:29 6月17日三分钟解读今晚美联储议息 北京时间18日凌晨2点美联储会议沃什首秀发言，什么是降息什么是缩表#美联储议息会议 #沃什美联储首秀 #金融 #财经知识 #加息降息缩表",
+          "url": "https://www.douyin.com/video/7652319126699313728",
+          "media": [],
+          "summary": "野哥抖音视频信号 1068 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7652319126699313728; creator=全能的野人; comment_count=1068; digg=10087; share=1998; 来源备份 20260617_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-17 18:18:00 6月17日闲聊预期#金融#财经#股票#分享我的金融思维 #pcb",
+          "url": "https://www.douyin.com/video/7652261506797531124",
+          "media": [],
+          "summary": "野哥抖音视频信号 1234 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7652261506797531124; creator=全能的野人; comment_count=1234; digg=8933; share=503; 来源备份 20260617_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-17 11:40:00 波段账户，AI应用有毒啊！ 6月17日中午#金融#财经#股票#股市#AI应用",
+          "url": "https://www.douyin.com/video/7652204074099989731",
+          "media": [],
+          "summary": "野哥抖音视频信号 7479 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7652204074099989731; creator=全能的野人; comment_count=7479; digg=16240; share=4627; 来源备份 20260617_*_douyin_comment_picks.json"
+        }
+      ]
     },
     "lihongjuan": {
       "name": "李红娟",
