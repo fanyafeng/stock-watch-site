@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-16T13:10:24",
-  "default_date": "2026-06-16",
+  "generated_at": "2026-06-17T12:35:20",
+  "default_date": "2026-06-17",
   "modes": [
     {
       "id": "yege",
@@ -10720,10 +10720,28 @@
       "market": {
         "market_status": "窄幅震荡，上涨家数约2654，下跌家数约2505",
         "main_sectors": [
-          "暂无板块轮动数据"
+          "通信线缆及配套",
+          "玻纤制造",
+          "钼",
+          "钨",
+          "昨日打二板以上表现",
+          "昨日连板"
         ],
         "risk_level": "中",
         "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-17",
+      "market": {
+        "market_status": "需补充 market.csv",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "控制仓位，只等买点"
       },
       "entries": [],
       "candidates": []
