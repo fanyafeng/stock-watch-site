@@ -1,12 +1,12 @@
 {
-  "date": "2026-06-18",
-  "updated_at": "2026-06-18 22:00:34",
+  "date": "2026-06-19",
+  "updated_at": "2026-06-19 12:29:45",
   "report": {
-    "date": "2026-06-18",
+    "date": "2026-06-19",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-06-18 A股综合复盘工作台",
+    "title": "2026-06-19 A股综合复盘工作台",
     "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
@@ -16,30 +16,30 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-06-18",
-    "url": "/articles/daily_2026-06-18/"
+    "slug": "daily_2026-06-19",
+    "url": "/articles/daily_2026-06-19/"
   },
   "overview": {
-    "market_status": "尾盘靠近低点，上涨家数约1993，下跌家数约3181",
+    "market_status": "需补充 market.csv",
     "main_sectors": [
       "暂无数据"
     ],
     "risk_level": "中",
-    "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
-    "sentiment": "上涨/下跌约 1993/3181，情绪按结构性修复处理。",
-    "risk_signal": "高位放量、偏离均线过大的方向只做风险观察。",
-    "tomorrow_watch": "观察主线板块延续性、回踩承接和量能是否继续放大。"
+    "operation_tone": "控制仓位，只等买点",
+    "sentiment": "暂无数据",
+    "risk_signal": "暂无数据",
+    "tomorrow_watch": "暂无数据"
   },
   "market": {
-    "index_status": "上证指数收4090.48，涨跌幅-0.43%，形态尾盘靠近低点；深证成指收16030.7，涨跌幅0.94%，形态探底回升；创业板指收4252.39，涨跌幅2.05%，形态探底回升",
-    "volume_change": "沪深主要指数成交额合计约 33101 亿，需结合昨日继续复核。",
+    "index_status": "暂无指数状态",
+    "volume_change": "暂无成交量数据",
     "index_money_flow_series": "",
     "sector_rotation": "暂无板块轮动数据",
     "accumulation_direction": [
       "暂无数据"
     ],
     "sector_first_limit_up": {},
-    "capital_preference": "主线优先看资金合力，弱分支不追高。"
+    "capital_preference": "暂无资金偏好数据"
   },
   "stats": {
     "source_count": 4,
@@ -51,11 +51,11 @@
   },
   "timeline": [
     {
-      "time": "15:05",
+      "time": "15:00",
       "category": "after_close",
-      "source": "",
+      "source": "系统",
       "title": "盘后总结",
-      "content": "以真实备份数据生成当日复盘，缺失模块保持暂无数据，不自动编造。"
+      "content": "大盘信息、帖子/视频和评论 CSV 缺失时，首页展示基于 picks/holdings 的公开概要。"
     }
   ],
   "sources": [
