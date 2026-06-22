@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-19T12:30:10",
-  "default_date": "2026-06-19",
+  "generated_at": "2026-06-22T14:12:10",
+  "default_date": "2026-06-22",
   "modes": [
     {
       "id": "yege",
@@ -10762,12 +10762,38 @@
     {
       "date": "2026-06-19",
       "market": {
-        "market_status": "需补充 market.csv",
+        "market_status": "尾盘靠近低点，上涨家数约1993，下跌家数约3181",
         "main_sectors": [
           "暂无板块轮动数据"
         ],
         "risk_level": "中",
-        "operation_tone": "控制仓位，只等买点"
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-20",
+      "market": {
+        "market_status": "尾盘靠近低点，上涨家数约1993，下跌家数约3181",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-22",
+      "market": {
+        "market_status": "探底回升，上涨家数约2731，下跌家数约2403",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
       },
       "entries": [],
       "candidates": []
