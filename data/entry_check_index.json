@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-23T11:37:40",
-  "default_date": "2026-06-23",
+  "generated_at": "2026-06-24T11:22:52",
+  "default_date": "2026-06-24",
   "modes": [
     {
       "id": "yege",
@@ -10804,6 +10804,24 @@
         "market_status": "窄幅震荡，上涨家数约2582，下跌家数约2582",
         "main_sectors": [
           "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-24",
+      "market": {
+        "market_status": "探底回升，上涨家数约1399，下跌家数约3815",
+        "main_sectors": [
+          "集成电路封测",
+          "锂",
+          "玻纤制造",
+          "能源金属",
+          "昨日打二板以上表现",
+          "中芯概念"
         ],
         "risk_level": "中",
         "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
