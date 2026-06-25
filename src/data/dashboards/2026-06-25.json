@@ -1,6 +1,6 @@
 {
   "date": "2026-06-25",
-  "updated_at": "2026-06-25 11:13:06",
+  "updated_at": "2026-06-25 22:00:31",
   "report": {
     "date": "2026-06-25",
     "source": "daily",
@@ -22,7 +22,10 @@
   "overview": {
     "market_status": "探底回升，上涨家数约1212，下跌家数约3996",
     "main_sectors": [
-      "暂无数据"
+      "激光设备",
+      "钨",
+      "航空运输",
+      "被动元件"
     ],
     "risk_level": "中",
     "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
@@ -34,9 +37,12 @@
     "index_status": "上证指数收4120.28，涨跌幅0.23%，形态探底回升；深证成指收16344.08，涨跌幅1.82%，形态探底回升；创业板指收4371.99，涨跌幅2.84%，形态探底回升",
     "volume_change": "沪深主要指数成交额合计约 35943 亿，需结合昨日继续复核。",
     "index_money_flow_series": "",
-    "sector_rotation": "暂无板块轮动数据",
+    "sector_rotation": "激光设备、钨、航空运输、被动元件、MLCC、被动元件概念",
     "accumulation_direction": [
-      "暂无数据"
+      "激光设备",
+      "钨",
+      "航空运输",
+      "被动元件"
     ],
     "sector_first_limit_up": {},
     "capital_preference": "主线优先看资金合力，弱分支不追高。"
