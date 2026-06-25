@@ -1,6 +1,6 @@
 {
   "date": "2026-06-25",
-  "updated_at": "2026-06-25 22:00:31",
+  "updated_at": "2026-06-26 00:00:29",
   "report": {
     "date": "2026-06-25",
     "source": "daily",
@@ -57,6 +57,20 @@
   },
   "timeline": [
     {
+      "time": "19:18",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-25 19:18:00 存量交易的市场我们该怎么站队#金融#财经#股市#股民#大科技",
+      "content": "野哥抖音视频信号 1672 条"
+    },
+    {
+      "time": "15:26",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-25 15:26:50 6月25日闲聊预期#金融#财经#股市#股票知识 #全能的野人",
+      "content": "野哥抖音视频信号 1919 条"
+    },
+    {
       "time": "15:05",
       "category": "after_close",
       "source": "",
@@ -69,12 +83,33 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "暂无公开帖子/视频数据",
-      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "latest_title": "2026-06-25 19:18:00 存量交易的市场我们该怎么站队#金融#财经#股市#股民#大科技",
+      "latest_summary": "野哥抖音视频信号 1672 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [],
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-25 19:18:00 存量交易的市场我们该怎么站队#金融#财经#股市#股民#大科技",
+          "url": "https://www.douyin.com/video/7655258263797622120",
+          "media": [],
+          "summary": "野哥抖音视频信号 1672 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7655258263797622120; creator=全能的野人; comment_count=1672; digg=12153; share=2748; 来源备份 20260625_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-25 15:26:50 6月25日闲聊预期#金融#财经#股市#股票知识 #全能的野人",
+          "url": "https://www.douyin.com/video/7655231211518280399",
+          "media": [],
+          "summary": "野哥抖音视频信号 1919 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7655231211518280399; creator=全能的野人; comment_count=1919; digg=10527; share=817; 来源备份 20260625_*_douyin_comment_picks.json"
+        }
+      ],
       "comments": []
     },
     {
@@ -153,7 +188,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 0
+      "post_count": 2
     },
     {
       "id": "lihongjuan",
@@ -177,7 +212,28 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": []
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-25 19:18:00 存量交易的市场我们该怎么站队#金融#财经#股市#股民#大科技",
+          "url": "https://www.douyin.com/video/7655258263797622120",
+          "media": [],
+          "summary": "野哥抖音视频信号 1672 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7655258263797622120; creator=全能的野人; comment_count=1672; digg=12153; share=2748; 来源备份 20260625_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-25 15:26:50 6月25日闲聊预期#金融#财经#股市#股票知识 #全能的野人",
+          "url": "https://www.douyin.com/video/7655231211518280399",
+          "media": [],
+          "summary": "野哥抖音视频信号 1919 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7655231211518280399; creator=全能的野人; comment_count=1919; digg=10527; share=817; 来源备份 20260625_*_douyin_comment_picks.json"
+        }
+      ]
     },
     "lihongjuan": {
       "name": "李红娟",
