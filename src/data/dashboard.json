@@ -1,12 +1,12 @@
 {
-  "date": "2026-06-24",
-  "updated_at": "2026-06-25 00:00:44",
+  "date": "2026-06-25",
+  "updated_at": "2026-06-25 17:00:25",
   "report": {
-    "date": "2026-06-24",
+    "date": "2026-06-25",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-06-24 A股综合复盘工作台",
+    "title": "2026-06-25 A股综合复盘工作台",
     "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
@@ -16,33 +16,27 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-06-24",
-    "url": "/articles/daily_2026-06-24/"
+    "slug": "daily_2026-06-25",
+    "url": "/articles/daily_2026-06-25/"
   },
   "overview": {
-    "market_status": "探底回升，上涨家数约1399，下跌家数约3815",
+    "market_status": "探底回升，上涨家数约1212，下跌家数约3996",
     "main_sectors": [
-      "集成电路封测",
-      "锂",
-      "玻纤制造",
-      "能源金属"
+      "暂无数据"
     ],
     "risk_level": "中",
     "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
-    "sentiment": "上涨/下跌约 1399/3815，情绪按结构性修复处理。",
+    "sentiment": "上涨/下跌约 1212/3996，情绪按结构性修复处理。",
     "risk_signal": "高位放量、偏离均线过大的方向只做风险观察。",
     "tomorrow_watch": "观察主线板块延续性、回踩承接和量能是否继续放大。"
   },
   "market": {
-    "index_status": "上证指数收4110.81，涨跌幅0.11%，形态探底回升；深证成指收16051.32，涨跌幅1.24%，形态低开修复；创业板指收4251.42，涨跌幅1.41%，形态探底回升",
-    "volume_change": "沪深主要指数成交额合计约 32843 亿，需结合昨日继续复核。",
+    "index_status": "上证指数收4120.28，涨跌幅0.23%，形态探底回升；深证成指收16344.08，涨跌幅1.82%，形态探底回升；创业板指收4371.99，涨跌幅2.84%，形态探底回升",
+    "volume_change": "沪深主要指数成交额合计约 35943 亿，需结合昨日继续复核。",
     "index_money_flow_series": "",
-    "sector_rotation": "集成电路封测、锂、玻纤制造、能源金属、昨日打二板以上表现、中芯概念",
+    "sector_rotation": "暂无板块轮动数据",
     "accumulation_direction": [
-      "集成电路封测",
-      "锂",
-      "玻纤制造",
-      "能源金属"
+      "暂无数据"
     ],
     "sector_first_limit_up": {},
     "capital_preference": "主线优先看资金合力，弱分支不追高。"
@@ -57,34 +51,6 @@
   },
   "timeline": [
     {
-      "time": "23:14",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-24 23:14:11 6月24日晚上加更一条视频#金融#财经#美股下跌 #A股#老登股",
-      "content": "野哥抖音视频信号 193 条"
-    },
-    {
-      "time": "21:12",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-24 21:12:23 6月24日晚上坚决看多中国股票#金融#财经#股票#股市#高盛",
-      "content": "野哥抖音视频信号 776 条"
-    },
-    {
-      "time": "14:55",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-24 14:55:13 6月24日闲聊预期#金融#财经#股票#股市#A股",
-      "content": "野哥抖音视频信号 1591 条"
-    },
-    {
-      "time": "12:04",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-06-24 12:04:08 6月24日中午#金融#财经#股票#股市#股民",
-      "content": "野哥抖音视频信号 2078 条"
-    },
-    {
       "time": "15:05",
       "category": "after_close",
       "source": "",
@@ -97,53 +63,12 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "2026-06-24 23:14:11 6月24日晚上加更一条视频#金融#财经#美股下跌 #A股#老登股",
-      "latest_summary": "野哥抖音视频信号 193 条",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-24 23:14:11 6月24日晚上加更一条视频#金融#财经#美股下跌 #A股#老登股",
-          "url": "https://www.douyin.com/video/7654980558790944975",
-          "media": [],
-          "summary": "野哥抖音视频信号 193 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7654980558790944975; creator=全能的野人; comment_count=193; digg=1109; share=123; 来源备份 20260624_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-24 21:12:23 6月24日晚上坚决看多中国股票#金融#财经#股票#股市#高盛",
-          "url": "https://www.douyin.com/video/7654949172701187572",
-          "media": [],
-          "summary": "野哥抖音视频信号 776 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7654949172701187572; creator=全能的野人; comment_count=776; digg=5511; share=296; 来源备份 20260624_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-24 14:55:13 6月24日闲聊预期#金融#财经#股票#股市#A股",
-          "url": "https://www.douyin.com/video/7654851974210735823",
-          "media": [],
-          "summary": "野哥抖音视频信号 1591 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7654851974210735823; creator=全能的野人; comment_count=1591; digg=7478; share=489; 来源备份 20260624_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-24 12:04:08 6月24日中午#金融#财经#股票#股市#股民",
-          "url": "https://www.douyin.com/video/7654807888733947279",
-          "media": [],
-          "summary": "野哥抖音视频信号 2078 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7654807888733947279; creator=全能的野人; comment_count=2078; digg=13692; share=1144; 来源备份 20260624_*_douyin_comment_picks.json"
-        }
-      ],
+      "posts": [],
       "comments": []
     },
     {
@@ -222,7 +147,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 4
+      "post_count": 0
     },
     {
       "id": "lihongjuan",
@@ -246,48 +171,7 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": [
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-24 23:14:11 6月24日晚上加更一条视频#金融#财经#美股下跌 #A股#老登股",
-          "url": "https://www.douyin.com/video/7654980558790944975",
-          "media": [],
-          "summary": "野哥抖音视频信号 193 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7654980558790944975; creator=全能的野人; comment_count=193; digg=1109; share=123; 来源备份 20260624_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-24 21:12:23 6月24日晚上坚决看多中国股票#金融#财经#股票#股市#高盛",
-          "url": "https://www.douyin.com/video/7654949172701187572",
-          "media": [],
-          "summary": "野哥抖音视频信号 776 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7654949172701187572; creator=全能的野人; comment_count=776; digg=5511; share=296; 来源备份 20260624_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-24 14:55:13 6月24日闲聊预期#金融#财经#股票#股市#A股",
-          "url": "https://www.douyin.com/video/7654851974210735823",
-          "media": [],
-          "summary": "野哥抖音视频信号 1591 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7654851974210735823; creator=全能的野人; comment_count=1591; digg=7478; share=489; 来源备份 20260624_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-06-24 12:04:08 6月24日中午#金融#财经#股票#股市#股民",
-          "url": "https://www.douyin.com/video/7654807888733947279",
-          "media": [],
-          "summary": "野哥抖音视频信号 2078 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7654807888733947279; creator=全能的野人; comment_count=2078; digg=13692; share=1144; 来源备份 20260624_*_douyin_comment_picks.json"
-        }
-      ]
+      "posts": []
     },
     "lihongjuan": {
       "name": "李红娟",
