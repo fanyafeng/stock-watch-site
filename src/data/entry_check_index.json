@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-26T11:21:36",
-  "default_date": "2026-06-26",
+  "generated_at": "2026-06-29T12:46:05",
+  "default_date": "2026-06-29",
   "modes": [
     {
       "id": "yege",
@@ -10856,6 +10856,37 @@
         ],
         "risk_level": "中",
         "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-27",
+      "market": {
+        "market_status": "窄幅震荡，上涨家数约768，下跌家数约4456",
+        "main_sectors": [
+          "橡胶助剂",
+          "有机硅",
+          "硅料硅片",
+          "航天装备Ⅲ",
+          "昨日打二板以上表现",
+          "昨日连板_含一字"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-29",
+      "market": {
+        "market_status": "需补充 market.csv",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "控制仓位，只等买点"
       },
       "entries": [],
       "candidates": []
