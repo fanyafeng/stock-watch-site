@@ -1,6 +1,6 @@
 {
   "date": "2026-06-30",
-  "updated_at": "2026-06-30 11:25:27",
+  "updated_at": "2026-07-01 00:00:43",
   "report": {
     "date": "2026-06-30",
     "source": "daily",
@@ -20,29 +20,23 @@
     "url": "/articles/daily_2026-06-30/"
   },
   "overview": {
-    "market_status": "探底回升，上涨家数约2935，下跌家数约2237",
+    "market_status": "震荡，上涨家数约0，下跌家数约0",
     "main_sectors": [
-      "模拟芯片设计",
-      "光学元件",
-      "数字芯片设计",
-      "分立器件"
+      "暂无数据"
     ],
-    "risk_level": "中",
+    "risk_level": "低",
     "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
-    "sentiment": "上涨/下跌约 2935/2237，情绪按结构性修复处理。",
+    "sentiment": "上涨/下跌约 0/0，情绪按结构性修复处理。",
     "risk_signal": "高位放量、偏离均线过大的方向只做风险观察。",
     "tomorrow_watch": "观察主线板块延续性、回踩承接和量能是否继续放大。"
   },
   "market": {
-    "index_status": "上证指数收4094.4，涨跌幅0.5%，形态探底回升；深证成指收16205.56，涨跌幅2.48%，形态探底回升；创业板指收4342.71，涨跌幅2.99%，形态探底回升",
-    "volume_change": "沪深主要指数成交额合计约 32738 亿，需结合昨日继续复核。",
-    "index_money_flow_series": "09:31=21.21;09:36=-0.64;09:41=7.14;09:46=-7.18;09:51=10.74;09:56=42.89;10:01=70.50;10:06=92.44;10:11=104.36;10:16=122.75;10:21=121.25;10:26=121.33;10:31=139.93;10:36=162.61;10:41=181.98;10:46=197.27;10:51=218.61;10:56=244.51;11:01=239.22;11:06=230.10;11:11=235.69;11:16=257.71;11:21=287.98;11:26=335.48;13:01=392.16;13:06=424.09;13:11=447.93;13:16=443.42;13:21=447.82;13:26=447.93;13:31=449.98;13:36=465.01;13:41=452.27;13:46=447.69;13:51=439.97;13:56=449.86;14:01=448.62;14:06=460.70;14:11=474.61;14:16=474.64;14:21=474.18;14:26=468.75;14:31=468.04;14:36=486.65;14:41=492.18;14:46=504.66;14:51=512.97;14:56=548.17;15:00=553.77",
-    "sector_rotation": "模拟芯片设计、光学元件、数字芯片设计、分立器件、3D摄像头、显示技术",
+    "index_status": "暂无指数状态",
+    "volume_change": "沪深主要指数成交额合计约 0 亿，需结合昨日继续复核。",
+    "index_money_flow_series": "",
+    "sector_rotation": "暂无板块轮动数据",
     "accumulation_direction": [
-      "模拟芯片设计",
-      "光学元件",
-      "数字芯片设计",
-      "分立器件"
+      "暂无数据"
     ],
     "sector_first_limit_up": {},
     "capital_preference": "主线优先看资金合力，弱分支不追高。"
@@ -57,6 +51,27 @@
   },
   "timeline": [
     {
+      "time": "19:58",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-30 19:58:00 6月30日#金融常识普及 #分享我的金融思维 #股市#股票#业绩预告",
+      "content": "野哥抖音视频信号 1555 条"
+    },
+    {
+      "time": "15:21",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-30 15:21:04 6月30日闲聊预期#金融#财经#股市#股票#股民",
+      "content": "野哥抖音视频信号 1573 条"
+    },
+    {
+      "time": "11:36",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-06-30 11:36:25 今天赚的少就是在吃苦#金融#财经#股票#股市#财经知识",
+      "content": "野哥抖音视频信号 1529 条"
+    },
+    {
       "time": "15:05",
       "category": "after_close",
       "source": "",
@@ -69,12 +84,43 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "暂无公开帖子/视频数据",
-      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "latest_title": "2026-06-30 19:58:00 6月30日#金融常识普及 #分享我的金融思维 #股市#股票#业绩预告",
+      "latest_summary": "野哥抖音视频信号 1555 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [],
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-30 19:58:00 6月30日#金融常识普及 #分享我的金融思维 #股市#股票#业绩预告",
+          "url": "https://www.douyin.com/video/7657095108085834447",
+          "media": [],
+          "summary": "野哥抖音视频信号 1555 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7657095108085834447; creator=全能的野人; comment_count=1555; digg=16738; share=4533; 来源备份 20260630_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-30 15:21:04 6月30日闲聊预期#金融#财经#股市#股票#股民",
+          "url": "https://www.douyin.com/video/7657085147293295011",
+          "media": [],
+          "summary": "野哥抖音视频信号 1573 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7657085147293295011; creator=全能的野人; comment_count=1573; digg=11922; share=776; 来源备份 20260630_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-30 11:36:25 今天赚的少就是在吃苦#金融#财经#股票#股市#财经知识",
+          "url": "https://www.douyin.com/video/7657027257647744674",
+          "media": [],
+          "summary": "野哥抖音视频信号 1529 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7657027257647744674; creator=全能的野人; comment_count=1529; digg=10700; share=373; 来源备份 20260630_*_douyin_comment_picks.json"
+        }
+      ],
       "comments": []
     },
     {
@@ -153,7 +199,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 0
+      "post_count": 3
     },
     {
       "id": "lihongjuan",
@@ -177,7 +223,38 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": []
+      "posts": [
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-30 19:58:00 6月30日#金融常识普及 #分享我的金融思维 #股市#股票#业绩预告",
+          "url": "https://www.douyin.com/video/7657095108085834447",
+          "media": [],
+          "summary": "野哥抖音视频信号 1555 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7657095108085834447; creator=全能的野人; comment_count=1555; digg=16738; share=4533; 来源备份 20260630_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-30 15:21:04 6月30日闲聊预期#金融#财经#股市#股票#股民",
+          "url": "https://www.douyin.com/video/7657085147293295011",
+          "media": [],
+          "summary": "野哥抖音视频信号 1573 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7657085147293295011; creator=全能的野人; comment_count=1573; digg=11922; share=776; 来源备份 20260630_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-06-30 11:36:25 今天赚的少就是在吃苦#金融#财经#股票#股市#财经知识",
+          "url": "https://www.douyin.com/video/7657027257647744674",
+          "media": [],
+          "summary": "野哥抖音视频信号 1529 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7657027257647744674; creator=全能的野人; comment_count=1529; digg=10700; share=373; 来源备份 20260630_*_douyin_comment_picks.json"
+        }
+      ]
     },
     "lihongjuan": {
       "name": "李红娟",
