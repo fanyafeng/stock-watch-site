@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-29T12:46:05",
-  "default_date": "2026-06-29",
+  "generated_at": "2026-06-30T11:25:47",
+  "default_date": "2026-06-30",
   "modes": [
     {
       "id": "yege",
@@ -10881,12 +10881,30 @@
     {
       "date": "2026-06-29",
       "market": {
-        "market_status": "需补充 market.csv",
+        "market_status": "探底回升，上涨家数约2428，下跌家数约2722",
         "main_sectors": [
           "暂无板块轮动数据"
         ],
         "risk_level": "中",
-        "operation_tone": "控制仓位，只等买点"
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-06-30",
+      "market": {
+        "market_status": "探底回升，上涨家数约2935，下跌家数约2237",
+        "main_sectors": [
+          "模拟芯片设计",
+          "光学元件",
+          "数字芯片设计",
+          "分立器件",
+          "3D摄像头",
+          "显示技术"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
       },
       "entries": [],
       "candidates": []
