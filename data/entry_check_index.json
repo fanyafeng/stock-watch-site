@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-01T11:37:38",
-  "default_date": "2026-07-01",
+  "generated_at": "2026-07-02T11:05:14",
+  "default_date": "2026-07-02",
   "modes": [
     {
       "id": "yege",
@@ -10915,6 +10915,19 @@
           "果蔬加工",
           "猪肉概念",
           "鸡肉概念"
+        ],
+        "risk_level": "中",
+        "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-07-02",
+      "market": {
+        "market_status": "尾盘靠近低点，上涨家数约2138，下跌家数约2998",
+        "main_sectors": [
+          "暂无板块轮动数据"
         ],
         "risk_level": "中",
         "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。"
