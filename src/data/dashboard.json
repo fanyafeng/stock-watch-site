@@ -1,12 +1,12 @@
 {
-  "date": "2026-07-03",
-  "updated_at": "2026-07-04 00:00:31",
+  "date": "2026-07-05",
+  "updated_at": "2026-07-06 00:00:26",
   "report": {
-    "date": "2026-07-03",
+    "date": "2026-07-05",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-07-03 A股综合复盘工作台",
+    "title": "2026-07-05 A股综合复盘工作台",
     "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
@@ -16,8 +16,8 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-07-03",
-    "url": "/articles/daily_2026-07-03/"
+    "slug": "daily_2026-07-05",
+    "url": "/articles/daily_2026-07-05/"
   },
   "overview": {
     "market_status": "冲高回落，上涨家数约3575，下跌家数约1601",
@@ -51,11 +51,18 @@
   },
   "timeline": [
     {
-      "time": "15:23",
+      "time": "18:29",
       "category": "yege_post",
       "source": "野哥",
-      "title": "2026-07-03 15:23:31 7月3日复盘发生了什么，我下午红了#金融#财经#股票#股市#股民",
-      "content": "野哥抖音视频信号 2241 条"
+      "title": "2026-07-05 18:29:17 周末主要几个消息对应预期 7月5日闲聊明天预期#金融#财经#股市#股票#股民",
+      "content": "野哥抖音视频信号 2066 条"
+    },
+    {
+      "time": "10:58",
+      "category": "yege_post",
+      "source": "野哥",
+      "title": "2026-07-05 10:58:00 7月6日交易新规对散户有什么影响#财经知识 #金融常识 #股市#股票#7月6日交易新规",
+      "content": "野哥抖音视频信号 2068 条"
     },
     {
       "time": "15:05",
@@ -70,21 +77,31 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "2026-07-03 15:23:31 7月3日复盘发生了什么，我下午红了#金融#财经#股票#股市#股民",
-      "latest_summary": "野哥抖音视频信号 2241 条",
+      "latest_title": "2026-07-05 18:29:17 周末主要几个消息对应预期 7月5日闲聊明天预期#金融#财经#股市#股票#股民",
+      "latest_summary": "野哥抖音视频信号 2066 条",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
       "posts": [
         {
           "channel": "抖音视频",
-          "title": "2026-07-03 15:23:31 7月3日复盘发生了什么，我下午红了#金融#财经#股票#股市#股民",
-          "url": "https://www.douyin.com/video/7658199031361612020",
+          "title": "2026-07-05 18:29:17 周末主要几个消息对应预期 7月5日闲聊明天预期#金融#财经#股市#股票#股民",
+          "url": "https://www.douyin.com/video/7658989076607156340",
           "media": [],
-          "summary": "野哥抖音视频信号 2241 条",
+          "summary": "野哥抖音视频信号 2066 条",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "video_id=7658199031361612020; creator=全能的野人; comment_count=2241; digg=16810; share=1972; 来源备份 20260703_*_douyin_comment_picks.json"
+          "note": "video_id=7658989076607156340; creator=全能的野人; comment_count=2066; digg=14815; share=2202; 来源备份 20260705_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-07-05 10:58:00 7月6日交易新规对散户有什么影响#财经知识 #金融常识 #股市#股票#7月6日交易新规",
+          "url": "https://www.douyin.com/video/7658721281835202880",
+          "media": [],
+          "summary": "野哥抖音视频信号 2068 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7658721281835202880; creator=全能的野人; comment_count=2068; digg=23095; share=6913; 来源备份 20260705_*_douyin_comment_picks.json"
         }
       ],
       "comments": []
@@ -165,7 +182,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 1
+      "post_count": 2
     },
     {
       "id": "lihongjuan",
@@ -192,13 +209,23 @@
       "posts": [
         {
           "channel": "抖音视频",
-          "title": "2026-07-03 15:23:31 7月3日复盘发生了什么，我下午红了#金融#财经#股票#股市#股民",
-          "url": "https://www.douyin.com/video/7658199031361612020",
+          "title": "2026-07-05 18:29:17 周末主要几个消息对应预期 7月5日闲聊明天预期#金融#财经#股市#股票#股民",
+          "url": "https://www.douyin.com/video/7658989076607156340",
           "media": [],
-          "summary": "野哥抖音视频信号 2241 条",
+          "summary": "野哥抖音视频信号 2066 条",
           "mentioned_stocks": "",
           "mentioned_sectors": "",
-          "note": "video_id=7658199031361612020; creator=全能的野人; comment_count=2241; digg=16810; share=1972; 来源备份 20260703_*_douyin_comment_picks.json"
+          "note": "video_id=7658989076607156340; creator=全能的野人; comment_count=2066; digg=14815; share=2202; 来源备份 20260705_*_douyin_comment_picks.json"
+        },
+        {
+          "channel": "抖音视频",
+          "title": "2026-07-05 10:58:00 7月6日交易新规对散户有什么影响#财经知识 #金融常识 #股市#股票#7月6日交易新规",
+          "url": "https://www.douyin.com/video/7658721281835202880",
+          "media": [],
+          "summary": "野哥抖音视频信号 2068 条",
+          "mentioned_stocks": "",
+          "mentioned_sectors": "",
+          "note": "video_id=7658721281835202880; creator=全能的野人; comment_count=2068; digg=23095; share=6913; 来源备份 20260705_*_douyin_comment_picks.json"
         }
       ]
     },
