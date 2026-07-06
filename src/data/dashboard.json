@@ -1,12 +1,12 @@
 {
-  "date": "2026-07-05",
-  "updated_at": "2026-07-06 00:00:26",
+  "date": "2026-07-06",
+  "updated_at": "2026-07-06 12:22:21",
   "report": {
-    "date": "2026-07-05",
+    "date": "2026-07-06",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-07-05 A股综合复盘工作台",
+    "title": "2026-07-06 A股综合复盘工作台",
     "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
@@ -16,30 +16,30 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-07-05",
-    "url": "/articles/daily_2026-07-05/"
+    "slug": "daily_2026-07-06",
+    "url": "/articles/daily_2026-07-06/"
   },
   "overview": {
-    "market_status": "冲高回落，上涨家数约3575，下跌家数约1601",
+    "market_status": "需补充 market.csv",
     "main_sectors": [
       "暂无数据"
     ],
     "risk_level": "中",
-    "operation_tone": "不追高，只等主线回踩承接；高位放量优先降风险。",
-    "sentiment": "上涨/下跌约 3575/1601，情绪按结构性修复处理。",
-    "risk_signal": "高位放量、偏离均线过大的方向只做风险观察。",
-    "tomorrow_watch": "观察主线板块延续性、回踩承接和量能是否继续放大。"
+    "operation_tone": "控制仓位，只等买点",
+    "sentiment": "暂无数据",
+    "risk_signal": "暂无数据",
+    "tomorrow_watch": "暂无数据"
   },
   "market": {
-    "index_status": "上证指数收4043.64，涨跌幅0.37%，形态冲高回落；深证成指收15597.51，涨跌幅0.64%，形态冲高回落；创业板指收4019.93，涨跌幅0.07%，形态冲高回落",
-    "volume_change": "沪深主要指数成交额合计约 31825 亿，需结合昨日继续复核。",
-    "index_money_flow_series": "",
+    "index_status": "暂无指数状态",
+    "volume_change": "暂无成交量数据",
+    "index_money_flow_series": "09:31=-2.49;09:36=-85.69;09:41=-162.35;09:46=-204.16;09:51=-182.50;09:56=-179.79;10:01=-195.15;10:06=-246.43;10:11=-268.32;10:16=-319.27;10:21=-409.38;10:26=-499.24;10:31=-595.11;10:36=-695.22;10:41=-759.22;10:46=-808.02;10:51=-902.74;10:56=-957.99;11:01=-994.59;11:06=-1003.18;11:11=-1005.63;11:16=-998.26;11:21=-1000.11;11:26=-992.71;13:01=-980.43;13:06=-964.91;13:11=-949.86;13:16=-948.67;13:21=-952.49;13:26=-964.83;13:31=-962.60;13:36=-977.42;13:41=-977.98;13:46=-961.78;13:51=-952.17;13:56=-949.86;14:01=-947.29;14:06=-952.86;14:11=-952.06;14:16=-966.58;14:21=-990.25;14:26=-1008.99;14:31=-1039.97;14:36=-1051.09;14:41=-1062.71;14:46=-1106.54;14:51=-1128.21;14:56=-1147.09;15:00=-1152.17",
     "sector_rotation": "暂无板块轮动数据",
     "accumulation_direction": [
       "暂无数据"
     ],
     "sector_first_limit_up": {},
-    "capital_preference": "主线优先看资金合力，弱分支不追高。"
+    "capital_preference": "暂无资金偏好数据"
   },
   "stats": {
     "source_count": 4,
@@ -51,25 +51,11 @@
   },
   "timeline": [
     {
-      "time": "18:29",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-07-05 18:29:17 周末主要几个消息对应预期 7月5日闲聊明天预期#金融#财经#股市#股票#股民",
-      "content": "野哥抖音视频信号 2066 条"
-    },
-    {
-      "time": "10:58",
-      "category": "yege_post",
-      "source": "野哥",
-      "title": "2026-07-05 10:58:00 7月6日交易新规对散户有什么影响#财经知识 #金融常识 #股市#股票#7月6日交易新规",
-      "content": "野哥抖音视频信号 2068 条"
-    },
-    {
-      "time": "15:05",
+      "time": "15:00",
       "category": "after_close",
-      "source": "",
+      "source": "系统",
       "title": "盘后总结",
-      "content": "以真实备份数据生成当日复盘，缺失模块保持暂无数据，不自动编造。"
+      "content": "大盘信息、帖子/视频和评论 CSV 缺失时，首页展示基于 picks/holdings 的公开概要。"
     }
   ],
   "sources": [
@@ -77,33 +63,12 @@
       "id": "yege",
       "name": "野哥",
       "channel": "同花顺帖子",
-      "latest_title": "2026-07-05 18:29:17 周末主要几个消息对应预期 7月5日闲聊明天预期#金融#财经#股市#股票#股民",
-      "latest_summary": "野哥抖音视频信号 2066 条",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
       "top_picks": [],
       "holdings": [],
       "comment_count": 0,
-      "posts": [
-        {
-          "channel": "抖音视频",
-          "title": "2026-07-05 18:29:17 周末主要几个消息对应预期 7月5日闲聊明天预期#金融#财经#股市#股票#股民",
-          "url": "https://www.douyin.com/video/7658989076607156340",
-          "media": [],
-          "summary": "野哥抖音视频信号 2066 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7658989076607156340; creator=全能的野人; comment_count=2066; digg=14815; share=2202; 来源备份 20260705_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-07-05 10:58:00 7月6日交易新规对散户有什么影响#财经知识 #金融常识 #股市#股票#7月6日交易新规",
-          "url": "https://www.douyin.com/video/7658721281835202880",
-          "media": [],
-          "summary": "野哥抖音视频信号 2068 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7658721281835202880; creator=全能的野人; comment_count=2068; digg=23095; share=6913; 来源备份 20260705_*_douyin_comment_picks.json"
-        }
-      ],
+      "posts": [],
       "comments": []
     },
     {
@@ -182,7 +147,7 @@
       "id": "yege",
       "name": "野哥",
       "count": 0,
-      "post_count": 2
+      "post_count": 0
     },
     {
       "id": "lihongjuan",
@@ -206,28 +171,7 @@
   "evidence": {
     "yege": {
       "name": "野哥",
-      "posts": [
-        {
-          "channel": "抖音视频",
-          "title": "2026-07-05 18:29:17 周末主要几个消息对应预期 7月5日闲聊明天预期#金融#财经#股市#股票#股民",
-          "url": "https://www.douyin.com/video/7658989076607156340",
-          "media": [],
-          "summary": "野哥抖音视频信号 2066 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7658989076607156340; creator=全能的野人; comment_count=2066; digg=14815; share=2202; 来源备份 20260705_*_douyin_comment_picks.json"
-        },
-        {
-          "channel": "抖音视频",
-          "title": "2026-07-05 10:58:00 7月6日交易新规对散户有什么影响#财经知识 #金融常识 #股市#股票#7月6日交易新规",
-          "url": "https://www.douyin.com/video/7658721281835202880",
-          "media": [],
-          "summary": "野哥抖音视频信号 2068 条",
-          "mentioned_stocks": "",
-          "mentioned_sectors": "",
-          "note": "video_id=7658721281835202880; creator=全能的野人; comment_count=2068; digg=23095; share=6913; 来源备份 20260705_*_douyin_comment_picks.json"
-        }
-      ]
+      "posts": []
     },
     "lihongjuan": {
       "name": "李红娟",
