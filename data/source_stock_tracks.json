@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-13T11:36:27",
-  "date": "2026-07-13",
+  "generated_at": "2026-07-14T10:15:20",
+  "date": "2026-07-14",
   "price_note": "收益为脚本根据公开日K估算；买卖截图与帖子原文仍需人工核对。",
   "sources": {
     "yege": {
       "source": "yege",
-      "generated_date": "2026-07-13",
+      "generated_date": "2026-07-14",
       "stats": {
         "track_count": 24,
         "active_count": 14,
         "sold_count": 6,
         "screenshot_count": 146,
-        "avg_return_pct": 2.79
+        "avg_return_pct": 2.28
       },
       "tracks": [
         {
@@ -520,12 +520,12 @@
           "latest_action": "提及",
           "latest_summary": "良信股份(002706) 好好好。好……好……好……真棒。",
           "status": "观察中",
-          "return_pct": 4.81,
-          "buy_price": 12.05,
+          "return_pct": null,
+          "buy_price": 11.9,
           "buy_price_date": "2026-05-12",
-          "end_price": 12.63,
-          "end_price_date": "2026-05-18",
-          "price_basis": "东方财富前复权日K收盘价估算",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "按选股入场区间中位估算，待行情复核",
           "event_count": 16,
           "post_count": 12,
           "screenshot_count": 28,
