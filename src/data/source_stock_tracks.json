@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-14T10:15:20",
-  "date": "2026-07-14",
+  "generated_at": "2026-07-15T10:19:18",
+  "date": "2026-07-15",
   "price_note": "收益为脚本根据公开日K估算；买卖截图与帖子原文仍需人工核对。",
   "sources": {
     "yege": {
       "source": "yege",
-      "generated_date": "2026-07-14",
+      "generated_date": "2026-07-15",
       "stats": {
         "track_count": 24,
         "active_count": 14,
         "sold_count": 6,
         "screenshot_count": 146,
-        "avg_return_pct": 2.28
+        "avg_return_pct": 11.29
       },
       "tracks": [
         {
@@ -1507,12 +1507,12 @@
           "latest_action": "卖出/减仓线索",
           "latest_summary": "润泽科技(300442) 天华新能(300390) 合力泰(002217) 黄毛走了，带走了我的账户余额。",
           "status": "已卖出/减仓",
-          "return_pct": -13.45,
-          "buy_price": 3.57,
+          "return_pct": null,
+          "buy_price": 3.335,
           "buy_price_date": "2026-05-11",
-          "end_price": 3.09,
-          "end_price_date": "2026-05-15",
-          "price_basis": "东方财富前复权日K收盘价估算",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "按选股入场区间中位估算，待行情复核",
           "event_count": 15,
           "post_count": 11,
           "screenshot_count": 35,
@@ -2587,12 +2587,12 @@
           "latest_action": "买入线索",
           "latest_summary": "锦龙股份(000712) 长江证券(000783) 现在能不能理解野哥说的，渣男动了才是五月行情的开始。不要在弄丢你的筹码了，也不要在高抛低吸了。耐心持股才是王道。",
           "status": "持有/观察",
-          "return_pct": 0.0,
-          "buy_price": 11.41,
-          "buy_price_date": "2026-05-11",
-          "end_price": 11.41,
-          "end_price_date": "2026-05-11",
-          "price_basis": "东方财富前复权日K收盘价估算",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
           "event_count": 2,
           "post_count": 1,
           "screenshot_count": 0,
