@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-20T11:20:27",
-  "date": "2026-07-20",
+  "generated_at": "2026-07-21T10:36:48",
+  "date": "2026-07-21",
   "price_note": "收益为脚本根据公开日K估算；买卖截图与帖子原文仍需人工核对。",
   "sources": {
     "yege": {
       "source": "yege",
-      "generated_date": "2026-07-20",
+      "generated_date": "2026-07-21",
       "stats": {
         "track_count": 24,
         "active_count": 14,
         "sold_count": 6,
         "screenshot_count": 146,
-        "avg_return_pct": -5.95
+        "avg_return_pct": null
       },
       "tracks": [
         {
@@ -1507,12 +1507,12 @@
           "latest_action": "卖出/减仓线索",
           "latest_summary": "润泽科技(300442) 天华新能(300390) 合力泰(002217) 黄毛走了，带走了我的账户余额。",
           "status": "已卖出/减仓",
-          "return_pct": -13.45,
-          "buy_price": 3.57,
+          "return_pct": null,
+          "buy_price": 3.335,
           "buy_price_date": "2026-05-11",
-          "end_price": 3.09,
-          "end_price_date": "2026-05-15",
-          "price_basis": "东方财富前复权日K收盘价估算",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "按选股入场区间中位估算，待行情复核",
           "event_count": 15,
           "post_count": 11,
           "screenshot_count": 35,
@@ -2036,12 +2036,12 @@
           "latest_action": "卖出/减仓线索",
           "latest_summary": "圣阳股份(002580) 利通电子(603629) 浙江世宝(002703) 不符合我预期的我都减一点。没有做t昂。突然觉得没意思了。今天心情不好。就这样吧！emmm了",
           "status": "已卖出/减仓",
-          "return_pct": 1.55,
-          "buy_price": 34.23,
+          "return_pct": null,
+          "buy_price": 31.93,
           "buy_price_date": "2026-05-11",
-          "end_price": 34.76,
-          "end_price_date": "2026-05-13",
-          "price_basis": "东方财富前复权日K收盘价估算",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "按选股入场区间中位估算，待行情复核",
           "event_count": 9,
           "post_count": 6,
           "screenshot_count": 28,
