@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-03T12:55:54",
-  "date": "2026-09-03",
+  "generated_at": "2026-09-04T12:49:23",
+  "date": "2026-09-04",
   "price_note": "收益为脚本根据公开日K估算；买卖截图与帖子原文仍需人工核对。",
   "sources": {
     "yege": {
       "source": "yege",
-      "generated_date": "2026-09-03",
+      "generated_date": "2026-09-04",
       "stats": {
         "track_count": 24,
         "active_count": 14,
         "sold_count": 6,
         "screenshot_count": 146,
-        "avg_return_pct": 2.36
+        "avg_return_pct": null
       },
       "tracks": [
         {
@@ -1507,12 +1507,12 @@
           "latest_action": "卖出/减仓线索",
           "latest_summary": "润泽科技(300442) 天华新能(300390) 合力泰(002217) 黄毛走了，带走了我的账户余额。",
           "status": "已卖出/减仓",
-          "return_pct": -13.45,
-          "buy_price": 3.57,
+          "return_pct": null,
+          "buy_price": 3.335,
           "buy_price_date": "2026-05-11",
-          "end_price": 3.09,
-          "end_price_date": "2026-05-15",
-          "price_basis": "东方财富前复权日K收盘价估算",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "按选股入场区间中位估算，待行情复核",
           "event_count": 15,
           "post_count": 11,
           "screenshot_count": 35,
@@ -2023,189 +2023,6 @@
           ]
         },
         {
-          "code": "601991",
-          "name": "大唐发电",
-          "stock_url": "https://basic.10jqka.com.cn/601991/",
-          "first_seen_date": "2026-05-11",
-          "first_selected_date": "2026-05-11",
-          "buy_date": "2026-05-11",
-          "buy_action": "选股入池",
-          "sell_date": "",
-          "sell_action": "",
-          "latest_date": "2026-05-13",
-          "latest_action": "提及",
-          "latest_summary": "大唐发电(601991) 合力泰(002217) 你到底是什么意思，这个节点，你这样说。我们这样说肯定不被允许。你们明目张胆的说，这样好吗。辛亏我手上的都是低价股。不过也心里不舒服。",
-          "status": "观察中",
-          "return_pct": 21.33,
-          "buy_price": 6.0,
-          "buy_price_date": "2026-05-11",
-          "end_price": 7.28,
-          "end_price_date": "2026-05-13",
-          "price_basis": "东方财富前复权日K收盘价估算",
-          "event_count": 4,
-          "post_count": 2,
-          "screenshot_count": 6,
-          "buy_evidence": [
-            {
-              "date": "2026-05-11",
-              "time": "22:08",
-              "action": "提及",
-              "image": "/media/2026-05-11/yege/alert_01_2208_2342377167.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521"
-            },
-            {
-              "date": "2026-05-11",
-              "time": "22:08",
-              "action": "提及",
-              "image": "/media/2026-05-11/yege/daily_01_2208_2342377167.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521"
-            },
-            {
-              "date": "2026-05-13",
-              "time": "08:24",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/alert_01_0824_2343133276.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
-            },
-            {
-              "date": "2026-05-13",
-              "time": "08:24",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/daily_01_0824_2343133276.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
-            },
-            {
-              "date": "2026-05-13",
-              "time": "08:24",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/daily_04_0824_2343133276.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
-            },
-            {
-              "date": "2026-05-13",
-              "time": "08:24",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/daily_07_0824_2343133276.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
-            }
-          ],
-          "sell_evidence": [],
-          "latest_evidence": [
-            {
-              "date": "2026-05-13",
-              "time": "08:24",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/alert_01_0824_2343133276.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
-            },
-            {
-              "date": "2026-05-13",
-              "time": "08:24",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/daily_01_0824_2343133276.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
-            },
-            {
-              "date": "2026-05-13",
-              "time": "08:24",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/daily_04_0824_2343133276.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
-            },
-            {
-              "date": "2026-05-13",
-              "time": "08:24",
-              "action": "提及",
-              "image": "/media/2026-05-13/yege/daily_07_0824_2343133276.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
-            },
-            {
-              "date": "2026-05-11",
-              "time": "22:08",
-              "action": "提及",
-              "image": "/media/2026-05-11/yege/alert_01_2208_2342377167.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521"
-            },
-            {
-              "date": "2026-05-11",
-              "time": "22:08",
-              "action": "提及",
-              "image": "/media/2026-05-11/yege/daily_01_2208_2342377167.jpg",
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521"
-            }
-          ],
-          "events": [
-            {
-              "code": "601991",
-              "name": "大唐发电",
-              "date": "2026-05-11",
-              "time": "",
-              "kind": "pick",
-              "action": "选股入池",
-              "summary": "无先手不追高，只看回踩",
-              "pattern": "追高风险",
-              "status": "观察取消",
-              "entry_mid": 5.35,
-              "url": "",
-              "images": [],
-              "source_file": "data/sources/yege/picks/2026-05-11.csv"
-            },
-            {
-              "code": "601991",
-              "name": "大唐发电",
-              "date": "2026-05-11",
-              "time": "22:08",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "圣阳股份(002580) 大唐发电(601991) 合力泰(002217) 幽默的拉萨家人。。。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521",
-              "images": [
-                "/media/2026-05-11/yege/alert_01_2208_2342377167.jpg",
-                "/media/2026-05-11/yege/daily_01_2208_2342377167.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-11.csv"
-            },
-            {
-              "code": "601991",
-              "name": "大唐发电",
-              "date": "2026-05-13",
-              "time": "",
-              "kind": "pick",
-              "action": "选股入池",
-              "summary": "无先手不追高，只看回踩",
-              "pattern": "追高风险",
-              "status": "观察取消",
-              "entry_mid": 6.28,
-              "url": "",
-              "images": [],
-              "source_file": "data/sources/yege/picks/2026-05-13.csv"
-            },
-            {
-              "code": "601991",
-              "name": "大唐发电",
-              "date": "2026-05-13",
-              "time": "08:24",
-              "kind": "mention",
-              "action": "提及",
-              "summary": "大唐发电(601991) 合力泰(002217) 你到底是什么意思，这个节点，你这样说。我们这样说肯定不被允许。你们明目张胆的说，这样好吗。辛亏我手上的都是低价股。不过也心里不舒服。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2",
-              "images": [
-                "/media/2026-05-13/yege/alert_01_0824_2343133276.jpg",
-                "/media/2026-05-13/yege/daily_01_0824_2343133276.jpg",
-                "/media/2026-05-13/yege/daily_04_0824_2343133276.jpg",
-                "/media/2026-05-13/yege/daily_07_0824_2343133276.jpg"
-              ],
-              "source_file": "data/sources/yege/posts/2026-05-13.csv"
-            }
-          ]
-        },
-        {
           "code": "002580",
           "name": "圣阳股份",
           "stock_url": "https://basic.10jqka.com.cn/002580/",
@@ -2219,12 +2036,12 @@
           "latest_action": "卖出/减仓线索",
           "latest_summary": "圣阳股份(002580) 利通电子(603629) 浙江世宝(002703) 不符合我预期的我都减一点。没有做t昂。突然觉得没意思了。今天心情不好。就这样吧！emmm了",
           "status": "已卖出/减仓",
-          "return_pct": 1.55,
-          "buy_price": 34.23,
+          "return_pct": null,
+          "buy_price": 31.93,
           "buy_price_date": "2026-05-11",
-          "end_price": 34.76,
-          "end_price_date": "2026-05-13",
-          "price_basis": "东方财富前复权日K收盘价估算",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "按选股入场区间中位估算，待行情复核",
           "event_count": 9,
           "post_count": 6,
           "screenshot_count": 28,
@@ -2497,6 +2314,189 @@
           ]
         },
         {
+          "code": "601991",
+          "name": "大唐发电",
+          "stock_url": "https://basic.10jqka.com.cn/601991/",
+          "first_seen_date": "2026-05-11",
+          "first_selected_date": "2026-05-11",
+          "buy_date": "2026-05-11",
+          "buy_action": "选股入池",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-13",
+          "latest_action": "提及",
+          "latest_summary": "大唐发电(601991) 合力泰(002217) 你到底是什么意思，这个节点，你这样说。我们这样说肯定不被允许。你们明目张胆的说，这样好吗。辛亏我手上的都是低价股。不过也心里不舒服。",
+          "status": "观察中",
+          "return_pct": null,
+          "buy_price": 5.35,
+          "buy_price_date": "2026-05-11",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "按选股入场区间中位估算，待行情复核",
+          "event_count": 4,
+          "post_count": 2,
+          "screenshot_count": 6,
+          "buy_evidence": [
+            {
+              "date": "2026-05-11",
+              "time": "22:08",
+              "action": "提及",
+              "image": "/media/2026-05-11/yege/alert_01_2208_2342377167.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521"
+            },
+            {
+              "date": "2026-05-11",
+              "time": "22:08",
+              "action": "提及",
+              "image": "/media/2026-05-11/yege/daily_01_2208_2342377167.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521"
+            },
+            {
+              "date": "2026-05-13",
+              "time": "08:24",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/alert_01_0824_2343133276.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
+            },
+            {
+              "date": "2026-05-13",
+              "time": "08:24",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/daily_01_0824_2343133276.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
+            },
+            {
+              "date": "2026-05-13",
+              "time": "08:24",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/daily_04_0824_2343133276.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
+            },
+            {
+              "date": "2026-05-13",
+              "time": "08:24",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/daily_07_0824_2343133276.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
+            }
+          ],
+          "sell_evidence": [],
+          "latest_evidence": [
+            {
+              "date": "2026-05-13",
+              "time": "08:24",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/alert_01_0824_2343133276.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
+            },
+            {
+              "date": "2026-05-13",
+              "time": "08:24",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/daily_01_0824_2343133276.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
+            },
+            {
+              "date": "2026-05-13",
+              "time": "08:24",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/daily_04_0824_2343133276.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
+            },
+            {
+              "date": "2026-05-13",
+              "time": "08:24",
+              "action": "提及",
+              "image": "/media/2026-05-13/yege/daily_07_0824_2343133276.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2"
+            },
+            {
+              "date": "2026-05-11",
+              "time": "22:08",
+              "action": "提及",
+              "image": "/media/2026-05-11/yege/alert_01_2208_2342377167.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521"
+            },
+            {
+              "date": "2026-05-11",
+              "time": "22:08",
+              "action": "提及",
+              "image": "/media/2026-05-11/yege/daily_01_2208_2342377167.jpg",
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521"
+            }
+          ],
+          "events": [
+            {
+              "code": "601991",
+              "name": "大唐发电",
+              "date": "2026-05-11",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "无先手不追高，只看回踩",
+              "pattern": "追高风险",
+              "status": "观察取消",
+              "entry_mid": 5.35,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-11.csv"
+            },
+            {
+              "code": "601991",
+              "name": "大唐发电",
+              "date": "2026-05-11",
+              "time": "22:08",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "圣阳股份(002580) 大唐发电(601991) 合力泰(002217) 幽默的拉萨家人。。。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfmmcoc5lb94m423c4521",
+              "images": [
+                "/media/2026-05-11/yege/alert_01_2208_2342377167.jpg",
+                "/media/2026-05-11/yege/daily_01_2208_2342377167.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-11.csv"
+            },
+            {
+              "code": "601991",
+              "name": "大唐发电",
+              "date": "2026-05-13",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "无先手不追高，只看回踩",
+              "pattern": "追高风险",
+              "status": "观察取消",
+              "entry_mid": 6.28,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-13.csv"
+            },
+            {
+              "code": "601991",
+              "name": "大唐发电",
+              "date": "2026-05-13",
+              "time": "08:24",
+              "kind": "mention",
+              "action": "提及",
+              "summary": "大唐发电(601991) 合力泰(002217) 你到底是什么意思，这个节点，你这样说。我们这样说肯定不被允许。你们明目张胆的说，这样好吗。辛亏我手上的都是低价股。不过也心里不舒服。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dg7aui439q5me1f7e95e2",
+              "images": [
+                "/media/2026-05-13/yege/alert_01_0824_2343133276.jpg",
+                "/media/2026-05-13/yege/daily_01_0824_2343133276.jpg",
+                "/media/2026-05-13/yege/daily_04_0824_2343133276.jpg",
+                "/media/2026-05-13/yege/daily_07_0824_2343133276.jpg"
+              ],
+              "source_file": "data/sources/yege/posts/2026-05-13.csv"
+            }
+          ]
+        },
+        {
           "code": "002703",
           "name": "浙江世宝",
           "stock_url": "https://basic.10jqka.com.cn/002703/",
@@ -2574,65 +2574,6 @@
           ]
         },
         {
-          "code": "000783",
-          "name": "长江证券",
-          "stock_url": "https://basic.10jqka.com.cn/000783/",
-          "first_seen_date": "2026-05-11",
-          "first_selected_date": "2026-05-11",
-          "buy_date": "2026-05-11",
-          "buy_action": "买入线索",
-          "sell_date": "",
-          "sell_action": "",
-          "latest_date": "2026-05-11",
-          "latest_action": "买入线索",
-          "latest_summary": "锦龙股份(000712) 长江证券(000783) 现在能不能理解野哥说的，渣男动了才是五月行情的开始。不要在弄丢你的筹码了，也不要在高抛低吸了。耐心持股才是王道。",
-          "status": "持有/观察",
-          "return_pct": 0.0,
-          "buy_price": 8.46,
-          "buy_price_date": "2026-05-11",
-          "end_price": 8.46,
-          "end_price_date": "2026-05-11",
-          "price_basis": "东方财富前复权日K收盘价估算",
-          "event_count": 2,
-          "post_count": 1,
-          "screenshot_count": 0,
-          "buy_evidence": [],
-          "sell_evidence": [],
-          "latest_evidence": [],
-          "events": [
-            {
-              "code": "000783",
-              "name": "长江证券",
-              "date": "2026-05-11",
-              "time": "",
-              "kind": "pick",
-              "action": "选股入池",
-              "summary": "强提醒，仍需结合位置和仓位控制",
-              "pattern": "强势延续",
-              "status": "等待买点",
-              "entry_mid": 8.285,
-              "url": "",
-              "images": [],
-              "source_file": "data/sources/yege/picks/2026-05-11.csv"
-            },
-            {
-              "code": "000783",
-              "name": "长江证券",
-              "date": "2026-05-11",
-              "time": "14:16",
-              "kind": "buy",
-              "action": "买入线索",
-              "summary": "锦龙股份(000712) 长江证券(000783) 现在能不能理解野哥说的，渣男动了才是五月行情的开始。不要在弄丢你的筹码了，也不要在高抛低吸了。耐心持股才是王道。",
-              "pattern": "",
-              "status": "",
-              "entry_mid": null,
-              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfhz5zbh8fg8m84c19261",
-              "images": [],
-              "source_file": "data/sources/yege/posts/2026-05-11.csv"
-            }
-          ]
-        },
-        {
           "code": "000712",
           "name": "锦龙股份",
           "stock_url": "https://basic.10jqka.com.cn/000712/",
@@ -2677,6 +2618,65 @@
             {
               "code": "000712",
               "name": "锦龙股份",
+              "date": "2026-05-11",
+              "time": "14:16",
+              "kind": "buy",
+              "action": "买入线索",
+              "summary": "锦龙股份(000712) 长江证券(000783) 现在能不能理解野哥说的，渣男动了才是五月行情的开始。不要在弄丢你的筹码了，也不要在高抛低吸了。耐心持股才是王道。",
+              "pattern": "",
+              "status": "",
+              "entry_mid": null,
+              "url": "https://t.10jqka.com.cn/pc/newgroup/discussdetail/contentId_1dfhz5zbh8fg8m84c19261",
+              "images": [],
+              "source_file": "data/sources/yege/posts/2026-05-11.csv"
+            }
+          ]
+        },
+        {
+          "code": "000783",
+          "name": "长江证券",
+          "stock_url": "https://basic.10jqka.com.cn/000783/",
+          "first_seen_date": "2026-05-11",
+          "first_selected_date": "2026-05-11",
+          "buy_date": "2026-05-11",
+          "buy_action": "买入线索",
+          "sell_date": "",
+          "sell_action": "",
+          "latest_date": "2026-05-11",
+          "latest_action": "买入线索",
+          "latest_summary": "锦龙股份(000712) 长江证券(000783) 现在能不能理解野哥说的，渣男动了才是五月行情的开始。不要在弄丢你的筹码了，也不要在高抛低吸了。耐心持股才是王道。",
+          "status": "持有/观察",
+          "return_pct": null,
+          "buy_price": null,
+          "buy_price_date": "",
+          "end_price": null,
+          "end_price_date": "",
+          "price_basis": "待行情：Remote end closed connection without response",
+          "event_count": 2,
+          "post_count": 1,
+          "screenshot_count": 0,
+          "buy_evidence": [],
+          "sell_evidence": [],
+          "latest_evidence": [],
+          "events": [
+            {
+              "code": "000783",
+              "name": "长江证券",
+              "date": "2026-05-11",
+              "time": "",
+              "kind": "pick",
+              "action": "选股入池",
+              "summary": "强提醒，仍需结合位置和仓位控制",
+              "pattern": "强势延续",
+              "status": "等待买点",
+              "entry_mid": 8.285,
+              "url": "",
+              "images": [],
+              "source_file": "data/sources/yege/picks/2026-05-11.csv"
+            },
+            {
+              "code": "000783",
+              "name": "长江证券",
               "date": "2026-05-11",
               "time": "14:16",
               "kind": "buy",
