@@ -1,12 +1,12 @@
 {
-  "date": "2026-09-22",
-  "updated_at": "2026-09-22 13:31:40",
+  "date": "2026-09-23",
+  "updated_at": "2026-09-23 13:45:31",
   "report": {
-    "date": "2026-09-22",
+    "date": "2026-09-23",
     "source": "daily",
     "source_name": "综合复盘",
     "report_type": "daily_workbench",
-    "title": "2026-09-22 A股综合复盘工作台",
+    "title": "2026-09-23 A股综合复盘工作台",
     "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
     "tags": [
       "综合复盘",
@@ -16,8 +16,8 @@
       "来源聚合",
       "技术形态"
     ],
-    "slug": "daily_2026-09-22",
-    "url": "/articles/daily_2026-09-22/"
+    "slug": "daily_2026-09-23",
+    "url": "/articles/daily_2026-09-23/"
   },
   "overview": {
     "market_status": "需补充 market.csv",
