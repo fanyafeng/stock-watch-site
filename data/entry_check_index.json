@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-09T18:59:00",
-  "default_date": "2026-11-09",
+  "generated_at": "2026-11-10T16:30:47",
+  "default_date": "2026-11-10",
   "modes": [
     {
       "id": "yege",
@@ -12133,6 +12133,19 @@
     },
     {
       "date": "2026-11-09",
+      "market": {
+        "market_status": "需补充 market.csv",
+        "main_sectors": [
+          "暂无板块轮动数据"
+        ],
+        "risk_level": "中",
+        "operation_tone": "控制仓位，只等买点"
+      },
+      "entries": [],
+      "candidates": []
+    },
+    {
+      "date": "2026-11-10",
       "market": {
         "market_status": "需补充 market.csv",
         "main_sectors": [
