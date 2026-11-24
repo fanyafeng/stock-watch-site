@@ -1,0 +1,189 @@
+{
+  "date": "2026-11-24",
+  "updated_at": "2026-11-24 19:37:03",
+  "report": {
+    "date": "2026-11-24",
+    "source": "daily",
+    "source_name": "综合复盘",
+    "report_type": "daily_workbench",
+    "title": "2026-11-24 A股综合复盘工作台",
+    "summary": "按日期聚合四个来源，短期观察 0 只，中长期观察 0 只，覆盖时间线、大盘信息、来源人板块与评论信号。",
+    "tags": [
+      "综合复盘",
+      "今日总览",
+      "时间线",
+      "大盘信息",
+      "来源聚合",
+      "技术形态"
+    ],
+    "slug": "daily_2026-11-24",
+    "url": "/articles/daily_2026-11-24/"
+  },
+  "overview": {
+    "market_status": "需补充 market.csv",
+    "main_sectors": [
+      "暂无数据"
+    ],
+    "risk_level": "中",
+    "operation_tone": "控制仓位，只等买点",
+    "sentiment": "暂无数据",
+    "risk_signal": "暂无数据",
+    "tomorrow_watch": "暂无数据"
+  },
+  "market": {
+    "index_status": "暂无指数状态",
+    "volume_change": "暂无成交量数据",
+    "index_money_flow_series": "09:31=102.23;09:36=186.20;09:41=227.98;09:46=212.35;09:51=220.18;09:56=208.39;10:01=223.49;10:06=209.95;10:11=203.30;10:16=203.39;10:21=202.84;10:26=192.57;10:31=198.82;10:36=202.28;10:41=217.59;10:46=219.93;10:51=218.74;10:56=212.79;11:01=208.36;11:06=204.08;11:11=187.36;11:16=176.46;11:21=170.78;11:26=168.15;13:01=158.93;13:06=161.81;13:11=170.47;13:16=167.63;13:21=165.09;13:26=157.35;13:31=146.96;13:36=138.79;13:41=137.58;13:46=136.75;13:51=137.32;13:56=127.27;14:01=110.49;14:06=85.01;14:11=62.11;14:16=42.97;14:21=33.08;14:26=23.61;14:31=19.22;14:36=11.11;14:41=-4.44;14:46=-10.47;14:51=-14.75;14:56=-21.45;15:00=-8.65",
+    "sector_rotation": "暂无板块轮动数据",
+    "accumulation_direction": [
+      "暂无数据"
+    ],
+    "sector_first_limit_up": {},
+    "capital_preference": "暂无资金偏好数据"
+  },
+  "stats": {
+    "source_count": 4,
+    "candidate_count": 0,
+    "accepted_count": 0,
+    "rejected_count": 0,
+    "comment_count": 0,
+    "top_patterns": []
+  },
+  "timeline": [
+    {
+      "time": "15:00",
+      "category": "after_close",
+      "source": "系统",
+      "title": "盘后总结",
+      "content": "大盘信息、帖子/视频和评论 CSV 缺失时，首页展示基于 picks/holdings 的公开概要。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "yege",
+      "name": "野哥",
+      "channel": "同花顺帖子",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [],
+      "holdings": [],
+      "comment_count": 0,
+      "posts": [],
+      "comments": []
+    },
+    {
+      "id": "lihongjuan",
+      "name": "李红娟",
+      "channel": "图文/帖子",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [],
+      "holdings": [],
+      "comment_count": 0,
+      "posts": [],
+      "comments": []
+    },
+    {
+      "id": "wangduoyu",
+      "name": "王多于",
+      "channel": "抖音视频列表",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [],
+      "holdings": [],
+      "comment_count": 0,
+      "posts": [],
+      "comments": []
+    },
+    {
+      "id": "longge",
+      "name": "龙哥",
+      "channel": "抖音视频列表",
+      "latest_title": "暂无公开帖子/视频数据",
+      "latest_summary": "可补充 posts CSV 后展示来源原文摘要。",
+      "top_picks": [],
+      "holdings": [],
+      "comment_count": 0,
+      "posts": [],
+      "comments": []
+    }
+  ],
+  "selection": {
+    "short": [],
+    "mid": []
+  },
+  "stock_pool": {
+    "sources": [
+      {
+        "id": "yege",
+        "name": "野哥",
+        "short": [],
+        "mid": []
+      },
+      {
+        "id": "lihongjuan",
+        "name": "李红娟",
+        "short": [],
+        "mid": []
+      },
+      {
+        "id": "wangduoyu",
+        "name": "王多于",
+        "short": [],
+        "mid": []
+      },
+      {
+        "id": "longge",
+        "name": "龙哥",
+        "short": [],
+        "mid": []
+      }
+    ]
+  },
+  "comments": [],
+  "comment_groups": [],
+  "comment_sources": [
+    {
+      "id": "yege",
+      "name": "野哥",
+      "count": 0,
+      "post_count": 0
+    },
+    {
+      "id": "lihongjuan",
+      "name": "李红娟",
+      "count": 0,
+      "post_count": 0
+    },
+    {
+      "id": "wangduoyu",
+      "name": "王多于",
+      "count": 0,
+      "post_count": 0
+    },
+    {
+      "id": "longge",
+      "name": "龙哥",
+      "count": 0,
+      "post_count": 0
+    }
+  ],
+  "evidence": {
+    "yege": {
+      "name": "野哥",
+      "posts": []
+    },
+    "lihongjuan": {
+      "name": "李红娟",
+      "posts": []
+    },
+    "wangduoyu": {
+      "name": "王多于",
+      "posts": []
+    },
+    "longge": {
+      "name": "龙哥",
+      "posts": []
+    }
+  }
+}
